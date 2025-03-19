@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../resources/css/reset.css">
 	<link rel="stylesheet" href="../resources/css/header.css">
 	<link rel="stylesheet" href="../resources/css/footer.css">
-	<link rel="stylesheet" href="../resources/css/employdetail.css">
+	<link rel="stylesheet" href="../resources/css/employ/detail.css">
 	<title>일당해라-구인글 상세</title>
 </head>
 <body>
