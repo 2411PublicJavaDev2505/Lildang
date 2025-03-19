@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,36 +15,36 @@
     <div class="container">
         <jsp:include page="/WEB-INF/views/include/header.jsp" />
     	<main>
-	        <h1>마이페이지 - 정보수정</h1>
+	        <h1>ë§ì´íì´ì§ - ì ë³´ìì </h1>
 	        <div id="container">
 	            <div id="left-main">
 	                <img src="./img/profile.png" alt="profile"> <br>
-	                <button class="imgbtn">사진변경</button>
+	                <button class="imgbtn">ì¬ì§ë³ê²½</button>
 	                <div id="information">
-	                    아이디: Ola<br>
-	                    이름: 이용자 <br>
-	                    성별: 여성 <br>
-	                    나이: 25 <br>
+	                    ìì´ë: Ola<br>
+	                    ì´ë¦: ì´ì©ì <br>
+	                    ì±ë³: ì¬ì± <br>
+	                    ëì´: 25 <br>
 	                </div>
-	                <button class="modifybtn">수정하기</button>
-	                <button class="deletebtn">탈퇴하기</button>
+	                <button class="modifybtn">ìì íê¸°</button>
+	                <button class="deletebtn">íí´íê¸°</button>
 	            </div>
 	            <div id="right-main">
 	                <div class="delete">
-	                    <h2>정말 탈퇴하시겠습니까?</h2>
+	                    <h2>ì ë§ íí´íìê² ìµëê¹?</h2>
 	                    <label>PW:</label>
 	                    <input type="password"></input><br>
-	                    <label>PW 확인:</label>
+	                    <label>PW íì¸:</label>
 	                    <input type="password"></input>
 	                    <div class="rightdeletebtn">
-	                        <button class="ybtn">예</button>
-	                        <button class="nbtn">아니오</button>
+	                        <button class="ybtn">ì</button>
+	                        <button class="nbtn">ìëì¤</button>
 	                    </div>
 	                </div>
 	                
 	                <div class="rightbtn">
-	                    <button class="returnbtn">초기화</button>
-	                    <button class="modifybtn">수정하기</button>
+	                    <button class="returnbtn">ì´ê¸°í</button>
+	                    <button class="modifybtn">ìì íê¸°</button>
 	                </div>
 	            </div>
 	        </div>

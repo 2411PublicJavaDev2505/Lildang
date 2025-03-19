@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
   <title>회원가입</title>
 </head>
 <body>
-	<div class="container">
+	<div id="container">
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	  <main>
 	    <form action="">

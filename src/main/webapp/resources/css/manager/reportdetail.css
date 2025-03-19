@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-#container{
-            width: 1000px;
-            margin: 10px auto;
-            padding: 10px;
-            border: 1px solid #000;
-        }
 area {
-            border-collapse: collapse;
+	border-collapse: collapse;
 }
