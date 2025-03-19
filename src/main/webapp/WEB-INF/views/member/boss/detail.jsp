@@ -17,8 +17,9 @@
     	<main>
         <h1>마이페이지</h1>
         <div id="container">
+        	<jsp:include page="/WEB-INF/views/include/header.jsp" />
             <div id="left-main">
-                <img src="./img/profile.png" alt="profile"> <br>
+                <img src="../resources/image/profile.jpg" alt="profile"> <br>
                 <button class="imgbtn">사진변경</button>
                 <div id="information">
                     아이디: Hula<br>
@@ -65,10 +66,9 @@
                                 <button class="ybtn">수락</button>
                                 <button class="nbtn">거절</button>
                             </div>
-                        </div>
-                        
+                        </div>   
                     </div>
-                </div>
+               	</div>
                 <div class="mypick">
                     <p class="picktitle">내가 찜한 알바생</p>
                 <div class="pickplace">내가 찜한 알바생이 없어요...ㅠㅠ</div>
@@ -83,6 +83,7 @@
                 </div>
                 </div>
             </div>
+            <jsp:include page="/WEB-INF/views/include/header.jsp" />
         </div>
     	</main>
     			<jsp:include page="/WEB-INF/views/include/footer.jsp" />

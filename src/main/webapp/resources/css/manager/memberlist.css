@@ -1,9 +1,77 @@
 @charset "UTF-8";
-
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
+#main{
+    margin: 0 auto;
+    width: 1500px;
 }
-th, td {
-	border: 1px solid rgb(110, 102, 102);
-}  
+.search{
+    text-align: center;
+}
+.seachlist{
+    text-align: center;
+}
+.searchbar{
+    font-size: 30px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    padding: 5px;
+}
+.searchbox{
+    font-size: 30px;
+    width: 500px;
+    border-radius: 10px;
+    padding: 5px;
+}    
+.searchbtn{
+    font-size: 30px;
+    border-radius: 15px;
+    background-color: #1ed483;
+    width: 100px;
+    padding: 5px;
+}
+.list{
+    text-align: center;
+    font-size: 30px;
+    margin-left: 180px;
+    margin-top: 100px;
+    border-collapse: collapse;
+}
+.list tr td{
+    border: 1px solid black;
+    padding: 2px;
+}
+.listhead{
+    font-weight: bolder;
+    background-color: #d9d9d9;
+    
+}
+.page{
+    text-align: center;
+    width: 50%;
+}
+.pagination{
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 550px;
+    width: 500px;
+}
+.pagination li{
+    display: inline;
+    text-align: center;
+}
+.pagination a{
+    float: left;
+    display: block;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 12px;
+    line-height: 1.5;
+    color: black;
+}
+.back{
+    margin-right: 15px;
+}
+.next{
+    margin-left: 15px;
+}

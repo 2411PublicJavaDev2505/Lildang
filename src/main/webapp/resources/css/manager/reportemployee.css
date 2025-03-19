@@ -1,10 +1,10 @@
 @charset "UTF-8";
 h1{
-    font-size: 60px;
+	font-size: 60px;
     text-align: center;
 }
-#container{
-    display: flex;
+#main{
+	display: flex;
     justify-content: center;
 }
 #left-main{
@@ -50,80 +50,95 @@ h1{
     width: 1000px;
     margin-left: 100px;
 }
-.hiretitle{
+.cvtitle{
     text-align: left;
     margin:20px 0px -50px 30px;
     font-size: 25px;
     font-weight: bolder;
     width: 200px;
 }
-
-.writebtn{
+.cvbtn1{
     border-radius: 15px;
     height: 40px;
     width: 120px;           
     font-size: 15px;
     background-color: #1ED483;
     font-weight: bolder;
-    margin: 15px 0px 15px 450px;
+    margin: 0px 15px 0px 150px;
     
 }
-.hirename1{
+.cvbtn{
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #1ED483;
     font-weight: bolder;
+    margin: 15px;
+    
 }
-.hireplace1{
+.cvplace{
     border: 1px solid black;
     width: 800px;
     height: 150px;
     border-radius: 10px;
-    
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
 }
-.chatbtn{
-    border-radius: 15px;
-    height: 25px;           
-    font-size: 14px;
-    background-color: #1ED483;
-}
-.ybtn{
-    border-radius: 15px;
-    height: 25px;           
-    font-size: 14px;
-    background-color: #1ED483;
-}
-.nbtn{
-    border-radius: 15px;
-    height: 25px;           
-    font-size: 14px;
-    background-color: #1ED483;
-}
-.employeedata{
+.scouttitle{
     text-align: left;
-    margin-left: 20px;
-    display: flex;
-    margin-bottom: 3px;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
 }
-.btn{
-    margin-left: 500px;
+.scoutplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
+    margin-top: 80px;
+}
+.worktitle{
+    text-align: left;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
+}
+.reviewbtn{
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #1ED483;
+    font-weight: bolder;
+    margin: 15px 15px 15px 450px;
+}
+.workplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 0px 0px 100px 0px;
+    
 }
 .picktitle{
     text-align: left;
     margin:20px 0px -50px 30px;
     font-size: 25px;
     font-weight: bolder;
-    width: 230px;
+    width: 200px;
 }
 .pickplace{
     border: 1px solid black;
     width: 800px;
     height: 150px;
     border-radius: 10px;
-    font-size: 20px;
-    padding: 10px 0px 0px 0px;
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
     margin-top: 80px;
-    font-weight: bold;
-}
-.employeeinfo{
-    width: 200px;
-    margin: 10px;
-    font-weight: bold;
 }
