@@ -1,11 +1,30 @@
 @charset "UTF-8";
 
-#container{
-            width: 1000px;
-            margin: 10px auto;
-            padding: 10px;
-            border: 1px solid #000;
-        }
-area {
-            border-collapse: collapse;
+table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 100%;
+	border-top: none;
+	border-left: none;
+	border-right: none;
 }
+th,td {
+	border: 1px solid rgb(110, 102, 102);
+	padding: 10px;
+	margin: auto;
+	border-bottom: 1px solid black;
+}
+.name {
+	width:  10%;
+	border-right: none;
+	border-top: none;
+}
+.name1 {
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+.name2 {
+	border-top: none;
+	border-right: none;
+}                     
