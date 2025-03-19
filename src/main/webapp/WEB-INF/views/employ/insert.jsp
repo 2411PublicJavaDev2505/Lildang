@@ -4,17 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-		<link rel="stylesheet" href="../resources/css/reset.css">
-		<link rel="stylesheet" href="../resources/css/include/header.css">
-		<link rel="stylesheet" href="../resources/css/include/footer.css">
-		<link rel="stylesheet" href="../resources/css/employ/insert.css">
-		
-		<title>구인글-작성!</title>
-	</head>
-	<body>
-	    <div id="container">
-		    <jsp:include page="/WEB-INF/views/include/header.jsp" />
-	    <main>
+	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/header.css">
+	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/employ/insert.css">
+<title>구인글-작성!</title>
+</head>
+<body>
+		<div class="container">
+			<jsp:include page="/WEB-INF/views/include/header.jsp" />
+		<main>
 	    <form action="">
 	        <div>
 	            <div>
@@ -56,7 +55,7 @@
 	                        <option value="">선택</option>
 	                        <option value="">대학원</option>
 	                        <option value="">대학(4년)</option>
-	                        <option value="">대학(2,3년)</option>
+	                        <option value="">대학(2,3년)</option>==
 	                        <option value="">고등학교</option>
 	                        <option value="">중학교</option>
 	                        <option value="">초등학교</option>
@@ -106,11 +105,11 @@
 	                    <textarea name="" id="" rows="5" cols="60"></textarea>
 	                </div>
 	            </div>
-	    	</form>
-	        <button type="submit">작성하기</button>
-	        <button type="submit">돌아가기</button>
-	    </main>
-	    	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	    </div>
-	</body>
+	    </form>
+	        <button type="submit">작성하기</button><button type="submit">돌아가기</button>
+		</main>
+			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+		</div>
+</body>
+>>>>>>> refs/remotes/origin/master
 </html>
