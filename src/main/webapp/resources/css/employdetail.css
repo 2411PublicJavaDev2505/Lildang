@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+main{
+	padding: 30px;
+	font-size: 2.0em;
+}
+
+.main-container {
+	margin: 0 auto;
+}
+
+.first-top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.first-top-left p {
+	margin-bottom: 0;
+	font-size: 20px;
+}
+
+.first-top-left h2{
+	margin-top: 0;
+}
+
+.first-top-left .tag {
+	display: flex;
+	gap: 30px;
+}
+
+.first-top-left .tag-content{
+	font-size: 15px;
+	background-color: #eee;
+	width: 130px;
+	height: 50px; 
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+}
+
+.first-top-right img{
+	width: 200px;
+	height: 200px;
+}
+
+.first-bottom{
+	margin-top: 30px;
+	display: flex;
+	gap: 30px;
+	justify-content: space-around;
+}
+
+.first-bottom .first-bottom-content{
+	font-size: 30px;
+	border-right: 1px solid #222;
+	font-size: 20px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-right: 100px;
+}
+
+.first-bottom .first-bottom-content:last-child{
+	border: none;
+}
+
+.second {
+	display: flex;
+	border-bottom: 3px solid #222;
+}
+
+.second .second-content{
+	width:50%;
+}
+
+.second h4{
+	font-size: 28px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.second p{
+	font-size: 20px;
+}
+
+.third img{
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
+}
+
+.fourth-content{
+	display: flex;
+}
+
+.fourth-left, .fourth-right{
+	width: 50%;
+	font-size: 20px;
+}
+
+.fourth  h4{
+	font-size: 28px;
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+.fifth {
+	border-bottom: 3px solid #222;
+	padding-bottom: 20px;
+}
+
+.fifth h4{
+	font-size: 28px;
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+.fifth-content{
+	font-size: 20px;
+}
+
+.review{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.review-content{
+	display: flex;
+	justify-content: space-between;
+	width: 40%;
+	margin: 0;
+}
+
+.review-content p{
+	margin: 3px;
+}
+
+.sixth h4{
+	font-size: 28px;
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+.sixth-content{
+	width: 100%;
+	height: 200px;
+	background-color: #f2f2f2;
+	padding: 10px;
+}
+
+.sixth p{
+	font-size: 20px;
+	margin-top: 1px;
+}
+
+.seventh {
+	margin-top: 80px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.left-btn, .center-btn, .right-btn{
+	width: 130px;
+	height: 50px;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+}
+
+.left-btn{
+	background-color: #a8a81f;
+}
+
+.center-btn{
+	background-color: #1ed483;
+}
+
+.right-btn{
+	background-color: #b9b9b9;
+}

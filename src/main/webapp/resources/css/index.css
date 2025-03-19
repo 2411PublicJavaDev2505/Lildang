@@ -1,0 +1,26 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+main {
+	display: flex;
+}
+
+main img {
+	width: 800px;
+}
+
+.main-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 40px;
+	font-family: "Gugi", sans-serif;
+}
+
+.main-right p:first-child{
+	color: #1ed483;
+}
+
+.main-right p:last-child{
+	color: #a8a81f;
+}
