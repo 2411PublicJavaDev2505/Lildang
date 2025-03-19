@@ -4,142 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mypage - boss</title>
-        <style>
-            h1{
-                font-size: 60px;
-                text-align: center;
-            }
-            #container{
-                display: flex;
-                justify-content: center;
-            }
-            #left-main{
-                border-right: 1px solid black;
-                width: 350px;
-                text-align: center;
-                
-            }
-            .imgbtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;
-                margin: 15px;
-                font-size: 20px;
-                background-color: #1ED483;
-                font-weight: bolder;
-            }
-            #information {
-                font-size: 30px;
-                margin: 15px 30px 30px 100px;
-                text-align: start;
-                font-weight: bolder;
-            }
-            .modifybtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;
-                
-                font-size: 20px;
-                background-color: #1ED483;
-                font-weight: bolder;
-            }
-            .deletebtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;           
-                font-size: 20px;
-                background-color: #1ED483;
-                font-weight: bolder;
-            }
-            #right-main{
-                text-align: center;           
-                width: 1000px;
-                margin-left: 100px;
-            }
-            .hiretitle{
-                text-align: left;
-                margin:20px 0px -50px 30px;
-                font-size: 25px;
-                font-weight: bolder;
-                width: 200px;
-            }
-            
-            .writebtn{
-                border-radius: 15px;
-                height: 40px;
-                width: 120px;           
-                font-size: 15px;
-                background-color: #1ED483;
-                font-weight: bolder;
-                margin: 15px 0px 15px 450px;
-                
-            }
-            .hirename1{
-                font-weight: bolder;
-            }
-            .hireplace1{
-                border: 1px solid black;
-                width: 800px;
-                height: 150px;
-                border-radius: 10px;
-                
-            }
-            .chatbtn{
-                border-radius: 15px;
-                height: 25px;           
-                font-size: 14px;
-                background-color: #1ED483;
-            }
-            .ybtn{
-                border-radius: 15px;
-                height: 25px;           
-                font-size: 14px;
-                background-color: #1ED483;
-            }
-            .nbtn{
-                border-radius: 15px;
-                height: 25px;           
-                font-size: 14px;
-                background-color: #1ED483;
-            }
-            .employeedata{
-                text-align: left;
-                margin-left: 20px;
-                display: flex;
-                margin-bottom: 3px;
-            }
-            .btn{
-                margin-left: 500px;
-            }
-            .picktitle{
-                text-align: left;
-                margin:20px 0px -50px 30px;
-                font-size: 25px;
-                font-weight: bolder;
-                width: 230px;
-            }
-            .pickplace{
-                border: 1px solid black;
-                width: 800px;
-                height: 150px;
-                border-radius: 10px;
-                font-size: 20px;
-                padding: 10px 0px 0px 0px;
-                margin-top: 80px;
-                font-weight: bold;
-            }
-            .employeeinfo{
-                width: 200px;
-                margin: 10px;
-                font-weight: bold;
-            }
-        </style>
+        <link rel="stylesheet" href="../resources/css/reset.css">
+		<link rel="stylesheet" href="../resources/css/include/header.css">
+		<link rel="stylesheet" href="../resources/css/include/footer.css">
+		<link rel="stylesheet" href="../resources/css/member/boss/detail.css">
     </head>
     <body>
         <h1>마이페이지</h1>
         <div id="container">
+        	<jsp:include page="/WEB-INF/views/include/header.jsp" />
             <div id="left-main">
-                <img src="./img/profile.png" alt="profile"> <br>
+                <img src="../resources/image/profile.jpg" alt="profile"> <br>
                 <button class="imgbtn">사진변경</button>
                 <div id="information">
                     아이디: Hula<br>
@@ -186,10 +61,9 @@
                                 <button class="ybtn">수락</button>
                                 <button class="nbtn">거절</button>
                             </div>
-                        </div>
-                        
+                        </div>   
                     </div>
-                </div>
+               	</div>
                 <div class="mypick">
                     <p class="picktitle">내가 찜한 알바생</p>
                 <div class="pickplace">내가 찜한 알바생이 없어요...ㅠㅠ</div>
@@ -204,6 +78,7 @@
                 </div>
                 </div>
             </div>
+            <jsp:include page="/WEB-INF/views/include/header.jsp" />
         </div>
     </body>
 </html>

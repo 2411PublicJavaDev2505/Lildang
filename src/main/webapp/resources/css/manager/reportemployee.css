@@ -1,0 +1,144 @@
+@charset "UTF-8";
+h1{
+	font-size: 60px;
+    text-align: center;
+}
+#main{
+	display: flex;
+    justify-content: center;
+}
+#left-main{
+    border-right: 1px solid black;
+    width: 350px;
+    text-align: center;
+    
+}
+.imgbtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    margin: 15px;
+    font-size: 20px;
+    background-color: #1ED483;
+    font-weight: bolder;
+}
+#information {
+    font-size: 30px;
+    margin: 15px 30px 30px 100px;
+    text-align: start;
+    font-weight: bolder;
+}
+.modifybtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    
+    font-size: 20px;
+    background-color: #1ED483;
+    font-weight: bolder;
+}
+.deletebtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #1ED483;
+    font-weight: bolder;
+}
+#right-main{
+    text-align: center;           
+    width: 1000px;
+    margin-left: 100px;
+}
+.cvtitle{
+    text-align: left;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
+}
+.cvbtn1{
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #1ED483;
+    font-weight: bolder;
+    margin: 0px 15px 0px 150px;
+    
+}
+.cvbtn{
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #1ED483;
+    font-weight: bolder;
+    margin: 15px;
+    
+}
+.cvplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
+}
+.scouttitle{
+    text-align: left;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
+}
+.scoutplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
+    margin-top: 80px;
+}
+.worktitle{
+    text-align: left;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
+}
+.reviewbtn{
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #1ED483;
+    font-weight: bolder;
+    margin: 15px 15px 15px 450px;
+}
+.workplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 0px 0px 100px 0px;
+    
+}
+.picktitle{
+    text-align: left;
+    margin:20px 0px -50px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    width: 200px;
+}
+.pickplace{
+    border: 1px solid black;
+    width: 800px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 100px 0px 0px 0px;
+    margin-top: 80px;
+}
