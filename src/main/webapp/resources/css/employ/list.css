@@ -1,0 +1,101 @@
+@charset "UTF-8";
+.condition{
+    text-align: center;
+}
+.location{
+    font-size: 25px;
+    background-color: #d9d9d9;
+    padding: 5px;
+    border-radius: 15px;
+}
+.job{
+    font-size: 25px;
+    background-color: #d9d9d9;
+    padding: 5px;
+    border-radius: 15px;
+}
+.day{
+    font-size: 25px;
+    background-color: #d9d9d9;
+    padding: 5px;
+    border-radius: 15px;
+}
+.detail{
+    font-size: 25px;
+    background-color: #d9d9d9;
+    padding: 5px;
+    border-radius: 15px;
+}
+.conditionbtn{
+    text-align: center;
+    margin-top: 50px;
+}
+.cbtn2{
+    border-radius: 15px;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    background-color: #1ED483;
+    font-weight: bolder;
+}
+.jobinf{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+.infword{
+    width: 130px;
+}
+.infoption{
+    font-size: 25px;
+    background-color: #d9d9d9;
+    padding: 5px;
+    border-radius: 15px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 900px;
+}
+.inftable{
+    width: 1500px;
+    margin: 0 auto;
+    justify-content: center;
+}
+.table1{
+    border-collapse: collapse;
+    font-size: 30px;
+    text-align: center;
+    width: 1500px;
+    
+}
+.table1 tr  td{
+    border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    padding: 3px;
+}
+.table1 .d1{
+    border-right: none;
+}
+.circle{
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    font-size: 1px;
+    float: left;
+    margin-top: 10px;
+    background-color: red;
+}
+.circle1{
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    font-size: 1px;
+    float: left;
+    margin-top: 10px;
+}
+.title{
+    font-weight: bolder;
+}
