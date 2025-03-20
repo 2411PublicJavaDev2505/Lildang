@@ -13,45 +13,44 @@
     <title>이력서 작성</title>
 </head>
 <body>
-	<div class="container">
-	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<div id="container">
+		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
+	    	<form action="">
+	    	
+	    	</form>
 	        <div class="cv-container">
 	            <div class="sidebar">
-	                <div class="profile-section">
-	                    <div class="profile-image">
-	                        <img src="" alt="" style="border-radius: 100%;">
-	                        <input type="file">
-	                    </div>
-	                    <div class="profile-name">
-	                        <input type="text" placeholder="이름을 입력해주세요">
-	                    </div>
-	                    <div class="introduce">
-	                      <textarea rows="2" cols="25" placeholder="지원자를 소개 할 수 있는 짧은 글을 적어주세요."></textarea>
-	                    </div>
-	                <div id="profile-contact">CONTACT</div>
-	                <div class="profile-contact">
-	                    <label>- 이름 : </label>
-	                    <input type="text"> <br>                    
-	                    <div class="profile-date">
-	                        - 생년월일 : 
-	                       <input type="date"> <br>
-	                    </div>
-	                    <label>- 전화 : </label>
-	                    <input type="text"> <br>
-	                    <label>- Mail : </label>
-	                    <input type="text"> <br>
-	                </div>
-	                    <div class="profile-education">주요 학력사항</div>
-	                        <div class="profile-education-school">
-	                            <input type="text" placeholder="OO대학교 OO학과">
-	                        </div>
-	                            <input type="text" placeholder="OOOO년 O월 ~ OOOO년 O월">
-	                        <div class="profile-education-school">
-	                            <input type="text" placeholder="OO고등학교">
-	                        </div>
-	                            <input type="text" placeholder="OOOO년 O월 ~ OOOO년 O월">
-	                </div>
+				    <div class="profile-image">
+				    	<div class="profile-img"></div>
+				    	<div class="img-input">
+				         <input type="file">
+				    	</div>
+				    </div>
+				    <div class="profile-name">
+				    	<p> <b>최제우</b></p>
+				    </div>
+				    <div class="introduce">
+				      <textarea rows="3" cols="30" placeholder="지원자를 소개 할 수 있는 짧은 글을 적어주세요."></textarea>
+				    </div>
+					<div id="profile-contact">CONTACT</div>
+					<div class="profile-contact">
+						<p>
+					     - 이름 : 최제우 <br> <br>               
+					     - 생년월일 : 1998-12-22 <br><br> 
+					     - 전화 :  010-9809-2725 <br><br> 
+					     - Mail : skskskxhxh@naver.com <br><br> 
+						</p>
+					</div>
+				    <div class="profile-education">주요 학력사항</div>
+			        <div class="profile-education-school">
+			            <input type="text" placeholder="OO대학교 OO학과">
+			        </div>
+		            <input type="text" placeholder="OOOO년 O월 ~ OOOO년 O월" class="edu-input">
+			        <div class="profile-education-school">
+			            <input type="text" placeholder="OO고등학교">
+			        </div>
+		            <input type="text" placeholder="OOOO년 O월 ~ OOOO년 O월" class="edu-input">
 	            </div>
 	            <div class="content-area">
 	                <div class="title-container">
@@ -68,6 +67,9 @@
 	                    </div>
 	                </div>
 	                <div id="job-career">
+	                	<div>
+	                	
+	                	</div>
 	                    <div class="job-career">주요 경력사항</div>
 	                    <div class="table-btn"> 
 	                        <button>+</button>

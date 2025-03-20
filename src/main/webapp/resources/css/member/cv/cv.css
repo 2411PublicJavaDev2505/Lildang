@@ -1,29 +1,41 @@
 main {
     width: 80%;
     padding: 50px 0;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    margin: auto;
+    margin: 0 auto;
 }
 .cv-container {
     width: 1000px;
     margin: 0 auto;
     display: flex;
     gap: 30px;
+    border: 1px solid #ddd;
+    padding: 15px;
 }
 .sidebar {
-    width: 250px;
+    width: 330px;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
-.profile-section {
+    padding: 20px;
     text-align: center;
 }
+
+.profile-img{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #222;
+	border-radius: 100px;
+	margin: 0 auto;
+}
+
+.img-input input{
+	margin: 0 auto;
+	width: 150px;
+	margin-top: 30px;
+}
+
 td {
     border: 1px solid #ddd;
-}
-.sidebar input {
-    margin-top: 40px;
 }
 .introduce {
     margin-top: 40px;
@@ -34,9 +46,15 @@ td {
     font-weight: bold;
     background-color: #b2f2bb;
     border-radius: 20px;
+    margin: 30px 0 0 0;
 }
+
+.profile-contact{
+	text-align: left;
+}
+
 .profile-education{
-    margin: 25px;
+    margin: 0;
     padding: 15px;
     font-weight: bold;
     background-color: #b2f2bb;
@@ -44,10 +62,21 @@ td {
 }
 .profile-education-school input{
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #FFECEC;
-    border: 1px solid white;
+    width: 80%;
+    border: none;
+    margin-top: 30px;
 }
+
+.edu-input{
+	margin-top: 15px;
+	padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    border: 1px solid #f2f2f2;
+}
+
 .content-area {
     width: 100%;
 }
@@ -55,17 +84,32 @@ td {
     display: flex;
     align-items: center;
     gap: 30px;
+    justify-content: center;
 }
 .job-title {
     background-color: #b2f2bb;
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: bold;
+    width: 200px;
+    text-align: center;
 }
+
 .job-option {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
+
+.job-option input{
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 30px;
+}
+
+
+
 .table-btn{
     margin-left: 190px;
 }
