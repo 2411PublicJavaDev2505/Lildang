@@ -1,5 +1,7 @@
 package com.lildang.spring.member.service.logic;
 
-public class MemberServiceLogic {
+import com.lildang.spring.member.service.MemberService;
+
+public class MemberServiceLogic implements MemberService{
 
 }
