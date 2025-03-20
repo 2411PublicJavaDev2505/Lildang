@@ -15,6 +15,8 @@
 		<div id="container">
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 			<div id="main">
+				${eList }
+				<form action="/employ/list" method="post">
 	            <div class="condition">
 	                <select class="location">
 	                    <option value="none">지역</option>
