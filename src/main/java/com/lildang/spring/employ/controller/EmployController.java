@@ -35,12 +35,6 @@ public class EmployController {
 		return "employ/update";
 	}
 	
-
-	@GetMapping("employ/list")
-	public String employList() {
-		return "employ/list";
-	}
-	
 	@GetMapping("employ/search")
 	public String employSearch() {
 		return "employ/search";
