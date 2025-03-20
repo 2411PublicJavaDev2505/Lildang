@@ -1,10 +1,36 @@
 @charset "UTF-8";
 
 
-table {
-	border: 1px solid black;
+.empinf {
+	border-bottom: 1px solid black;
 	border-collapse: collapse;
+	width: 100%;
+
+	
 }
 th, td {
-	border: 1px solid rgb(110, 102, 102);
+	border: 1px solid black;
+	padding: 10px;
 }
+th{
+	border-top: none;
+}
+.line1 {
+	border-left:none;		
+}
+.line2 {
+	border-right:none;	
+}
+.btn{
+	text-align: center;
+}
+
+.letf-btn, right-btn {
+	width: 120px;
+	border-radius: 10px;
+}
+.insert {
+	display: flex;
+	margin-right:aoto;
+}
+

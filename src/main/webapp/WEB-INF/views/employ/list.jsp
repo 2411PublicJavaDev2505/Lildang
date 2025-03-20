@@ -1,5 +1,6 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,62 +66,66 @@
 			</select>
 			<select>
 				<option>상세조건?</option>
+				<option>상세조건?</option>
+				<option>상세조건?</option>
 			</select>
 			<div class="btn">
-				<button>초기화</button>
-				<button>검색</button>
+				<button class="left-btn">초기화</button>
+				<button class=right-btn">검색</button>
 			</div>
 			<div>
 				<h2>채용정보</h2>
 			</div>
-				<select>
-					<option>최근등록순</option>
-					<option>나중등록순</option>
-					<option>조회수많은순</option>
-				</select>        
+				<div class="insert">
+					<select>
+						<option>최근등록순</option>
+						<option>나중등록순</option>
+						<option>조회수많은순</option>
+					</select>        
+				</div>
 			<div>
-			<table>
+			<table class="empinf">
 				<tr>
-					<th>공고제목</th>
+					<th class="line1">공고제목</th>
 					<th>근무지</th>
 					<th>근무시간</th>
 					<th>급여</th>
-					<th>등록일</th>
+					<th class="line2">등록일</th>
 				</tr>
 				<tr>
-					<td>계수나무식당에서 아줌마 구합니다(월,수,금)</td>
+					<td class="line1">⭐계수나무식당에서 아줌마 구합니다(월,수,금)</td>
 					<td>서울중구</td>
 					<td>12:00~14:00</td>
 					<td>시급13,000원</td>
-					<td>03/13(목)</td>
+					<td class="line2">03/13(목)</td>
 				</tr>
 				<tr>
-					<td>장기하장기학원에서 장기 선생님을구합니다</td>
+					<td class="line1">⭐장기하장기학원에서 장기 선생님을구합니다</td>
 					<td>서울중구</td>
 					<td>09:00~16:00</td>
 					<td>월급2,000,000원</td>
-					<td>03/13(목)</td>
+					<td class="line2">03/13(목)</td>
 				</tr>
 				<tr>
-					<td>메가커피 중구점에서 파트타임 알바생 구합니다</td>
+					<td class="line1">⭐메가커피 중구점에서 파트타임 알바생 구합니다</td>
 					<td>서울중구</td>
 					<td>07:00~14:00</td>
 					<td>시급10,000원</td>
-					<td>03/12(수)</td>
+					<td class="line2">03/12(수)</td>
 				</tr>
 				<tr>
-					<td>내일 알바 대신해 주싧분 구해요!!!</td>
+					<td class="line1">⭐내일 알바 대신해 주싧분 구해요!!!</td>
 					<td>서울중구</td>
 					<td>17:00~22:00</td>
 					<td>일급1,000,000원</td>
-					<td>03/11(목)</td>
+					<td class="line2">03/11(목)</td>
 				</tr>
-				<tr>
-					<td>세븐일레븐 청계천로 점에서 새벽 알바구합니다</td>
+				<tr>             
+					<td class="line1">⭐세븐일레븐 청계천로 점에서 새벽 알바구합니다</td>
 					<td>서울중구</td>
 					<td>03:00~05:30</td>
 					<td>시급15,000원</td>
-					<td>03/10(목)</td>
+					<td class="line2">03/10(목)</td>
 				</tr>
 			</table>
 			</div>
