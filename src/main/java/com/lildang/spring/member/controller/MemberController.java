@@ -9,8 +9,8 @@ public class MemberController {
 
 	
 	
-	@GetMapping("member/login")
 
+	@GetMapping("member/login")
 	public String showMemberLogin(Model model) {
 		
 		try {
@@ -22,7 +22,6 @@ public class MemberController {
 			model.addAttribute("errorMessage",e.getMessage());
 			return "common/error";
 		}
-
 	}
 	
 	@GetMapping("member/register")
