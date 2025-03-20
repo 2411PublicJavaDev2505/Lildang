@@ -22,8 +22,8 @@
 	                <div id="">
 	                    <form action="/member/login" method="post">
 	                        <div class="inputTag">
-	                            <input type="text"  placeholder="아이디를 입력해주세요"> <br>
-	                            <input type="password" placeholder="비밀번호를 입력해주세요"><br>
+	                            <input type="text" name="id" placeholder="아이디를 입력해주세요"> <br>
+	                            <input type="password" name="pw" placeholder="비밀번호를 입력해주세요"><br>
 	                        </div>
 	                        <div class="loginBtn">
 	                            <button>로그인</button> 

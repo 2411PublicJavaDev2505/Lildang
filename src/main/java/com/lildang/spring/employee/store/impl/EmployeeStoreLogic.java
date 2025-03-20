@@ -13,8 +13,7 @@ public class EmployeeStoreLogic implements EmployeeStore{
 
 	@Override
 	public List<MemberVO> selectEmployeeList(SqlSession session) {
-		List<MemberVO> eList = session.selectList("");
-		return eList;
+		return null;
 	}
 
 }

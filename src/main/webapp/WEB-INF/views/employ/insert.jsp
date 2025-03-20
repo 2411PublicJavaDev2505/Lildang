@@ -55,7 +55,7 @@
 	                        <option value="">선택</option>
 	                        <option value="">대학원</option>
 	                        <option value="">대학(4년)</option>
-	                        <option value="">대학(2,3년)</option>
+	                        <option value="">대학(2,3년)</option>==
 	                        <option value="">고등학교</option>
 	                        <option value="">중학교</option>
 	                        <option value="">초등학교</option>
@@ -111,4 +111,5 @@
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 		</div>
 </body>
+>>>>>>> refs/remotes/origin/master
 </html>

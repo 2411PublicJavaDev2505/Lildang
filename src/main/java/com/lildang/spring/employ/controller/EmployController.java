@@ -1,4 +1,4 @@
-package com.lildang.spring.employ.controller;
+ package com.lildang.spring.employ.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +20,12 @@ public class EmployController {
 	@GetMapping("employ/update")
 	public String showEmployUpdate() {
 		return "employ/update";
+	}
+	
+
+	@GetMapping("employ/list")
+	public String employList() {
+		return "employ/list";
 	}
 	
 	@GetMapping("employ/search")
