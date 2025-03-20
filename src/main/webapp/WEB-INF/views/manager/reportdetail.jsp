@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
     <link rel="stylesheet" href="../resources/css/reset.css">
-	<link rel="stylesheet" href="../resources/css/header.css">
-	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
 	<link rel="stylesheet" href="../resources/css/manager/reportdetail.css">
 <title>관리자-신고조회</title>
 </head>
@@ -43,7 +43,7 @@
                         <label><input type="radio" name="check" >처리</label>
                         <label><input type="radio" name="check">미처리</label>
                     </td>
-		</table>
+			</table>
                 <div>
                     <button type="submit">검색하기</button>
                     <button type="reset">초기화</button>

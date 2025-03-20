@@ -18,13 +18,13 @@ main {
 .required {
     margin: 25px;
 }
-h1{
+main h1{
     text-align: center;
 }
-h2{
+main h2{
     text-align: center;
 }
-form {
+main form {
     width: 500px;
     padding: 20px;
     border: 1px solid #ddd;

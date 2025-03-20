@@ -2,6 +2,6 @@
 
 #container {
 	width: 1500px;
-	height: 1080px;
+	--height: 1080px;
 	margin: 0 auto;
 }

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-body {
-	width: 450px;
-	padding: 30px;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	background-color: white;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+main {
+    width: 450px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
