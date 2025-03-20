@@ -8,6 +8,12 @@ public class EmployeeController {
 	
 	@GetMapping("employee/list")
 	public String showEmployeeList() {
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return "employee/list";
 	}
 	

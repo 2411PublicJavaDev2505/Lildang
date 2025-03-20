@@ -2,4 +2,29 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="MemberMapper"></mapper>
+<mapper namespace="MemberMapper">
+	<resultMap type="MemberVO" id="rsetToMember">
+		<id property="id" column="ID" />
+		<result property="pw" column="PW" />
+		<result property="name" column="NAME" />
+		<result property="email" column="EMAIL" />
+		<result property="phone" column="PHONE" />
+		<result property="gender" column="GENDER" />
+		<result property="address" column="ADDRESS" />
+		<result property="age" column="AGE" />
+		<result property="birth" column="BIRTH" />
+		<result property="outYn" column="OUT_YN" />
+		<result property="outDate" column="OUT_DATE" />
+		<result property="profileFilename" column="PROFILE_FILE_NAME" />
+		<result property="profileFileRename" column="PROFILE_FILE_RENAME" />
+		<result property="profileFilePath" column="PROFILE_FILE_PATH" />
+		<result property="memberComment" column="MEMBER_COMMENT" />
+		<result property="introduction" column="INTRODUCTION" />
+		<result property="cvWriteTime" column="CV_WRITE_TIME" />
+		<result property="cvUpdateTime" column="CV_UPDATE_TIME" />
+	</resultMap>
+	<insert id="memberRegister">
+		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
+		VALUES(#{id}, #{pw}, #{name},#{phone},'M',#{email},#{birth},#{role}, 12)
+	</insert>
+</mapper>
