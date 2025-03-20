@@ -19,9 +19,9 @@
 		        <h2>로그인</h2>
 		        <div id="">
 		            <form action="" method="">
-		                <input type="text" name="" id="" size="10 "placeholder="아이디입력"> <br>
-		                <input type="password" name="" id="" placeholder="비밀번호 입력"><br>
-		                <input type="submit" value="사장님으로 로그인"> <input type="submit" value="알바생으로 로그인"> <br>
+		                <input type="text" name="id" size="10 "placeholder="아이디입력"> <br>
+		                <input type="password" name="pw" placeholder="비밀번호 입력"><br>
+		                <input type="submit" value="로그인"><br>
 		                <input type="submit" value="회원가입"> 
 		            </form>
 		        </div>

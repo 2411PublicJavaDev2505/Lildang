@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ManagerController {
 
 	@GetMapping("manager/mlist")
-	public String memberList() {
+	public String showMemberList() {
 		return "manager/memberlist";
 	}
 	
 	@GetMapping("manager/rlist")
-	public String reportList() {
+	public String showReportList() {
 		return "manager/reportlist";
 	}
 	
 	@GetMapping("manager/remploy")
-	public String reportEmploy() {
+	public String showReportEmploy() {
 		return "manager/reportemploy";
 	}
 	
 	@GetMapping("manager/rmployee")
-	public String reportEmployee() {
+	public String showReportEmployee() {
 		return "manager/reportemployee";
 	}
 
