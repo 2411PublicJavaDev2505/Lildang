@@ -30,6 +30,5 @@ public class EmployServiceLogic implements EmployService{
 		List<EmployVO> eList = eStore.selectList(session);
 		return eList;
 	}
-
-
 }
+
