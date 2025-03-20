@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+h1{
+                font-size: 60px;
+                text-align: center;
+            }
+            #container{
+                display: flex;
+                justify-content: center;
+            }
+            #left-main{
+                border-right: 1px solid black;
+                width: 350px;
+                text-align: center;
+                
+            }
+            .imgbtn{
+                border-radius: 20px;
+                height: 40px;
+                width: 120px;
+                margin: 15px;
+                font-size: 20px;
+                background-color: #1ED483;
+                font-weight: bolder;
+            }
+            #information {
+                font-size: 30px;
+                margin: 15px 30px 30px 100px;
+                text-align: start;
+                font-weight: bolder;
+            }
+            .modifybtn{
+                border-radius: 20px;
+                height: 40px;
+                width: 120px;
+                
+                font-size: 20px;
+                background-color: #1ED483;
+                font-weight: bolder;
+            }
+            .deletebtn{
+                border-radius: 20px;
+                height: 40px;
+                width: 120px;           
+                font-size: 20px;
+                background-color: #1ED483;
+                font-weight: bolder;
+            }
+            #right-main{
+                text-align: center;           
+                width: 1000px;
+                margin-left: 100px;
+            }
+            .modify{
+                text-align: right;
+                width: 700px;
+                margin: 150px 100px 0px -150px;
+            }
+            .modify label{
+                font-weight: bolder;
+                font-size: 30px;
+                margin: 0 auto;
+            }
+            
+            .modify input{
+                width: 400px;
+                height: 40px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                font-size: 25px;
+                background-color: #D9D9D9;
+            } 
+            .returnbtn{
+                border-radius: 20px;
+                height: 40px;
+                width: 120px;           
+                font-size: 20px;
+                background-color: #D9D9D9;
+                font-weight: bolder;
+            }
+            .modifybtn{
+                border-radius: 20px;
+                height: 40px;
+                width: 120px;           
+                font-size: 20px;
+                background-color: #1ED483;
+                font-weight: bolder;
+            }
+            .rightbtn{
+                width: 600px;
+                margin-top: 100px;
+            }

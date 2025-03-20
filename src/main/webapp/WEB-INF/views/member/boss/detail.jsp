@@ -1,15 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="../resources/css/reset.css">
+			<link rel="stylesheet" href="../resources/css/header.css">
+			<link rel="stylesheet" href="../resources/css/footer.css">
+			<link rel="stylesheet" href="../resources/css/member/boss/detail.css">
         <title>Mypage - boss</title>
-        <link rel="stylesheet" href="../resources/css/reset.css">
-		<link rel="stylesheet" href="../resources/css/include/header.css">
-		<link rel="stylesheet" href="../resources/css/include/footer.css">
-		<link rel="stylesheet" href="../resources/css/member/boss/detail.css">
     </head>
     <body>
+     	<div class="container">
+     	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+    	<main>
         <h1>마이페이지</h1>
         <div id="container">
         	<jsp:include page="/WEB-INF/views/include/header.jsp" />
@@ -80,5 +85,9 @@
             </div>
             <jsp:include page="/WEB-INF/views/include/header.jsp" />
         </div>
+    	</main>
+    			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+    	
+    	</div>
     </body>
 </html>

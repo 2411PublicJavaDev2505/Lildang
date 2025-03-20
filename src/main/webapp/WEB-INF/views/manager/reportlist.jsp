@@ -4,21 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/header.css">
+	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/manager/reportdetail.css">
 <title>관리자-신고조회</title>
-    <style>
-        #container{
-            width: 1000px;
-            margin: 10px auto;
-            padding: 10px;
-            border: 1px solid #000;
-        }
-        area {
-            border-collapse: collapse;
-        }
-    </style>
 </head>
 <body>
-    <div id="">
+    <div id="container">
+    <jsp:include page="/WEB-INF/views/include/header.jsp" />
+    <main>
         <h1>신고 게시글 관리</h1>
             <div id="">
                 <label for="">검색어</label>
@@ -45,7 +40,9 @@
                     <button type="submit">검색하기</button>
                     <button type="reset">초기화</button>
                 </div>
-            </div>
+            </div>  
+    </main>
+    <jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
 </body>
 </html>
