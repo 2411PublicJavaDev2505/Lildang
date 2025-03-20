@@ -22,4 +22,9 @@ public class EmployController {
 		return "employ/update";
 	}
 	
+	@GetMapping("employ/search")
+	public String employSearch() {
+		return "employ/search";
+	}
+	
 }
