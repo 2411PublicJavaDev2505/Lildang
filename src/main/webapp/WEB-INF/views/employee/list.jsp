@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../resources/css/reset.css">
-	<link rel="stylesheet" href="../resources/css/header.css">
-	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
 	<link rel="stylesheet" href="../resources/css/employee/list.css">
 	<title>알바생검색</title>
 </head>

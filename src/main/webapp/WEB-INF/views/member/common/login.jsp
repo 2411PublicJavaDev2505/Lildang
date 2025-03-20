@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="../resources/css/reset.css">
-			<link rel="stylesheet" href="../resources/css/header.css">
-			<link rel="stylesheet" href="../resources/css/footer.css">
-			<link rel="stylesheet" href="../resources/css/member/common/login.css">
+	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
+	<link rel="stylesheet" href="../resources/css/member/common/login.css">
     <title>로그인</title>
 </head>
 <body>
-	<div class="container">
+	<div id="container">
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
 	        <div class="main-container">
@@ -29,13 +29,17 @@
                         </div>
                     </form>
                        <div class="registerBtn">
-                       	<a href="/member/register">회원가입</a>
-                           <button>회원가입</button>
+                           <button onClick="showRegister();">회원가입</button>
                        </div>
                 </div>
 	        </div>
 	    </main>
 	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+		const showRegister = () => {
+			location.href = '/member/register'
+		}
+	</script>
 </body>
 </html>
