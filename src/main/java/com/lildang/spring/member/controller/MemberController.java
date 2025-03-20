@@ -69,18 +69,17 @@ public class MemberController {
 	}
 	
 	@PostMapping("member/login")
-	public String showMemberLogin(
+	public String memberLogin(
 			@ModelAttribute LoginRequest member
 			,HttpSession session
 			,Model model) {
 		try {
-			MemberVO member1 = mService.selectOneByLogin(member);
-			if(member1 != null) {
-				//내가 가지고 있는코드는 member1로 되어있음...왜??
-				//name은???
-				session.setAttribute("id", member1.getId());
-				session.setAttribute("name", member1.getName());
-				//return "member/common/login";
+			System.out.println("확인");
+			MemberVO result = mService.selectOneByLogin(member);
+			if(result != null) {
+				session.setAttribute("id", result.getId());
+				session.setAttribute("name", result.getName());
+				session.setAttribute("role", result.getRole());
 				return "redirect:/";
 			}else {
 				//실패시 에러페이지로이동

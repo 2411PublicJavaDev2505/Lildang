@@ -2,4 +2,31 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="EmployMapper"></mapper>
+<mapper namespace="EmployMapper">
+	<resultMap type="EmployVO" id="rsetToEmploy">
+		<id property="employNo" column="EMPLOY_NO" />
+		<result property="employName" column="EMPLOY_NAME" />
+		<result property="recruitStartDate" column="RECRUIT_START_DATE" />
+		<result property="recruitEndDate" column="RECRUIT_END_DATE" />
+		<result property="recruitNumber" column="RECRUIT_NUMBER" />
+		<result property="education" column="EDUCATION" />
+		<result property="workplaceAddress" column="WORKPLACE_ADDRESS" />
+		<result property="workplaceName" column="WORKPLACE_NAME" />
+		<result property="salary" column="SALARY" />
+		<result property="workingPeriod" column="WORKING_PERIOD" />
+		<result property="workingStartTime" column="WORKING_START_TIME" />
+		<result property="workingEndTime" column="WORKING_END_TIME" />
+		<result property="workingDay" column="WORKING_DAY" />
+		<result property="employDetail" column="EMPLOY_DETAIL" />
+		<result property="writeTime" column="WRITE_TIME" />
+		<result property="updateTime" column="UPDATE_TIME" />
+		<result property="employFileName" column="EMPLOY_FILE_NAME" />
+		<result property="employFileRename" column="EMPLOY_FILE_RENAME" />
+		<result property="employFilePath" column="EMPLOY_FILE_PATH" />
+		<result property="writerId" column="WRITER_ID" />
+		<result property="jobNo" column="JOB_NO" />
+	</resultMap>
+	<select id="selectList" resultMap="rsetToEmploy" >
+		SELECT * FROM EMPLOY
+	</select>
+</mapper>

@@ -22,7 +22,11 @@
 		<result property="introduction" column="INTRODUCTION" />
 		<result property="cvWriteTime" column="CV_WRITE_TIME" />
 		<result property="cvUpdateTime" column="CV_UPDATE_TIME" />
+		<result property="role" column="Role"/>
 	</resultMap>
+	<select id="selectOneByLogin" resultMap="rsetToMember">
+		SELECT * FROM MEMBER WHERE ID = #{id} AND PW = #{pw}
+	</select>
 	<insert id="memberRegister">
 		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
 		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
