@@ -1,21 +1,48 @@
-@charset "UTF-8";
- main{
+
+ .main-container{
     width: 450px;
     padding: 30px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-top: 50px;
 }
         
-main h2{
+.main-container h2{
     text-align: center;
 }
-main input[type=text],input[type=password]{
-    padding:  8px 12px;
-    border:  1px solid #ddd;
+.inputTag input{
+    padding:  15px;
+    margin: 5px;
     border-radius:  4px;
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+.loginBtn  {
+    text-align: center;
+    margin: 10px;
+}
+.loginBtn button{
+    padding: 15px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: #b2f2bb;
+}
+.registerBtn {
+    text-align: center;
+}
+.registerBtn button{
+    padding: 15px;
+    width: 96%;
+    border-radius: 20px;
+    border: none;
+    background-color: #b2f2bb;
+}
+div button {
+    font-weight: bold;
 }

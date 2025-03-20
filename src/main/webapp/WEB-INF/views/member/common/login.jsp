@@ -1,33 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-        	<link rel="stylesheet" href="../resources/css/reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="../resources/css/reset.css">
 			<link rel="stylesheet" href="../resources/css/header.css">
 			<link rel="stylesheet" href="../resources/css/footer.css">
 			<link rel="stylesheet" href="../resources/css/member/common/login.css">
-	<title>일당해라 알바생 로그인</title>
-	</head>
+    <title>로그인</title>
+</head>
 <body>
-	<div id="container">
-	 <jsp:include page="/WEB-INF/views/include/header.jsp" />
-		<main>
-		    <form>
-		        <img src="./resources/image/Image20250318102156.png" alt="" width="100"><h2>일당해라</h2>
-		        <h2>로그인</h2>
-		        <div id="">
-		            <form action="" method="">
-		                <input type="text" name="" id="" size="10 "placeholder="아이디입력"> <br>
-		                <input type="password" name="" id="" placeholder="비밀번호 입력"><br>
-		                <input type="submit" value="사장님으로 로그인"> <input type="submit" value="알바생으로 로그인"> <br>
-		                <input type="submit" value="회원가입"> 
-		            </form>
-		        </div>
-		    </form>
-		</main>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	<div class="container">
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	    <main>
+	        <div class="main-container">
+	            <form>
+	                <img src="./resources/image/Image20250318102156.png" alt="" width="100"><h2>일당해라</h2>
+	                <h2>로그인</h2>
+	                <div id="">
+	                    <form action="" method="">
+	                        <div class="inputTag">
+	                            <input type="text"  placeholder="아이디를 입력해주세요"> <br>
+	                            <input type="password" placeholder="비밀번호를 입력해주세요"><br>
+	                        </div>
+	                        <div class="loginBtn">
+	                            <button>로그인</button> 
+	                        </div>
+	                        <div class="registerBtn">
+	                            <button>회원가입</button>
+	                        </div>
+	                    </form>
+	                </div>
+	            </form>
+	        </div>
+	    </main>
+	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 </body>
 </html>
