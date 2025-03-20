@@ -10,6 +10,12 @@ main {
 .top-header{
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.top-header img{
+	width: 70px;
+	height: 70px;
 }
 .form-group{
     margin: 25px;

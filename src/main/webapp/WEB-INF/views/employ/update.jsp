@@ -111,4 +111,5 @@
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 </body>   
+>>>>>>> refs/remotes/origin/master
 </html>

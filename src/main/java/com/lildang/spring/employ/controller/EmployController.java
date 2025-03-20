@@ -1,4 +1,4 @@
-package com.lildang.spring.employ.controller;
+ package com.lildang.spring.employ.controller;
 
 import java.util.List;
 
@@ -21,18 +21,24 @@ public class EmployController {
 
 	
 	@GetMapping("employ/detail")
-	public String employDetail() {
+	public String showEmployDetail() {
 		return "employ/detail";
 	}
 	
 	@GetMapping("employ/insert")
-	public String employInsert() {
+	public String showEmployInsert() {
 		return "employ/insert";
 	}
 	
 	@GetMapping("employ/update")
-	public String employUpdate() {
+	public String showEmployUpdate() {
 		return "employ/update";
+	}
+	
+
+	@GetMapping("employ/list")
+	public String employList() {
+		return "employ/list";
 	}
 	
 	@GetMapping("employ/search")
