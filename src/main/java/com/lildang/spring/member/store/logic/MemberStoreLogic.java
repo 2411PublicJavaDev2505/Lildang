@@ -1,5 +1,7 @@
 package com.lildang.spring.member.store.logic;
 
-public class MemberStoreLogic {
+import com.lildang.spring.member.store.MemberStore;
+
+public class MemberStoreLogic implements MemberStore{
 
 }
