@@ -16,4 +16,14 @@ public class ManagerController {
 		return "manager/reportlist";
 	}
 	
+	@GetMapping("manager/remploy")
+	public String reportEmploy() {
+		return "manager/reportemploy";
+	}
+	
+	@GetMapping("manager/rmployee")
+	public String reportEmployee() {
+		return "manager/reportemployee";
+	}
+
 }

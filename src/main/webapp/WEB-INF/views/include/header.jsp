@@ -12,8 +12,8 @@
     	</form>
     </div>
     <div class="nav">
-        <a href="#">알바 찾기</a>
-        <a href="#">알바생 찾기</a>
-        <a href="#">로그인</a>
+        <a href="/employ/search">알바 찾기</a>
+        <a href="/employee/list">알바생 찾기</a>
+        <a href="/member/login">로그인</a>
     </div>
 </header>

@@ -65,7 +65,7 @@
 				<option value="">친구와함께</option>
 			</select>
 			<select>
-				<option>상세조건?</option>
+				<option value="">상세조건</option>
 				<option>상세조건?</option>
 				<option>상세조건?</option>
 			</select>

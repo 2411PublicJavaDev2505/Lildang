@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.lildang.spring.member.domain.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.CareerVO" alias="CareerVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.DesiredJobVO" alias="DesiredJobVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.EducationVO" alias="EducationVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.LicenseVO" alias="LicenseVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.PickEmployeeVO" alias="PickEmployeeVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.PickEmployVO" alias="PickEmployVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.ReviewEmployVO" alias="ReviewEmployVO"/>
+		<typeAlias type="com.lildang.spring.member.domain.ReviewMemberVO" alias="ReviewMemberVO"/>
+		<typeAlias type="com.lildang.spring.report.domain.ReportVO" alias="ReportVO"/>
+		<typeAlias type="com.lildang.spring.report.domain.ReportChatVO" alias="ReportChatVO"/>
+		<typeAlias type="com.lildang.spring.report.domain.ReportEmployeeVO" alias="ReportEmployeeVO"/>
+		<typeAlias type="com.lildang.spring.report.domain.ReportEmployVO" alias="ReportEmployVO"/>
+		<typeAlias type="com.lildang.spring.match.domain.MatchVO" alias="MatchVO"/>
+		<typeAlias type="com.lildang.spring.employ.domain.EmployVO" alias="EmployVO"/>
+		<typeAlias type="com.lildang.spring.chat.domain.ChatVO" alias="ChatVO"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/chat-mapper.xml"/>
+		<mapper resource="mappers/employee-mapper.xml"/>
+		<mapper resource="mappers/employ-mapper.xml"/>
+		<mapper resource="mappers/manager-mapper.xml"/>
+		<mapper resource="mappers/match-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/report-mapper.xml"/>
+	</mappers>
+</configuration>
