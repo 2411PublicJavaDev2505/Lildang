@@ -25,6 +25,6 @@
 	</resultMap>
 	<insert id="memberRegister">
 		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
-		VALUES(#{id}, #{pw}, #{name},#{phone},'M',#{email},#{birth},#{role}, 12)
+		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
 	</insert>
 </mapper>

@@ -5,7 +5,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  			<link rel="stylesheet" href="/80/css/register.css">
             <link rel="stylesheet" href="../resources/css/reset.css">
 			<link rel="stylesheet" href="../resources/css/header.css">
 			<link rel="stylesheet" href="../resources/css/footer.css">
@@ -57,6 +56,10 @@
 	      <label class="required">생년월일</label>
 	      <div class="form-group">
 	        <input type="date" name="birth">
+	      </div>
+	      <div class="form-group">
+	      	<input type="radio" name="gender" value="M">남
+	      	<input type="radio" name="gender" value="F">여
 	      </div>
 	      <div>
 	        <button type="submit" class="register-btn">회원가입</button>

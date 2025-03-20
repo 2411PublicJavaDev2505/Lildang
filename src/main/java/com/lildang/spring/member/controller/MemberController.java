@@ -51,6 +51,23 @@ public class MemberController {
 		}
 	}
 	
+	@PostMapping("/member/register")
+	public String memberRegister(Model model,
+			@ModelAttribute MemberRegisterRequest member) {
+		try {
+			int result = mService.memberRegister(member);
+			if(result > 0) {
+				return "redirect:/";				
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
 	@PostMapping("member/login")
 	public String showMemberLogin(
 			@ModelAttribute LoginRequest member
@@ -68,23 +85,6 @@ public class MemberController {
 			}else {
 				//실패시 에러페이지로이동
 				model.addAttribute("errorMsg", "존재하지않은 정보입니다");
-				return "common/error";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("errorMessage",e.getMessage());
-			return "common/error";
-		}
-	}
-	
-	@PostMapping("/member/register")
-	public String memberRegister(Model model,
-			@ModelAttribute MemberRegisterRequest member) {
-		try {
-			int result = mService.memberRegister(member);
-			if(result > 0) {
-				return "redirect:/";				
-			}else {
 				return "common/error";
 			}
 		} catch (Exception e) {
