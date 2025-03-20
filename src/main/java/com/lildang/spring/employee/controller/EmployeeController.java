@@ -27,7 +27,6 @@ public class EmployeeController {
 			e.printStackTrace();
 			return "common/error";
 		}
-		
 	}
 	
 }

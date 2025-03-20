@@ -20,15 +20,16 @@
 	                <img src="./resources/image/Image20250318102156.png" alt="" width="100"><h2>일당해라</h2>
 	                <h2>로그인</h2>
 	                <div id="">
-	                    <form action="" method="">
+	                    <form action="/member/login" method="post">
 	                        <div class="inputTag">
-	                            <input type="text"  placeholder="아이디를 입력해주세요"> <br>
-	                            <input type="password" placeholder="비밀번호를 입력해주세요"><br>
+	                            <input type="text" name="id" placeholder="아이디를 입력해주세요"> <br>
+	                            <input type="password" name="pw" placeholder="비밀번호를 입력해주세요"><br>
 	                        </div>
 	                        <div class="loginBtn">
 	                            <button>로그인</button> 
 	                        </div>
 	                        <div class="registerBtn">
+	                        	<a href="/member/register">회원가입</a>
 	                            <button>회원가입</button>
 	                        </div>
 	                    </form>

@@ -25,4 +25,5 @@ public class ManagerController {
 	public String showReportEmployee() {
 		return "manager/reportemployee";
 	}
+
 }
