@@ -14,17 +14,16 @@
 	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<main>
-			${result }
 			<div class="main-container">
 				<div class="first">
 					<div class="first-top">
 						<div class="first-top-left">
-							<p>KH정보교육원 종로지원</p>
-							<h2>KH정보교육원 종로지원 자바개발자 모집(급구!!)</h2>
+							<p>${result.workplaceName }</p>
+							<h2>${result.employName }</h2>
 							<div class="tag">
-								<div class="tag-content">IT,기술</div>			
+								<div class="tag-content">${result.jobNo }</div>			
 								<div class="tag-content">장기 근무</div>			
-								<div class="tag-content">서울 중구</div>										
+								<div class="tag-content">${result.workplaceAddress }</div>										
 							</div>
 						</div>
 						<div class="first-top-right">
@@ -32,26 +31,26 @@
 						</div>
 					</div>
 					<div class="first-bottom">
-						<div class="first-bottom-content"> <p><b>시급:</b> 50000원</p> </div>
-						<div class="first-bottom-content"> <p><b>기간:</b> 6개월 ~ 1년 </p></div>
-						<div class="first-bottom-content"> <p><b>요일:</b> 평일(월 ~ 금)</p></div>
-						<div class="first-bottom-content"> <p><b>시간:</b> 09:00 ~ 18:00</p></div>
+						<div class="first-bottom-content"> <p><b>시급:</b> ${result.salary }</p> </div>
+						<div class="first-bottom-content"> <p><b>기간:</b> ${result.workingPeriod } </p></div>
+						<div class="first-bottom-content"> <p><b>요일:</b> ${result.workingDay }</p></div>
+						<div class="first-bottom-content"> <p><b>시간:</b> ${result.workingStartTime }${result.workingEndTime }</p></div>
 					</div>
 				</div>
 				<div class="second">
 					<div class="second-content">
 						<h4>모집조건</h4>
 						<p>
-							<b>모집기간:</b> 2025.03.13(목) ~ 2025.03.17(월) <br>
-							<b>모집인원:</b> 1명 <br>
-							<b>학력:</b> 학력무관
+							<b>모집기간:</b> ${result.recruitStartDate }${result.recruitEndDate } <br>
+							<b>모집인원:</b> ${result.recruitNumber } <br>
+							<b>학력:</b> ${result.education }
 						</p>
 					</div>
 					<div class="second-content">
 						<h4>근무지 정보</h4>
 						<p>
-							<b>서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩)2F,3F</b><br>
-							<b>근무지명:</b> KH정보교육원 종로지원
+							<b>${result.workplaceAddress }</b><br>
+							<b>근무지명:</b> ${result.workplaceName }
 						</p>
 					</div>
 				</div>
@@ -63,17 +62,17 @@
 					<div class="fourth-content">
 						<div class="fourth-left">
 							<p>
-								<b>급여:</b> 시급 50,000원 <br>
-								<b>근무기간:</b> 6개월 ~ 1년(협의가능) <br>
-								<b>근무시간:</b> 09:00 ~ 18:00
+								<b>급여:</b> ${result.salary } <br>
+								<b>근무기간:</b> ${result.workingPeriod } <br>
+								<b>근무시간:</b> ${result.workingStartTime }${result.workingEndTime }
 							</p>
 						</div>
 						<div class="fourth-right">
 							<p>
 								
 								
-								<b>모집직종:</b> IT,기술 <br>
-								<b>근무요일:</b> 평일(월 ~ 금)
+								<b>모집직종:</b> ${result.jobNo } <br>
+								<b>근무요일:</b> ${result.workingDay }
 							</p>
 						</div>
 					</div>
@@ -114,9 +113,7 @@
 					<h4>상세모집내용</h4>
 					<div class="sixth-content">
 						<p>
-							안녕하세요. <br>
-							KH정보교육원입니다. <br>
-							저희와 함께 할 신입 개발자를 모십니다.
+							${result.employDetail }
 						</p>
 					</div>
 				</div>
@@ -130,7 +127,7 @@
 						<button class="center-btn">거절하기</button>
 					</div>
 					<div>
-						<button class="right-btn">목록으로</button>
+						<button class="right-btn"><a href="/employ/list">목록으로</a></button>
 					</div>
 				</div>
 			</div>
