@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 	<link rel="stylesheet" href="../resources/css/reset.css">
-	<link rel="stylesheet" href="../resources/css/header.css">
-	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
 	<link rel="stylesheet" href="../resources/css/employ/update.css">
 <title>구인글-수정!</title>
 </head>

@@ -15,4 +15,6 @@ public interface EmployService {
 	int insertEmploy(EmployInsertRequest employ);//공고글 작성
 
 	EmployVO selectOneDetail(int employNo);//공고글 상세페이지
+
+	List<EmployVO> selectListById(String id); // 공고글 리스트
 }

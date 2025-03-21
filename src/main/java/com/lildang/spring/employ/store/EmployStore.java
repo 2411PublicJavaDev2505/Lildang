@@ -15,6 +15,8 @@ public interface EmployStore {
 	public int insertEmploy(SqlSession session, EmployInsertRequest employ);
 	//공고글 상세페이지
 	public EmployVO selectOneDetail(SqlSession session, int employNo);
+	// 공고글 리스트
+	public List<EmployVO> selectListById(SqlSession session, String id);
 
 	
 }

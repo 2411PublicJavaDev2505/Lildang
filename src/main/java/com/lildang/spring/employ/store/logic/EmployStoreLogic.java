@@ -30,5 +30,11 @@ public class EmployStoreLogic implements EmployStore{
 		EmployVO result = session.selectOne("EmployMapper.selectOneDetail", employNo);
 		return result;
 	}
+
+	@Override
+	public List<EmployVO> selectListById(SqlSession session, String id) {
+		List<EmployVO> eList = session.selectList("EmployMapper.selectListById", id);
+		return eList;
+	}
 }
 

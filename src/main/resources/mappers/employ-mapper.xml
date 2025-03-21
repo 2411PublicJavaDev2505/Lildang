@@ -35,4 +35,7 @@
 	<select id="selectOneDetail" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
 	</select>
+	<select id="selectListById" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
+	</select>
 </mapper>
