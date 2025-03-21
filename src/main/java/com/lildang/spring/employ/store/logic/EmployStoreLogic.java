@@ -30,5 +30,15 @@ public class EmployStoreLogic implements EmployStore{
 		EmployVO result = session.selectOne("EmployMapper.selectOneDetail", employNo);
 		return result;
 	}
+
+	@Override
+	public int deleteEmploy(SqlSession session, int employNo) {
+		return session.delete("EmployMapper.deleteEmploy", employNo);
+	}
+
+	@Override
+	public int updateEmploy(SqlSession session, int employNo) {
+		return session.update("EmployMapper.updateEmploy", employNo);
+	}
 }
 

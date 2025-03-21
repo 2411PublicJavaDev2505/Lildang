@@ -2,6 +2,8 @@
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,9 +52,34 @@ public class EmployController {
 		return "employ/insert";
 	}
 	
-	@GetMapping("employ/update")
-	public String showEmployUpdate() {
-		return "employ/update";
+	@GetMapping("employ/update")//공고글 수정하기 GET
+	public String showEmployUpdate(Model model, @RequestParam("employNo") int employNo) {
+		try {
+			EmployVO employ = eService.selectOneDetail(employNo);
+			model.addAttribute("employ",employ);
+			return "employ/list";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@PostMapping("employ/update")//공고글 수정하기 POST
+	public String employUpdate(Model model, @RequestParam("employNo") int employNo) {
+		try {
+			int result = eService.updateEmploy(employNo);
+			if(result >0) {
+				return "redirect:/employ/detail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("employ/search")
@@ -80,6 +107,22 @@ public class EmployController {
 			int result = eService.insertEmploy(employ);
 			if(result >0) {
 				return "redirect:/employ/list";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	@GetMapping("employ/delete")//공고글 삭제 페이지
+	public String deleteEmploy(Model model, @RequestParam("employNo") int employNo) {
+		try {
+			int result = eService.deleteEmploy(employNo);
+			if(result > 0) {
+				return "redirect:/employ/list";				
 			}else {
 				return "common/error";
 			}

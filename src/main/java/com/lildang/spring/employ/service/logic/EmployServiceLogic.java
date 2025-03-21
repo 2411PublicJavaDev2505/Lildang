@@ -44,7 +44,17 @@ public class EmployServiceLogic implements EmployService{
 		return result;
 	}
 
-	
+	@Override//공고글 삭제
+	public int deleteEmploy(int employNo) {
+		int result = eStore.deleteEmploy(session, employNo);
+		return result;
+	}
+
+	@Override//공고글 수정
+	public int updateEmploy(int employNo) {
+		int result = eStore.updateEmploy(session, employNo);
+		return result;
+	}
 }
 
 

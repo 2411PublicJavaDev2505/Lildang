@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +123,13 @@
 						<button class="left-btn">신고하기</button>
 					</div>
 					<div>
-						<button class="center-btn">채팅하기</button>
+						<c:if test="${result.writerId eq sessionScope.id }">
+							<button class="center-btn" onclick="deleteEmploy(${result.employNo});">삭제하기</button>
+							<button class="center-btn" onclick="updateEmploy(${result.employNo});">수정하기</button>												
+						</c:if>
+						<c:if test="${result.writerId ne sessionScope.id }">
+							<button class="center-btn">채팅하기</button>						
+						</c:if>
 						<button class="center-btn">수락하기</button>
 						<button class="center-btn">거절하기</button>
 					</div>
@@ -134,5 +141,17 @@
 		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+		const deleteEmploy = (employNo) => {
+			if(confirm("정말 삭제하시겠습니까?")){
+				location.replace("/employ/delete?employNo="+employNo);
+			}
+		}
+		const updateEmploy = (employNo) => {
+			if(confirm("정말 수정하시겠습니까?")){
+				location.replace("/employ/update?employNo="+employNo);
+			}
+		}
+	</script>
 </body>
 </html>
