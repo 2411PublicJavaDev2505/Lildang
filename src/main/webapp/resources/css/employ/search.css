@@ -30,14 +30,13 @@ table td {
     padding: 5px;
     text-align: center;
 }
-input {
+main input {
     width: 150px;
     padding: 5px;
     margin-top: 20px;
     border-radius: 5px;
     border: 0px;
     background-color: #ddd;
-    
 }
 .btn {
     display: flex;

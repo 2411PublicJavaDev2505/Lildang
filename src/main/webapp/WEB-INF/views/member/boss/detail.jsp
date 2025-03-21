@@ -17,18 +17,17 @@
     	<main>
         <h1>마이페이지</h1>
         <div id="container">
-        	<jsp:include page="/WEB-INF/views/include/header.jsp" />
             <div id="left-main">
                 <img src="../resources/image/profile.jpg" alt="profile"> <br>
                 <button class="imgbtn">사진변경</button>
                 <div id="information">
-                    아이디: Hula<br>
-                    이름: 일용자 <br>
-                    성별: 남 <br>
-                    나이: 50 <br>
+                    아이디: ${member.id }<br>
+                    이름: ${member.name } <br>
+                    성별: ${member.gender } <br>
+                    나이: ${member.age } <br>
                     평점: 3.5/5.0
                 </div>
-                <button class="modifybtn">수정하기</button>
+                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
                 <button class="deletebtn">탈퇴하기</button>
             </div>
             <div id="right-main">
@@ -83,13 +82,15 @@
                 </div>
                 </div>
             </div>
-            <jsp:include page="/WEB-INF/views/include/header.jsp" />
         </div>
     	</main>
     			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     	
     	</div>
     	<script type="text/javascript">
+    		const showUpdate = () => {
+    			location.href = "/member/update"
+    		}
     		const showInsert = () => {
     			location.href = "/employ/insert";
     		}

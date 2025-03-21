@@ -22,13 +22,25 @@
 		<result property="introduction" column="INTRODUCTION" />
 		<result property="cvWriteTime" column="CV_WRITE_TIME" />
 		<result property="cvUpdateTime" column="CV_UPDATE_TIME" />
-		<result property="role" column="Role"/>
+		<result property="role" column="ROLE"/>
 	</resultMap>
 	<select id="selectOneByLogin" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ID = #{id} AND PW = #{pw}
+	</select>
+	<select id="selectOneById" resultMap="rsetToMember">
+		SELECT * FROM MEMBER WHERE ID = #{id} 
+	</select>
+	<select id="memberList" resultMap="rsetToMember">
+    	SELECT * FROM MEMBER 
 	</select>
 	<insert id="memberRegister">
 		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
 		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
 	</insert>
+	<update id="updateMember">
+		UPDATE MEMBER SET PW=#{pw}, EMAIL=#{email}, ADDRESS=#{address}, PHONE=#{phone} WHERE ID=#{id}
+	</update>
+	<delete id="deleteMember">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
 </mapper>

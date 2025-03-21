@@ -21,29 +21,32 @@
 		                <img src="./img/profile.png" alt="profile"> <br>
 		                <button class="imgbtn">사진변경</button>
 		                <div id="information">
-		                    아이디: Ola<br>
-		                    이름: 이용자 <br>
-		                    성별: 여성 <br>
-		                    나이: 25 <br>
+		                    아이디: ${member.id }<br>
+		                    이름: ${member.name } <br>
+		                    성별: ${member.gender } <br>
+		                    나이: ${member.age } <br>
 		                </div>
 		                <button class="modifybtn">수정하기</button>
 		                <button class="deletebtn">탈퇴하기</button>
 		            </div>
 		            <div id="right-main">
-		                <div class="modify">
-		                    <label>PW:</label>
-		                    <input type="password"></input><br>
-		                    <label>이메일:</label>
-		                    <input type="text"></input><br>
-		                    <label>주소:</label>
-		                    <input type="text"></input><br>
-		                    <label>전화번호:</label>
-		                    <input type="text"></input><br> 
-		                </div>
-		                <div class="rightbtn">
-		                    <button class="returnbtn">초기화</button>
-		                    <button class="modifybtn">수정하기</button>
-		                </div>
+		            	<form action="/member/update" method="post">
+			                <div class="modify">
+			                	<input type="hidden" value="${sessionScope.id }" name="id" >
+			                    <label>PW:</label>
+			                    <input type="password" value="${member.pw }" name="pw"></input><br>
+			                    <label>이메일:</label>
+			                    <input type="text" value="${member.email }" name="email"></input><br>
+			                    <label>주소:</label>
+			                    <input type="text" value="${member.address }" name="address"></input><br>
+			                    <label>전화번호:</label>
+			                    <input type="text" value="${member.phone }" name="phone"></input><br> 
+			                </div>
+			                <div class="rightbtn">
+			                    <button class="returnbtn">초기화</button>
+			                    <button class="modifybtn" type="submit">수정하기</button>
+			                </div>
+		            	</form>
 		            </div>
 		        </div>
     		</main>

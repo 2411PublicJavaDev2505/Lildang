@@ -9,13 +9,10 @@ import com.lildang.spring.employ.domain.EmployVO;
 
 public interface EmployService {
 
+
 	List<EmployVO> selectList();//공고글 전체 정보 조회
 
 	int insertEmploy(EmployInsertRequest employ);//공고글 작성
 
 	EmployVO selectOneDetail(int employNo);//공고글 상세페이지
-
-
-
-
 }

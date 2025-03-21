@@ -12,6 +12,7 @@
     <title>로그인</title>
 </head>
 <body>
+
 	<div id="container">
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
@@ -28,9 +29,9 @@
                             <button type="submit">로그인</button>
                         </div>
                     </form>
-                       <div class="registerBtn">
-                           <button onClick="showRegister();">회원가입</button>
-                       </div>
+                    <div class="registerBtn">
+                        <button onClick="showRegister();">회원가입</button>
+                    </div>
                 </div>
 	        </div>
 	    </main>

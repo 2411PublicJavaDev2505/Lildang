@@ -22,15 +22,15 @@
         </c:if>
         <c:if test="${sessionScope.id ne null }">
         	<c:if test="${sessionScope.role eq 'MANAGER' }">
-        		<a href="#">관리자 페이지</a>
+        		<a href="/manager/memberlist">관리자 페이지</a>
         	</c:if>
         	<c:if test="${sessionScope.role eq 'EMPLOYER' }">
-        		<a href="member/bdetail">마이페이지</a>
+        		<a href="/member/bdetail">마이페이지</a>
         	</c:if>
         	<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
-        		<a href="member/edetail">마이페이지</a>
+        		<a href="/member/edetail">마이페이지</a>
         	</c:if>
-       		<a href="#">로그아웃</a>
+       		<a href="/member/logout">로그아웃</a>
         </c:if>
     </div>
 </header>

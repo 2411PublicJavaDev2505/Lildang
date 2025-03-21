@@ -20,7 +20,10 @@
                     <div class="location-l">지역별</div>
                     <table>
                         <tr>
-                            <td>서울</td>
+                            <td>
+                            	<label for="seoul">서울</label>
+                            	<input type="checkbox" id="seoul">
+                            </td>
                             <td>경기</td>
                             <td>인천</td>
                             <td>강원</td>
