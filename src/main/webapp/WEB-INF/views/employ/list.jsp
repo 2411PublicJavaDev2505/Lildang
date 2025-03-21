@@ -15,7 +15,6 @@
 		<div id="container">
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 			<div id="main">
-				
 				<form action="/employ/list" method="post">
 	            <div class="condition">
 	                <select class="location">
@@ -82,7 +81,6 @@
 	                    </tr>
 	                    <c:forEach var="eList" items="${eList }">
 		                    <tr>
-		                    	${eList.employNo }
 		                        <td><div class="circle">.</div><a href="/employ/detail?employNo=${eList.employNo }">${eList.employName }</a></td>
 		                        <td>${eList.workplaceAddress }</td>
 		                        <td>${eList.workingStartTime } ${eList.workingEndTime }</td>

@@ -15,6 +15,10 @@ public interface EmployStore {
 	public int insertEmploy(SqlSession session, EmployInsertRequest employ);
 	//공고글 상세페이지
 	public EmployVO selectOneDetail(SqlSession session, int employNo);
+	//공고글 삭제
+	public int deleteEmploy(SqlSession session, int employNo);
+	//공고글 수정
+	public int updateEmploy(SqlSession session, int employNo);
 
 	
 }
