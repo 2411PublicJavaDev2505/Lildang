@@ -21,10 +21,10 @@
 	                <img src="./img/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
-	                    아이디: Ola<br>
-	                    이름: 이용자 <br>
-	                    성별: 여성 <br>
-	                    나이: 25 <br>
+	                    아이디: ${member.id }<br>
+	                    이름: ${member.name } <br>
+	                    성별: ${member.gender } <br>
+	                    나이: ${member.age } <br>
 	                    평점: 4.5/5.0
 	                </div>
 	                <button class="modifybtn">수정하기</button>
