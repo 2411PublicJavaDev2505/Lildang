@@ -11,5 +11,3 @@ public interface EmployStore {
 
 	public List<EmployVO> selectList(SqlSession session);
 }
-
-

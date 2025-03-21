@@ -25,10 +25,10 @@
         		<a href="/manager/memberlist">관리자 페이지</a>
         	</c:if>
         	<c:if test="${sessionScope.role eq 'EMPLOYER' }">
-        		<a href="member/bdetail">마이페이지</a>
+        		<a href="/member/bdetail">마이페이지</a>
         	</c:if>
         	<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
-        		<a href="member/edetail">마이페이지</a>
+        		<a href="/member/edetail">마이페이지</a>
         	</c:if>
        		<a href="/member/logout">로그아웃</a>
         </c:if>

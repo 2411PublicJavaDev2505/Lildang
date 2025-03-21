@@ -36,6 +36,12 @@ public class MemberServiceLogic implements MemberService{
 	public int memberRegister(MemberRegisterRequest member) {
 		return mStore.memberRegister(session, member);
 	}
+	//회원탈퇴
+	@Override
+	public int deleteMember(String id) {
+		int result = mStore.deleteMember(session,id);
+		return result;
+	}
 
 	@Override
 	public MemberVO selectOneById(String id) {

@@ -21,11 +21,19 @@ public interface MemberStore {
 	 * @return int
 	 */
 	int memberRegister(SqlSession session, MemberRegisterRequest member);
+	
 	// 아이디로 회원정보 가져와서 출력
 	MemberVO selectOneById(SqlSession session, String id);
 	
 	// 회원정보 수정
 	int updateMember(SqlSession session, UpdateRequest member);
-
+	
+	/**
+	 * 회원탈퇴
+	 * @param session
+	 * @param id
+	 * @return
+	 */
+	int deleteMember(SqlSession session, String id);
 
 }

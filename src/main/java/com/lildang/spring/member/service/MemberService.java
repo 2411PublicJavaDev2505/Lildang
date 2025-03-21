@@ -27,4 +27,12 @@ public interface MemberService {
 	int updateMember(UpdateRequest member);
 	
 
+	/**
+	 * 회원탈퇴
+	 * @param id
+	 * @return 
+	 */
+	int deleteMember(String id);
+	
+
 }

@@ -28,7 +28,7 @@
 	                    평점: 4.5/5.0
 	                </div>
 	                <button class="modifybtn">수정하기</button>
-	                <button class="deletebtn">탈퇴하기</button>
+	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
 	                <div class="mycv">
@@ -66,6 +66,11 @@
     	</main>
     	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
+    <script type="text/javascript">
+    	const showDelete = () => {
+    		location.href = "/member/delete"
+    	}
+    </script>
     </body>
 </html>
 
