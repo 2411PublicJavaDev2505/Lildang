@@ -19,6 +19,7 @@ public interface EmployStore {
 	public int deleteEmploy(SqlSession session, int employNo);
 	//공고글 수정
 	public int updateEmploy(SqlSession session, int employNo);
+	// 공고글 리스트
+	public List<EmployVO> selectListById(SqlSession session, String id);
 
-	
 }

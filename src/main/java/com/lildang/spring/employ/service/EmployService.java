@@ -20,5 +20,5 @@ public interface EmployService {
 
 	int updateEmploy(int employNo);
 
-	
+	List<EmployVO> selectListById(String id); // 공고글 리스트
 }

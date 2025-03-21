@@ -44,7 +44,6 @@ public class EmployServiceLogic implements EmployService{
 		return result;
 	}
 
-
 	@Override//공고글 삭제
 	public int deleteEmploy(int employNo) {
 		int result = eStore.deleteEmploy(session, employNo);
@@ -56,5 +55,13 @@ public class EmployServiceLogic implements EmployService{
 		int result = eStore.updateEmploy(session, employNo);
 		return result;
 	}
+
+	@Override
+	public List<EmployVO> selectListById(String id) {
+		List<EmployVO> eList = eStore.selectListById(session, id);
+		return eList;
+	}
+
 }
+
 

@@ -21,12 +21,12 @@
 	                <img src="./img/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
-	                   	id:Ola<br>
-	                    이름:이용자<br>
-	                    성별:여성<br>
-	                    나이: 25 <br>
+	                   	id:${member.id }<br>
+	                    이름:${member.name }<br>
+	                    성별:${member.gender }<br>
+	                    나이:${member.age } <br>
 	                </div>
-	                <button class="modifybtn">수정하기</button>
+	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onclick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
@@ -54,7 +54,9 @@
     		const showDelete = () => {
     			location.href = "/member/delete"
     		}
-    		
+    		const showUpdate = () => {
+    			location.href = "/member/update"
+    		}
     		function deleteConfirm() {
     			const result = confirm("정말로 탈퇴하시겠습니까?");
     			if(result) {

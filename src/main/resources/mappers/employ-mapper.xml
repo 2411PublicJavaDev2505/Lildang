@@ -41,4 +41,7 @@
 	<update id="updateEmploy">
 		UPDATE EMPLOY SET EMPLOY_NAME=#{employName}, JOB_NO=#{job_No}, RECRUIT_NUMBER=#{recruitNumber}, RECRUIT_START_DATE=#{recruitStartDate}, RECRUIT_END_DATE=#{recruitEndDate}, EDUCATION=#{education}, WORKPLACE_NAME=#{workplaceName}, WORKPLACE_ADDRESS=#{workplaceAddress}, SALARY=#{salary}, WORKING_PERIOD=#{workingPeriod}, WORKING_START_TIME=#{workingStartTime}, WORKING_END_TIME=#{workingEndTime}, WORKING_DAY=#{workingDay}, EMPLOY_FILE_NAME=#{employFileName}, EMPLOY_DETAIL=#{employDetail}
 	</update>
+	<select id="selectListById" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
+	</select>
 </mapper>

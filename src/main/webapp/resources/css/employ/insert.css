@@ -1,10 +1,81 @@
 @charset "UTF-8";
 
-main {
-    width: 450px;
+.main-content {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom : 50px;
+    width: 500px;
     padding: 30px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.title {
+    margin: 10px;
+}
+.title input{
+    width: 60%;
+}
+.job{
+    margin: 10px;
+}
+.job select {
+    margin-left: 15px;
+}
+.recruitNumber {
+    margin: 10px;
+}
+.recruitNumber input{
+    width: 30px;
+}
+.recruitDate {
+    margin: 10px;
+}
+.educationNo {
+    margin: 10px;
+}
+.educationNo select {
+    margin-left: 32px;
+}
+.workplaceName {
+    margin: 10px;
+}
+
+.workplaceAddress {
+    margin: 10px;
+}
+.workplaceAddress input{
+    width: 50%;
+}
+.salary {
+    margin: 10px;
+}
+.salary input {
+	margin-left : 32px;
+}
+.workingPeriod{
+    margin: 10px;
+}
+.workTime {
+    margin: 10px;
+}
+.workingDay {
+    margin: 10px;
+}
+.photo{
+    margin: 10px;
+}
+.detail {
+    margin: 10px;
+}
+.btn  {
+    text-align: center;
+}
+.btn button{
+    margin: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #b2f2bb;
 }

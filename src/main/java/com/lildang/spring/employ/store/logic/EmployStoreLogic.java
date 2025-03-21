@@ -40,5 +40,10 @@ public class EmployStoreLogic implements EmployStore{
 	public int updateEmploy(SqlSession session, int employNo) {
 		return session.update("EmployMapper.updateEmploy", employNo);
 	}
-}
 
+	@Override
+	public List<EmployVO> selectListById(SqlSession session, String id) {
+		List<EmployVO> eList = session.selectList("EmployMapper.selectListById", id);
+		return eList;
+	}
+}

@@ -17,6 +17,8 @@ import com.lildang.spring.member.controller.dto.UpdateRequest;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lildang.spring.employ.domain.EmployVO;
+import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.member.service.MemberService;
@@ -27,10 +29,12 @@ import oracle.jdbc.proxy.annotation.Post;
 public class MemberController {
 
 	private MemberService mService;
+	private EmployService eService;
 	
 	@Autowired
-	public MemberController(MemberService mService) {
+	public MemberController(MemberService mService, EmployService eService) {
 		this.mService = mService;
+		this.eService = eService;
 	}
 	
 
@@ -187,8 +191,10 @@ public class MemberController {
 			,Model model) {
 		try {
 			String id = (String)session.getAttribute("id");
+			List<EmployVO> eList = eService.selectListById(id);
 			MemberVO member = mService.selectOneById(id);
 			model.addAttribute("member", member);
+			model.addAttribute("eList", eList);
 			return "member/boss/detail";
 		} catch (Exception e) {
 			// TODO: handle exception
