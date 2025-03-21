@@ -21,5 +21,11 @@ public class MemberStoreLogic implements MemberStore{
 	public int memberRegister(SqlSession session, MemberRegisterRequest member) {
 		return session.insert("MemberMapper.memberRegister", member);
 	}
+	//회원탈퇴
+	@Override
+	public int deleteMember(SqlSession session, String id) {
+		int result = session.delete("MemberMapper.deleteMember",id);
+		return result;
+	}
 
 }

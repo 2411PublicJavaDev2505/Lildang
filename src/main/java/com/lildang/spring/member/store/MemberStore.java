@@ -18,5 +18,13 @@ public interface MemberStore {
 	 * @return int
 	 */
 	int memberRegister(SqlSession session, MemberRegisterRequest member);
+	
+	/**
+	 * 회원탈퇴
+	 * @param session
+	 * @param id
+	 * @return
+	 */
+	int deleteMember(SqlSession session, String id);
 
 }

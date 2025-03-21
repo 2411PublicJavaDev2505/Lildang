@@ -31,4 +31,7 @@
 		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
 		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
 	</insert>
+	<delete id="deleteMember">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
 </mapper>

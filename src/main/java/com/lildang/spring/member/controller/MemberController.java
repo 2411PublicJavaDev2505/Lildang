@@ -16,6 +16,8 @@ import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.member.service.MemberService;
 
+import oracle.jdbc.proxy.annotation.Post;
+
 @Controller
 public class MemberController {
 
@@ -92,10 +94,45 @@ public class MemberController {
 			return "common/error";
 		}
 	}
+	@GetMapping("member/logout")
+	public String memberLogout(HttpSession session) {
+		//로그아웃	
+		if(session != null) {
+			session.invalidate();
+		}
+		return "redirect:/";
+	}
+	
+	
 	
 	@GetMapping("member/delete")
-	public String showMemberDelete() {
-		return "member/common/delete";
+	public String showMemberDelete(HttpSession session, Model model) {
+		try {
+			return "member/common/delete";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("member/del")
+	public String memberDelete(HttpSession session, Model model) {
+		try {
+			String id = (String)session.getAttribute("id");
+			int result = mService.deleteMember(id);
+			if(result > 0) {
+				session.invalidate();
+				return"redirect:/";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("member/update")

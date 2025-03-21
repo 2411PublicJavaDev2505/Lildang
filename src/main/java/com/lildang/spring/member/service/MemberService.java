@@ -18,4 +18,12 @@ public interface MemberService {
 	 */
 	int memberRegister(MemberRegisterRequest member);
 
+	/**
+	 * 회원탈퇴
+	 * @param id
+	 * @return 
+	 */
+	int deleteMember(String id);
+	
+
 }
