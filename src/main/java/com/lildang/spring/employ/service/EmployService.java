@@ -8,7 +8,9 @@ import com.lildang.spring.employ.domain.EmployVO;
 
 public interface EmployService {
 
+
 	List<EmployVO> selectList();
 	
+
 
 }
