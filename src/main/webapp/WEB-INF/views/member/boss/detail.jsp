@@ -6,8 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../resources/css/reset.css">
-			<link rel="stylesheet" href="../resources/css/header.css">
-			<link rel="stylesheet" href="../resources/css/footer.css">
+			<link rel="stylesheet" href="../resources/css/include/header.css">
+			<link rel="stylesheet" href="../resources/css/include/footer.css">
 			<link rel="stylesheet" href="../resources/css/member/boss/detail.css">
         <title>Mypage - boss</title>
     </head>
