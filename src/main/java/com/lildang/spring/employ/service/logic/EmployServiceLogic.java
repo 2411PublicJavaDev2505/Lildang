@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.employ.store.EmployStore;
@@ -25,10 +26,24 @@ public class EmployServiceLogic implements EmployService{
 		this.session = session;
 	}
 
-	@Override
+	@Override//공고글 전체 정보 조회
 	public List<EmployVO> selectList() {
 		List<EmployVO> eList = eStore.selectList(session);
 		return eList;
 	}
+
+	@Override//공고글 작성
+	public int insertEmploy(EmployInsertRequest employ) {
+		int result = eStore.insertEmploy(session, employ);
+		return result;
+	}
+
+	@Override//공고글 상세페이지
+	public EmployVO selectOneDetail(int employNo) {
+		EmployVO result = eStore.selectOneDetail(session, employNo);
+		return result;
+	}
+
+	
 }
 

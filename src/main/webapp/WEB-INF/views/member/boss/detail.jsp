@@ -34,7 +34,7 @@
             <div id="right-main">
                 <div class="myhire">
                     <p class="hiretitle">내 공고글</p>
-                    <button class="writebtn">공고글 작성</button>
+                    <button class="writebtn" onClick="showInsert();">공고글 작성</button>
                     <div class="hirename1">
                         KH정보교육원 종로지원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         IT.기술             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -89,5 +89,10 @@
     			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     	
     	</div>
+    	<script type="text/javascript">
+    		const showInsert = () => {
+    			location.href = "/employ/insert";
+    		}
+    	</script>
     </body>
 </html>

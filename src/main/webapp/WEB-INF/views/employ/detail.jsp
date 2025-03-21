@@ -14,6 +14,7 @@
 	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<main>
+			${result }
 			<div class="main-container">
 				<div class="first">
 					<div class="first-top">
