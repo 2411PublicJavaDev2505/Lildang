@@ -12,9 +12,6 @@ public class LoginRequest {
 		this.id = id;
 		this.pw = pw;
 	}
-
-
-
 	public String getId() {
 		return id;
 	}

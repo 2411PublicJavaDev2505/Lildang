@@ -19,9 +19,6 @@ public class MemberStoreLogic implements MemberStore{
 
 	@Override
 	public int memberRegister(SqlSession session, MemberRegisterRequest member) {
-		System.out.println(member.getId());
-		int result = session.insert("MemberMapper.memberRegister", member);
-		System.out.println(result);
 		return session.insert("MemberMapper.memberRegister", member);
 	}
 

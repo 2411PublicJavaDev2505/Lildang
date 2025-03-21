@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  			<link rel="stylesheet" href="/80/css/register.css">
-            <link rel="stylesheet" href="../resources/css/reset.css">
-			<link rel="stylesheet" href="../resources/css/header.css">
-			<link rel="stylesheet" href="../resources/css/footer.css">
-			<link rel="stylesheet" href="../resources/css/member/common/register.css">
-  <title>회원가입</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
+	<link rel="stylesheet" href="../resources/css/member/common/register.css">
+	<title>회원가입</title>
 </head>
 <body>
 	<div id="container">
@@ -27,7 +26,7 @@
 	          <input type="radio" value="employer" name="role">사장님
 	        </label>
 	        <label>
-	          <input type="radio" value="employee" name="role">알바생
+	          <input type="radio" value="employee" name="role" checked>알바생
 	        </label>
 	      </div>
 	      <label class="required">아이디</label>
@@ -57,6 +56,10 @@
 	      <label class="required">생년월일</label>
 	      <div class="form-group">
 	        <input type="date" name="birth">
+	      </div>
+	      <div class="form-group">
+	      	<input type="radio" name="gender" value="M" checked>남
+	      	<input type="radio" name="gender" value="F">여
 	      </div>
 	      <div>
 	        <button type="submit" class="register-btn">회원가입</button>

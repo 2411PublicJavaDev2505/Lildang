@@ -11,9 +11,10 @@ public class MemberRegisterRequest {
 	private String phone;
 	private String email;
 	private Date birth;
-	
-	public MemberRegisterRequest(String role, String id, String name, String pw, String phone, String email,
-			Date birth) {
+	private String gender;
+
+	public MemberRegisterRequest(String role, String id, String name, String pw, String phone, String email, Date birth,
+			String gender) {
 		super();
 		this.role = role;
 		this.id = id;
@@ -22,8 +23,8 @@ public class MemberRegisterRequest {
 		this.phone = phone;
 		this.email = email;
 		this.birth = birth;
+		this.gender = gender;
 	}
-	
 	public String getRole() {
 		return role;
 	}
@@ -66,11 +67,20 @@ public class MemberRegisterRequest {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberRegisterRequest [role=" + role + ", id=" + id + ", name=" + name + ", pw=" + pw + ", phone="
-				+ phone + ", email=" + email + ", birth=" + birth + "]";
+				+ phone + ", email=" + email + ", birth=" + birth + ", gender=" + gender + "]";
 	}
-	
+
 	
 }

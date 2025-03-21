@@ -51,23 +51,14 @@ public class MemberController {
 		}
 	}
 	
-	@PostMapping("member/login")
-	public String showMemberLogin(
-			@ModelAttribute LoginRequest member
-			,HttpSession session
-			,Model model) {
+	@PostMapping("/member/register")
+	public String memberRegister(Model model,
+			@ModelAttribute MemberRegisterRequest member) {
 		try {
-			MemberVO member1 = mService.selectOneByLogin(member);
-			if(member1 != null) {
-				//내가 가지고 있는코드는 member1로 되어있음...왜??
-				//name은???
-				session.setAttribute("id", member1.getId());
-				session.setAttribute("name", member1.getName());
-				//return "member/common/login";
-				return "redirect:/";
+			int result = mService.memberRegister(member);
+			if(result > 0) {
+				return "redirect:/";				
 			}else {
-				//실패시 에러페이지로이동
-				model.addAttribute("errorMsg", "존재하지않은 정보입니다");
 				return "common/error";
 			}
 		} catch (Exception e) {
@@ -77,14 +68,22 @@ public class MemberController {
 		}
 	}
 	
-	@PostMapping("/member/register")
-	public String memberRegister(Model model,
-			@ModelAttribute MemberRegisterRequest member) {
+	@PostMapping("member/login")
+	public String memberLogin(
+			@ModelAttribute LoginRequest member
+			,HttpSession session
+			,Model model) {
 		try {
-			int result = mService.memberRegister(member);
-			if(result > 0) {
-				return "redirect:/";				
+			System.out.println("확인");
+			MemberVO result = mService.selectOneByLogin(member);
+			if(result != null) {
+				session.setAttribute("id", result.getId());
+				session.setAttribute("name", result.getName());
+				session.setAttribute("role", result.getRole());
+				return "redirect:/";
 			}else {
+				//실패시 에러페이지로이동
+				model.addAttribute("errorMsg", "존재하지않은 정보입니다");
 				return "common/error";
 			}
 		} catch (Exception e) {
