@@ -29,4 +29,10 @@
 	<select id="selectList" resultMap="rsetToEmploy" >
 		SELECT * FROM EMPLOY
 	</select>
+	<insert id="insertEmploy">
+		INSERT INTO EMPLOY VALUES(SEQ_EMPLOY_NO.NEXTVAL,#{employName}, #{recruitStartDate}, #{recruitEndDate}, #{recruitNumber}, #{education}, #{workplaceAddress}, #{workplaceName}, #{salary}, #{workingPeriod}, #{workingStartTime}, #{workingEndTime}, #{workingDay}, #{employDetail},SYSTIMESTAMP,SYSTIMESTAMP, #{employFileName}, #{employFileRename}, #{employFilePath}, #{writerId}, #{jobNo})
+	</insert>
+	<select id="selectOneDetail" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
+	</select>
 </mapper>

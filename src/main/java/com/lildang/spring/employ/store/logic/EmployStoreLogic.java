@@ -6,16 +6,29 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.store.EmployStore;
 
 @Repository
 public class EmployStoreLogic implements EmployStore{
 
-	@Override
+	@Override//공고글 전체 정보 조회
 	public List<EmployVO> selectList(SqlSession session) {
 		List<EmployVO> eList = session.selectList("EmployMapper.selectList");
 		return eList;
+	}
+
+	@Override//공고글 작성 페이지
+	public int insertEmploy(SqlSession session, EmployInsertRequest employ) {
+		return session.insert("EmployMapper.insertEmploy", employ);
+		
+	}
+
+	@Override
+	public EmployVO selectOneDetail(SqlSession session, int employNo) {
+		EmployVO result = session.selectOne("EmployMapper.selectOneDetail", employNo);
+		return result;
 	}
 }
 

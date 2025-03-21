@@ -6,8 +6,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../resources/css/reset.css">
-		<link rel="stylesheet" href="../resources/css/header.css">
-		<link rel="stylesheet" href="../resources/css/footer.css">
+		<link rel="stylesheet" href="../resources/css/include/header.css">
+		<link rel="stylesheet" href="../resources/css/include/footer.css">
 		<link rel="stylesheet" href="../resources/css/employ/list.css">
 		<title>구인글-검색결과</title>
 	</head>
@@ -15,7 +15,7 @@
 		<div id="container">
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 			<div id="main">
-				${eList }
+				
 				<form action="/employ/list" method="post">
 	            <div class="condition">
 	                <select class="location">
@@ -80,14 +80,17 @@
 	                        <td>급여</td>
 	                        <td class="d1">등록일</td>
 	                    </tr>
-	                    <tr>
-	                        <td><div class="circle">.</div>계수나무 식당에서 아줌마 구합니다(월,수,금)</td>
-	                        <td>서울 중구</td>
-	                        <td>12:00~14:00</td>
-	                        <td>시급 13,000원</td>
-	                        <td class="d1">03/13(목)</td>
-	                    </tr>
-	                    <tr>
+	                    <c:forEach var="eList" items="${eList }">
+		                    <tr>
+		                    	${eList.employNo }
+		                        <td><div class="circle">.</div><a href="/employ/detail?employNo=${eList.employNo }">${eList.employName }</a></td>
+		                        <td>${eList.workplaceAddress }</td>
+		                        <td>${eList.workingStartTime } ${eList.workingEndTime }</td>
+		                        <td>${eList.salary }</td>
+		                        <td class="d1">${eList.writeTime }</td>
+		                    </tr>
+	                    </c:forEach>
+	                    <!--<tr>
 	                        <td><div class="circle1">.</div>장기하 장기학원에서 장기 선생님 구해요.</td>
 	                        <td>서울 동대문구</td>
 	                        <td>09:00~18:00</td>
@@ -115,10 +118,11 @@
 	                        <td>시급 11,000원</td>
 	                        <td class="d1">03/15(토)</td>
 	                    </tr>
+					-->
 	                </table>
 	            </div>
 	        </div>
-	        <jsp:include page="/WEB-INF/views/include/header.jsp" />
+	        <jsp:include page="/WEB-INF/views/include/footer.jsp" />
         </div>
 	</body>
 </html>
