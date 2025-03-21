@@ -81,7 +81,6 @@ public class MemberController {
 			,HttpSession session
 			,Model model) {
 		try {
-			System.out.println("확인");
 			MemberVO result = mService.selectOneByLogin(member);
 			if(result != null) {
 				session.setAttribute("id", result.getId());
@@ -95,7 +94,7 @@ public class MemberController {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute("errorMessage",e.getMessage());
+			model.addAttribute("errorMsg",e.getMessage());
 			return "common/error";
 		}
 	}
@@ -160,7 +159,6 @@ public class MemberController {
 			@ModelAttribute UpdateRequest member
 			,Model model) {
 		try {
-			System.out.println(member);
 			int result = mService.updateMember(member);
 			if(result > 0) {
 				String role = (String)session.getAttribute("role");

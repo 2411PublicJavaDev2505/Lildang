@@ -28,7 +28,7 @@
                     평점: 3.5/5.0
                 </div>
                 <button class="modifybtn" onClick="showUpdate();">수정하기</button>
-                <button class="deletebtn">탈퇴하기</button>
+                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
             </div>
             <div id="right-main">
                 <div class="myhire">
@@ -93,6 +93,9 @@
     		}
     		const showInsert = () => {
     			location.href = "/employ/insert";
+    		}
+    		const showDelete = () => {
+    			location.href="/member/delete"
     		}
     	</script>
     </body>
