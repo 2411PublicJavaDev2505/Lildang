@@ -108,11 +108,18 @@ td {
 	border-radius: 30px;
 }
 
-
-
-.table-btn{
-    margin-left: 190px;
+.insert-btn {
+	margin-bottom: 10px;
 }
+
+.job-career, .job-license {
+	margin-bottom: 10px;
+}
+
+#career, #license {
+	width: 100%;
+}
+
 .btn button{
     background-color: #b2f2bb;
     padding: 10px 20px;

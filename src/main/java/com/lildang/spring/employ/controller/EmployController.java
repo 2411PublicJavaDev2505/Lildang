@@ -27,10 +27,10 @@ public class EmployController {
 		this.eService = eService;
 	}
 
-	
 	@GetMapping("employ/detail")//공고글 상세
 	public String showEmployDetail(Model model,
-			@RequestParam("employNo") int employNo) {	
+			@RequestParam("employNo") int employNo
+			,HttpSession session) {	
 		try {
 			EmployVO result = eService.selectOneDetail(employNo);
 			if(result != null) {

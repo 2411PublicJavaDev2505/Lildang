@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CareerMapper">
+	<resultMap type="CareerVO" id="rsetToCareer">
+		<id property="careerNo" column="CAREER_NO"/>
+		<result property="companyName" column="COMPANY_NAME"/>
+		<result property="workingPeriod" column="WORKING_PERIOD"/>
+		<result property="position" column="POSITION"/>
+		<result property="work" column="WORK"/>
+		<result property="id" column="ID"/>
+	</resultMap>
+	<insert id="careerInsert">
+		INSERT INTO CAREER VALUES(SEQ_CAREER_NO.NEXTVAL,#{companyName},#{workingPeriod}
+		,#{position},#{work},#{id})
+	</insert>
+	<select id="selectCareerById" resultMap="rsetToCareer">
+		SELECT * FROM CAREER WHERE ID=#{id}
+	</select>
+	<delete id="careerDelete">
+		DELETE FROM CAREER WHERE ID=#{id}
+	</delete>
+</mapper>

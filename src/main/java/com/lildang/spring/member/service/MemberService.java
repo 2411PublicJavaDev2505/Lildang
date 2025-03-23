@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
 
@@ -33,6 +34,15 @@ public interface MemberService {
 	 * @return 
 	 */
 	int deleteMember(String id);
+
+	// 이력서 작성
+	int cvInsert(CvInsertRequest cv);
+
+	MemberVO selectCvById(String id);
+
+	int cvDelete(String id);
+
+	List<MemberVO> selectMemberList();
 	
 
 }

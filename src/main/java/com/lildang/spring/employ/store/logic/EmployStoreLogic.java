@@ -46,4 +46,5 @@ public class EmployStoreLogic implements EmployStore{
 		List<EmployVO> eList = session.selectList("EmployMapper.selectListById", id);
 		return eList;
 	}
+
 }
