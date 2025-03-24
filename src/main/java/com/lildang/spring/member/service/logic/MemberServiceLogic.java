@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
@@ -14,12 +15,14 @@ import com.lildang.spring.member.domain.DesiredJobVO;
 import com.lildang.spring.member.domain.EducationVO;
 import com.lildang.spring.member.domain.LicenseVO;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewMemberVO;
 import com.lildang.spring.member.service.MemberService;
 import com.lildang.spring.member.store.CareerStore;
 import com.lildang.spring.member.store.DesiredJobStore;
 import com.lildang.spring.member.store.EducationStore;
 import com.lildang.spring.member.store.LicenseStore;
 import com.lildang.spring.member.store.MemberStore;
+import com.lildang.spring.member.store.ReviewStore;
 
 @Service
 public class MemberServiceLogic implements MemberService{
@@ -30,14 +33,19 @@ public class MemberServiceLogic implements MemberService{
 	private LicenseStore lStore;
 	private CareerStore cStore;
 	private DesiredJobStore dStore;
+	private ReviewStore rStore;
 	
 	@Autowired
-	public MemberServiceLogic(MemberStore mStore, EducationStore eStore, LicenseStore lStore, CareerStore cStore, DesiredJobStore dStore, SqlSession session) {
+	public MemberServiceLogic(MemberStore mStore, EducationStore eStore
+			, LicenseStore lStore, CareerStore cStore
+			, DesiredJobStore dStore, ReviewStore rStore
+			, SqlSession session) {
 		this.mStore = mStore;
 		this.eStore = eStore;
 		this.lStore = lStore;
 		this.cStore = cStore;
 		this.dStore = dStore;
+		this.rStore = rStore;
 		this.session = session;
 	}
 	
@@ -109,6 +117,16 @@ public class MemberServiceLogic implements MemberService{
 	@Override
 	public List<MemberVO> selectMemberList() {
 		return mStore.selectMemberList(session);
+	}
+
+	@Override
+	public int reviewEmployeeInsert(ReviewEmployeeRequest review) {
+		return rStore.reviewEmployeeInsert(session, review);
+	}
+
+	@Override
+	public List<ReviewMemberVO> selectReviewList(String id) {
+		return rStore.selectReviewList(session, id);
 	}
 
 

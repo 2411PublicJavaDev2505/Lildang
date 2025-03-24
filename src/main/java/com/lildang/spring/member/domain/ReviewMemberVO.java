@@ -11,6 +11,7 @@ public class ReviewMemberVO {
 	private Timestamp writeTime;
 	private Timestamp updateTime;
 	private String employeeId;
+	private int employNo;
 	
 	public ReviewMemberVO() {}
 	
@@ -35,12 +36,16 @@ public class ReviewMemberVO {
 	public String getEmployeeId() {
 		return employeeId;
 	}
+	
+	public int getEmployNo() {
+		return employNo;
+	}
+
 	@Override
 	public String toString() {
 		return "ReviewMemberVO [reviewNo=" + reviewNo + ", reviewWriter=" + reviewWriter + ", reviewScore="
 				+ reviewScore + ", reviewDetail=" + reviewDetail + ", writeTime=" + writeTime + ", updateTime="
-				+ updateTime + ", employeeId=" + employeeId + "]";
+				+ updateTime + ", employeeId=" + employeeId + ", employNo=" + employNo + "]";
 	}
-	
-	
+
 }

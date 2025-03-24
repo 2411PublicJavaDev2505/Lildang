@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
@@ -60,5 +61,4 @@ public class MemberStoreLogic implements MemberStore{
 	public List<MemberVO> selectMemberList(SqlSession session) {
 		return session.selectList("MemberMapper.selectMemberList");
 	}
-
 }

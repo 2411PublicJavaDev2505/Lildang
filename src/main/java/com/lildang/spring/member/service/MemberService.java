@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewMemberVO;
 
 public interface MemberService {
 	
@@ -43,6 +45,9 @@ public interface MemberService {
 	int cvDelete(String id);
 
 	List<MemberVO> selectMemberList();
-	
 
+	int reviewEmployeeInsert(ReviewEmployeeRequest review);
+
+	List<ReviewMemberVO> selectReviewList(String id);
+	
 }

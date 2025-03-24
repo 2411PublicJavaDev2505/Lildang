@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,7 @@ import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.controller.dto.MatchJoinRequest;
 import com.lildang.spring.member.domain.DesiredJobVO;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewMemberVO;
 import com.lildang.spring.member.service.MemberService;
 
 @Controller
@@ -200,6 +202,10 @@ public class MemberController {
 			String id = (String)session.getAttribute("id");
 			List<EmployVO> eList = eService.selectListById(id);
 			MemberVO member = mService.selectOneById(id);
+			List<ReviewMemberVO> rmList = mService.selectReviewList(id);
+			model.addAttribute("rmList",rmList);
+			
+			model.addAttribute("num",0);
 			
 			List<MatchJoinRequest> emList = matchService.selectEList(id);
 			model.addAttribute("emList",emList);
@@ -230,7 +236,6 @@ public class MemberController {
 				if(emList.get(i).getEmployerYn().equals("Y"))
 					size++;
 			}
-			System.out.println(size);
 			model.addAttribute("size",size);
 			
 			model.addAttribute("member", member);
@@ -350,5 +355,20 @@ public class MemberController {
 		} 
 	}
 		
-	
+	@PostMapping("review/employee")
+	public String reviewEmployeeInsert(Model model
+			,@ModelAttribute ReviewEmployeeRequest review) {
+		try {
+			int result = mService.reviewEmployeeInsert(review);
+			if(result > 0){
+				return "redirect:/member/bdetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
 }

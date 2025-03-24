@@ -48,4 +48,19 @@ public class MatchStoreLogic implements MatchStore{
 		return session.selectList("MatchMapper.selectEEList",id);
 	}
 
+	@Override
+	public int startJob(SqlSession session, ApplyRequest match) {
+		return session.update("MatchMapper.startJob",match);
+	}
+
+	@Override
+	public int matchDelete(SqlSession session, ApplyRequest match) {
+		return session.delete("MatchMapper.matchDelete",match);
+	}
+
+	@Override
+	public int matchFinish(SqlSession session, ApplyRequest match) {
+		return session.update("MatchMapper.matchFinish", match);
+	}
+
 }

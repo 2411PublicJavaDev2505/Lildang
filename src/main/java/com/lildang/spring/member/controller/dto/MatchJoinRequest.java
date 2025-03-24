@@ -1,5 +1,7 @@
 package com.lildang.spring.member.controller.dto;
 
+import java.sql.Timestamp;
+
 public class MatchJoinRequest {
 
 	private String employeeId;
@@ -8,11 +10,15 @@ public class MatchJoinRequest {
 	private String employName;
 	private String employeeYn;
 	private String employerYn; 
+	private Timestamp jobStartTime;
+	private Timestamp jobEndTime;
+	private String jobEndYn;
+	private String jobStartYn;
 	
 	public MatchJoinRequest() {}
-	
+
 	public MatchJoinRequest(String employeeId, String employeeName, int employNo, String employName, String employeeYn,
-			String employerYn) {
+			String employerYn, Timestamp jobStartTime, Timestamp jobEndTime, String jobEndYn, String jobStartYn) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
@@ -20,6 +26,10 @@ public class MatchJoinRequest {
 		this.employName = employName;
 		this.employeeYn = employeeYn;
 		this.employerYn = employerYn;
+		this.jobStartTime = jobStartTime;
+		this.jobEndTime = jobEndTime;
+		this.jobEndYn = jobEndYn;
+		this.jobStartYn = jobStartYn;
 	}
 
 	public String getEmployeeId() {
@@ -65,11 +75,44 @@ public class MatchJoinRequest {
 		this.employerYn = employerYn;
 	}
 
+	public Timestamp getJobStartTime() {
+		return jobStartTime;
+	}
+
+	public void setJobStartTime(Timestamp jobStartTime) {
+		this.jobStartTime = jobStartTime;
+	}
+
+	public Timestamp getJobEndTime() {
+		return jobEndTime;
+	}
+
+	public void setJobEndTime(Timestamp jobEndTime) {
+		this.jobEndTime = jobEndTime;
+	}
+
+	public String getJobEndYn() {
+		return jobEndYn;
+	}
+
+	public void setJobEndYn(String jobEndYn) {
+		this.jobEndYn = jobEndYn;
+	}
+
+	public String getJobStartYn() {
+		return jobStartYn;
+	}
+
+	public void setJobStartYn(String jobStartYn) {
+		this.jobStartYn = jobStartYn;
+	}
+
 	@Override
 	public String toString() {
 		return "MatchJoinRequest [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employNo="
 				+ employNo + ", employName=" + employName + ", employeeYn=" + employeeYn + ", employerYn=" + employerYn
-				+ "]";
+				+ ", jobStartTime=" + jobStartTime + ", jobEndTime=" + jobEndTime + ", jobEndYn=" + jobEndYn
+				+ ", jobStartYn=" + jobStartYn + "]";
 	}
 
 }

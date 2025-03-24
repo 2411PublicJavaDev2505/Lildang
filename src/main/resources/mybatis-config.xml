@@ -36,5 +36,6 @@
 		<mapper resource="mappers/license-mapper.xml"/>
 		<mapper resource="mappers/education-mapper.xml"/>
 		<mapper resource="mappers/desiredJob-mapper.xml"/>
+		<mapper resource="mappers/review-mapper.xml"/>
 	</mappers>
 </configuration>

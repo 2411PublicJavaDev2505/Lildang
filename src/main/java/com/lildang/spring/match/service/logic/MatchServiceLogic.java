@@ -59,4 +59,19 @@ public class MatchServiceLogic implements MatchService{
 		return mStore.selectEEList(session, id);
 	}
 
+	@Override
+	public int startJob(ApplyRequest match) {
+		return mStore.startJob(session, match);
+	}
+
+	@Override
+	public int matchDelete(ApplyRequest match) {
+		return mStore.matchDelete(session, match);
+	}
+
+	@Override
+	public int matchFinish(ApplyRequest match) {
+		return mStore.matchFinish(session, match);
+	}
+
 }
