@@ -9,14 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.lildang.spring.manager.service.ManagerService;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.report.domain.ReportVO;
+import com.lildang.spring.report.service.ReportService;
 
 @Controller
 public class ManagerController {
 	private ManagerService mService;
+	//밑에 코드 추가!03-22 17:13 
+	private ReportService rService;
 	
 	@Autowired
-	public ManagerController(ManagerService mService) {
+	public ManagerController(ManagerService mService, ReportService rService) {
 		this.mService =mService;
+		this.rService= rService;
 	}
 	
 	@GetMapping("manager/memberlist")
@@ -33,9 +38,20 @@ public class ManagerController {
 	}
 	
 	@GetMapping("manager/reportlist")
-	public String showReportList() {
-		System.out.println("확인");
-		return "manager/reportlist";
+	public String showReportList(Model model) {
+		//관리자신고조회
+		//여기부터 수정및추가함!및에 2개 주석처리한건 보고 지워주세요!
+		//System.out.println("확인");
+		//return "manager/reportlist";
+		try {
+			List<ReportVO> rList = rService.selectList();
+			model.addAttribute("rList",rList);
+			return "manager/reportlist";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("manager/remploy")

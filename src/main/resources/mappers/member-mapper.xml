@@ -15,7 +15,7 @@
 		<result property="birth" column="BIRTH" />
 		<result property="outYn" column="OUT_YN" />
 		<result property="outDate" column="OUT_DATE" />
-		<result property="profileFilename" column="PROFILE_FILE_NAME" />
+		<result property="profileFileName" column="PROFILE_FILE_NAME" />
 		<result property="profileFileRename" column="PROFILE_FILE_RENAME" />
 		<result property="profileFilePath" column="PROFILE_FILE_PATH" />
 		<result property="memberComment" column="MEMBER_COMMENT" />
