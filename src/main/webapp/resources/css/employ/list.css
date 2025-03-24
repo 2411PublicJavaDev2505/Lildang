@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .condition{
     text-align: center;
+    margin-top: 50px;
 }
 .location{
     font-size: 25px;
@@ -29,6 +30,7 @@
 .conditionbtn{
     text-align: center;
     margin-top: 50px;
+    
 }
 .cbtn2{
     border-radius: 15px;
@@ -37,6 +39,10 @@
     font-size: 20px;
     background-color: #1ED483;
     font-weight: bolder;
+    cursor:pointer;
+}
+.cbtn2:hover{
+	background-color: #b2f2bb;
 }
 .jobinf{
     width: 100%;
@@ -98,4 +104,23 @@
 }
 .title{
     font-weight: bolder;
+}
+.location{
+	cursor:pointer;
+}
+.job{
+	cursor:pointer;
+}
+.day{
+	cursor:pointer;
+}
+.detail{
+	cursor:pointer;
+}
+.emptitle a{
+	text-decoration-line:none;
+	color: #1ed483;
+}
+.emptitle a:hover{
+	color:#b2f2bb;
 }

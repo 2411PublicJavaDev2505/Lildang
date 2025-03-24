@@ -6,7 +6,8 @@
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
         
 .main-container h2{
@@ -20,6 +21,7 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #ddd;
+    border-radius:10px;
 }
 .loginBtn  {
     text-align: center;
@@ -31,9 +33,15 @@
     border-radius: 20px;
     border: none;
     background-color: #b2f2bb;
+    cursor:pointer;
 }
+.loginBtn button:hover{
+	background-color:#1ED483;
+}
+
 .registerBtn {
     text-align: center;
+    margin-bottom: 50px;
 }
 .registerBtn button{
     padding: 15px;
@@ -41,6 +49,10 @@
     border-radius: 20px;
     border: none;
     background-color: #b2f2bb;
+    cursor:pointer;
+}
+.registerBtn button:hover{
+	background-color:#1ED483;
 }
 .main-container button {
     font-weight: bold;

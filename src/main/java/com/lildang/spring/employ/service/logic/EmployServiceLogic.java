@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.employ.store.EmployStore;
@@ -50,16 +51,16 @@ public class EmployServiceLogic implements EmployService{
 		return result;
 	}
 
-	@Override//공고글 수정
-	public int updateEmploy(int employNo) {
-		int result = eStore.updateEmploy(session, employNo);
-		return result;
-	}
-
 	@Override
 	public List<EmployVO> selectListById(String id) {
 		List<EmployVO> eList = eStore.selectListById(session, id);
 		return eList;
+	}
+
+	@Override
+	public int updateEmploy(EmployUpdateRequest employ) {
+		int result = eStore.updateEmploy(session, employ);
+		return result;
 	}
 
 }

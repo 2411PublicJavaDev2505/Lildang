@@ -17,7 +17,7 @@
 		<main>
 			<div class="main-top">
 				<p>
-					대기중인 알바생     ${eList.size() }명				
+					대기중인 알바생:     ${eList.size() }명				
 				</p>
 				<div class="top-search">
 					<form action="">
@@ -57,7 +57,7 @@
 							<option>병원·간호·연구</option>
 							<option>요식업</option>
 						</select>
-						<button>알바생 검색</button>			
+						<button class="search-btn">알바생 검색</button>			
 					</form>
 				</div>
 			</div>
@@ -72,9 +72,9 @@
 				<div class="bottom-content">
 					<c:forEach var="employee" items="${eList }">
 						<div class="bottom-profile">
-							<img alt="프로필사진" src="">
+							<img alt="profileimg" src="../resources/image/profile.png">
 							<p>
-								이름 : <a href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
+								이름 : <a class="profile-name" href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
 								성별 : ${employee.gender } <br>
 								나이 : ${employee.age }세 <br>
 								평점 : 3.5/5.0 <br>

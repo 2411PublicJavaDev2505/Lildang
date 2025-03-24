@@ -7,39 +7,76 @@
     width: 500px;
     padding: 30px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 15px;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    font-weight: bolder;
 }
 .title {
     margin: 10px;
 }
 .title input{
     width: 60%;
+   	border-radius: 15px;
+    height: 20px;
 }
 .job{
     margin: 10px;
 }
 .job select {
     margin-left: 15px;
+    border-radius: 15px;
+    height: 25px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .recruitNumber {
     margin: 10px;
 }
 .recruitNumber input{
     width: 30px;
+    border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
 }
 .recruitDate {
     margin: 10px;
+ 
+.recruitStartDate{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bolder;
+}
+
+.recruitEndDate{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bolder;
+}  
+  
 }
 .educationNo {
     margin: 10px;
 }
 .educationNo select {
     margin-left: 32px;
+    border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .workplaceName {
     margin: 10px;
+}
+
+.workplaceName input{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 
 .workplaceAddress {
@@ -47,24 +84,56 @@
 }
 .workplaceAddress input{
     width: 50%;
+    border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .salary {
     margin: 10px;
 }
 .salary input {
 	margin-left : 32px;
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .workingPeriod{
     margin: 10px;
 }
+.workingPeriod input{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
+}
 .workTime {
     margin: 10px;
+}
+.workTime input{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .workingDay {
     margin: 10px;
 }
+.workingDay select{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
+}
 .photo{
     margin: 10px;
+}
+.photo input{
+	border-radius: 15px;
+    height: 20px;
+    border: 2px solid black;
+    font-weight: bold;
 }
 .detail {
     margin: 10px;
@@ -74,8 +143,10 @@
 }
 .btn button{
     margin: 20px;
-    padding: 15px;
-    border: none;
     border-radius: 20px;
-    background-color: #b2f2bb;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #1ED483;
+    font-weight: bolder;
 }

@@ -10,10 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
 
@@ -57,7 +57,7 @@ public class EmployController {
 		try {
 			EmployVO employ = eService.selectOneDetail(employNo);
 			model.addAttribute("employ",employ);
-			return "employ/list";
+			return "employ/update";
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errorMessage",e.getMessage());
@@ -66,11 +66,11 @@ public class EmployController {
 	}
 	
 	@PostMapping("employ/update")//공고글 수정하기 POST
-	public String employUpdate(Model model, @RequestParam("employNo") int employNo) {
+	public String employUpdate(Model model,  @ModelAttribute EmployUpdateRequest employ) {
 		try {
-			int result = eService.updateEmploy(employNo);
+			int result = eService.updateEmploy(employ);
 			if(result >0) {
-				return "redirect:/employ/detail";
+				return "redirect:/employ/detail?employNo="+employ.getEmployNo();
 			}else {
 				return "common/error";
 			}

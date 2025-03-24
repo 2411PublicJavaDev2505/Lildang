@@ -15,7 +15,7 @@
     	</form>
     </div>
     <div class="nav">
-        <a href="/employ/search">알바 찾기</a>
+        <a href="/employ/list">알바 찾기</a>
         <a href="/employee/list">알바생 찾기</a>
         <c:if test="${sessionScope.id eq null }">
 	        <a href="/member/login">로그인</a>        
