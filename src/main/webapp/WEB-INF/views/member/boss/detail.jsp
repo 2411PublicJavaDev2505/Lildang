@@ -52,34 +52,49 @@
 					                            <div class="btn">
 					                                <button class="chatbtn">채팅하기</button>
 					                               	<c:if test="${em.jobStartYn ne 'Y' }">
-						                                <button class="ybtn" onclick="startJob(${em.employeeId},${em.employNo});">수락</button>
-						                                <button class="nbtn" onclick="reject(${em.employeeId},${em.employNo});">거절</button>
+						                                <button class="ybtn" onclick="startJob('${em.employeeId }','${em.employNo }');">수락</button>
+						                                <button class="nbtn" onclick="reject('${em.employeeId }','${em.employNo }');">거절</button>
 					                               	</c:if>
 					                               	<c:if test="${em.jobStartYn eq 'Y' && em.jobEndYn ne 'Y'}">
 					                               		알바중...
-					                               		<button onclick="finishJob(${em.employeeId},${em.employNo});">알바 완료</button>
+					                               		<button onclick="finishJob('${em.employeeId}','${em.employNo}');">알바 완료</button>
 					                               	</c:if>
 					                               	<c:if test="${em.jobEndYn eq 'Y' }">
 					                               		알바완료
 					                               		<c:forEach var="rm" items="${rmList }">
 					                               			<c:if test="${rm.employeeId eq em.employeeId && rm.employNo eq em.employNo}">
-					                               				<button>리뷰수정</button>
+					                               				<button onclick="openReviewUpdate('${em.employeeId }','${em.employNo}');">리뷰수정</button>
 					                               				<input type="hidden" value="${num = num+1 }">
-					                               				<div class="update-review">
+					                               				<div class="update-review" id="update${em.employeeId }${em.employNo}">
 					                               					<div class="update-review-body">
-					                               						
+					                               						<h1>알바생에게 후기 남기기 - 수정</h1>
+					                               						<form action="/review/employee/update" method="post">
+													     					<input type="hidden" value="${em.employeeId }" name="employeeId">
+													     					<input type="hidden" value="${em.employNo }" name="employNo">
+													     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
+													     					<div class="review-point">
+														     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${rm.reviewScore }">     					
+													     					</div>
+													     					<div class="review-content">
+													     						좋았던 점과 아쉬웠던 점을 적어주세요.
+													     						<textarea rows="10" cols="20" name="reviewDetail">${rm.reviewDetail }</textarea>
+													     					</div>
+													     					<button>후기 작성</button>
+													     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+													     				</form>
 					                               					</div>
 					                               				</div>
 					                               			</c:if>
 					                               		</c:forEach>
 					                               		<c:if test="${num eq 0 }">
-						                               		<button onclick="writeReview();">리뷰 작성</button>
-						                               		<input type="hidden" value="${num = 0 }">					                               		
+						                               		<button onclick="writeReview('${em.employeeId }','${em.employNo}');">리뷰 작성</button>
 					                               		</c:if>
-					                               		<div class="modal">
+					                               		<input type="hidden" value="${num = 0 }">					                               		
+					                               		<div class="modal" id="insert${em.employeeId }${em.employNo}">
 											     			<div class="modal-body">
 											     				<h1>알바생에게 후기 남기기</h1>
 											     				<form action="/review/employee" method="post">
+											     					${em.employeeId }
 											     					<input type="hidden" value="${em.employeeId }" name="employeeId">
 											     					<input type="hidden" value="${em.employNo }" name="employNo">
 											     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
@@ -91,7 +106,7 @@
 											     						<textarea rows="10" cols="20" name="reviewDetail"></textarea>
 											     					</div>
 											     					<button>후기 작성</button>
-											     					<button onclick="back();" type="button">뒤로 가기</button>
+											     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
 											     				</form>
 											     			</div>
 											     		</div>
@@ -161,11 +176,17 @@
     				location.replace("/match/finish?employeeId="+employeeId+"&employNo="+employNo);
     			}
     		}
-    		const writeReview = () => {
-    			document.querySelector(".modal").style.display = "flex";
+    		const writeReview = (employeeId, employNo) => {
+    			document.querySelector("#insert"+employeeId+employNo).style.display = "flex";
     		}
-    		const back = () => {
-    			document.querySelector(".modal").style.display = "none";
+    		const back = (employeeId, employNo) => {
+    			document.querySelector("#insert"+employeeId+employNo).style.display = "none";
+    		}
+    		const openReviewUpdate = (employeeId, employNo) => {
+    			document.querySelector("#update"+employeeId+employNo).style.display = "flex";
+    		}
+    		const backUpdate = (employeeId, employNo) => {
+    			document.querySelector("#update"+employeeId+employNo).style.display = "none";
     		}
     	</script>
     </body>

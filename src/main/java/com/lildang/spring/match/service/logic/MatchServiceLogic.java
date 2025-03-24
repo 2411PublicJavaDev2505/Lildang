@@ -74,4 +74,9 @@ public class MatchServiceLogic implements MatchService{
 		return mStore.matchFinish(session, match);
 	}
 
+	@Override
+	public int matchAccept(ApplyRequest match) {
+		return mStore.matchAccept(session, match);
+	}
+
 }

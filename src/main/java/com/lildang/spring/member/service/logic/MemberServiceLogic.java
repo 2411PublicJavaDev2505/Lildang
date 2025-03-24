@@ -129,5 +129,10 @@ public class MemberServiceLogic implements MemberService{
 		return rStore.selectReviewList(session, id);
 	}
 
+	@Override
+	public int reviewEmployeeUpdate(ReviewEmployeeRequest review) {
+		return rStore.reviewEmployeeUpdate(session, review);
+	}
+
 
 }

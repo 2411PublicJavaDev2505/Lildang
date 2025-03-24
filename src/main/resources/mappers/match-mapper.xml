@@ -71,4 +71,7 @@
 	<update id="matchFinish">
 		UPDATE MATCH SET JOB_END_TIME=SYSTIMESTAMP, JOB_END_YN='Y' WHERE EMPLOYEE_ID=#{employeeId} AND EMPLOY_NO=#{employNo}
 	</update>
+	<update id="matchAccept">
+		UPDATE MATCH SET EMPLOYEE_YN='Y' WHERE EMPLOYEE_ID=#{employeeId} AND EMPLOY_NO=#{employNo}
+	</update>
 </mapper>

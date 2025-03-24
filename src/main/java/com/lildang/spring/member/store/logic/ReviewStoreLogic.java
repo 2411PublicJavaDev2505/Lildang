@@ -22,4 +22,9 @@ public class ReviewStoreLogic implements ReviewStore{
 		return session.selectList("ReviewMapper.selectReviewList",id);
 	}
 
+	@Override
+	public int reviewEmployeeUpdate(SqlSession session, ReviewEmployeeRequest review) {
+		return session.update("ReviewMapper.reviewEmployeeUpdate",review);
+	}
+
 }

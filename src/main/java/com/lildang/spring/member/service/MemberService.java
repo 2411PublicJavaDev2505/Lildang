@@ -49,5 +49,7 @@ public interface MemberService {
 	int reviewEmployeeInsert(ReviewEmployeeRequest review);
 
 	List<ReviewMemberVO> selectReviewList(String id);
+
+	int reviewEmployeeUpdate(ReviewEmployeeRequest review);
 	
 }

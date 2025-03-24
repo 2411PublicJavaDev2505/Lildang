@@ -13,4 +13,6 @@ public interface ReviewStore {
 
 	List<ReviewMemberVO> selectReviewList(SqlSession session, String id);
 
+	int reviewEmployeeUpdate(SqlSession session, ReviewEmployeeRequest review);
+
 }

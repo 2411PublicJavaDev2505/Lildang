@@ -30,4 +30,6 @@ public interface MatchStore {
 
 	int matchFinish(SqlSession session, ApplyRequest match);
 
+	int matchAccept(SqlSession session, ApplyRequest match);
+
 }

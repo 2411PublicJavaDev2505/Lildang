@@ -124,4 +124,21 @@ public class MatchController {
 		}
 	}
 	
+	@GetMapping("match/accept")
+	public String matchAccept(Model model
+			,@ModelAttribute ApplyRequest match) {
+		try {
+			int result = mService.matchAccept(match);
+			if(result > 0) {
+				return "redirect:/member/edetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
 }

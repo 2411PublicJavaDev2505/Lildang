@@ -20,4 +20,8 @@
 	<select id="selectReviewList" resultMap="rsetToReviewMember">
 		SELECT * FROM REVIEW_MEMBER WHERE REVIEW_WRITER=#{id}
 	</select>
+	<update id="reviewEmployeeUpdate">
+		UPDATE REVIEW_MEMBER SET REVIEW_SCORE=#{reviewScore}, REVIEW_DETAIL=#{reviewDetail}, UPDATE_TIME=SYSTIMESTAMP 
+		WHERE REVIEW_WRITER=#{reviewWriter} AND EMPLOYEE_ID=#{employeeId} AND EMPLOY_NO=#{employNo}
+	</update>
 </mapper>

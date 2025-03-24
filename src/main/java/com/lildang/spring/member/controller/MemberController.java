@@ -371,4 +371,21 @@ public class MemberController {
 			return "common/error";
 		}
 	}
+	
+	@PostMapping("review/employee/update")
+	public String reviewEmployeeUpdate(Model model
+			,@ModelAttribute ReviewEmployeeRequest review) {
+		try {
+			int result = mService.reviewEmployeeUpdate(review);
+			if(result > 0){
+				return "redirect:/member/bdetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
 }

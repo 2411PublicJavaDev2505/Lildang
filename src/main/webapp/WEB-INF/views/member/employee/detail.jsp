@@ -28,8 +28,8 @@
 	                    나이: ${member.age } <br>
 	                    평점: 4.5/5.0
 	                </div>
-	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
-	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
+	                <button class="modifybtn" onclick="showUpdate();">수정하기</button>
+	                <button class="deletebtn" onclick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
 	                <div class="mycv">
@@ -53,12 +53,12 @@
 	                    	<c:if test="${size ne 0 }">
 	                    		<table>
 			                    	<c:forEach var="em" items="${emList }">
-			                    		<c:if test="${em.employerYn eq 'Y' }">
+			                    		<c:if test="${em.employerYn eq 'Y' && employeeYn eq 'N'}">
 			                    			<tr>
 			                    				<td>${em.employName }</td>
 			                    				<td> <button>채팅</button> </td>
-			                    				<td> <button>수락</button> </td>
-			                    				<td> <button>거절</button> </td>
+			                    				<td> <button onclick="accept('${em.employeeId}','${em.employNo }');">수락</button> </td>
+			                    				<td> <button onclick="reject('${em.employeeId}','${em.employNo }');">거절</button> </td>
 			                    			</tr>
 			                    		</c:if>
 			                    	</c:forEach>
@@ -105,6 +105,16 @@
     	const cvDelete = () => {
     		if(confirm("정말 삭제하시겠습니까?")){
     			location.replace("/member/cvdelete");
+    		}
+    	}
+    	const accept = (employeeId, employNo) => {
+    		if(confirm("정말 수락하시겠습니까?")){
+    			location.replace("/match/accept?employeeId="+employeeId+"&employNo="+employNo);
+    		}
+    	}
+    	const reject = (employeeId, employNo) => {
+    		if(confirm("정말 거절하시겠습니까?")){
+    			location.replace("/match/delete?employeeId="+employeeId+"&employNo="+employNo);
     		}
     	}
     </script>

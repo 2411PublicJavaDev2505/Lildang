@@ -63,4 +63,9 @@ public class MatchStoreLogic implements MatchStore{
 		return session.update("MatchMapper.matchFinish", match);
 	}
 
+	@Override
+	public int matchAccept(SqlSession session, ApplyRequest match) {
+		return session.update("MatchMapper.matchAccept",match);
+	}
+
 }

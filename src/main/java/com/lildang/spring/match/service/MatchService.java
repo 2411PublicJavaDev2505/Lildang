@@ -28,4 +28,6 @@ public interface MatchService {
 
 	int matchFinish(ApplyRequest match);
 
+	int matchAccept(ApplyRequest match);
+
 }
