@@ -100,7 +100,7 @@ public class EmployController {
 			return "common/error";
 		}	
 	}
-	@PostMapping("employ/insert")//공고글 작성 페이지
+	@PostMapping("employ/insert")//공고글 작성 페이지 (**03-24!15:00분부터 수정시작 첨부파일작성!전dto추가하고 오겠음!)
 	public String insertEmployList(Model model,
 			@ModelAttribute EmployInsertRequest employ) {
 		try {
