@@ -17,9 +17,6 @@
 		<typeAlias type="com.lildang.spring.member.domain.ReviewEmployVO" alias="ReviewEmployVO"/>
 		<typeAlias type="com.lildang.spring.member.domain.ReviewMemberVO" alias="ReviewMemberVO"/>
 		<typeAlias type="com.lildang.spring.report.domain.ReportVO" alias="ReportVO"/>
-		<typeAlias type="com.lildang.spring.report.domain.ReportChatVO" alias="ReportChatVO"/>
-		<typeAlias type="com.lildang.spring.report.domain.ReportEmployeeVO" alias="ReportEmployeeVO"/>
-		<typeAlias type="com.lildang.spring.report.domain.ReportEmployVO" alias="ReportEmployVO"/>
 		<typeAlias type="com.lildang.spring.match.domain.MatchVO" alias="MatchVO"/>
 		<typeAlias type="com.lildang.spring.employ.domain.EmployVO" alias="EmployVO"/>
 		<typeAlias type="com.lildang.spring.chat.domain.ChatVO" alias="ChatVO"/>
@@ -32,5 +29,9 @@
 		<mapper resource="mappers/match-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/report-mapper.xml"/>
+		<mapper resource="mappers/career-mapper.xml"/>
+		<mapper resource="mappers/license-mapper.xml"/>
+		<mapper resource="mappers/education-mapper.xml"/>
+		<mapper resource="mappers/desiredJob-mapper.xml"/>
 	</mappers>
 </configuration>

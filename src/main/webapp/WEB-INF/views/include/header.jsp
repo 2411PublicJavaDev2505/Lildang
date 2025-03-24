@@ -9,7 +9,7 @@
     	</a>
     </div>
     <div class="searchBar">
-    	<form action="">
+    	<form action="/employ/list">
 	        <input type="text" placeholder="검색어를 입력하세요.">
 	        <button>검색</button>
     	</form>
@@ -33,4 +33,6 @@
        		<a href="/member/logout">로그아웃</a>
         </c:if>
     </div>
+    <script type="text/javascript">
+    </script>
 </header>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
     <jsp:include page="/WEB-INF/views/include/header.jsp" />
     <main>
         <h1>신고 게시글 관리</h1>
-            <div id="">
+            <div class="main-container">
                 <label for="">검색어</label>
                     <select name="" id="">
                         <option value="">전체</option>
@@ -40,7 +41,7 @@
                     <button type="submit">검색하기</button>
                     <button type="reset">초기화</button>
                 </div>
-            </div>  
+            </div>
     </main>
     <jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>

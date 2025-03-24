@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.member.store.MemberStore;
@@ -16,7 +17,9 @@ public class MemberStoreLogic implements MemberStore{
 	//로그인!
 	@Override
 	public MemberVO selectOneByLogin(SqlSession session, LoginRequest member) {
+		System.out.println(member);
 		MemberVO result = session.selectOne("MemberMapper.selectOneByLogin",member);
+		System.out.println(result);
 		return result;
 	}
 
@@ -41,6 +44,21 @@ public class MemberStoreLogic implements MemberStore{
 	public int deleteMember(SqlSession session, String id) {
 		int result = session.delete("MemberMapper.deleteMember",id);
 		return result;
+	}
+
+	@Override
+	public int cvInsert(SqlSession session, CvInsertRequest cv) {
+		return session.update("MemberMapper.cvInsert",cv);
+	}
+
+	@Override
+	public int cvDelete(SqlSession session, String id) {
+		return session.update("MemberMapper.cvDelete",id);
+	}
+
+	@Override
+	public List<MemberVO> selectMemberList(SqlSession session) {
+		return session.selectList("MemberMapper.selectMemberList");
 	}
 
 }

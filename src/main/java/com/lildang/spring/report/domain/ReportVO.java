@@ -9,8 +9,62 @@ public class ReportVO {
 	private Date checkDate;
 	private String reportDetail;
 	private String reportWriterId;
+	private String reportReason;
+	private int reportEmployNo;
+	private int reportChatNo;
+	private String reportChatWriterId;
+	private String reportTarget;
+	private String reportEmployeeId;
 	
 	public ReportVO() {}
+	
+	public String getReportReason() {
+		return reportReason;
+	}
+
+	public void setReportReason(String reportReason) {
+		this.reportReason = reportReason;
+	}
+
+	public int getReportEmployNo() {
+		return reportEmployNo;
+	}
+
+	public void setReportEmployNo(int reportEmployNo) {
+		this.reportEmployNo = reportEmployNo;
+	}
+
+	public int getReportChatNo() {
+		return reportChatNo;
+	}
+
+	public void setReportChatNo(int reportChatNo) {
+		this.reportChatNo = reportChatNo;
+	}
+
+	public String getReportChatWriterId() {
+		return reportChatWriterId;
+	}
+
+	public void setReportChatWriterId(String reportChatWriterId) {
+		this.reportChatWriterId = reportChatWriterId;
+	}
+
+	public String getReportTarget() {
+		return reportTarget;
+	}
+
+	public void setReportTarget(String reportTarget) {
+		this.reportTarget = reportTarget;
+	}
+
+	public String getReportEmployeeId() {
+		return reportEmployeeId;
+	}
+
+	public void setReportEmployeeId(String reportEmployeeId) {
+		this.reportEmployeeId = reportEmployeeId;
+	}
 
 	public int getReportNo() {
 		return reportNo;
@@ -63,8 +117,13 @@ public class ReportVO {
 	@Override
 	public String toString() {
 		return "ReportVO [reportNo=" + reportNo + ", reportDate=" + reportDate + ", checkYN=" + checkYN + ", checkDate="
-				+ checkDate + ", reportDetail=" + reportDetail + ", reportWriterId=" + reportWriterId + "]";
+				+ checkDate + ", reportDetail=" + reportDetail + ", reportWriterId=" + reportWriterId
+				+ ", reportReason=" + reportReason + ", reportEmployNo=" + reportEmployNo + ", reportChatNo="
+				+ reportChatNo + ", reportChatWriterId=" + reportChatWriterId + ", reportTarget=" + reportTarget
+				+ ", reportEmployeeId=" + reportEmployeeId + "]";
 	}
+
+	
 	
 	
 }
