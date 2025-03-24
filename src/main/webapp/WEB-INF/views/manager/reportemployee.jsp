@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,6 +18,7 @@
                 <h1>신고당한 알바생</h1>
                 <table class="emp">
                     <tr>
+                        <!-- 3/24일 11:40수정시작!했는데다시 돌려놓음! -->
                         <td class="empinf">아이디</td>
                         <td class="empdata">ALBA02</td>
                     </tr>

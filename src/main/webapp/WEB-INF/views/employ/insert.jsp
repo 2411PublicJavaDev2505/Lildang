@@ -15,7 +15,9 @@
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<div class="main-content">
 		<main>
-	    <form action="/employ/insert" method="post">
+	    <!-- 아래도 수정함! 원래코드는 주석처리!-->
+	    <!-- <form action="/employ/insert" method="post"> -->
+	    	<form action="/employ/insert" method="post" enctype="multipart/form-data">
 	    	<input type="hidden" value="${sessionScope.id }" name="writerId">
 	        <div>
 	            <div class="title">
@@ -90,7 +92,9 @@
 	                    </select>
 	                </div>
 	                <div class="photo">
-	                    업체사진<input type="text" name="employFileName">
+	                <!-- 03/2414:11분부터수정시작 첨부파일 넣기!?안되면다시 돌려넣기! -->
+	                	<!--업체사진<input type="text" name="employFileName">  -->
+	                    업체사진:<input type="file" name="employFileName">
 	                </div>
 	                <div class="detail">
 	                    상세모집내용<br> 

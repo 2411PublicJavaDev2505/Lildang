@@ -7,6 +7,7 @@
 	<title>에러페이지</title>
 </head>
 <body>
-	
+	<h1>서비스 실패하셨습니다</h1>
+	<h2>${errorMsg }</h2>
 </body>
 </html>

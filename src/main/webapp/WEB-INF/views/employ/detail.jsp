@@ -9,10 +9,30 @@
 	<link rel="stylesheet" href="../resources/css/include/header.css">
 	<link rel="stylesheet" href="../resources/css/include/footer.css">
 	<link rel="stylesheet" href="../resources/css/employ/detail.css">
+	<link rel="stylesheet" href="../resources/css/common/breport.css">
 	<title>일당해라-구인글 상세</title>
 </head>
 <body>
 	<div id="container">
+	<div class="report">
+					<div class= "report-body">
+						<h1>사장님 신고하기</h1>
+						<div class="report-menu">
+						<form action="/report/binsert" method="post">
+							<input type="hidden" name="reportEmployNo" value="${result.employNo}">
+							<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
+							<div class="report-content">
+								<input type="text" placeholder="사유를 입력해주세요" name='reportReason'> 
+							</div>
+							<div class="report-area">
+								<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>
+							</div>
+							<button>신고하기</button>
+							<button type="button" onclick="reportBackToPage();">뒤로가기</button>					
+						</form>
+						</div>
+					</div>
+	</div>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<main>
 			<div class="main-container">
@@ -117,9 +137,7 @@
 					</div>
 				</div>
 				<div class="seventh">
-					<div>
-						<button class="left-btn">신고하기</button>
-					</div>
+						<button class="left-btn" onClick="showReport();">신고하기</button>
 					<div>
 						<c:if test="${result.writerId eq sessionScope.id }">
 							<button class="center-btn" onclick="deleteEmploy(${result.employNo});">삭제하기</button>
@@ -132,7 +150,7 @@
 						<button class="center-btn">거절하기</button>
 					</div>
 					<div>
-						<button class="right-btn"><a href="/employ/list">목록으로</a></button>
+						<button class="right-btn" onClick="location.href='/employ/list'">목록으로</button>
 					</div>
 				</div>
 			</div>
@@ -140,6 +158,12 @@
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 	<script type="text/javascript">
+		const showReport = () => {
+			document.querySelector(".report").style.display = "flex";
+		}
+		const reportBackToPage = () => {
+			document.querySelector(".report").style.display = "none";
+		}
 		const deleteEmploy = (employNo) => {
 			if(confirm("정말 삭제하시겠습니까?")){
 				location.replace("/employ/delete?employNo="+employNo);

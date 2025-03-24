@@ -16,9 +16,9 @@
     <div id="container">
     <jsp:include page="/WEB-INF/views/include/header.jsp" />
     	<main>
+	        <h1>마이페이지</h1>
     		<div class="main-container">
 	            <div id="left-main">
-		        	<h1>마이페이지</h1>
 	                <img src="../resources/image/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
@@ -28,7 +28,7 @@
 	                    나이: ${member.age } <br>
 	                    평점: 4.5/5.0
 	                </div>
-	                <button class="modifybtn">수정하기</button>
+	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
@@ -68,16 +68,19 @@
 	                </div>
 	                <div class="mywork">
 	                    <p class="worktitle">내가 일했던 곳</p>
-	                    <button class="reviewbtn">후기 작성</button>
 	                    <div class="workplace">
-	                        일당해라 개발자팀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        6개월&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        24. 11. 05 ~ 25. 05. 02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        일당함
-	                        컴백현 개발자팀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        24. 11. 05 ~ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        일당중
+	                    	<c:forEach var="em" items="${emList }">
+		                        ${em.employName }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                        6개월&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                        ${em.jobStartTime } ~ ${em.jobEndTime }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                        <c:if test="${em.jobEndYn eq 'Y' }">
+		                        	알바완료
+				                    <button class="reviewbtn">후기 작성</button>
+		                        </c:if>
+		                        <c:if test="${em.jobEndYn ne 'Y' }">
+		                        	알바중
+		                        </c:if>
+	                    	</c:forEach>
 	                    </div>
 	                </div>
 	                <div class="mypick">
@@ -90,6 +93,9 @@
     	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
     <script type="text/javascript">
+    	const showUpdate = () => {
+    		location.href = "/member/update"
+    	}
     	const showDelete = () => {
     		location.href = "/member/delete"
     	}

@@ -35,6 +35,25 @@
 				</div>			
 			</div>
 		</div>
+		<div class="report">
+			<div class="report-body">
+				<h1>알바생 신고하기</h1>
+				<div class="report-menu">
+					<form action="/report/einsert" method="post">
+						<input type="hidden" name="reportEmployeeId" value="${member.id }">
+						<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
+						<div class="report-content">
+							<input type="text" placeholder="사유를 입력해주세요" name="reportReason">						
+						</div>
+						<div class="report-area">
+							<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>						
+						</div>
+						<button>신고하기</button>
+						<button type="button" onclick="reportBackToPage();">뒤로가기</button>					
+					</form>
+				</div>
+			</div>
+		</div>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
 	        <div class="cv-container">
@@ -68,6 +87,9 @@
 			            입학 : ${edu.entranceDate }
 			            졸업 : ${edu.graduateDate }
 				    </c:forEach>
+				    <div class="reportBtn">
+				    	<button onClick="showReport();">신고하기</button>				    
+				    </div>
 	            </div>
 	            <div class="content-area">
 	                <div class="title-container">
@@ -156,6 +178,12 @@
 	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 	<script type="text/javascript">
+		const showReport = () => {
+			document.querySelector(".report").style.display = "flex";
+		}
+		const reportBackToPage = () => {
+			document.querySelector(".report").style.display = "none";
+		}
 		const openModal = () => {
 			document.querySelector(".modal").style.display = "flex";
 		}

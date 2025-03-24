@@ -24,4 +24,10 @@ public interface MatchStore {
 
 	List<MatchJoinRequest> selectEEList(SqlSession session, String id);
 
+	int startJob(SqlSession session, ApplyRequest match);
+
+	int matchDelete(SqlSession session, ApplyRequest match);
+
+	int matchFinish(SqlSession session, ApplyRequest match);
+
 }

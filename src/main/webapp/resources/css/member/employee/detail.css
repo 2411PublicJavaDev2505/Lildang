@@ -52,6 +52,7 @@ main h1{
 	text-align: center;           
     width: 1000px;
     margin-left: 100px;
+    margin-bottom : 100px;
 }
 .cvtitle{
     text-align: left;
@@ -59,6 +60,7 @@ main h1{
     font-size: 25px;
     font-weight: bolder;
     width: 200px;
+    margin-left : 10px;
 }
 .cvbtn1{
     border-radius: 15px;
@@ -69,6 +71,7 @@ main h1{
     font-weight: bolder;
     margin: 0px 0px 5px 450px;
     cursor:pointer;
+    
 }
 .cvbtn{
     border-radius: 15px;
@@ -86,8 +89,8 @@ main h1{
     height: 100px;
     border-radius: 10px;
     font-size: 30px;
-    text-align: left;
-    padding-left: 20px;   
+    padding: 100px 0px 0px 0px;
+    margin-top : 15px;
 }
 .scouttitle{
     text-align: left;

@@ -22,4 +22,10 @@ public interface MatchService {
 
 	List<MatchJoinRequest> selectEEList(String id);
 
+	int startJob(ApplyRequest match);
+
+	int matchDelete(ApplyRequest match);
+
+	int matchFinish(ApplyRequest match);
+
 }

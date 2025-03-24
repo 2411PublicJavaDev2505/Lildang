@@ -71,4 +71,57 @@ public class MatchController {
 			return "common/error";
 		}
 	}
+	
+	@GetMapping("/match/start")
+	public String startJob(Model model
+			,@ModelAttribute ApplyRequest match
+			,HttpSession session) {
+		try {
+			int result = mService.startJob(match);
+			if(result > 0) {
+				return "redirect:/member/bdetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("match/delete")
+	public String matchDelete(Model model
+			,@ModelAttribute ApplyRequest match) {
+		try {
+			int result = mService.matchDelete(match);
+			if(result > 0) {
+				return "redirect:/member/bdetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("match/finish")
+	public String matchFinish(Model model
+			,@ModelAttribute ApplyRequest match) {
+		try {
+			int result = mService.matchFinish(match);
+			if(result > 0) {
+				return "redirect:/member/bdetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
 }
