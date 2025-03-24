@@ -51,8 +51,6 @@ public class EmployServiceLogic implements EmployService{
 		return result;
 	}
 
-
-
 	@Override
 	public List<EmployVO> selectListById(String id) {
 		List<EmployVO> eList = eStore.selectListById(session, id);

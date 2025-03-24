@@ -7,14 +7,15 @@ main {
 
 .main-top{
 	margin: 30px 0 30px 0;
-	background-color: #a7eecf;
+	background-color: #1ed483;
 	text-align: center;
 	padding: 50px;
-	border-radius: 10px;
+	border-radius: 25px;
 }
 
 .main-top p{
 	font-size: 50px;
+	font-weight: bolder;
 }
 
 .top-search select {
@@ -23,6 +24,7 @@ main {
 	border-radius: 10px;
 	font-size: 25px;
 	margin-right: 50px;
+	cursor:pointer;
 }
 
 .top-search button {
@@ -33,10 +35,11 @@ main {
 	color: #fff;
 	border: none;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .main-bottom{
-	margin-bottom: 30px;
+	margin: 30px;
 }
 
 .bottom-select{
@@ -50,6 +53,8 @@ main {
 	width: 130px;
 	height: 40px;
 	font-size: 20px;
+	border-radius: 10px;
+	
 }
 
 .bottom-content{
@@ -57,16 +62,27 @@ main {
 	gap: 30px;
 	justify-content: center;
 	gap:100px;
+	flex-direction: row;
+	flex-wrap: wrap;
+    align-content: center;
+}
+
+.profile-name{
+	font-weight:bolder;
+	text-decoration-line: none;
+	color: #222;
 }
 
 .bottom-profile{
 	background-color: #d9d9d9;
-	width: 250px;
-	height: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-size: 25px;
-	border-radius: 10px;
+	border-radius: 15px;
+	font-size: 22px;
+}
+
+.search-btn{
+	cursor: pointer;
+}
+.search-btn:hover{
+	background-color: #fff;
+	color: #256b4c;
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LicenseMapper">
+	<resultMap type="LicenseVO" id="rsetToLicense">
+		<id property="licenseNo" column="LICENSE_NO"/>
+		<result property="institution" column="INSTITUTION"/>
+		<result property="licenseName" column="LICENSE_NAME"/>
+		<result property="getDate" column="GET_DATE"/>
+		<result property="id" column="ID"/>
+	</resultMap>
+	<insert id="licenseInsert">
+		INSERT INTO LICENSE VALUES(SEQ_LICENSE_NO.NEXTVAL,#{institution},#{licenseName},#{getDate},#{id})
+	</insert>
+	<select id="selectLicenseById" resultMap="rsetToLicense">
+		SELECT * FROM LICENSE WHERE ID=#{id}
+	</select>
+	<delete id="licenseDelete">
+		DELETE FROM LICENSE WHERE ID=#{id}
+	</delete>
+</mapper>

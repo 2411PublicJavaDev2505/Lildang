@@ -11,6 +11,7 @@ public class MatchVO {
 	private Timestamp jobStartTime;
 	private Timestamp jobEndTime;
 	private String jobEndYn;
+	private String jobStartYn;
 	
 	public MatchVO() {}
 
@@ -46,12 +47,15 @@ public class MatchVO {
 		return jobEndYn;
 	}
 
+	public String getJobStartYn() {
+		return jobStartYn;
+	}
+
 	@Override
 	public String toString() {
 		return "MatchVO [matchNo=" + matchNo + ", employeeId=" + employeeId + ", employNo=" + employNo + ", employeeYn="
 				+ employeeYn + ", employerYn=" + employerYn + ", jobStartTime=" + jobStartTime + ", jobEndTime="
-				+ jobEndTime + ", jobEndYn=" + jobEndYn + "]";
+				+ jobEndTime + ", jobEndYn=" + jobEndYn + ", jobStartYn=" + jobStartYn + "]";
 	}
-	
 	
 }

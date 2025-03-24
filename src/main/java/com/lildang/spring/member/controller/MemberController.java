@@ -1,6 +1,7 @@
 package com.lildang.spring.member.controller;
 
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
@@ -19,22 +19,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.match.service.MatchService;
+import com.lildang.spring.member.controller.dto.CareerInsertRequest;
+import com.lildang.spring.member.controller.dto.CvInsertRequest;
+import com.lildang.spring.member.controller.dto.EducationInsertRequest;
+import com.lildang.spring.member.controller.dto.LicenseInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
+import com.lildang.spring.member.controller.dto.MatchJoinRequest;
+import com.lildang.spring.member.domain.DesiredJobVO;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.member.service.MemberService;
-
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 public class MemberController {
 
 	private MemberService mService;
 	private EmployService eService;
+	private MatchService matchService;
 	
 	@Autowired
-	public MemberController(MemberService mService, EmployService eService) {
+	public MemberController(MemberService mService, EmployService eService, MatchService matchService) {
 		this.mService = mService;
 		this.eService = eService;
+		this.matchService = matchService;
 	}
 	
 
@@ -193,6 +200,10 @@ public class MemberController {
 			String id = (String)session.getAttribute("id");
 			List<EmployVO> eList = eService.selectListById(id);
 			MemberVO member = mService.selectOneById(id);
+			
+			List<MatchJoinRequest> emList = matchService.selectEList(id);
+			model.addAttribute("emList",emList);
+			
 			model.addAttribute("member", member);
 			model.addAttribute("eList", eList);
 			return "member/boss/detail";
@@ -209,6 +220,19 @@ public class MemberController {
 		try {
 			String id = (String)session.getAttribute("id");
 			MemberVO member = mService.selectOneById(id);
+			
+			List<MatchJoinRequest> emList = matchService.selectEEList(id);
+			model.addAttribute("emList",emList);
+			
+			int size = 0;
+			for(int i=0;i<emList.size();i++) {
+				System.out.println(emList.get(i).getEmployerYn());
+				if(emList.get(i).getEmployerYn().equals("Y"))
+					size++;
+			}
+			System.out.println(size);
+			model.addAttribute("size",size);
+			
 			model.addAttribute("member", member);
 			return "member/employee/detail";
 		} catch (Exception e) {
@@ -221,13 +245,110 @@ public class MemberController {
 	}
 	
 	@GetMapping("member/cvinsert")
-	public String showCvInsert() {
-		return "member/cv/insert";
+	public String showCvInsert(Model model
+			,HttpSession session) {
+		
+		try {
+			String id = (String)session.getAttribute("id");
+			MemberVO member = mService.selectOneById(id);
+			if(member != null) {
+				model.addAttribute("member",member);
+				return "member/cv/insert";
+			}else {
+				return "common/error";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+		
+	}
+	
+	@PostMapping("member/cvinsert")
+	public String cvInsert(Model model
+			,@RequestParam("schoolName") List<String> schoolNames
+			,@RequestParam("entranceDate") List<Date> entranceDates
+			,@RequestParam("graduateDate") List<Date> graduateDates
+			,@RequestParam("comanyName") List<String> comanyNames
+			,@RequestParam("workingPeriod") List<String> workingPeriods
+			,@RequestParam("position") List<String> positions
+			,@RequestParam("work") List<String> works
+			,@RequestParam("institution") List<String> institutions
+			,@RequestParam("licenseName") List<String> licenseNames
+			,@RequestParam("getDate") List<Date> getDates
+			,@RequestParam("jobNo") List<Integer> jobNos
+			,@ModelAttribute CvInsertRequest cv
+			) {
+		try {
+			for(int i=0;i<schoolNames.size();i++) {
+				cv.geteList().add(new EducationInsertRequest(schoolNames.get(i), entranceDates.get(i), graduateDates.get(i), cv.getId()));
+			}
+			for(int i=0;i<comanyNames.size(); i++) {
+				cv.getcList().add(new CareerInsertRequest(comanyNames.get(i), workingPeriods.get(i), positions.get(i), works.get(i), cv.getId()));
+			}
+			for(int i=0;i<institutions.size();i++) {
+				cv.getlList().add(new LicenseInsertRequest(institutions.get(i), licenseNames.get(i), getDates.get(i), cv.getId()));
+			}
+			for(int i=0;i<jobNos.size();i++) {
+				cv.getjList().add(new DesiredJobVO(jobNos.get(i), cv.getId()));
+			}
+			int check = schoolNames.size() + comanyNames.size() + institutions.size() + jobNos.size() +1;
+			int result = mService.cvInsert(cv);
+			if(result < check) {
+				return "common/error";
+			}else {
+				return "redirect:/member/edetail";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("member/cvdetail")
+	public String cvDetail(Model model, HttpSession session) {
+		
+		try {
+			String id = (String)session.getAttribute("id");
+			MemberVO member = mService.selectCvById(id);
+			if(member != null) {
+				model.addAttribute("member",member);
+				return "member/cv/detail";
+			}else {
+				return "common/error";				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+		
 	}
 	
 	@GetMapping("member/cvupdate")
 	public String showCvUpdate() {
 		return "member/cv/update";
 	}
+	
+	@GetMapping("member/cvdelete")
+	public String cvDelete(Model model, HttpSession session) {
+		try {
+			String id = (String)session.getAttribute("id");
+			int result = mService.cvDelete(id);
+			if(result > 0){
+				return "redirect:/member/edetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		} 
+	}
+		
 	
 }

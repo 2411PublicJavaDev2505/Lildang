@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
@@ -28,10 +27,10 @@ public class EmployController {
 		this.eService = eService;
 	}
 
-	
 	@GetMapping("employ/detail")//공고글 상세
 	public String showEmployDetail(Model model,
-			@RequestParam("employNo") int employNo) {	
+			@RequestParam("employNo") int employNo
+			,HttpSession session) {	
 		try {
 			EmployVO result = eService.selectOneDetail(employNo);
 			if(result != null) {
@@ -71,7 +70,7 @@ public class EmployController {
 		try {
 			int result = eService.updateEmploy(employ);
 			if(result >0) {
-				return "redirect:/employ/detail";
+				return "redirect:/employ/detail?employNo="+employ.getEmployNo();
 			}else {
 				return "common/error";
 			}

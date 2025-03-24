@@ -17,7 +17,7 @@ public interface EmployService {
 
 	EmployVO selectOneDetail(int employNo);//공고글 상세페이지
 
-	int deleteEmploy(int employNo); //공고글 삭제
+	int deleteEmploy(int employNo);
 
 	int updateEmploy(EmployUpdateRequest employ);//공고글 수정
 

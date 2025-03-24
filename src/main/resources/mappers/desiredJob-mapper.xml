@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DesiredJobMapper">
+	<resultMap type="DesiredJobVO" id="rsetToDesiredJob">
+		<id property="jobNo" column="JOB_NO"/>
+		<id property="id" column="ID"/>
+	</resultMap>
+	<insert id="desiredJobInsert">
+		INSERT INTO DESIRED_JOB VALUES(#{jobNo},#{id})
+	</insert>
+	<select id="selectDesiredJobById" resultMap="rsetToDesiredJob">
+		SELECT * FROM DESIRED_JOB WHERE ID=#{id}
+	</select>
+	<delete id="desiredJobDelete">
+		DELETE FROM DESIRED_JOB WHERE ID=#{id}
+	</delete>
+</mapper>

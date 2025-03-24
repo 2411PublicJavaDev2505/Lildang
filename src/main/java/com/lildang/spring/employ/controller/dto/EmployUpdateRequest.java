@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class EmployUpdateRequest {	
 	
+	private int employNo;
 	private String employName;
 	private Date recruitStartDate;
 	private Date recruitEndDate;
@@ -23,6 +24,43 @@ public class EmployUpdateRequest {
 	private String writerId;
 	private int jobNo;
 	
+	public EmployUpdateRequest() {}
+	
+	public EmployUpdateRequest(int employNo, String employName, Date recruitStartDate, Date recruitEndDate,
+			int recruitNumber, String education, String workplaceName, String workplaceAddress, int salary,
+			String workingPeriod, String workingStartTime, String workingEndTime, String workingDay,
+			String employDetail, String employFileName, String employFileRename, String employFilePath, String writerId,
+			int jobNo) {
+		super();
+		this.employNo = employNo;
+		this.employName = employName;
+		this.recruitStartDate = recruitStartDate;
+		this.recruitEndDate = recruitEndDate;
+		this.recruitNumber = recruitNumber;
+		this.education = education;
+		this.workplaceName = workplaceName;
+		this.workplaceAddress = workplaceAddress;
+		this.salary = salary;
+		this.workingPeriod = workingPeriod;
+		this.workingStartTime = workingStartTime;
+		this.workingEndTime = workingEndTime;
+		this.workingDay = workingDay;
+		this.employDetail = employDetail;
+		this.employFileName = employFileName;
+		this.employFileRename = employFileRename;
+		this.employFilePath = employFilePath;
+		this.writerId = writerId;
+		this.jobNo = jobNo;
+	}
+
+	public int getEmployNo() {
+		return employNo;
+	}
+
+	public void setEmployNo(int employNo) {
+		this.employNo = employNo;
+	}
+
 	public EmployUpdateRequest(String employName, Date recruitStartDate, Date recruitEndDate, int recruitNumber,
 			String education, String workplaceAddress, String workplaceName, int salary, String workingPeriod,
 			String workingStartTime, String workingEndTime, String workingDay, String employDetail,
@@ -191,16 +229,19 @@ public class EmployUpdateRequest {
 	public void setJobNo(int jobNo) {
 		this.jobNo = jobNo;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "EmployInsertRequest [employName=" + employName + ", recruitStartDate=" + recruitStartDate
-				+ ", recruitEndDate=" + recruitEndDate + ", recruitNumber=" + recruitNumber + ", education=" + education
-				+ ", workplaceAddress=" + workplaceAddress + ", workplaceName=" + workplaceName + ", salary=" + salary
-				+ ", workingPeriod=" + workingPeriod + ", workingStartTime=" + workingStartTime + ", workingEndTime="
-				+ workingEndTime + ", workingDay=" + workingDay + ", employDetail=" + employDetail + ", employFileName="
-				+ employFileName + ", employFileRename=" + employFileRename + ", employFilePath=" + employFilePath
-				+ ", writerId=" + writerId + ", jobNo=" + jobNo + "]";
-	}		
+		return "EmployUpdateRequest [employNo=" + employNo + ", employName=" + employName + ", recruitStartDate="
+				+ recruitStartDate + ", recruitEndDate=" + recruitEndDate + ", recruitNumber=" + recruitNumber
+				+ ", education=" + education + ", workplaceName=" + workplaceName + ", workplaceAddress="
+				+ workplaceAddress + ", salary=" + salary + ", workingPeriod=" + workingPeriod + ", workingStartTime="
+				+ workingStartTime + ", workingEndTime=" + workingEndTime + ", workingDay=" + workingDay
+				+ ", employDetail=" + employDetail + ", employFileName=" + employFileName + ", employFileRename="
+				+ employFileRename + ", employFilePath=" + employFilePath + ", writerId=" + writerId + ", jobNo="
+				+ jobNo + "]";
+	}
+	
+	
 	
 }

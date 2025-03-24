@@ -15,7 +15,7 @@
 		<result property="birth" column="BIRTH" />
 		<result property="outYn" column="OUT_YN" />
 		<result property="outDate" column="OUT_DATE" />
-		<result property="profileFilename" column="PROFILE_FILE_NAME" />
+		<result property="profileFileName" column="PROFILE_FILE_NAME" />
 		<result property="profileFileRename" column="PROFILE_FILE_RENAME" />
 		<result property="profileFilePath" column="PROFILE_FILE_PATH" />
 		<result property="memberComment" column="MEMBER_COMMENT" />
@@ -23,6 +23,7 @@
 		<result property="cvWriteTime" column="CV_WRITE_TIME" />
 		<result property="cvUpdateTime" column="CV_UPDATE_TIME" />
 		<result property="role" column="ROLE"/>
+		<result property="cvYn" column="CV_YN"/>
 	</resultMap>
 	<select id="selectOneByLogin" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ID = #{id} AND PW = #{pw}
@@ -43,4 +44,17 @@
 	<delete id="deleteMember">
 		DELETE FROM MEMBER WHERE ID = #{id}
 	</delete>
+	<update id="cvInsert">
+		UPDATE MEMBER SET PROFILE_FILE_NAME=#{profileFileName}, PROFILE_FILE_RENAME=#{profileFileRename}, PROFILE_FILE_PATH=#{profileFilePath}
+		,MEMBER_COMMENT=#{memberComment},INTRODUCTION=#{introduction}
+		,CV_WRITE_TIME=SYSTIMESTAMP,CV_UPDATE_TIME=SYSTIMESTAMP, CV_YN='Y' WHERE ID=#{id}
+	</update>
+	<update id="cvDelete">
+		UPDATE MEMBER SET PROFILE_FILE_NAME=NULL, PROFILE_FILE_RENAME=NULL, PROFILE_FILE_PATH=NULL
+		,MEMBER_COMMENT=NULL,INTRODUCTION=NULL
+		,CV_WRITE_TIME=NULL,CV_UPDATE_TIME=NULL, CV_YN='N' WHERE ID=#{id}
+	</update>
+	<select id="selectMemberList" resultMap="rsetToMember">
+		SELECT * FROM MEMBER WHERE ROLE='EMPLOYEE'
+	</select>
 </mapper>

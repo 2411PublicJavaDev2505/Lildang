@@ -41,7 +41,7 @@
 	                </div>
 	                <div class="recruitDate">
 	                    <label for="recruitDate">모집기간</label>
-	                    <input type="date" name="recruitStartDate" id="recruitStartDate">~<input type="date" name="recruitEndDate" id="recruitEndDate">
+	                    <input type="date" name="recruitStartDate" class="recruitStartDate">~<input type="date" name="recruitEndDate" class="recruitEndDate">
 	                </div>
 	                <div class="educationNo">
 	                    <label for="educationNo">학력</label>
