@@ -24,6 +24,9 @@
 	<select id="selectOneByDetail" resultMap="rsetToReport">
 		SELECT * FROM REPORT WHERE REPORT_DETAIL = #{reportDetail}  
 	</select>
+	<select id="selectOneByNo" resultMap="rsetToReport">
+		SELECT * FROM REPORT WHERE REPORT_NO = #{reportNo}
+	</select>
 	<insert id="eInsert">
 		INSERT INTO REPORT VALUES(SEQ_REPORT_NO.NEXTVAL, DEFAULT, DEFAULT
 		, NULL, #{reportDetail},#{reportWriterId},#{reportReason}
@@ -34,4 +37,5 @@
 		,NULL, #{reportDetail},#{reportWriterId},#{reportReason}
 		,#{reportEmployNo},NULL,NULL,'EMPLOY',NULL)
 	</insert>
+	
 </mapper>

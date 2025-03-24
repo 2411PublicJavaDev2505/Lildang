@@ -20,7 +20,7 @@ public class ReportStoreLogic implements ReportStore{
 	//관리자 신고리스트
 	@Override
 	public List<ReportVO> selectList(SqlSession session) {
-		List<ReportVO> rList = session.selectList("ReportMapper.reportList");
+		List<ReportVO> rList = session.selectList("ReportMapper.reportList",session);
 		return rList;
 	}
 
@@ -42,6 +42,12 @@ public class ReportStoreLogic implements ReportStore{
 	public int reportBInsert(SqlSession session, ReportEmploy report) {
 		int result = session.insert("ReportMapper.bInsert", report);
 		return result;
+	}
+	// 신고 상세페이지
+	@Override
+	public ReportVO selectOneByNo(SqlSession session, int reportNo) {
+		ReportVO report = session.selectOne("ReportMapper.selectOneByNo", reportNo);
+		return report;
 	}
 
 }

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+.main-container {
+    margin: 30px 30px 150px 30px;
+}
+.search-content {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.search-content label {
+    font-size: 25px;
+}
+.search-content select {
+    padding: 5px;
+    border-radius: 5px;
+}
+.date-content {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.date-content label {
+    font-size: 25px;
+}
+.date-content select {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+}
+.date-content input {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px;
+}
+.hadle-content {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.hadle-content label{
+    font-size: 25px;
+}
+table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 100%;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+th,td {
+	border: 1px solid rgb(110, 102, 102);
+	padding: 10px;
+	margin: auto;
+	border-bottom: 1px solid black;
+}
+.name {
+	width:  10%;
+	border-right: none;
+	border-top: none;
+}
+.name1 {
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+.name2 {
+	border-top: none;
+	border-right: none;
+}                     
+.btn {
+    display: flex;
+    justify-content: center; 
+}
+.btn button {
+    padding: 15px 25px;
+    margin: 20px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.search-btn button{
+    background-color: #b2f2bb;
+}

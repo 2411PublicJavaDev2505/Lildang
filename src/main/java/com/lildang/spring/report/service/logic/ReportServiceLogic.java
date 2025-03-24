@@ -54,5 +54,11 @@ public class ReportServiceLogic implements ReportService{
 		int result = rStore.reportBInsert(session, report);
 		return result;
 	}
+	// 신고 상세페이지 보기
+	@Override
+	public ReportVO selectOneByNo(int reportNo) {
+		ReportVO report = rStore.selectOneByNo(session, reportNo);
+		return report;
+	}
 
 }
