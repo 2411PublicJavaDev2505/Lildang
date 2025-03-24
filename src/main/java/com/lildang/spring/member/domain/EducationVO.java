@@ -8,7 +8,6 @@ public class EducationVO {
 	private String schoolName;
 	private Date entranceDate;
 	private Date graduateDate;
-	private String state;
 	private String id;
 	
 	public EducationVO() {}
@@ -25,17 +24,14 @@ public class EducationVO {
 	public Date getGraduateDate() {
 		return graduateDate;
 	}
-	public String getState() {
-		return state;
-	}
 	public String getId() {
 		return id;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "EducationVO [educationNo=" + educationNo + ", schoolName=" + schoolName + ", entranceDate="
-				+ entranceDate + ", graduateDate=" + graduateDate + ", state=" + state + ", id=" + id + "]";
+				+ entranceDate + ", graduateDate=" + graduateDate + ", id=" + id + "]";
 	}
 	
 }

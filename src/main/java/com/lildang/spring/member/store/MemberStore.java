@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
 
@@ -35,5 +36,11 @@ public interface MemberStore {
 	 * @return
 	 */
 	int deleteMember(SqlSession session, String id);
+
+	int cvInsert(SqlSession session, CvInsertRequest cv);
+
+	int cvDelete(SqlSession session, String id);
+
+	List<MemberVO> selectMemberList(SqlSession session);
 
 }

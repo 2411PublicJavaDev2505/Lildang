@@ -27,10 +27,10 @@ public class EmployController {
 		this.eService = eService;
 	}
 
-	
 	@GetMapping("employ/detail")//공고글 상세
 	public String showEmployDetail(Model model,
-			@RequestParam("employNo") int employNo) {	
+			@RequestParam("employNo") int employNo
+			,HttpSession session) {	
 		try {
 			EmployVO result = eService.selectOneDetail(employNo);
 			if(result != null) {
@@ -100,7 +100,7 @@ public class EmployController {
 			return "common/error";
 		}	
 	}
-	@PostMapping("employ/insert")//공고글 작성 페이지
+	@PostMapping("employ/insert")//공고글 작성 페이지 (**03-24!15:00분부터 수정시작 첨부파일작성!전dto추가하고 오겠음!)
 	public String insertEmployList(Model model,
 			@ModelAttribute EmployInsertRequest employ) {
 		try {

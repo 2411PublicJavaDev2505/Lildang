@@ -70,8 +70,6 @@
 						</div>
 						<div class="fourth-right">
 							<p>
-								
-								
 								<b>모집직종:</b> ${result.jobNo } <br>
 								<b>근무요일:</b> ${result.workingDay }
 							</p>
@@ -130,7 +128,7 @@
 						<c:if test="${result.writerId ne sessionScope.id }">
 							<button class="center-btn">채팅하기</button>						
 						</c:if>
-						<button class="center-btn">수락하기</button>
+						<button class="center-btn" onclick="apply(${result.employNo});">지원하기</button>
 						<button class="center-btn">거절하기</button>
 					</div>
 					<div>
@@ -151,6 +149,9 @@
 			if(confirm("정말 수정하시겠습니까?")){
 				location.replace("/employ/update?employNo="+employNo);
 			}
+		}
+		const apply = (employNo) => {
+			location.href = "/match/apply?employNo="+employNo;
 		}
 	</script>
 </body>

@@ -28,5 +28,11 @@ public class ReportServiceLogic implements ReportService{
 		List<ReportVO> rList = rStore.selectList(session);
 		return rList;
 	}
+	//3/24 신고내용 출력?reportemployee.jsp로 보내기!
+	@Override
+	public ReportVO selectOneByDetail(String reportDetail) {
+		ReportVO report = rStore.selectOneByDetail(session,reportDetail);
+		return report;
+	}
 
 }

@@ -14,4 +14,7 @@
 	<select id="reportList" resultMap="rsetToReport">
 		SELECT * FROM REPORT
 	</select>
+	<select id="selectOneByDetail" resultMap="rsetToReport">
+		SELECT * FROM REPORT WHERE REPORT_DETAIL = #{reportDetail}  
+	</select>
 </mapper>

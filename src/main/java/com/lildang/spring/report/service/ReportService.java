@@ -10,5 +10,7 @@ public interface ReportService {
 	 * @return
 	 */
 	List<ReportVO> selectList();
+	//3/24 신고내용 출력?reportemployee.jsp로 보내기!
+	ReportVO selectOneByDetail(String reportDetail);
 
 }

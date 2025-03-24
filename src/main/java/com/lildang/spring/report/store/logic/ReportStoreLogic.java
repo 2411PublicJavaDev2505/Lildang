@@ -17,4 +17,11 @@ public class ReportStoreLogic implements ReportStore{
 		return rList;
 	}
 
+	//3/24 신고내용 출력?reportemployee.jsp로 보내기!
+	@Override
+	public ReportVO selectOneByDetail(SqlSession session, String reportDetail) {
+		ReportVO report = session.selectOne("ReportMapper.selectOneByDetail",reportDetail); 
+		return report;
+	}
+
 }

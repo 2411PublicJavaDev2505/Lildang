@@ -32,5 +32,9 @@
 		<mapper resource="mappers/match-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/report-mapper.xml"/>
+		<mapper resource="mappers/career-mapper.xml"/>
+		<mapper resource="mappers/license-mapper.xml"/>
+		<mapper resource="mappers/education-mapper.xml"/>
+		<mapper resource="mappers/desiredJob-mapper.xml"/>
 	</mappers>
 </configuration>

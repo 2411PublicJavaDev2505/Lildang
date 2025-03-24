@@ -56,7 +56,7 @@
 		                	<tr>
 		                		<td>${rList.reportNo }</td>
 		                		<td>${rList.reportDate }</td>
-		                		<td>${rList.reportDetail }</td>
+		                		<td><a href="/manager/rmployee?reportDetail=${rList.reportDetail}">${rList.reportDetail }</td>
 		                		<td>${rList.reportWriterId }</td>
 		                		<td>${rList.checkDate }</td>
 		                		<td>${rList.checkYN }</td>
