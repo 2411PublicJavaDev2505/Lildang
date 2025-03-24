@@ -61,4 +61,10 @@ public class MemberStoreLogic implements MemberStore{
 	public List<MemberVO> selectMemberList(SqlSession session) {
 		return session.selectList("MemberMapper.selectMemberList");
 	}
+
+	@Override
+	public int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review) {
+		return session.update("MemberMapper.updateEmployeeScore",review);
+	}
+
 }

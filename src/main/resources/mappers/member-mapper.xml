@@ -24,6 +24,7 @@
 		<result property="cvUpdateTime" column="CV_UPDATE_TIME" />
 		<result property="role" column="ROLE"/>
 		<result property="cvYn" column="CV_YN"/>
+		<result property="score" column="SCORE"/>
 	</resultMap>
 	<select id="selectOneByLogin" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ID = #{id} AND PW = #{pw}
@@ -57,4 +58,7 @@
 	<select id="selectMemberList" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ROLE='EMPLOYEE'
 	</select>
+	<update id="updateEmployeeScore">
+		UPDATE MEMBER SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_MEMBER WHERE EMPLOYEE_ID=#{employeeId}) WHERE ID=#{employeeId}
+	</update>
 </mapper>

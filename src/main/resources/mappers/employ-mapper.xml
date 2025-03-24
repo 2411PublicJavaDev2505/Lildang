@@ -25,6 +25,7 @@
 		<result property="employFilePath" column="EMPLOY_FILE_PATH" />
 		<result property="writerId" column="WRITER_ID" />
 		<result property="jobNo" column="JOB_NO" />
+		<result property="score" column="SCORE"/>
 	</resultMap>
 	<select id="selectList" resultMap="rsetToEmploy" >
 		SELECT * FROM EMPLOY
@@ -45,4 +46,7 @@
 	<select id="selectListById" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
 	</select>
+	<update id="updateEmployScore">
+		UPDATE EMPLOY SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_EMPLOY WHERE EMPLOY_NO=#{employNo}) WHERE EMPLOY_NO=#{employNo}
+	</update>
 </mapper>

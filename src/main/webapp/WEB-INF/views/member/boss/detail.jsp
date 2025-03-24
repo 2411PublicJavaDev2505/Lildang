@@ -27,7 +27,6 @@
 	                    이름: ${member.name } <br>
 	                    성별: ${member.gender } <br>
 	                    나이: ${member.age } <br>
-	                    평점: 3.5/5.0
 	                </div>
 	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
@@ -42,6 +41,7 @@
 			                        ${employ.education }            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			                        ${employ.workplaceAddress }          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			                        ${employ.workingEndTime }           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			                        ${employ.score }
 			                    </div>
 			                    <div class="hireplace1">
 			                        <p class="employeeinfo">이 공고에 지원한 알바생</p>
@@ -94,7 +94,6 @@
 											     			<div class="modal-body">
 											     				<h1>알바생에게 후기 남기기</h1>
 											     				<form action="/review/employee" method="post">
-											     					${em.employeeId }
 											     					<input type="hidden" value="${em.employeeId }" name="employeeId">
 											     					<input type="hidden" value="${em.employNo }" name="employNo">
 											     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">

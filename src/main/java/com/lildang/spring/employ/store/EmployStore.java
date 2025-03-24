@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 
 public interface EmployStore {
 	//공고 전체 조회 리스트
@@ -22,5 +23,7 @@ public interface EmployStore {
 	public int updateEmploy(SqlSession session, EmployUpdateRequest employ);
 	// 공고글 리스트
 	public List<EmployVO> selectListById(SqlSession session, String id);
+	
+	public int updateEmployScore(SqlSession session, ReviewEmployeeRequest review);
 
 }

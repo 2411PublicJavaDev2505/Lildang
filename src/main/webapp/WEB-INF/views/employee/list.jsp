@@ -77,7 +77,7 @@
 								이름 : <a class="profile-name" href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
 								성별 : ${employee.gender } <br>
 								나이 : ${employee.age }세 <br>
-								평점 : 3.5/5.0 <br>
+								평점 : ${employee.score }/5 <br>
 							</p>
 						</div>					
 					</c:forEach>

@@ -31,6 +31,7 @@ public class MemberVO {
 	private Timestamp cvUpdateTime;
 	private String role;
 	private String cvYn;
+	private int score;
 	private List<DesiredJobVO> jList;
 	private List<EducationVO> eList;
 	private List<CareerVO> cList;
@@ -42,7 +43,7 @@ public class MemberVO {
 			int age, Date birth, String outYn, Date outDate, String profileFileName, String profileFileRename,
 			String profileFilePath, String memberComment, String introduction, Timestamp cvWriteTime,
 			Timestamp cvUpdateTime, String role, String cvYn, List<DesiredJobVO> jList, List<EducationVO> eList,
-			List<CareerVO> cList, List<LicenseVO> lList) {
+			List<CareerVO> cList, List<LicenseVO> lList, int score ) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -64,6 +65,7 @@ public class MemberVO {
 		this.cvUpdateTime = cvUpdateTime;
 		this.role = role;
 		this.cvYn = cvYn;
+		this.score = score;
 		this.jList = new ArrayList<DesiredJobVO>();
 		this.eList = new ArrayList<EducationVO>();
 		this.cList = new ArrayList<CareerVO>();
@@ -181,6 +183,10 @@ public class MemberVO {
 	public void setlList(List<LicenseVO> lList) {
 		this.lList = lList;
 	}
+	
+	public int getScore() {
+		return score;
+	}
 
 	@Override
 	public String toString() {
@@ -189,8 +195,8 @@ public class MemberVO {
 				+ outYn + ", outDate=" + outDate + ", profileFileName=" + profileFileName + ", profileFileRename="
 				+ profileFileRename + ", profileFilePath=" + profileFilePath + ", memberComment=" + memberComment
 				+ ", introduction=" + introduction + ", cvWriteTime=" + cvWriteTime + ", cvUpdateTime=" + cvUpdateTime
-				+ ", role=" + role + ", cvYn=" + cvYn + ", jList=" + jList + ", eList=" + eList + ", cList=" + cList
-				+ ", lList=" + lList + "]";
+				+ ", role=" + role + ", cvYn=" + cvYn + ", score=" + score + ", jList=" + jList + ", eList=" + eList
+				+ ", cList=" + cList + ", lList=" + lList + "]";
 	}
 
 

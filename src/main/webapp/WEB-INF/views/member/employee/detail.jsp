@@ -10,6 +10,7 @@
 			<link rel="stylesheet" href="../resources/css/include/header.css">
 			<link rel="stylesheet" href="../resources/css/include/footer.css">
 			<link rel="stylesheet" href="../resources/css/member/employee/detail.css">
+			<link rel="stylesheet" href="../resources/css/common/modal.css">
         <title>Mypage - employee</title>
     </head>
     <body>
@@ -26,7 +27,7 @@
 	                    이름: ${member.name } <br>
 	                    성별: ${member.gender } <br>
 	                    나이: ${member.age } <br>
-	                    평점: 4.5/5.0
+	                    평점: ${member.score }/5.0
 	                </div>
 	                <button class="modifybtn" onclick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onclick="showDelete();">탈퇴하기</button>
@@ -53,7 +54,7 @@
 	                    	<c:if test="${size ne 0 }">
 	                    		<table>
 			                    	<c:forEach var="em" items="${emList }">
-			                    		<c:if test="${em.employerYn eq 'Y' && employeeYn eq 'N'}">
+			                    		<c:if test="${em.employerYn eq 'Y' && em.employeeYn eq 'N'}">
 			                    			<tr>
 			                    				<td>${em.employName }</td>
 			                    				<td> <button>채팅</button> </td>
@@ -75,7 +76,52 @@
 		                        ${em.jobStartTime } ~ ${em.jobEndTime }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		                        <c:if test="${em.jobEndYn eq 'Y' }">
 		                        	알바완료
-				                    <button class="reviewbtn">후기 작성</button>
+		                        	<c:forEach var="re" items="${reList }">
+		                        		<c:if test="${em.employNo eq re.employNo }">
+		                        			<input type="hidden" value="${num = num+1 }">
+			                        		<button class="reviewbtn" onclick="updateReview('${em.employeeId }','${em.employNo}');">후기 수정</button>
+						                    <div class="modal" id="update${em.employeeId }${em.employNo}">
+								     			<div class="modal-body">
+								     				<h1>알바 후기 남기기 - 수정</h1>
+								     				<form action="/review/employ/update" method="post">
+								     					<input type="hidden" value="${em.employNo }" name="employNo">
+								     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
+								     					<div class="review-point">
+									     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${re.reviewScore }">     					
+								     					</div>
+								     					<div class="review-content">
+								     						좋았던 점과 아쉬웠던 점을 적어주세요.
+								     						<textarea rows="10" cols="20" name="reviewDetail">${re.reviewDetail }</textarea>
+								     					</div>
+								     					<button>후기 수정</button>
+								     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+								     				</form>
+								     			</div>
+								     		</div>
+		                        		</c:if>
+		                        	</c:forEach>
+		                        	<c:if test="${num eq 0 }">
+					                    <button class="reviewbtn" onclick="writeReview('${em.employeeId }','${em.employNo}');">후기 작성</button>
+					                    <div class="modal" id="insert${em.employeeId }${em.employNo}">
+							     			<div class="modal-body">
+							     				<h1>알바 후기 남기기</h1>
+							     				<form action="/review/employ" method="post">
+							     					<input type="hidden" value="${em.employNo }" name="employNo">
+							     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
+							     					<div class="review-point">
+								     					평점: <input type="number" min="0" max="5" name="reviewScore">     					
+							     					</div>
+							     					<div class="review-content">
+							     						좋았던 점과 아쉬웠던 점을 적어주세요.
+							     						<textarea rows="10" cols="20" name="reviewDetail"></textarea>
+							     					</div>
+							     					<button>후기 작성</button>
+							     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+							     				</form>
+							     			</div>
+							     		</div>
+		                        	</c:if>
+		                        	<input type="hidden" value="${num = 0 }">
 		                        </c:if>
 		                        <c:if test="${em.jobEndYn ne 'Y' }">
 		                        	알바중
@@ -117,6 +163,18 @@
     			location.replace("/match/delete?employeeId="+employeeId+"&employNo="+employNo);
     		}
     	}
+    	const writeReview = (employeeId, employNo) => {
+			document.querySelector("#insert"+employeeId+employNo).style.display = "flex";
+		}
+    	const back = (employeeId, employNo) => {
+			document.querySelector("#insert"+employeeId+employNo).style.display = "none";
+		}
+    	const updateReview = (employeeId, employNo) => {
+    		document.querySelector("#update"+employeeId+employNo).style.display = "flex";
+    	}
+    	const backUpdate = (employeeId, employNo) => {
+			document.querySelector("#update"+employeeId+employNo).style.display = "none";
+		}
     </script>
     </body>
 </html>

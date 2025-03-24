@@ -13,6 +13,15 @@
 		<result property="employeeId" column="EMPLOYEE_ID"/>
 		<result property="employNo" column="EMPLOY_NO"/>
 	</resultMap>
+	<resultMap type="ReviewEmployVO" id="rsetToReviewEmploy">
+		<id property="reviewNo" column="REVIEW_NO"/>
+		<result property="reviewWriter" column="REVIEW_WRITER"/>
+		<result property="reviewScore" column="REVIEW_SCORE"/>
+		<result property="reviewDetail" column="REVIEW_DETAIL"/>
+		<result property="writeTime" column="WRITE_TIME"/>
+		<result property="updateTime" column="UPDATE_TIME"/>
+		<result property="employNo" column="EMPLOY_NO"/>
+	</resultMap>
 	<insert id="reviewEmployeeInsert">
 		INSERT INTO REVIEW_MEMBER VALUES(SEQ_REVIEW_MEMBER_NO.NEXTVAL,#{reviewWriter}
 		,#{reviewScore},#{reviewDetail},DEFAULT, DEFAULT,#{employeeId},#{employNo})
@@ -23,5 +32,16 @@
 	<update id="reviewEmployeeUpdate">
 		UPDATE REVIEW_MEMBER SET REVIEW_SCORE=#{reviewScore}, REVIEW_DETAIL=#{reviewDetail}, UPDATE_TIME=SYSTIMESTAMP 
 		WHERE REVIEW_WRITER=#{reviewWriter} AND EMPLOYEE_ID=#{employeeId} AND EMPLOY_NO=#{employNo}
+	</update>
+	<insert id="reviewEmployInsert">
+		INSERT INTO REVIEW_EMPLOY VALUES(SEQ_REVIEW_EMPLOY_NO.NEXTVAL,#{reviewWriter}
+		,#{reviewScore},#{reviewDetail},DEFAULT,DEFAULT,#{employNo})
+	</insert>
+	<select id="selectReviewEmployList" resultMap="rsetToReviewEmploy">
+		SELECT * FROM REVIEW_EMPLOY WHERE REVIEW_WRITER=#{reviewWriter}
+	</select>
+	<update id="reviewEmployUpdate">
+		UPDATE REVIEW_EMPLOY SET REVIEW_SCORE=#{reviewScore}, REVIEW_DETAIL=#{reviewDetail}, UPDATE_TIME=SYSTIMESTAMP 
+		WHERE REVIEW_WRITER=#{reviewWriter} AND EMPLOY_NO=#{employNo}
 	</update>
 </mapper>
