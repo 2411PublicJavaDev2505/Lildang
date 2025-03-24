@@ -16,9 +16,9 @@
     <div id="container">
     <jsp:include page="/WEB-INF/views/include/header.jsp" />
     	<main>
+	        <h1>마이페이지</h1>
     		<div class="main-container">
 	            <div id="left-main">
-		        	<h1>마이페이지</h1>
 	                <img src="../resources/image/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
@@ -28,7 +28,7 @@
 	                    나이: ${member.age } <br>
 	                    평점: 4.5/5.0
 	                </div>
-	                <button class="modifybtn">수정하기</button>
+	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
@@ -93,6 +93,9 @@
     	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
     <script type="text/javascript">
+    	const showUpdate = () => {
+    		location.href = "/member/update"
+    	}
     	const showDelete = () => {
     		location.href = "/member/delete"
     	}

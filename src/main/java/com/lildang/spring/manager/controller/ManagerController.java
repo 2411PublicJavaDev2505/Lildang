@@ -45,8 +45,6 @@ public class ManagerController {
 		//System.out.println("확인");
 		//return "manager/reportlist";
 		try {
-			List<ReportVO> rList = rService.selectList();
-			model.addAttribute("rList",rList);
 			return "manager/reportlist";
 		} catch (Exception e) {
 			e.printStackTrace();

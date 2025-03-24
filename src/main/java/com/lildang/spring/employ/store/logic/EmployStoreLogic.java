@@ -50,3 +50,4 @@ public class EmployStoreLogic implements EmployStore{
 		return session.update("EmployMapper.updateEmploy", employ);
 	}
 }
+
