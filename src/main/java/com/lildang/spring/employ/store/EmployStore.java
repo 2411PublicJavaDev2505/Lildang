@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 
 public interface EmployStore {
@@ -18,7 +19,7 @@ public interface EmployStore {
 	//공고글 삭제
 	public int deleteEmploy(SqlSession session, int employNo);
 	//공고글 수정
-	public int updateEmploy(SqlSession session, int employNo);
+	public int updateEmploy(SqlSession session, EmployUpdateRequest employ);
 	// 공고글 리스트
 	public List<EmployVO> selectListById(SqlSession session, String id);
 

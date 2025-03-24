@@ -14,7 +14,8 @@
 	<div class="container">
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	<main>
-	    <form action="">
+	    <form action="/employ/update" method="POST">
+	    	<input type="hidden" value="${employ.employNo }" name="employNo">
 	        <div>
 	            <div>
 	                <label for="employName">공고제목</label>

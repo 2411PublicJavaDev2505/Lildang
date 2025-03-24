@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.store.EmployStore;
 
@@ -36,14 +37,16 @@ public class EmployStoreLogic implements EmployStore{
 		return session.delete("EmployMapper.deleteEmploy", employNo);
 	}
 
-	@Override
-	public int updateEmploy(SqlSession session, int employNo) {
-		return session.update("EmployMapper.updateEmploy", employNo);
-	}
+
 
 	@Override
 	public List<EmployVO> selectListById(SqlSession session, String id) {
 		List<EmployVO> eList = session.selectList("EmployMapper.selectListById", id);
 		return eList;
+	}
+
+	@Override
+	public int updateEmploy(SqlSession session, EmployUpdateRequest employ) {
+		return session.update("EmployMapper.updateEmploy", employ);
 	}
 }
