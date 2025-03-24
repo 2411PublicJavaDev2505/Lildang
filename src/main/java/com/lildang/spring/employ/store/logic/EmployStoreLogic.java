@@ -10,6 +10,7 @@ import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.store.EmployStore;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 
 @Repository
 public class EmployStoreLogic implements EmployStore{
@@ -48,6 +49,11 @@ public class EmployStoreLogic implements EmployStore{
 	@Override
 	public int updateEmploy(SqlSession session, EmployUpdateRequest employ) {
 		return session.update("EmployMapper.updateEmploy", employ);
+	}
+
+	@Override
+	public int updateEmployScore(SqlSession session, ReviewEmployeeRequest review) {
+		return session.update("EmployMapper.updateEmployScore",review);
 	}
 }
 

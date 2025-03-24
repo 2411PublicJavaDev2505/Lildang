@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.employ.store.EmployStore;
+import com.lildang.spring.employee.store.EmployeeStore;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.CareerVO;
@@ -15,6 +17,7 @@ import com.lildang.spring.member.domain.DesiredJobVO;
 import com.lildang.spring.member.domain.EducationVO;
 import com.lildang.spring.member.domain.LicenseVO;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewEmployVO;
 import com.lildang.spring.member.domain.ReviewMemberVO;
 import com.lildang.spring.member.service.MemberService;
 import com.lildang.spring.member.store.CareerStore;
@@ -34,11 +37,13 @@ public class MemberServiceLogic implements MemberService{
 	private CareerStore cStore;
 	private DesiredJobStore dStore;
 	private ReviewStore rStore;
+	private EmployStore emStore;
 	
 	@Autowired
 	public MemberServiceLogic(MemberStore mStore, EducationStore eStore
 			, LicenseStore lStore, CareerStore cStore
 			, DesiredJobStore dStore, ReviewStore rStore
+			, EmployStore emStore
 			, SqlSession session) {
 		this.mStore = mStore;
 		this.eStore = eStore;
@@ -46,6 +51,7 @@ public class MemberServiceLogic implements MemberService{
 		this.cStore = cStore;
 		this.dStore = dStore;
 		this.rStore = rStore;
+		this.emStore = emStore;
 		this.session = session;
 	}
 	
@@ -121,7 +127,9 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int reviewEmployeeInsert(ReviewEmployeeRequest review) {
-		return rStore.reviewEmployeeInsert(session, review);
+		int result1 = rStore.reviewEmployeeInsert(session, review);
+		int result2 = mStore.updateEmployeeScore(session, review);
+		return result1+result2;
 	}
 
 	@Override
@@ -131,7 +139,28 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int reviewEmployeeUpdate(ReviewEmployeeRequest review) {
-		return rStore.reviewEmployeeUpdate(session, review);
+		int result1 = rStore.reviewEmployeeUpdate(session, review);
+		int result2 = mStore.updateEmployeeScore(session, review);
+		return result1+result2;
+	}
+
+	@Override
+	public int reviewEmployInsert(ReviewEmployeeRequest review) {
+		int result1 = rStore.reviewEmployInsert(session, review);
+		int result2 = emStore.updateEmployScore(session, review);
+		return result1+result2;
+	}
+
+	@Override
+	public List<ReviewEmployVO> selectReviewEmployList(String id) {
+		return rStore.selectReviewEmployList(session, id);
+	}
+
+	@Override
+	public int reviewEmployUpdate(ReviewEmployeeRequest review) {
+		int result1 = rStore.reviewEmployUpdate(session, review);
+		int result2 = emStore.updateEmployScore(session, review);
+		return result1+result2;
 	}
 
 

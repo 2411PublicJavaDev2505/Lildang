@@ -10,6 +10,7 @@ import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewEmployVO;
 import com.lildang.spring.member.domain.ReviewMemberVO;
 
 public interface MemberService {
@@ -51,5 +52,11 @@ public interface MemberService {
 	List<ReviewMemberVO> selectReviewList(String id);
 
 	int reviewEmployeeUpdate(ReviewEmployeeRequest review);
+
+	int reviewEmployInsert(ReviewEmployeeRequest review);
+
+	List<ReviewEmployVO> selectReviewEmployList(String id);
+
+	int reviewEmployUpdate(ReviewEmployeeRequest review);
 	
 }

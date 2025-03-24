@@ -44,5 +44,6 @@ public interface MemberStore {
 
 	List<MemberVO> selectMemberList(SqlSession session);
 
+	int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review);
 
 }

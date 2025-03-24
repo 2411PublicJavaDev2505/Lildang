@@ -29,8 +29,11 @@ import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.controller.dto.MatchJoinRequest;
 import com.lildang.spring.member.domain.DesiredJobVO;
 import com.lildang.spring.member.domain.MemberVO;
+import com.lildang.spring.member.domain.ReviewEmployVO;
 import com.lildang.spring.member.domain.ReviewMemberVO;
 import com.lildang.spring.member.service.MemberService;
+
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 public class MemberController {
@@ -227,12 +230,15 @@ public class MemberController {
 			String id = (String)session.getAttribute("id");
 			MemberVO member = mService.selectOneById(id);
 			
+			List<ReviewEmployVO> reList = mService.selectReviewEmployList(id); 
+			model.addAttribute("reList",reList);
+			model.addAttribute("num",0);
+			
 			List<MatchJoinRequest> emList = matchService.selectEEList(id);
 			model.addAttribute("emList",emList);
 			
 			int size = 0;
 			for(int i=0;i<emList.size();i++) {
-				System.out.println(emList.get(i).getEmployerYn());
 				if(emList.get(i).getEmployerYn().equals("Y"))
 					size++;
 			}
@@ -388,4 +394,39 @@ public class MemberController {
 			return "common/error";
 		}
 	}
+	
+	@PostMapping("review/employ")
+	public String reviewEmployInsert(Model model,
+			@ModelAttribute ReviewEmployeeRequest review) {
+		try {
+			int result = mService.reviewEmployInsert(review);
+			if(result > 0){
+				return "redirect:/member/edetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@PostMapping("review/employ/update")
+	public String reviewEmployUpdate(Model model
+			,@ModelAttribute ReviewEmployeeRequest review) {
+		try {
+			int result = mService.reviewEmployUpdate(review);
+			if(result > 0){
+				return "redirect:/member/edetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
+	
 }
