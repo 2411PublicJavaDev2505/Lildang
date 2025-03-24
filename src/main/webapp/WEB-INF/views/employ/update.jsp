@@ -16,7 +16,7 @@
 	<main>
 	    <form action="/employ/update" method="POST">
 	    	<input type="hidden" value="${employ.employNo }" name="employNo">
-	        <div>
+	        <div id="insertmain">
 	            <div>
 	                <label for="employName">공고제목</label>
 	                <input type="text" name="employName" id="employName" value="${employ.employName }">
