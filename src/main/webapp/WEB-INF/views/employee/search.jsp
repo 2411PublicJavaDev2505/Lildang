@@ -17,10 +17,10 @@
 		<main>
 			<div class="main-top">
 				<p>
-					대기중인 알바생:     ${eList.size() }명				
+					대기중인 알바생:     ${mList.size() }명				
 				</p>
 				<div class="top-search">
-					<form action="/employee/search" >
+					<form  action="/employee/search">
 						<select name="searchKeyword">
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
@@ -38,26 +38,8 @@
 							<option value="충북">충북</option>
 							<option value="제주">제주</option>
 						</select>
-						<select>
-							<option>업직종선택</option>
-							<option>외식·음료</option>
-							<option>매징관리·판매</option>
-							<option>서비스</option>
-							<option>사무직</option>
-							<option>고객상담·리서치·영업</option>
-							<option>생산·건설·너무</option>
-							<option>IT·기술</option>
-							<option>디자인</option>
-							<option>교육·강사</option>
-							<option>운전·배달</option>
-							<option>사무·회계</option>
-							<option>미디어</option>
-							<option>유통</option>
-							<option>문화·여가</option>
-							<option>병원·간호·연구</option>
-							<option>요식업</option>
-						</select>
-						<button class="search-btn" >알바생 검색</button>			
+						
+						<button class="search-btn" type="submit">알바생 검색</button>			
 					</form>
 				</div>
 			</div>
@@ -70,14 +52,14 @@
 					</select>				
 				</div>
 				<div class="bottom-content">
-					<c:forEach var="employee" items="${eList }">
+					<c:forEach var="employee" items="${mList }">
 						<div class="bottom-profile">
 							<img alt="profileimg" src="../resources/image/profile.png">
 							<p>
 								이름 : <a class="profile-name" href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
 								성별 : ${employee.gender } <br>
 								나이 : ${employee.age }세 <br>
-								평점 : ${employee.score }/5 <br>
+								평점 : 3.5/5.0 <br>
 							</p>
 						</div>					
 					</c:forEach>

@@ -61,4 +61,7 @@
 	<update id="updateEmployeeScore">
 		UPDATE MEMBER SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_MEMBER WHERE EMPLOYEE_ID=#{employeeId}) WHERE ID=#{employeeId}
 	</update>
+	<select id="selectSearchList" resultMap="rsetToMember">
+		SELECT * FROM MEMBER WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%'
+	</select>
 </mapper>

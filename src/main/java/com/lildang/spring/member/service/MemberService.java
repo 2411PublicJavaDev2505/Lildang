@@ -59,4 +59,6 @@ public interface MemberService {
 
 	int reviewEmployUpdate(ReviewEmployeeRequest review);
 	
+	List<MemberVO> selectSearchList(String searchKeyword);
+	
 }

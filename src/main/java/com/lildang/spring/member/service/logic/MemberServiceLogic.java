@@ -163,5 +163,10 @@ public class MemberServiceLogic implements MemberService{
 		return result1+result2;
 	}
 
+	@Override
+	public List<MemberVO> selectSearchList(String searchKeyword) {
+		return mStore.selectSearchList(session, searchKeyword);
+	}
+
 
 }

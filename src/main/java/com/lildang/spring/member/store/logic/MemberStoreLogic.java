@@ -67,4 +67,8 @@ public class MemberStoreLogic implements MemberStore{
 		return session.update("MemberMapper.updateEmployeeScore",review);
 	}
 
+	@Override
+	public List<MemberVO> selectSearchList(SqlSession session, String searchKeyword) {
+		return session.selectList("MemberMapper.selectSearchList", searchKeyword);
+	}
 }
