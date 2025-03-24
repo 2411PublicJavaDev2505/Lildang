@@ -122,7 +122,7 @@ public class EmployController {
 		try {
 			int result = eService.deleteEmploy(employNo);
 			if(result > 0) {
-				return "redirect:/employ/list";				
+				return "redirect:/employee/list";				
 			}else {
 				return "common/error";
 			}

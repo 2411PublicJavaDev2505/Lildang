@@ -1,6 +1,8 @@
 package com.lildang.spring.employee.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,6 +23,7 @@ public class EmployeeController {
 	
 	private MemberService mService;
 	private EmployService eService;
+	
 	
 	@Autowired
 	public EmployeeController(MemberService mService, EmployService eService) {
@@ -58,8 +61,20 @@ public class EmployeeController {
 			e.printStackTrace();
 			model.addAttribute("errorMessage",e.getMessage());
 			return "common/error";
-		}
-		
+		}		
 	}
-	
+	@GetMapping("employee/search")
+	public String EmployeeSearch(
+			@RequestParam("searchKeyword") String searchKeyword
+			,Model model) {
+		try {
+			List<MemberVO> mList = mService.selectSearchList(searchKeyword);
+			model.addAttribute("mList",mList);		
+			return "employee/search";
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "common/error";
+		}
+	}
 }

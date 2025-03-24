@@ -44,5 +44,7 @@ public interface MemberStore {
 
 	List<MemberVO> selectMemberList(SqlSession session);
 
+	List<MemberVO> selectSearchList(SqlSession session, String searchKeyword);
+
 
 }

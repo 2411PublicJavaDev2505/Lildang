@@ -61,4 +61,9 @@ public class MemberStoreLogic implements MemberStore{
 	public List<MemberVO> selectMemberList(SqlSession session) {
 		return session.selectList("MemberMapper.selectMemberList");
 	}
+
+	@Override
+	public List<MemberVO> selectSearchList(SqlSession session, String searchKeyword) {
+		return session.selectList("MemberMapper.selectSearchList", searchKeyword);
+	}
 }

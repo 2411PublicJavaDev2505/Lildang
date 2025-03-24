@@ -134,5 +134,10 @@ public class MemberServiceLogic implements MemberService{
 		return rStore.reviewEmployeeUpdate(session, review);
 	}
 
+	@Override
+	public List<MemberVO> selectSearchList(String searchKeyword) {
+		return mStore.selectSearchList(session, searchKeyword);
+	}
+
 
 }

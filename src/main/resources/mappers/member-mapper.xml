@@ -57,4 +57,7 @@
 	<select id="selectMemberList" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ROLE='EMPLOYEE'
 	</select>
+	<select id="selectSearchList" resultMap="rsetToMember">
+		SELECT * FROM MEMBER WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%'
+	</select>
 </mapper>
