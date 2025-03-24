@@ -11,11 +11,12 @@ main {
     gap: 30px;
     border: 1px solid #ddd;
     padding: 15px;
+    border-radius: 20px;
 }
 .sidebar {
     width: 330px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 20px;
     text-align: center;
 }
@@ -31,7 +32,9 @@ main {
 .img-input input{
 	margin: 0 auto;
 	width: 150px;
+	height: 20px;
 	margin-top: 30px;
+	border-radius: 15px;
 }
 
 td {
@@ -40,24 +43,32 @@ td {
 .introduce {
     margin-top: 40px;
 }
+
 #profile-contact {
     margin: 25px;
     padding: 15px;
     font-weight: bold;
-    background-color: #b2f2bb;
+    background-color: #1ed483;
     border-radius: 20px;
     margin: 30px 0 0 0;
 }
 
 .profile-contact{
 	text-align: left;
+	font-weight: bold;
 }
 
+.profile contact a{
+	font-weight: bold;
+}
+.profile-name{
+	font-size: 30px;
+}
 .profile-education{
     margin: 0;
     padding: 15px;
     font-weight: bold;
-    background-color: #b2f2bb;
+    background-color: #1ed483;
     border-radius: 20px;
 }
 .profile-education-school input{
@@ -76,6 +87,9 @@ td {
     width: 80%;
     border: 1px solid #f2f2f2;
 }
+.edu-input p{
+	font-size: 15px;
+}
 
 .content-area {
     width: 100%;
@@ -85,9 +99,11 @@ td {
     align-items: center;
     gap: 30px;
     justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
 }
 .job-title {
-    background-color: #b2f2bb;
+    background-color: #1ed483;
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: bold;
@@ -99,6 +115,7 @@ td {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-weight: bold;
 }
 
 .job-option input{
@@ -106,22 +123,84 @@ td {
 	width: 20px;
 	height: 20px;
 	border-radius: 30px;
+	cursor: pointer;
+	
 }
-
+.edu-input{
+	text-align: center;
+	display: flex;
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+}
 .insert-btn {
 	margin-bottom: 10px;
+	border-radius: 15px;
+	cursor: pointer;
+	
 }
 
 .job-career, .job-license {
 	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 15px;
 }
 
 #career, #license {
 	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .btn button{
     background-color: #b2f2bb;
     padding: 10px 20px;
     border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn{
+	margin-top: 30px;
+	text-align: center;
+}
+.btn button{
+	margin: 10px;
+}
+.btn button:hover{
+	background-color: #1ed483;
+}
+.job-introduce{
+	margin-top: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.job-introduce textarea{
+	width:1000px;
+}
+.insert-btn button{
+	border-radius: 10px;
+	font-size: 20px;
+}
+.insert-btn button:hover{
+	background-color:#979797;
+}
+#career td{
+	border-radius: 10px;
+}	
+#license td{
+	border-radius: 10px;
+}
+#license td input{
+	border-radius: 10px;
+	border: none;
+	font-size: 15px;
+	height: 20px;
+	font-weight: bold;
+}
+#career td input{
+	border-radius: 10px;
+	border: none;
+	height: 20px;
 }

@@ -96,7 +96,7 @@
 		                </div>
 		                <div id="job-introduce">
 		                    <div class="job-introduce">자기소개서</div>
-		                    <textarea rows="10" cols="40" name="introduction"></textarea>
+		                    <textarea rows="20" cols="99" name="introduction"></textarea>
 		                </div>
 		                <div class="btn">
 		                    <button type="submit">작성완료</button>

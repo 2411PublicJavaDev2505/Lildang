@@ -11,7 +11,7 @@
 <title>구인글-작성!</title>
 </head>
 <body>
-		<div class="container">
+		<div id="container">
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<div class="main-content">
 		<main>
