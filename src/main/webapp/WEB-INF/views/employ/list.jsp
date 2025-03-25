@@ -36,6 +36,7 @@
 	                    <option value="제주">제주</option>
 	                </select>
 	            </div>
+	            </form>
 	            <div class="conditionbtn">
 	                <button class="cbtn2" type="submit">검색</button>
 				</div>

@@ -27,6 +27,11 @@
 		<result property="reviewDetail" column="REVIEW_DETAIL"/>
 		<result property="id" column="ID"/>
 	</resultMap>
+	<resultMap type="com.lildang.spring.employee.controller.dto.RERequest" id="rsetToEM">
+		<result property="reviewScore" column="REVIEW_SCORE"/>
+		<result property="reviewDetail" column="REVIEW_DETAIL"/>
+		<result property="employName" column="EMPLOY_NAME"/>
+	</resultMap>
 	<insert id="reviewEmployeeInsert">
 		INSERT INTO REVIEW_MEMBER VALUES(SEQ_REVIEW_MEMBER_NO.NEXTVAL
 		,#{reviewScore},#{reviewDetail},DEFAULT, DEFAULT,#{employNo},#{reviewWriter},#{employeeId})
@@ -52,5 +57,9 @@
 	<select id="selectERList" resultMap="rsetToER">
 		SELECT RE.REVIEW_SCORE REVIEW_SCORE, RE.REVIEW_DETAIL REVIEW_DETAIL, MEMBER.NAME ID FROM REVIEW_EMPLOY RE JOIN MEMBER ON REVIEW_WRITER = ID 
 		WHERE RE.EMPLOY_NO = #{employNo}
+	</select>
+	<select id="selectEMList" resultMap="rsetToEM">
+		SELECT RM.REVIEW_SCORE REVIEW_SCORE, RM.REVIEW_DETAIL REVIEW_DETAIL, E.EMPLOY_NAME EMPLOY_NAME 
+		FROM REVIEW_MEMBER RM JOIN EMPLOY E USING(EMPLOY_NO) WHERE RM.EMPLOYEE_ID = #{id}
 	</select>
 </mapper>

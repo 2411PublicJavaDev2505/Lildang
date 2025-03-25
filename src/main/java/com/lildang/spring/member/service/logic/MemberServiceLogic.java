@@ -10,6 +10,7 @@ import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.employ.store.EmployStore;
+import com.lildang.spring.employee.controller.dto.RERequest;
 import com.lildang.spring.employee.store.EmployeeStore;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
@@ -181,5 +182,9 @@ public class MemberServiceLogic implements MemberService{
 		return result;
 	}
 
+	@Override
+	public List<RERequest> selectEMList(String id) {
+		return rStore.selectEMList(session, id);
+	}
 
 }
