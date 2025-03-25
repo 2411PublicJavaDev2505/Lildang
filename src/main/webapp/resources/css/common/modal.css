@@ -49,7 +49,7 @@
 	width: 90px;
 }
 .bottom-btn{
-	background-color: #1ed483;
+	background-color: #b2f2bb;
 	margin: 50px 5px 0px 150px;
 	width: 100px;
 	height: 40px;
@@ -57,7 +57,7 @@
 	cursor: pointer;
 }
 .bottom-btn:hover{
-	background-color:#b2f2bb;
+	background-color:#1ed483;
 }
 .back-btn{
 	background-color:#c0c0c0;
