@@ -54,7 +54,7 @@
 	width: 90px;
 }
 .bottom-btn{
-	background-color: #1ed483;
+	background-color: #b2f2bb;
 	margin: 50px 5px 0px 150px;
 	width: 100px;
 	height: 40px;
@@ -62,7 +62,7 @@
 	cursor: pointer;
 }
 .bottom-btn:hover{
-	background-color:#b2f2bb;
+	background-color:#1ed483;
 }
 .back-btn{
 	background-color:#c0c0c0;
@@ -121,6 +121,10 @@
 	border: 1px solid #222;
 	border-radius: 10px;
 }
+.report-body h1{
+	margin-left: 130px;
+	margin-bottom: 20px;
+}
 .reportBtn button{
 	padding : 15px 30px;
 	border-radius : 20px;
@@ -130,7 +134,11 @@
 }
 .report-content {
 	text-align : center;
-	margin : 20px;
+	width: 300px;
+	margin-left: 100px;
+}
+.report-content placeholder{
+	width:200px;
 }
 .report-content input {
 	padding : 15px;
@@ -138,4 +146,16 @@
 }
 .report-area {
 	text-align : center;
+	margin-top: 30px;
+}
+.rbtn{
+	background-color: #b2f2bb;
+	margin: 30px 5px 0px 140px;
+	width: 100px;
+	height: 40px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.rbtn:hover{
+	background-color: #1ed483;
 }
