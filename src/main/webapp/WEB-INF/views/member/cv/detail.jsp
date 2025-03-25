@@ -19,10 +19,14 @@
 	        <div class="cv-container">
 	            <div class="sidebar">
 				    <div class="profile-image">
-				    	<div class="profile-img"></div>
-				    	<div class="img-input">
-				         <input type="text" name="profileFileName">
-				    	</div>
+				    	<div class="profile-img">
+				    		<c:if test="${member.profileFilePath eq null }">
+				    			<img alt="프로필 사진" src="../resources/image/profile.png">
+				    		</c:if>
+				    		<c:if test="${member.profileFilePath ne null }">
+					    		<img alt="프로필 사진" src="..${member.profileFilePath }">
+				    		</c:if>
+			    		</div>
 				    </div>
 				    <div class="profile-name">
 				    	<p> <b>${member.name }</b></p>

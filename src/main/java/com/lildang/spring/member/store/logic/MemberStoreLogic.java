@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
@@ -75,5 +76,10 @@ public class MemberStoreLogic implements MemberStore{
 	public int reportDeleteE(SqlSession session, String memberId) {
 		int result = session.delete("MemberMapper.reportDeleteE", memberId);
 		return result;
+	}
+
+	@Override
+	public int updateProfile(SqlSession session, ProfileUpdateRequest profile) {
+		return session.update("MemberMapper.updateProfile", profile);
 	}
 }

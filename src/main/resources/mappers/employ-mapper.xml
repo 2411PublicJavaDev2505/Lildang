@@ -49,7 +49,15 @@
 		DELETE FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
 	</delete>
 	<update id="updateEmploy">
-		UPDATE EMPLOY SET EMPLOY_NAME=#{employName}, JOB_NO=#{jobNo}, RECRUIT_NUMBER=#{recruitNumber}, RECRUIT_START_DATE=#{recruitStartDate}, RECRUIT_END_DATE=#{recruitEndDate}, EDUCATION=#{education}, WORKPLACE_NAME=#{workplaceName}, WORKPLACE_ADDRESS=#{workplaceAddress}, SALARY=#{salary}, WORKING_PERIOD=#{workingPeriod}, WORKING_START_TIME=#{workingStartTime}, WORKING_END_TIME=#{workingEndTime}, WORKING_DAY=#{workingDay}, EMPLOY_FILE_NAME=#{employFileName}, EMPLOY_DETAIL=#{employDetail} 
+		UPDATE EMPLOY SET EMPLOY_NAME=#{employName}
+		, JOB_NO=#{jobNo}, RECRUIT_NUMBER=#{recruitNumber}
+		, RECRUIT_START_DATE=#{recruitStartDate}
+		, RECRUIT_END_DATE=#{recruitEndDate}, EDUCATION=#{education}
+		, WORKPLACE_NAME=#{workplaceName}, WORKPLACE_ADDRESS=#{workplaceAddress}
+		, SALARY=#{salary}, WORKING_PERIOD=#{workingPeriod}
+		, WORKING_START_TIME=#{workingStartTime}, WORKING_END_TIME=#{workingEndTime}, WORKING_DAY=#{workingDay}
+		, EMPLOY_FILE_NAME=#{employFileName}, EMPLOY_DETAIL=#{employDetail}
+		, EMPLOY_FILE_RENAME=#{employFileRename}, EMPLOY_FILE_PATH=#{employFilePath} 
 		WHERE EMPLOY_NO = #{employNo}
 	</update>
 	<update id="updateEmployScore">

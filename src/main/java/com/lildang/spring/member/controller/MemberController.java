@@ -3,6 +3,7 @@ package com.lildang.spring.member.controller;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,11 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.lildang.spring.common.FileUtil;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.match.service.MatchService;
@@ -41,12 +45,14 @@ public class MemberController {
 	private MemberService mService;
 	private EmployService eService;
 	private MatchService matchService;
+	private FileUtil fileUtil;
 	
 	@Autowired
-	public MemberController(MemberService mService, EmployService eService, MatchService matchService) {
+	public MemberController(MemberService mService, EmployService eService, MatchService matchService, FileUtil fileUtil) {
 		this.mService = mService;
 		this.eService = eService;
 		this.matchService = matchService;
+		this.fileUtil = fileUtil;
 	}
 	
 
@@ -126,7 +132,13 @@ public class MemberController {
 	@GetMapping("member/delete")
 	public String showMemberDelete(HttpSession session, Model model) {
 		try {
-			return "member/common/delete";
+			MemberVO member = mService.selectOneById((String)session.getAttribute("id"));
+			if(member != null) {
+				model.addAttribute("member",member);
+				return "member/common/delete";
+			}else {
+				return "common/error";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errorMsg",e.getMessage());
@@ -255,6 +267,47 @@ public class MemberController {
 		
 	}
 	
+	@PostMapping("member/pupdate")
+	public String updateProfile(Model model
+			,@ModelAttribute ProfileUpdateRequest profile
+			,MultipartFile reloadFile
+			,HttpSession session) {
+		try {
+			String profileFilename = null;
+			String profileFileRename = null;
+			String profileFilepath = null;
+			if(reloadFile != null && !reloadFile.getOriginalFilename().isBlank()) {
+				Map<String,String> fileInfo = fileUtil.saveFile(reloadFile, session, "cv");
+				profileFilename = fileInfo.get("cFilename");
+				profileFileRename = fileInfo.get("cFileRename");
+				profileFilepath = fileInfo.get("cFilepath");
+				
+				profile.setProfileFileName(profileFilename);
+				profile.setProfileFileRename(profileFileRename);
+				profile.setProfileFilePath(profileFilepath);
+			}
+			int result = mService.updateProfile(profile);
+			if(result > 0) {
+				String role = (String)session.getAttribute("role");
+				switch(role){
+					case "EMPLOYEE" : 
+						role = "e";
+						break;
+					case "EMPLOYER" :
+						role= "b";
+						break;
+				}
+				return "redirect:/member/"+role+"detail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
+	
 	@GetMapping("member/cvinsert")
 	public String showCvInsert(Model model
 			,HttpSession session) {
@@ -290,6 +343,8 @@ public class MemberController {
 			,@RequestParam("licenseName") List<String> licenseNames
 			,@RequestParam("getDate") List<Date> getDates
 			,@RequestParam("jobNo") List<Integer> jobNos
+			,@RequestParam("uploadFile") MultipartFile uploadFile
+			,HttpSession session
 			,@ModelAttribute CvInsertRequest cv
 			) {
 		try {
@@ -304,6 +359,12 @@ public class MemberController {
 			}
 			for(int i=0;i<jobNos.size();i++) {
 				cv.getjList().add(new DesiredJobVO(jobNos.get(i), cv.getId()));
+			}
+			if(uploadFile != null && !uploadFile.getOriginalFilename().isBlank()) {
+				Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "cv");
+				cv.setProfileFileName(fileInfo.get("cFilename"));
+				cv.setProfileFileRename(fileInfo.get("cFileRename"));
+				cv.setProfileFilePath(fileInfo.get("cFilepath"));
 			}
 			int check = schoolNames.size() + comanyNames.size() + institutions.size() + jobNos.size() +1;
 			int result = mService.cvInsert(cv);
@@ -340,8 +401,21 @@ public class MemberController {
 	}
 	
 	@GetMapping("member/cvupdate")
-	public String showCvUpdate() {
-		return "member/cv/update";
+	public String showCvUpdate(Model model, HttpSession session) {
+		try {
+			String id = (String)session.getAttribute("id");
+			MemberVO member = mService.selectCvById(id);
+			if(member != null) {
+				model.addAttribute("member",member);
+				return "member/cv/update";
+			}else {
+				return "common/error";				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("member/cvdelete")

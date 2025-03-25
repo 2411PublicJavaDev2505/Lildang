@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,16 +19,19 @@
 		        <h1>마이페이지 - 정보수정</h1>
 		        <div id="container">
 		            <div id="left-main">
+		                <c:if test="${member.profileFilePath eq null }">
 		                <img src="../resources/image/profile.png" alt="profile"> <br>
-		                <button class="imgbtn">사진변경</button>
+		            	</c:if>
+		            	<c:if test="${member.profileFilePath ne null }">
+		            		<img src="..${member.profileFilePath }" alt="profile"> <br>
+		            	</c:if>
 		                <div id="information">
 		                    아이디: ${member.id }<br>
 		                    이름: ${member.name } <br>
 		                    성별: ${member.gender } <br>
 		                    나이: ${member.age } <br>
 		                </div>
-		                <button class="modifybtn">수정하기</button>
-		                <button class="deletebtn">탈퇴하기</button>
+		                <button class="deletebtn" onclick="showDelete();">탈퇴하기</button>
 		            </div>
 		            <div id="right-main">
 		            	<form action="/member/update" method="post">
@@ -43,7 +47,6 @@
 			                    <input type="text" value="${member.phone }" name="phone"></input><br> 
 			                </div>
 			                <div class="rightbtn">
-			                    <button class="returnbtn">초기화</button>
 			                    <button class="modifybtn" type="submit">수정하기</button>
 			                </div>
 		            	</form>
@@ -52,5 +55,10 @@
     		</main>
     		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
     	</div>
+    	<script type="text/javascript">
+    		const showDelete = () => {
+    			location.href="/member/delete";
+    		}
+    	</script>
     </body>
 </html>

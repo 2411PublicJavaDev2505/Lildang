@@ -5,25 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="../resources/css/reset.css">
-			<link rel="stylesheet" href="../resources/css/include/header.css">
-			<link rel="stylesheet" href="../resources/css/include/footer.css">
-			<link rel="stylesheet" href="../resources/css/member/cv/cv.css">
-    
+   	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/include/header.css">
+	<link rel="stylesheet" href="../resources/css/include/footer.css">
+	<link rel="stylesheet" href="../resources/css/member/cv/cv.css">
     <title>이력서 작성</title>
 </head>
 <body>
 	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
-	    	<form action="/member/cvinsert" method="post">
+	    	<form action="/member/cvinsert" method="post" enctype="multipart/form-data">
 	    		<input type="hidden" name="id" value="${member.id }">
 		        <div class="cv-container">
 		            <div class="sidebar">
 					    <div class="profile-image">
 					    	<div class="profile-img"></div>
 					    	<div class="img-input">
-					         <input type="text" name="profileFileName">
+					         <input type="file" name="uploadFile">
 					    	</div>
 					    </div>
 					    <div class="profile-name">
@@ -111,7 +110,6 @@
 	<script type="text/javascript">
 		function addCareer() {
 			const row = document.querySelector("#career").insertRow();
-			
 			const col1 = row.insertCell(0);
 			const col2 = row.insertCell(1);
 			const col3 = row.insertCell(2);
@@ -121,7 +119,6 @@
 			col3.innerHTML = "<input type='text' name='position'>";
 			col4.innerHTML = "<input type='text' name='work'>";
 		}
-		
 		function addLicense() {
 			const row = document.querySelector("#license").insertRow();
 			

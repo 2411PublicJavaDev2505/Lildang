@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
@@ -68,5 +69,7 @@ public interface MemberService {
 	int reportDeleteE(String id);
 
 	List<RERequest> selectEMList(String id);
+
+	int updateProfile(ProfileUpdateRequest profile);
 	
 }

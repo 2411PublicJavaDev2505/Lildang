@@ -3,6 +3,7 @@ package com.lildang.spring.employ.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,8 +67,14 @@ public class EmployController {
 	}
 	
 	@GetMapping("employ/insert")
-	public String showEmployInsert() {
-		return "employ/insert";
+	public String showEmployInsert(Model model) {
+		try {
+			return "employ/insert";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("employ/update")//공고글 수정하기 GET
@@ -84,8 +91,15 @@ public class EmployController {
 	}
 	
 	@PostMapping("employ/update")//공고글 수정하기 POST
-	public String employUpdate(Model model,  @ModelAttribute EmployUpdateRequest employ) {
+	public String employUpdate(Model model,  @ModelAttribute EmployUpdateRequest employ
+			,MultipartFile uploadFile, HttpSession session) {
 		try {
+			if(uploadFile != null && !uploadFile.getOriginalFilename().isBlank()) {
+				Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "employ");
+				employ.setEmployFileName(fileInfo.get("eFilename"));
+				employ.setEmployFileRename(fileInfo.get("eFileRename"));
+				employ.setEmployFilePath(fileInfo.get("eFilepath"));
+			}
 			int result = eService.updateEmploy(employ);
 			if(result >0) {
 				return "redirect:/employ/detail?employNo="+employ.getEmployNo();
@@ -162,7 +176,7 @@ public class EmployController {
 			) {
 		try {
 			if(uploadFile != null && !uploadFile.getOriginalFilename().isBlank()) {
-			Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "employ");
+				Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "employ");
 				employ.setEmployFileName(fileInfo.get("eFilename"));
 				employ.setEmployFileRename(fileInfo.get("eFileRename"));
 				employ.setEmployFilePath(fileInfo.get("eFilepath"));

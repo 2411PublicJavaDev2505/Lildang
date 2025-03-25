@@ -1,148 +1,156 @@
 @charset "UTF-8";
- h1{
-                font-size: 60px;
-                text-align: center;
-            }
-            #container{
-                display: flex;
-                justify-content: center;
-            }
-            #left-main{
-                border-right: 1px solid black;
-                width: 350px;
-                text-align: center;
-                
-            }
-            .imgbtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;
-                margin: 15px;
-                font-size: 20px;
-                background-color: #b2f2bb;
-                font-weight: bolder;
-                cursor:pointer;
-                border: 1px solid #eee;
-            }
-            .imgbtn:hover{
-            	background-color: #1ed483;
-            } 
-            #information {
-                font-size: 30px;
-                margin: 15px 30px 30px 100px;
-                text-align: start;
-                font-weight: bolder;
-            }
-            .modifybtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;
-                cursor:pointer;
-                font-size: 20px;
-                background-color: #b2f2bb;
-                font-weight: bolder;
-                border: 1px solid #eee;
-            }
-            .modifybtn:hover{
-            	background-color: #1ed483;
-            } 
-            .deletebtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;           
-                font-size: 20px;
-                background-color: #b2f2bb;
-                font-weight: bolder;
-                cursor:pointer;
-                border: 1px solid #eee;
-            }
-            .deletebtn:hover{
-            	background-color: #1ed483;
-            } 
-            #right-main{
-                text-align: center;           
-                width: 1000px;
-                margin-left: 100px;
-            }
-            .delete h2{
-                font-size: 40px;
-                margin-bottom: 100px;
-                margin-right: 120px;
-            }
-            .delete{
-                text-align: right;
-                width: 700px;
-                margin: 150px 0px 0px 0px;
-                border: 1px solid black;
-                border-radius: 20px;
-                text-align: right;
-                padding: 30px;
-            }
-            .delete label{
-                font-weight: bolder;
-                font-size: 30px;
-                margin: 0 auto;
-            }
-            
-            .delete input{
-                width: 400px;
-                height: 40px;
-                border-radius: 10px;
-                margin-bottom: 20px;
-                margin-right: 120px;
-                font-size: 25px;
-                background-color: #eee;
-                border: 1px solid #eee;
-                
-            }
-            
-            .nbtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;           
-                font-size: 20px;
-                background-color: #eee;
-                font-weight: bolder;
-                cursor:pointer;
-                border: 1px solid #eee;
-            }
-            .nbtn:hover{
-            	background-color: #d9d9d9;
-            }
-            .ybtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;           
-                font-size: 20px;
-                background-color: #b2f2bb;
-                font-weight: bolder;
-                cursor:pointer;
-                border: 1px solid #eee;
-            }
-            .ybtn:hover{
-            	background-color: #1ed483;
-            }
-            .returnbtn{
-                border-radius: 20px;
-                height: 40px;
-                width: 120px;           
-                font-size: 20px;
-                background-color: #eee;
-                font-weight: bolder;
-                cursor:pointer;
-                border: 1px solid #eee;
-            }
-            .returnbtn:hover{
-            	background-color: #d9d9d9;
-            }
-            .rightbtn{
-                width: 600px;
-                margin-top: 50px;
-                margin-bottom:50px;
-                margin-left: 80px;
-            }
-            .rightdeletebtn{
-                width: 700px;
-                margin-top: 20px;
-                text-align: center;
-            }
+h1{
+    font-size: 60px;
+    text-align: center;
+}
+#container{
+    display: flex;
+    justify-content: center;
+}
+#left-main{
+    border-right: 1px solid black;
+    width: 350px;
+    text-align: center;
+}
+
+#left-main img{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #222;
+	border-radius: 100px;
+	margin: 0 auto;
+}
+
+.imgbtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    margin: 15px;
+    font-size: 20px;
+    background-color: #b2f2bb;
+    font-weight: bolder;
+    cursor:pointer;
+    border: 1px solid #eee;
+}
+.imgbtn:hover{
+	background-color: #1ed483;
+} 
+#information {
+    font-size: 30px;
+    margin: 15px 30px 30px 100px;
+    text-align: start;
+    font-weight: bolder;
+}
+.modifybtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    cursor:pointer;
+    font-size: 20px;
+    background-color: #b2f2bb;
+    font-weight: bolder;
+    border: 1px solid #eee;
+}
+.modifybtn:hover{
+	background-color: #1ed483;
+} 
+.deletebtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #b2f2bb;
+    font-weight: bolder;
+    cursor:pointer;
+    border: 1px solid #eee;
+}
+.deletebtn:hover{
+	background-color: #1ed483;
+} 
+#right-main{
+    text-align: center;           
+    width: 1000px;
+    margin-left: 100px;
+}
+.delete h2{
+    font-size: 40px;
+    margin-bottom: 100px;
+    margin-right: 120px;
+}
+.delete{
+    text-align: right;
+    width: 700px;
+    margin: 150px 0px 0px 0px;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: right;
+    padding: 30px;
+}
+.delete label{
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+.delete input{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-right: 120px;
+    font-size: 25px;
+    background-color: #eee;
+    border: 1px solid #eee;
+    
+}
+
+.nbtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #eee;
+    font-weight: bolder;
+    cursor:pointer;
+    border: 1px solid #eee;
+}
+.nbtn:hover{
+	background-color: #d9d9d9;
+}
+.ybtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #b2f2bb;
+    font-weight: bolder;
+    cursor:pointer;
+    border: 1px solid #eee;
+}
+.ybtn:hover{
+	background-color: #1ed483;
+}
+.returnbtn{
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;           
+    font-size: 20px;
+    background-color: #eee;
+    font-weight: bolder;
+    cursor:pointer;
+    border: 1px solid #eee;
+}
+.returnbtn:hover{
+	background-color: #d9d9d9;
+}
+.rightbtn{
+    width: 600px;
+    margin-top: 50px;
+    margin-bottom:50px;
+    margin-left: 80px;
+}
+.rightdeletebtn{
+    width: 700px;
+    margin-top: 20px;
+    text-align: center;
+}

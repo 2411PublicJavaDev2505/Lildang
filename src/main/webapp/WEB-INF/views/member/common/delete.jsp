@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,19 +17,22 @@
     <div class="container">
         <jsp:include page="/WEB-INF/views/include/header.jsp" />
     	<main>
-	        <h1>마이페이지 - 정보수정</h1>
+	        <h1>마이페이지 - 회원탈퇴</h1>
 	        <div id="container">
 	            <div id="left-main">
-	                <img src="/resources/image/profile.png" alt="profile"> <br>
-	                <button class="imgbtn">사진변경</button>
+	                <c:if test="${member.profileFilePath eq null }">
+		                <img src="../resources/image/profile.png" alt="profile"> <br>
+	            	</c:if>
+	            	<c:if test="${member.profileFilePath ne null }">
+	            		<img src="..${member.profileFilePath }" alt="profile"> <br>
+	            	</c:if>
 	                <div id="information">
-	                   	id:${member.id }<br>
+	                   	아이디:${member.id }<br>
 	                    이름:${member.name }<br>
 	                    성별:${member.gender }<br>
 	                    나이:${member.age } <br>
 	                </div>
 	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
-	                <button class="deletebtn" onclick="showDelete();">탈퇴하기</button>
 	            </div>
 	            <div id="right-main">
 	                <div class="delete">
@@ -42,9 +46,7 @@
 	                        <button class="nbtn" onClick="returnToMypage();">아니오</button>
 	                    </div>	                	
 	                </div>
-	                
 	                <div class="rightbtn">
-	                    <button class="returnbtn">초기화</button>
 	                    <button class="modifybtn">수정하기</button>
 	                </div>
 	            </div>

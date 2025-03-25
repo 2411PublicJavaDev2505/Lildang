@@ -79,4 +79,8 @@
 			</if>
 		</where>
 	</select>
+	<update id="updateProfile">
+		UPDATE MEMBER SET PROFILE_FILE_NAME=#{profileFileName}, PROFILE_FILE_RENAME=#{profileFileRename}
+		,PROFILE_FILE_PATH=#{profileFilePath} WHERE ID=#{id}
+	</update>
 </mapper>

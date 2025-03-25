@@ -20,8 +20,20 @@
 	        <h1>마이페이지</h1>
 	        <div class="main-content">
 	            <div id="left-main">
-	                <img src="../resources/image/profile.png" alt="profile"> <br>
-	                <button class="imgbtn">사진변경</button>
+	            	<c:if test="${member.profileFilePath eq null }">
+		                <img src="../resources/image/profile.png" alt="profile"> <br>
+	            	</c:if>
+	            	<c:if test="${member.profileFilePath ne null }">
+	            		<img src="..${member.profileFilePath }" alt="profile"> <br>
+	            	</c:if>
+	            	<form action="/member/pupdate" method="post" enctype="multipart/form-data">
+	            		<input type="hidden" name="id" value="${member.id }">
+	            		<input type="hidden" name="profileFileName" value="${member.profileFileName }">
+	            		<input type="hidden" name="profileFileRename" value="${member.profileFileRename }">
+	            		<input type="hidden" name="profileFilePath" value="${member.profileFilePath }">
+		            	<input type="file" name="reloadFile">
+		            	<button class="imgbtn">사진변경</button>
+	            	</form>
 	                <div id="information">
 	                    아이디: ${member.id }   <br>
 	                    이름: ${member.name } <br>
@@ -66,7 +78,7 @@
 					                               	</c:if>
 					                               	<c:if test="${em.jobStartYn eq 'Y' && em.jobEndYn ne 'Y'}">
 					                               		알바중...
-					                               		<button onclick="finishJob('${em.employeeId}','${em.employNo}');">알바 완료</button>
+					                               		<button onclick="finishJob('${em.employeeId}','${em.employNo}');" class="chatbtn">알바 완료</button>
 					                               	</c:if>
 					                               	<c:if test="${em.jobEndYn eq 'Y' }">
 					                               		알바완료

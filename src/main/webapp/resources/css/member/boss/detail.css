@@ -11,8 +11,16 @@ main h1{
     border-right: 1px solid black;
     width: 350px;
     text-align: center;
-    
 }
+
+#left-main img{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #222;
+	border-radius: 100px;
+	margin: 0 auto;
+}
+
 .imgbtn{
     border-radius: 20px;
     height: 40px;
