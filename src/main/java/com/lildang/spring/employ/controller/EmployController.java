@@ -1,4 +1,4 @@
- package com.lildang.spring.employ.controller;
+package com.lildang.spring.employ.controller;
 
 import java.util.List;
 
@@ -13,18 +13,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.member.service.MemberService;
 
 @Controller
 public class EmployController {
 	
 	private EmployService eService;
+	private MemberService mService;
 	
 	@Autowired
-	public EmployController(EmployService eService) {
+	public EmployController(EmployService eService, MemberService mService) {
 		this.eService = eService;
+		this.mService = mService;
 	}
 
 	@GetMapping("employ/detail")//공고글 상세
@@ -33,8 +37,10 @@ public class EmployController {
 			,HttpSession session) {	
 		try {
 			EmployVO result = eService.selectOneDetail(employNo);
+			List<EmployReviewRequest> rList = mService.selectERList(employNo);
 			if(result != null) {
 				model.addAttribute("result", result);
+				model.addAttribute("rList",rList);
 				return "employ/detail";
 			}else {
 				return "common/error";

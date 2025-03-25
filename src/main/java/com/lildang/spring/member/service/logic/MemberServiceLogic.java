@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.employ.store.EmployStore;
 import com.lildang.spring.employee.store.EmployeeStore;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
@@ -166,6 +167,11 @@ public class MemberServiceLogic implements MemberService{
 	@Override
 	public List<MemberVO> selectSearchList(String searchKeyword) {
 		return mStore.selectSearchList(session, searchKeyword);
+	}
+
+	@Override
+	public List<EmployReviewRequest> selectERList(int employNo) {
+		return rStore.selectERList(session, employNo);
 	}
 
 

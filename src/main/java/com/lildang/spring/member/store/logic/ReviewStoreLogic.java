@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.domain.ReviewEmployVO;
 import com.lildang.spring.member.domain.ReviewMemberVO;
@@ -41,6 +42,11 @@ public class ReviewStoreLogic implements ReviewStore{
 	@Override
 	public int reviewEmployUpdate(SqlSession session, ReviewEmployeeRequest review) {
 		return session.update("ReviewMapper.reviewEmployUpdate",review);
+	}
+
+	@Override
+	public List<EmployReviewRequest> selectERList(SqlSession session, int employNo) {
+		return session.selectList("ReviewMapper.selectERList",employNo);
 	}
 
 }

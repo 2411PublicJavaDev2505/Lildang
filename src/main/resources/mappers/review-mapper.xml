@@ -22,6 +22,11 @@
 		<result property="updateTime" column="UPDATE_TIME"/>
 		<result property="employNo" column="EMPLOY_NO"/>
 	</resultMap>
+	<resultMap type="com.lildang.spring.employ.controller.dto.EmployReviewRequest" id="rsetToER">
+		<result property="reviewScore" column="REVIEW_SCORE"/>
+		<result property="reviewDetail" column="REVIEW_DETAIL"/>
+		<result property="id" column="ID"/>
+	</resultMap>
 	<insert id="reviewEmployeeInsert">
 		INSERT INTO REVIEW_MEMBER VALUES(SEQ_REVIEW_MEMBER_NO.NEXTVAL,#{reviewWriter}
 		,#{reviewScore},#{reviewDetail},DEFAULT, DEFAULT,#{employeeId},#{employNo})
@@ -44,4 +49,8 @@
 		UPDATE REVIEW_EMPLOY SET REVIEW_SCORE=#{reviewScore}, REVIEW_DETAIL=#{reviewDetail}, UPDATE_TIME=SYSTIMESTAMP 
 		WHERE REVIEW_WRITER=#{reviewWriter} AND EMPLOY_NO=#{employNo}
 	</update>
+	<select id="selectERList" resultMap="rsetToER">
+		SELECT RE.REVIEW_SCORE REVIEW_SCORE, RE.REVIEW_DETAIL REVIEW_DETAIL, MEMBER.NAME ID FROM REVIEW_EMPLOY RE JOIN MEMBER ON REVIEW_WRITER = ID 
+		WHERE RE.EMPLOY_NO = #{employNo}
+	</select>
 </mapper>

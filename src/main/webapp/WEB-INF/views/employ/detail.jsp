@@ -99,32 +99,14 @@
 				<div class="fifth">
 					<h4>업체 평점/후기</h4>
 					<div class="fifth-content">
-						<p><b>평균평점:</b> 4.5/5.0</p>
+						<p><b>평균평점:</b> ${result.score }/5</p>
 						<div class="review">
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
+							<c:forEach var="r" items="${rList }">
+								<div class="review-content">
+									<p><b>${r.id }:</b>  ${r.reviewDetail }</p>
+									<p> 평점 : ${r.reviewScore }</p>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

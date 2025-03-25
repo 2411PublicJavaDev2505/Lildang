@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
+import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
@@ -60,5 +61,7 @@ public interface MemberService {
 	int reviewEmployUpdate(ReviewEmployeeRequest review);
 	
 	List<MemberVO> selectSearchList(String searchKeyword);
+
+	List<EmployReviewRequest> selectERList(int employNo);
 	
 }
