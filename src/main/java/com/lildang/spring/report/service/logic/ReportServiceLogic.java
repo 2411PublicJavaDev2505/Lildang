@@ -56,5 +56,18 @@ public class ReportServiceLogic implements ReportService{
 		ReportVO report = rStore.selectOneByNo(session, reportNo);
 		return report;
 	}
+	// 신고글 삭제
+	@Override
+	public int deleteReport(int reportNo) {
+		int result = rStore.deleteReport(session, reportNo);
+		return result;
+	}
+	
+	//신고 상세페이지에서 알바생 회원삭제
+	@Override
+	public int deleteReportEmployeeId(String reportEmployeeId) {
+		int result = rStore.deleteReportEmployeeId(session, reportEmployeeId);
+		return result;
+	}
 
 }

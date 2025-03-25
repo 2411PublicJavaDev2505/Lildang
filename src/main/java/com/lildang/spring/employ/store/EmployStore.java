@@ -25,5 +25,9 @@ public interface EmployStore {
 	public List<EmployVO> selectListById(SqlSession session, String id);
 	
 	public int updateEmployScore(SqlSession session, ReviewEmployeeRequest review);
+	// 신고 상세페이지에서 사장님 정보 가져오기
+	public EmployVO selectOneByNo(SqlSession session, int employNo);
+	// 신고 상세페이지에서 공고글 삭제하기
+	public int deleteEmployNo(SqlSession session, int employNo);
 
 }

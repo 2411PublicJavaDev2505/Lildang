@@ -15,11 +15,13 @@
     <body>
    		<jsp:include page="/WEB-INF/views/include/header.jsp" />
         <div id="main">
-        	<div>
+        	<div class="head">
         		<h1>전체회원조회</h1>
-        		<button>회원조회</button>
-				<button onClick="reportList();">신고조회</button>
         	</div>
+        		<div class="btn">
+	        		<button>회원조회</button>
+					<button onClick="reportList();">신고조회</button>        		
+        		</div>
             <div class="search">
                 <select class="searchbar">
                     <option value="none">전체</option>  

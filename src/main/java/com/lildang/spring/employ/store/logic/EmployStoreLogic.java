@@ -55,5 +55,17 @@ public class EmployStoreLogic implements EmployStore{
 	public int updateEmployScore(SqlSession session, ReviewEmployeeRequest review) {
 		return session.update("EmployMapper.updateEmployScore",review);
 	}
+
+	@Override // 신고 상세페이지에서 사장님 정보 가져오기
+	public EmployVO selectOneByNo(SqlSession session, int employNo) {
+		EmployVO employ = session.selectOne("EmployMapper.selectOneByNo", employNo);
+		return employ;
+	}
+
+	@Override // 신고 상세페이지에서 공고글 삭제하기
+	public int deleteEmployNo(SqlSession session, int employNo) {
+		int result = session.delete("EmployMapper.deleteEmployNo", employNo);
+		return result;
+	}
 }
 

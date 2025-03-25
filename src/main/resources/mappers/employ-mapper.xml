@@ -36,16 +36,22 @@
 	<select id="selectOneDetail" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
 	</select>
+	<select id="selectListById" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
+	</select>
+	<select id="selectOneByNo" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
+	</select>
 	<delete id="deleteEmploy">
+		DELETE FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
+	</delete>
+	<delete id="deleteEmployNo">
 		DELETE FROM EMPLOY WHERE EMPLOY_NO = #{employNo}
 	</delete>
 	<update id="updateEmploy">
 		UPDATE EMPLOY SET EMPLOY_NAME=#{employName}, JOB_NO=#{jobNo}, RECRUIT_NUMBER=#{recruitNumber}, RECRUIT_START_DATE=#{recruitStartDate}, RECRUIT_END_DATE=#{recruitEndDate}, EDUCATION=#{education}, WORKPLACE_NAME=#{workplaceName}, WORKPLACE_ADDRESS=#{workplaceAddress}, SALARY=#{salary}, WORKING_PERIOD=#{workingPeriod}, WORKING_START_TIME=#{workingStartTime}, WORKING_END_TIME=#{workingEndTime}, WORKING_DAY=#{workingDay}, EMPLOY_FILE_NAME=#{employFileName}, EMPLOY_DETAIL=#{employDetail} 
 		WHERE EMPLOY_NO = #{employNo}
 	</update>
-	<select id="selectListById" resultMap="rsetToEmploy">
-		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
-	</select>
 	<update id="updateEmployScore">
 		UPDATE EMPLOY SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_EMPLOY WHERE EMPLOY_NO=#{employNo}) WHERE EMPLOY_NO=#{employNo}
 	</update>

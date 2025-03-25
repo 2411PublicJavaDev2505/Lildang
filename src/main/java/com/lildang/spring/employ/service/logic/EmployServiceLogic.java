@@ -63,6 +63,18 @@ public class EmployServiceLogic implements EmployService{
 		return result;
 	}
 
+	@Override // 신고 상세에서 사장님 정보 가져오기
+	public EmployVO selectOneByNo(int employNo) {
+		EmployVO employ = eStore.selectOneByNo(session, employNo);
+		return employ;
+	}
+	
+	@Override // 신고 상세페이지에서 공고글 삭제하기
+	public int deleteEmployNo(int employNo) {
+		int result = eStore.deleteEmployNo(session, employNo);
+		return result;
+	}
+
 }
 
 
