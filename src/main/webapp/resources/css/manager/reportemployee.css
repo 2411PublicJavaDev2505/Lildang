@@ -2,6 +2,8 @@
 #main{
     margin: 0 auto;
     width: 1000px;
+    margin-top : 60px;
+    margin-bottom : 70px;
 }
 .emp{
     border-collapse: collapse;
@@ -52,6 +54,12 @@
     font-size: 20px;
     background-color: #b2f2bb;
     font-weight: bolder;
+    border : none;
+    cursor : pointer;
+    margin : 20px 30px;
+}
+.reportemp button:hover {
+	background-color : #1ed483;
 }
 .reportboss button{
     border-radius: 15px;
@@ -60,6 +68,11 @@
     font-size: 20px;
     background-color: #b2f2bb;
     font-weight: bolder;
+    border : none;
+    cursor : pointer;
+}
+.reportboss button:hover {
+	background-color : #1ed483;
 }
 .empbtn{
     margin: 15px 0px 0px 400px;

@@ -23,6 +23,12 @@ main h1{
     font-weight: bolder;
     border: none;
 }
+.modifybtn {
+	cursor : pointer;
+}
+.deletebtn {
+	cursor : pointer;
+}
 #information {
     font-size: 30px;
     margin: 15px 30px 30px 100px;

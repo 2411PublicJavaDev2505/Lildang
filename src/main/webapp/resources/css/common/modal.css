@@ -131,6 +131,7 @@
 	margin-top : 10px;
 	background-color : #A8A81F;
 	border : none;
+	cursor : pointer;
 }
 .report-content {
 	text-align : center;

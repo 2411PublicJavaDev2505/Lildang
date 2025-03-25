@@ -50,8 +50,10 @@
 						<div class="report-area">
 							<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>						
 						</div>
-						<button class="rbtn">신고하기</button>
-						<button class="back-btn" type="button" onclick="reportBackToPage();">뒤로가기</button>					
+						<div class="report-btn">
+							<button>신고하기</button>
+							<button type="button" onclick="reportBackToPage();">뒤로가기</button>											
+						</div>
 					</form>
 				</div>
 			</div>

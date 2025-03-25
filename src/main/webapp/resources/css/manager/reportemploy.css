@@ -70,11 +70,20 @@
 	cursor : pointer;
 	background-color: #b2f2bb;
 	border : none;
+	margin : 15px 30px;
+}
+.empbtn button:hover {
+	background-color : #1ed483;
 }
 .bossbtn button{
     margin: 15px 0px 0px 450px;
     border : none;
     cursor : pointer;
+    background-color: #b2f2bb;
+    
+}
+.bossbtn button:hover{
+	background-color : #1ed483;
 }
 .reportboss{
     margin-top: 100px;
