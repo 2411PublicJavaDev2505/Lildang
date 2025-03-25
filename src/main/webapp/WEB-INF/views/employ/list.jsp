@@ -57,7 +57,7 @@
 	                    </tr>
 	                    <c:forEach var="eList" items="${eList }">
 		                    <tr>
-		                        <td  class="emptitle"><div class="circle">.</div><a href="/employ/detail?employNo=${eList.employNo }">${eList.employName }</a></td>
+		                        <td  class="emptitle"><a href="/employ/detail?employNo=${eList.employNo }">${eList.employName }</a></td>
 		                        <td>${eList.workplaceAddress }</td>
 		                        <td>${eList.workingStartTime } ${eList.workingEndTime }</td>
 		                        <td>${eList.salary }</td>

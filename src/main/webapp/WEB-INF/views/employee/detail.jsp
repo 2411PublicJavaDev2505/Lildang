@@ -48,8 +48,8 @@
 						<div class="report-area">
 							<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>						
 						</div>
-						<button>신고하기</button>
-						<button type="button" onclick="reportBackToPage();">뒤로가기</button>					
+						<button class="rbtn">신고하기</button>
+						<button class="back-btn" type="button" onclick="reportBackToPage();">뒤로가기</button>					
 					</form>
 				</div>
 			</div>
@@ -166,7 +166,7 @@
 	                <div id="job-introduce">
 	                    <div class="job-introduce">자기소개서</div>
 	                    ${member.introduction }
-	                </div>
+	                </div>0
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>
 	                    <button>찜하기</button>

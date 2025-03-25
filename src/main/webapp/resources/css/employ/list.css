@@ -4,45 +4,39 @@
     margin-top: 50px;
 }
 .location{
-    font-size: 25px;
-    background-color: #d9d9d9;
+    font-size: 20px;
+    background-color: #eee;
     padding: 5px;
     border-radius: 15px;
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #eee;
+    
 }
-.job{
-    font-size: 25px;
-    background-color: #d9d9d9;
-    padding: 5px;
-    border-radius: 15px;
-}
-.day{
-    font-size: 25px;
-    background-color: #d9d9d9;
-    padding: 5px;
-    border-radius: 15px;
-}
-.detail{
-    font-size: 25px;
-    background-color: #d9d9d9;
-    padding: 5px;
-    border-radius: 15px;
+.location:hover{
+	background-color: #d9d9d9;
 }
 .conditionbtn{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     
-}
+}    
+
 .cbtn2{
     border-radius: 15px;
     height: 50px;
     width: 300px;
     font-size: 20px;
-    background-color: #1ED483;
+    background-color: #b2f2bb;
     font-weight: bolder;
     cursor:pointer;
+    border: 1px solid #eee;
 }
 .cbtn2:hover{
-	background-color: #b2f2bb;
+	background-color: #1ED483;
 }
 .jobinf{
     width: 100%;
