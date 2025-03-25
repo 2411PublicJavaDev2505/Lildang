@@ -29,5 +29,9 @@ public interface EmployStore {
 	public EmployVO selectOneByNo(SqlSession session, int employNo);
 	// 신고 상세페이지에서 공고글 삭제하기
 	public int deleteEmployNo(SqlSession session, int employNo);
+	//공고글 검색
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword);
+	//헤더 공고글 검색
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword);
 
 }

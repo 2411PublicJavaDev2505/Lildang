@@ -67,5 +67,16 @@ public class EmployStoreLogic implements EmployStore{
 		int result = session.delete("EmployMapper.deleteEmployNo", employNo);
 		return result;
 	}
+	
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword) {
+		// TODO Auto-generated method stub
+		return session.selectList("EmployMapper.selectSearchList", eSearchKeyword);
+	}
+
+	@Override
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword) {
+		// TODO Auto-generated method stub
+		return session.selectList("EmployMapper.headerSearchList", searchKeyword);
+	}
 }
 

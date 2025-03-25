@@ -17,20 +17,20 @@
 	<div id="container">
 		<div class="modal">
 			<div class="modal-body">
-				<h1>내 공고글 선택</h1>
+				<h1 class="mtitle1">내 공고글 선택</h1>
 				<div class="employ-box">
 					<form action="/match/offer" method="get">
 						<input type="hidden" name="employeeId" value="${member.id }">
 						<table>
 							<c:forEach var="employ" items="${eList }">
 								<tr>
-									<td>${employ.employName }</td>
-									<td> <input type="radio" name="employNo" value="${employ.employNo }"> 선택 </td>
+									<td class="emp-name">${employ.employName }</td>
+									<td class="cbtn"> <input type="radio" name="employNo" value="${employ.employNo }"> 선택 </td>
 								</tr>
 							</c:forEach>
 						</table>
-						<button>제의하기</button>					
-						<button type="button" onclick="backToPage();">뒤로가기</button>					
+						<button class="bottom-btn">제의하기</button>					
+						<button  class="back-btn" type="button" onclick="backToPage();">뒤로가기</button>					
 					</form>
 				</div>			
 			</div>

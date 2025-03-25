@@ -26,5 +26,9 @@ public interface EmployService {
 	EmployVO selectOneByNo(int employNo); // 신고 상세페이지에서 사장님 정보 가져오기
 
 	int deleteEmployNo(int employNo); // 신고 상세페이지에서 공고글 삭제하기
+	
+	List<EmployVO> selectSearchList(String eSearchKeyword);
+
+	List<EmployVO> headerSearchList(String searchKeyword);
 
 }

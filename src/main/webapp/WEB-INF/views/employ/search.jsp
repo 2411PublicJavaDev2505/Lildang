@@ -1,169 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   	<link rel="stylesheet" href="../resources/css/reset.css">
-	<link rel="stylesheet" href="../resources/css/include/header.css">
-	<link rel="stylesheet" href="../resources/css/include/footer.css">
-	<link rel="stylesheet" href="../resources/css/employ/search.css">
-    <title>알바 - 검색</title>
-</head>
-<body>
-    <div id="container">
-    <jsp:include page="/WEB-INF/views/include/header.jsp" />
-        <main>
-            <div class="container">
-                <div class="location">
-                    <div class="location-l">지역별</div>
-                    <table>
-                        <tr>
-                            <td>
-                            	<label for="seoul">서울</label>
-                            	<input type="checkbox" id="seoul">
-                            </td>
-                            <td>경기</td>
-                            <td>인천</td>
-                            <td>강원</td>
-                            <td>대전</td>
-                            <td>대구</td>
-                        </tr>
-                        <tr>
-                            <td>부산</td>
-                            <td>울산</td>
-                            <td>경남</td>
-                            <td>경북</td>
-                            <td>전남</td>
-                            <td>전북</td>
-                        </tr>
-                        <tr>
-                            <td>충남</td>
-                            <td>충북</td>
-                            <td>제주</td>
-                        </tr>
-                    </table>
-                    <div class="money-t">급여별</div>
-                    <div class="money-b">시급 일급 월급 연봉</div>
-                     <div class="input">
-                        <input type="text" placeholder="입력해주세요."> 원
-                     </div>
-                </div>
-                <div class="term">
-                    <div class="term-t">기간별</div>
-                    <table>
-                        <tr>
-                            <td>일주일 미만</td> 
-                        </tr>
-                        <tr>
-                            <td>1개월 미만</td> 
-                        </tr>
-                        <tr>
-                            <td>1개월 ~ 3개월</td> 
-                        </tr>
-                        <tr>
-                            <td>3개월 ~ 6개월</td> 
-                        </tr>
-                        <tr>
-                            <td>6개월 ~ 1년</td>
-                        </tr>
-                        <tr>
-                            <td>1년이상</td>
-                        </tr>
-                    </table>
-                </div>   
-                <div class="type">
-                    <div class="type-t">직종별</div>
-                    <table>
-                        <tr>
-                            <td>외식·음료</td>
-                        </tr>
-                        <tr>
-                            <td>매장관리·판매</td>
-                        </tr>
-                        <tr>
-                            <td>서비스</td>
-                        </tr>
-                        <tr>
-                            <td>사무직</td>
-                        </tr>
-                        <tr>
-                            <td>고객상담·리서치·영업</td>
-                        </tr>
-                        <tr>
-                            <td>생산·건설·노무</td>
-                        </tr>
-                        <tr>
-                            <td>IT·기술</td>
-                        </tr>
-                        <tr>
-                            <td>교육·강사</td>
-                        </tr>
-                        <tr>
-                            <td>운전·배달</td>
-                        </tr>
-                        <tr>
-                            <td>사무·회계</td>
-                        </tr>
-                        <tr>
-                            <td>미디어</td>
-                        </tr>
-                        <tr>
-                            <td>유통</td>
-                        </tr>
-                        <tr>
-                            <td>문화·여가</td>
-                        </tr>
-                        <tr>
-                            <td>병원·간호·연구</td>
-                        </tr>
-                            <td>요식업</td> 
-                        </tr>
-                    </table>
-                </div>    
-                <div class="days">
-                    <div class="day">근무 요일</div>
-                    <table>
-                        <tr>
-                            <td>평일(월~금)</td>
-                        </tr>
-                        <tr>
-                            <td>주말(토,일)</td>
-                        </tr>
-                        <tr>
-                            <td>월</td>
-                        </tr>
-                        <tr>
-                            <td>화</td>
-                        </tr>
-                        <tr>
-                            <td>수</td>
-                        </tr>
-                        <tr>
-                            <td>목</td>
-                        </tr>
-                        <tr>
-                            <td>금</td>
-                        </tr>
-                        <tr>
-                            <td>토</td>
-                        </tr>
-                        <tr>
-                            <td>일</td>
-                        </tr>
-                        <tr>
-                            <td>요일 협의</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="btn">
-                <button>초기화</button>
-                <button>검색하기</button>
-            </div>
-        </main>
-        <jsp:include page="/WEB-INF/views/include/footer.jsp" />
-    </div>
-</body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../resources/css/reset.css">
+		<link rel="stylesheet" href="../resources/css/include/header.css">
+		<link rel="stylesheet" href="../resources/css/include/footer.css">
+		<link rel="stylesheet" href="../resources/css/employ/list.css">
+		<title>구인글-검색결과</title>
+	</head>
+	<body>
+		<div id="container">
+			<jsp:include page="/WEB-INF/views/include/header.jsp" />
+			<div id="main">
+				<form action="/employ/search">
+	            <div class="condition">
+	                <select class="location" name="eSearchKeyword">
+	                    <option value="none">지역</option>
+	                    <option value="서울">서울</option>
+	                    <option value="경기">경기</option>
+	                    <option value="인천">인천</option>
+	                    <option value="강원">강원</option>
+	                    <option value="대전">대전</option>
+	                    <option value="대구">대구</option>
+	                    <option value="부산">부산</option>
+	                    <option value="울산">울산</option>
+	                    <option value="경남">경남</option>
+	                    <option value="경북">경북</option>
+	                    <option value="전남">전남</option>
+	                    <option value="전북">전북</option>
+	                    <option value="충남">충남</option>
+	                    <option value="충북">충북</option>
+	                    <option value="제주">제주</option>
+	                </select>
+	            </div>
+	            <div class="conditionbtn">
+	                <button class="cbtn2" type="submit">검색</button>
+				</div>
+	            <div class="jobinf">
+	                <h1 class="infword">채용정보</h1>
+	                <select class="infoption">
+	                    <option value="none">최근등록순</option>
+	                    <option></option>
+	                </select>
+	            </div>
+	            <div class="inftable">
+	                <table class="table1">
+	                    <tr class="title">
+	                        <td>공고제목</td>
+	                        <td>근무지</td>
+	                        <td>근무시간</td>
+	                        <td>급여</td>
+	                        <td class="d1">등록일</td>
+	                    </tr>
+	                    <c:forEach var="eList" items="${eList }">
+		                    <tr>
+		                        <td  class="emptitle"><div class="circle">.</div><a href="/employ/detail?employNo=${eList.employNo }">${eList.employName }</a></td>
+		                        <td>${eList.workplaceAddress }</td>
+		                        <td>${eList.workingStartTime } ${eList.workingEndTime }</td>
+		                        <td>${eList.salary }</td>
+		                        <td class="d1">${eList.writeTime }</td>
+		                    </tr>
+	                    </c:forEach>
+	                    <!--<tr>
+	                        <td><div class="circle1">.</div>장기하 장기학원에서 장기 선생님 구해요.</td>
+	                        <td>서울 동대문구</td>
+	                        <td>09:00~18:00</td>
+	                        <td>시급 50,000원</td>
+	                        <td class="d1">03/12(수)</td>
+	                    </tr>
+	                    <tr>
+	                        <td><div class="circle">.</div>메가커피 파트타임 알바생 구합니다(월,수,금)</td>
+	                        <td>서울 중구</td>
+	                        <td>12:00~14:00</td>
+	                        <td>시급 13,000원</td>
+	                        <td class="d1">03/13(목)</td>
+	                    </tr>
+	                    <tr>
+	                        <td><div class="circle1">.</div>세븐일레븐 청계천로 점에서 새벽알바 구합니다.(월,수,금)</td>
+	                        <td>서울 종로구</td>
+	                        <td>02:00~04:00</td>
+	                        <td>시급 13,000원</td>
+	                        <td class="d1">03/14(금)</td>
+	                    </tr>
+	                    <tr>
+	                        <td><div class="circle1">.</div>내일 알바 대신 해주실분 구해요!</td>
+	                        <td>서울 용산구</td>
+	                        <td>12:00~22:00</td>
+	                        <td>시급 11,000원</td>
+	                        <td class="d1">03/15(토)</td>
+	                    </tr>
+					-->
+	                </table>
+	            </div>
+	        </div>
+	        <jsp:include page="/WEB-INF/views/include/footer.jsp" />
+        </div>
+	</body>
 </html>

@@ -74,6 +74,17 @@ public class EmployServiceLogic implements EmployService{
 		int result = eStore.deleteEmployNo(session, employNo);
 		return result;
 	}
+	
+	@Override
+	public List<EmployVO> selectSearchList(String eSearchKeyword) {
+		return eStore.selectSearchList(session, eSearchKeyword);
+	}
+
+	@Override
+	public List<EmployVO> headerSearchList(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return eStore.headerSearchList(session, searchKeyword);
+	}
 
 }
 

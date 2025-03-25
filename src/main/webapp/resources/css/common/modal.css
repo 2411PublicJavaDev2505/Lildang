@@ -28,7 +28,53 @@
 	border-radius: 10px;
 	text-align: center;
 }
-
+.mtitle1{
+	width:300px;
+	color: #1ed483;
+	text-align: center;
+	margin-left:100px;
+}
+.employ-box{	
+	font-size: 20px;
+}
+.employ-box table{
+	margin-left: 100px;
+	margin-top: 50px;
+	text-align: center;
+}
+.employ-box tr td{
+	border-radius: 15px;
+	height: 20px;
+	padding: 5px;
+}
+.emp-name{
+	width: 200px;
+}
+.cbtn{
+	width: 90px;
+}
+.bottom-btn{
+	background-color: #1ed483;
+	margin: 50px 5px 0px 150px;
+	width: 100px;
+	height: 40px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.bottom-btn:hover{
+	background-color:#b2f2bb;
+}
+.back-btn{
+	background-color:#c0c0c0;
+	margin-left: 5px;
+	width: 100px;
+	height: 40px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.back-btn:hover{
+	background-color: #979797;
+}
 .update-review {
 	position: absolute;
 	display: none;

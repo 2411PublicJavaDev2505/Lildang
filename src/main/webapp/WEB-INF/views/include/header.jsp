@@ -9,9 +9,9 @@
     	</a>
     </div>
     <div class="searchBar">
-    	<form action="/employ/list">
-	        <input type="text" placeholder="검색어를 입력하세요.">
-	        <button>검색</button>
+    	<form action="/employ/hsearch">
+	        <input type="text" placeholder="검색어를 입력하세요." name="searchKeyword">
+	        <button type="submit">검색</button>
     	</form>
     </div>
     <div class="nav">

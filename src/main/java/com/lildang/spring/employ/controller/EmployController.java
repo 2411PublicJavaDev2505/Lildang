@@ -96,9 +96,36 @@ public class EmployController {
 		}
 	}
 	
-	@GetMapping("employ/search")
-	public String employSearch() {
-		return "employ/search";
+	@GetMapping("employ/search")//공고글 검색
+	public String employSearch(
+			@RequestParam("eSearchKeyword") String eSearchKeyword
+			,Model model) {
+		try {
+			List<EmployVO> eList = eService.selectSearchList(eSearchKeyword);
+			model.addAttribute("eList", eList);
+			return "employ/search";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("employ/hsearch")//헤더 공고글 검색
+	public String hEmploySearch(
+			@RequestParam("searchKeyword") String searchKeyword
+			,Model model) {
+		try {
+			List<EmployVO> eList = eService.headerSearchList(searchKeyword);
+			model.addAttribute("eList", eList);
+			return "employ/hsearch";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("employ/list") //공고글 전체 정보 조회
