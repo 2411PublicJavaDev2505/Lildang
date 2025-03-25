@@ -49,5 +49,17 @@ public class EmployStoreLogic implements EmployStore{
 	public int updateEmploy(SqlSession session, EmployUpdateRequest employ) {
 		return session.update("EmployMapper.updateEmploy", employ);
 	}
+
+	@Override
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword) {
+		// TODO Auto-generated method stub
+		return session.selectList("EmployMapper.selectSearchList", eSearchKeyword);
+	}
+
+	@Override
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword) {
+		// TODO Auto-generated method stub
+		return session.selectList("EmployMapper.headerSearchList", searchKeyword);
+	}
 }
 

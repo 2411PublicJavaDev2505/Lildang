@@ -22,5 +22,9 @@ public interface EmployStore {
 	public int updateEmploy(SqlSession session, EmployUpdateRequest employ);
 	// 공고글 리스트
 	public List<EmployVO> selectListById(SqlSession session, String id);
+	//공고글 검색
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword);
+	//헤더 공고글 검색
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword);
 
 }

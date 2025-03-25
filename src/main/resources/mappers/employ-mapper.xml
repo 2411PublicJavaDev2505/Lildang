@@ -45,4 +45,10 @@
 	<select id="selectListById" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
 	</select>
+	<select id="selectSearchList" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE WORKPLACE_ADDRESS LIKE '%'||#{workplaceAddress}||'%'
+	</select>
+	<select id="headerSearchList" resultMap="rsetToEmploy">
+		SELECT * FROM EMPLOY WHERE EMPLOY_NAME LIKE '%'||#{employName}||'%'
+	</select>
 </mapper>

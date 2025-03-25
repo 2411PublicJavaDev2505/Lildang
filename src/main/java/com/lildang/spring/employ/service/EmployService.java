@@ -23,4 +23,8 @@ public interface EmployService {
 
 	List<EmployVO> selectListById(String id); // 공고글 리스트
 
+	List<EmployVO> selectSearchList(String eSearchKeyword);
+
+	List<EmployVO> headerSearchList(String searchKeyword);
+
 }
