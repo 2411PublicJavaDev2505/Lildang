@@ -27,6 +27,7 @@
     background-color: #b2f2bb;
     width: 100px;
     padding: 5px;
+    cursor : pointer;
 }
 .list{
     text-align: center;
@@ -84,11 +85,15 @@
 	gap : 30px;
 	margin-bottom : 20px;
 }
-.btn button{
+.btn button {
 	padding: 15px 25px;
 	border : none;
 	border-radius : 10px;
 	background-color : #b2f2bb;
 	font-size : 25px;
 	font-weight : bold;
+	cursor : pointer;
+}
+.btn button:hover {
+	background-color:#1ED483;
 }

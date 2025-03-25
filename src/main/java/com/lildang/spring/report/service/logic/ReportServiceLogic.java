@@ -62,12 +62,5 @@ public class ReportServiceLogic implements ReportService{
 		int result = rStore.deleteReport(session, reportNo);
 		return result;
 	}
-	
-	//신고 상세페이지에서 알바생 회원삭제
-	@Override
-	public int deleteReportEmployeeId(String reportEmployeeId) {
-		int result = rStore.deleteReportEmployeeId(session, reportEmployeeId);
-		return result;
-	}
 
 }

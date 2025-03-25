@@ -58,7 +58,7 @@
 		      <div class="form-group">
 		        <input type="date" name="birth">
 		      </div>
-		      <div class="form-group">
+		      <div class="radio-group">
 		      	<input type="radio" name="gender" value="M" checked>남
 		      	<input type="radio" name="gender" value="F">여
 		      </div>

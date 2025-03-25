@@ -47,5 +47,7 @@ public interface MemberStore {
 	int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review);
 	
 	List<MemberVO> selectSearchList(SqlSession session, String searchKeyword);
+	// 신고 상세페이지에서 알바생 삭제
+	int reportDeleteE(SqlSession session, String id);
 
 }

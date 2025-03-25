@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.member.service.MemberService;
 import com.lildang.spring.report.controller.dto.ReportEmploy;
 import com.lildang.spring.report.controller.dto.ReportEmployee;
 import com.lildang.spring.report.domain.ReportVO;
@@ -27,11 +28,13 @@ public class ReportController {
 	
 	private ReportService rService;
 	private EmployService eService;
+	private MemberService mService;
 	
 	@Autowired
-	public ReportController(ReportService rService, EmployService eService) {
+	public ReportController(ReportService rService, EmployService eService,MemberService mService) {
 		this.rService = rService;
 		this.eService = eService;
+		this.mService = mService;
 	}
 	
 	// 신고목록 클릭해서 상세사항으로 들어가기
@@ -158,10 +161,11 @@ public class ReportController {
 	
 	@GetMapping("report/reportdele")
 	public String reportDeleteE(Model model
-			,@RequestParam("reportEmployeeId") String reportEmployeeId) {
+			,@RequestParam("id") String id) {
 		try {
-			int result = rService.deleteReportEmployeeId(reportEmployeeId);
+			int result = mService.reportDeleteE(id);
 			if(result > 0) {
+				model.addAttribute("id", id);
 				return "redirect:/";
 			}else {
 				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");

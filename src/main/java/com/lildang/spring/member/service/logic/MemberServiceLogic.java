@@ -173,6 +173,13 @@ public class MemberServiceLogic implements MemberService{
 	public List<EmployReviewRequest> selectERList(int employNo) {
 		return rStore.selectERList(session, employNo);
 	}
+	
+	// 신고 상세페이지에서 알바생 삭제
+	@Override
+	public int reportDeleteE(String id) {
+		int result = mStore.reportDeleteE(session, id);
+		return result;
+	}
 
 
 }

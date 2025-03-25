@@ -2,6 +2,8 @@
 #main{
     margin: 0 auto;
     width: 1000px;
+    margin-bottom : 60px;
+    margin-top : 50px;
 }
 .emp{
     border-collapse: collapse;
@@ -64,8 +66,15 @@
 .empbtn{
     margin: 15px 0px 0px 400px;
 }
-.bossbtn{
+.empbtn button {
+	cursor : pointer;
+	background-color: #b2f2bb;
+	border : none;
+}
+.bossbtn button{
     margin: 15px 0px 0px 450px;
+    border : none;
+    cursor : pointer;
 }
 .reportboss{
     margin-top: 100px;

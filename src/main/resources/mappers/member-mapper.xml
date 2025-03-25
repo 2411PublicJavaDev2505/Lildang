@@ -65,4 +65,7 @@
 	<select id="getTotalCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER 
 	</select>
+	<delete id="reportDeleteE">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
 </mapper>
