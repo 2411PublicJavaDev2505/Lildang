@@ -1,6 +1,7 @@
 package com.lildang.spring.manager.store.logic;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -27,5 +28,12 @@ public class ManagerStoreLogic implements ManagerStore{
 		int totalCount = session.selectOne("MemberMapper.getTotalCount");
 		return totalCount;
 	}
-
+	// 관리자 입장에서 회원 검색
+	@Override
+	public List<MemberVO> selectMemberSearchList(SqlSession session, Map<String, String> searchMap) {
+		List<MemberVO> mList = session.selectList("MemberMapper.selectMemberSearchList", searchMap);
+		return mList;
+	}
+	
 }
+
