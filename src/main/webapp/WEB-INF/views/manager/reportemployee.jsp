@@ -12,6 +12,7 @@
 	<title>알바생 신고</title>
 	</head>
 	<body>
+	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		        <div id="main">
             <div class="reportemp">
@@ -20,11 +21,11 @@
                     <tr>
                         <!-- 3/24일 11:40수정시작!했는데다시 돌려놓음! -->
                         <td class="empinf">아이디</td>
-                        <td class="empdata">ALBA02</td>
+                        <td class="empdata">${report.reportWriterId }</td>
                     </tr>
                     <tr>
                         <td class="empinf">이름</td>
-                        <td class="empdata">이용자</td>
+                        <td class="empdata">알바생</td>
                     </tr>
                 </table>
                 <div class="empbtn">
@@ -37,7 +38,7 @@
                 <table class="boss">
                     <tr>
                         <td class="bossinf">아이디</td>
-                        <td class="bossdata">SAJANG02</td>
+                        <td class="bossdata">${report.reportWriterId }</td>
                     </tr>
                     <tr>
                         <td class="bossinf">이름</td>
@@ -49,10 +50,16 @@
                     </tr>
                 </table>
                 <div class="bossbtn">
-                    <button>목록으로</button>
+                    <button onClick="backToPage();">목록으로</button>
                 </div>
             </div>
         </div>
         <jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	</div>
+	<script type="text/javascript">
+		const backToPage = () => {
+			location.href = "/manager/reportlist"
+		}
+	</script>
 	</body>
 </html>

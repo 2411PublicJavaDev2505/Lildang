@@ -16,6 +16,7 @@ public class ManagerServiceLogic implements ManagerService{
 	
 	private ManagerStore mStore;
 	private SqlSession session;
+	
 	@Autowired
 	public ManagerServiceLogic(ManagerStore mStore, SqlSession session) {
 		this.mStore = mStore;
@@ -23,11 +24,12 @@ public class ManagerServiceLogic implements ManagerService{
 	}
 	
 	
-	
+	// 관리자 입장에서 회원전체 조회
 	@Override
 	public List<MemberVO> selectList() {
 		List<MemberVO> mList = mStore.selectList(session);
 		return mList;
 	}
+	
 
 }

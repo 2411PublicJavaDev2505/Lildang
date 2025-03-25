@@ -18,15 +18,15 @@
                 <table class="emp">
                     <tr>
                         <td class="empinf">공고글 번호</td>
-                        <td class="empdata">123</td>
+                        <td class="empdata">${report.reportNo }</td>
                     </tr>
                     <tr>
                         <td class="empinf">작성자</td>
-                        <td class="empdata">SAJANG01</td>
+                        <td class="empdata">${report.reportWriterId }</td>
                     </tr>
                     <tr>
                         <td class="empinf">작성 날짜</td>
-                        <td class="empdata">25-03-12</td>
+                        <td class="empdata">${report.reportDate }</td>
                     </tr>
                     <tr>
                         <td class="empinf">제목</td>
@@ -43,15 +43,15 @@
                 <table class="info">
                     <tr>
                         <td class="datainf">공고글 번호</td>
-                        <td class="bossdata">123</td>
+                        <td class="bossdata">${report.reportNo }</td>
                     </tr>
                     <tr>
                         <td class="datainf">작성자</td>
-                        <td class="bossdata">ALBA01</td>
+                        <td class="bossdata">${report.reportWriterId }</td>
                     </tr>
                     <tr>
                         <td class="datainf">신고날짜</td>
-                        <td class="bossdata">25-03-13</td>
+                        <td class="bossdata">${report.reportDate }</td>
                     </tr>
                     <tr>
                         <td class="datainf">내용</td>
@@ -59,10 +59,15 @@
                     </tr>
                 </table>
                 <div class="bossbtn">
-                    <button>목록으로</button>
+                    <button onClick="backToPage();">목록으로</button>
                 </div>
             </div>
         </div>
         <jsp:include page="/WEB-INF/views/include/footer.jsp" />
+        <script type="text/javascript">
+        const backToPage = () => {
+			location.href = "/manager/reportlist"
+		}
+        </script>
 	</body>
 </html>

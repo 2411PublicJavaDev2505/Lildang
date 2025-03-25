@@ -21,4 +21,7 @@ public interface ReportStore {
 	int reportEInsert(SqlSession session, ReportEmployee report);
 	// 알바생 입장에서 사장님 신고
 	int reportBInsert(SqlSession session, ReportEmploy report);
+	// 신고 상세페이지 보기
+	ReportVO selectOneByNo(SqlSession session, int reportNo);
+
 }

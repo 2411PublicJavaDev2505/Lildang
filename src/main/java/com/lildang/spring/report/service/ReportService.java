@@ -18,5 +18,7 @@ public interface ReportService {
 	int reportEInsert(ReportEmployee report);
 	// 알바생이 사장님을 신고
 	int reportBInsert(ReportEmploy report);
+	// 신고 상세페이지 보기
+	ReportVO selectOneByNo(int reportNo);
 
 }

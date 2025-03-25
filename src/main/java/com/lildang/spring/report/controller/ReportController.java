@@ -1,11 +1,15 @@
 package com.lildang.spring.report.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,7 +46,34 @@ public class ReportController {
 			return "common/error";
 		}
 	}
-	
+	// 신고목록 클릭해서 상세사항으로 들어가기
+	@GetMapping("/report/detail")
+	public String showReportDetail(@RequestParam("reportNo") int reportNo
+			,Model model) {
+		try {
+			ReportVO report = rService.selectOneByNo(reportNo);
+			if(report != null) {
+				model.addAttribute("report", report);
+				String reportTarget = report.getReportTarget();
+				switch(reportTarget) {
+				case "EMPLOY" : 
+					return "manager/reportemploy";
+				case "EMPLOYEE" :
+					return "manager/reportemployee";
+				default :
+					return "common/error";
+				}
+			}else {
+				model.addAttribute("errorMsg", "서비스가 완료되지 않았습니다.");
+				return "common/error";				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+			
+		}
+	}
 	// 사장입장에서 알바생 신고
 	@GetMapping("report/einsert")
 	public String showReportEInsert(Model model) {
