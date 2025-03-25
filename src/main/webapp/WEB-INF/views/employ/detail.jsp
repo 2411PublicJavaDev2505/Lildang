@@ -132,8 +132,9 @@
 						<c:if test="${result.writerId ne sessionScope.id }">
 							<button class="center-btn">채팅하기</button>						
 						</c:if>
-						<button class="center-btn" onclick="apply(${result.employNo});">지원하기</button>
-						<button class="center-btn">거절하기</button>
+						<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
+							<button class="center-btn" onclick="apply(${result.employNo});">지원하기</button>												
+						</c:if>
 					</div>
 					<div>
 						<button class="right-btn" onClick="location.href='/employ/list'">목록으로</button>
