@@ -110,7 +110,6 @@ main h1{
 }
 .worktitle{
    	text-align: left;
-    margin:50px 0px -30px 0px;
     font-size: 25px;
     font-weight: bolder;
     width: 200px;
@@ -128,7 +127,6 @@ main h1{
 .workplace{
     border: 1px solid black;
     width: 800px;
-    height: 100px;
     border-radius: 10px;
     font-size: 20px;
     text-align: left;

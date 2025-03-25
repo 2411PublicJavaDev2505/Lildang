@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.main-content {
+	margin-bottom: 20px;
+}
+
 .modal {
 	position: absolute;
 	display: none;
@@ -22,6 +26,7 @@
 	background-color: white;
 	border: 1px solid #222;
 	border-radius: 10px;
+	text-align: center;
 }
 
 .update-review {
@@ -40,12 +45,12 @@
 .update-review-body {
 	position: absolute;
 	top: 30%;
-	
 	width: 500px;
 	height: 600px;
 	background-color: white;
 	border: 1px solid #222;
 	border-radius: 10px;
+	text-align: center;
 }
 .report {
 	position: absolute;

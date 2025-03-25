@@ -28,8 +28,8 @@
 		<result property="id" column="ID"/>
 	</resultMap>
 	<insert id="reviewEmployeeInsert">
-		INSERT INTO REVIEW_MEMBER VALUES(SEQ_REVIEW_MEMBER_NO.NEXTVAL,#{reviewWriter}
-		,#{reviewScore},#{reviewDetail},DEFAULT, DEFAULT,#{employeeId},#{employNo})
+		INSERT INTO REVIEW_MEMBER VALUES(SEQ_REVIEW_MEMBER_NO.NEXTVAL
+		,#{reviewScore},#{reviewDetail},DEFAULT, DEFAULT,#{employNo},#{reviewWriter},#{employeeId})
 	</insert>
 	<select id="selectReviewList" resultMap="rsetToReviewMember">
 		SELECT * FROM REVIEW_MEMBER WHERE REVIEW_WRITER=#{id}
@@ -39,8 +39,8 @@
 		WHERE REVIEW_WRITER=#{reviewWriter} AND EMPLOYEE_ID=#{employeeId} AND EMPLOY_NO=#{employNo}
 	</update>
 	<insert id="reviewEmployInsert">
-		INSERT INTO REVIEW_EMPLOY VALUES(SEQ_REVIEW_EMPLOY_NO.NEXTVAL,#{reviewWriter}
-		,#{reviewScore},#{reviewDetail},DEFAULT,DEFAULT,#{employNo})
+		INSERT INTO REVIEW_EMPLOY VALUES(SEQ_REVIEW_EMPLOY_NO.NEXTVAL
+		,#{reviewScore},DEFAULT,DEFAULT,#{reviewDetail},#{employNo},#{reviewWriter})
 	</insert>
 	<select id="selectReviewEmployList" resultMap="rsetToReviewEmploy">
 		SELECT * FROM REVIEW_EMPLOY WHERE REVIEW_WRITER=#{reviewWriter}

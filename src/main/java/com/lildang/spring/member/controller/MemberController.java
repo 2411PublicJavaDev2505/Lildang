@@ -104,9 +104,7 @@ public class MemberController {
 				session.setAttribute("role", result.getRole());
 				return "redirect:/";
 			}else {
-				//실패시 에러페이지로이동
-				model.addAttribute("errorMsg", "존재하지않은 정보입니다");
-				return "common/error";
+				return "redirect:/member/login";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -230,10 +228,12 @@ public class MemberController {
 			String id = (String)session.getAttribute("id");
 			MemberVO member = mService.selectOneById(id);
 			
+			// 리뷰리스트
 			List<ReviewEmployVO> reList = mService.selectReviewEmployList(id); 
 			model.addAttribute("reList",reList);
 			model.addAttribute("num",0);
 			
+			// 매칭리스트
 			List<MatchJoinRequest> emList = matchService.selectEEList(id);
 			model.addAttribute("emList",emList);
 			
