@@ -32,7 +32,9 @@
 	<select id="selectOneById" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ID = #{id} 
 	</select>
-	<select id="memberList" resultMap="rsetToMember">
+	<!-- resultMap에서 type로 바꿔줌!원래코드는 주석처리 
+	resultMap="rsetToMember" 에러나면 정상적으로 돌려놓을것!]-->
+	<select id="memberList" resultType="MemberVO">
     	SELECT * FROM MEMBER 
 	</select>
 	<insert id="memberRegister">
@@ -63,5 +65,9 @@
 	</update>
 	<select id="selectSearchList" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%'
+	</select>
+	<!-- gettotalCount추가페이징처리!에러나면 지워줄것! -->
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER 
 	</select>
 </mapper>
