@@ -25,7 +25,5 @@ public interface ReportStore {
 	ReportVO selectOneByNo(SqlSession session, int reportNo);
 	// 신고글 삭제
 	int deleteReport(SqlSession session, int reportNo);
-	//신고 상세페이지에서 알바생 회원삭제
-	int deleteReportEmployeeId(SqlSession session, String reportEmployeeId);
 
 }

@@ -50,11 +50,4 @@ public class ReportStoreLogic implements ReportStore{
 		int result = session.delete("ReportMapper.deleteReport", reportNo);
 		return result;
 	}
-	//신고 상세페이지에서 알바생 회원삭제
-	@Override
-	public int deleteReportEmployeeId(SqlSession session, String reportEmployeeId) {
-		int result = session.delete("ReportMapper.deleteReportEmployeeID", reportEmployeeId);
-		return result;
-	}
-
 }

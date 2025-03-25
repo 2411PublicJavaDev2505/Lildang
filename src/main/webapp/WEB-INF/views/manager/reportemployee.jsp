@@ -30,7 +30,7 @@
                 </table>
                 <div class="empbtn">
                     <button onClick="showDelete(${report.reportNo});">신고삭제</button>
-                    <button onClick="showDeleteE(${report.reportEmployeeId});">회원삭제</button>
+                    <button onClick="showDeleteE('${report.reportEmployeeId}');">회원삭제</button>
                 </div>
             </div>
             <div class="reportboss">
@@ -70,10 +70,11 @@
 				location.replace("/report/reportdel?reportNo="+reportNo);
 			}
 		}
-		function showDeleteE(reportEmployeeId) {
+		function showDeleteE(id) {
 			const result = confirm("회원을 삭제하시겠습니까?");
+			console.log("삭제 요청된 회원 ID:", id); // 값 확인용
 			if(result) {
-				location.replace("/report/reportdele?reportEmployeeId="+reportEmployeeId);
+				location.replace("/report/reportdele?id="+id);
 			}
 		}
 	</script>

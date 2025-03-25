@@ -63,5 +63,7 @@ public interface MemberService {
 	List<MemberVO> selectSearchList(String searchKeyword);
 
 	List<EmployReviewRequest> selectERList(int employNo);
+	// 신고 상세페이지에서 알바생 삭제
+	int reportDeleteE(String id);
 	
 }

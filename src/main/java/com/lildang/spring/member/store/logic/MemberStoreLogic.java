@@ -71,4 +71,11 @@ public class MemberStoreLogic implements MemberStore{
 	public List<MemberVO> selectSearchList(SqlSession session, String searchKeyword) {
 		return session.selectList("MemberMapper.selectSearchList", searchKeyword);
 	}
+	
+	// 신고 상세페이지에서 알바생 삭제
+	@Override
+	public int reportDeleteE(SqlSession session, String memberId) {
+		int result = session.delete("MemberMapper.reportDeleteE", memberId);
+		return result;
+	}
 }

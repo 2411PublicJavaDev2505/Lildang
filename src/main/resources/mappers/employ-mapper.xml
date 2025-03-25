@@ -55,9 +55,6 @@
 	<update id="updateEmployScore">
 		UPDATE EMPLOY SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_EMPLOY WHERE EMPLOY_NO=#{employNo}) WHERE EMPLOY_NO=#{employNo}
 	</update>
-	<select id="selectListById" resultMap="rsetToEmploy">
-		SELECT * FROM EMPLOY WHERE WRITER_ID = #{id}
-	</select>
 	<select id="selectSearchList" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE WORKPLACE_ADDRESS LIKE '%'||#{workplaceAddress}||'%'
 	</select>
