@@ -32,6 +32,9 @@
             <div class="searchlist">
                 <table class="list">
                     <tr class="listhead">
+                        <!-- 03/25 번호가 없어서 일단테이블번호 주석처리함 
+                        번호를 없애면 밀림...-->
+                        <!--  <td>번호</td> -->
                         <td>번호</td>
                         <td>아이디</td>
                         <td>이름</td>
@@ -56,11 +59,10 @@
             <div class="page">
                 <ul class="pagination">
                     <li><a href="#" class="back">이전</a></li>
-                    <li><a href="#" class="num">1</a></li>
-                    <li><a href="#" class="num">2</a></li>
-                    <li><a href="#" class="num">3</a></li>
-                    <li><a href="#" class="num">4</a></li>
-                    <li><a href="#" class="num">5</a></li>
+                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
+                    	<a href="/manager/memberlist?page=${p }">${p }</a>
+                    </c:forEach>
+                    
                     <li><a href="#" class="next">다음</a></li>
                 </ul>
             </div>

@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import com.lildang.spring.member.domain.MemberVO;
 
 public interface ManagerStore {
-
-	List<MemberVO> selectList(SqlSession session);
+	//페이징추가!
+	List<MemberVO> selectList(SqlSession session,int currentPage);
+	//페이징추가코드!
+	int getTotalCount(SqlSession session);
 
 }
