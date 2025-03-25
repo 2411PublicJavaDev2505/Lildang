@@ -32,31 +32,31 @@
 		      </div>
 		      <label class="required">아이디</label>
 		      <div class="form-group">
-		        <input type="text" name="id" placeholder="아이디를 입력해주세요">
+		        <input type="text" name="id" placeholder="아이디를 입력해주세요" required>
 		      </div>
 		      <label class="required">이름</label>
 		      <div class="form-group">
-		        <input type="text" name="name" placeholder="이름을 입력해주세요">
+		        <input type="text" name="name" placeholder="이름을 입력해주세요" required>
 		      </div>
-		      <label class="required">비밀번호</label> 
+		      <label class="required" id="pw">비밀번호</label> 
 		      <div class="form-group">
-		        <input type="password" class="pw" name="pw" placeholder="8~20자리 영문/숫자/특수문자 조합">
+		        <input type="password" class="pw" name="pw" placeholder="8~20자리 영문/숫자/특수문자 조합" required>
 		      </div>
-		      <label class="required">비밀번호 재입력</label> 
+		      <label class="required" id="pw-re">비밀번호 재입력</label> 
 		      <div class="form-group">
-		        <input type="password" class="pwRe" placeholder="비밀번호를 재입력 해주세요">
+		        <input type="password" class="pwRe" placeholder="비밀번호를 재입력 해주세요" required>
 		      </div>
 		      <label class="required">전화번호</label>
 		      <div class="form-group">
-		        <input type="text" name="phone" placeholder="전화번호를 입력해주세요">
+		        <input type="text" name="phone" placeholder="전화번호를 입력해주세요" required>
 		      </div>
 		      <label class="required">이메일</label>
 		      <div class="form-group">
-		        <input type="text" name="email" placeholder="이메일을 입력해주세요">
+		        <input type="text" name="email" placeholder="이메일을 입력해주세요" required>
 		      </div>
 		      <label class="required">생년월일</label>
 		      <div class="form-group">
-		        <input type="date" name="birth">
+		        <input type="date" name="birth" required>
 		      </div>
 		      <div class="radio-group">
 		      	<input type="radio" name="gender" value="M" checked>남
