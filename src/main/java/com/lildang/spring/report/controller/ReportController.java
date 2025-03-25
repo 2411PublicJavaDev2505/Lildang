@@ -170,6 +170,7 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+	
 	@GetMapping("report/reportdele")
 	public String reportDeleteE(Model model
 			,@RequestParam("reportEmployeeId") String reportEmployeeId) {
@@ -187,4 +188,5 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+	
 }

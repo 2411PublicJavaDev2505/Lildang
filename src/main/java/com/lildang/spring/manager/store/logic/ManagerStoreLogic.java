@@ -18,7 +18,7 @@ public class ManagerStoreLogic implements ManagerStore{
 		int limit =10;
 		int offset =(currentPage-1)*limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
-		List<MemberVO> mList = session.selectList("memberList", null, rowBounds);
+		List<MemberVO> mList = session.selectList("MemberMapper.selectMemberList", null, rowBounds);
 		return mList;
 	}
 	//페이징추가!

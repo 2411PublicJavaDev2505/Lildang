@@ -68,6 +68,7 @@ public class EmployStoreLogic implements EmployStore{
 		return result;
 	}
 	
+	@Override
 	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword) {
 		// TODO Auto-generated method stub
 		return session.selectList("EmployMapper.selectSearchList", eSearchKeyword);

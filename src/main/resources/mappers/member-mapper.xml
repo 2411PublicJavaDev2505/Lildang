@@ -32,11 +32,6 @@
 	<select id="selectOneById" resultMap="rsetToMember">
 		SELECT * FROM MEMBER WHERE ID = #{id} 
 	</select>
-	<!-- resultMap에서 type로 바꿔줌!원래코드는 주석처리 
-	resultMap="rsetToMember" 에러나면 정상적으로 돌려놓을것!]-->
-	<select id="memberList" resultType="MemberVO">
-    	SELECT * FROM MEMBER 
-	</select>
 	<insert id="memberRegister">
 		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
 		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
