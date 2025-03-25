@@ -1,6 +1,7 @@
  package com.lildang.spring.employ.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.lildang.spring.common.FileUtil;
+import com.lildang.spring.employ.controller.dto.EmployAddRequest;
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
@@ -22,9 +26,13 @@ public class EmployController {
 	
 	private EmployService eService;
 	
+	//파일업로드 코드추가!(03/24 18:33)
+	private FileUtil fileUtil;
+	
 	@Autowired
-	public EmployController(EmployService eService) {
+	public EmployController(EmployService eService, FileUtil fileutil) {
 		this.eService = eService;
+		this.fileUtil = fileutil;
 	}
 
 	@GetMapping("employ/detail")//공고글 상세
@@ -100,10 +108,26 @@ public class EmployController {
 			return "common/error";
 		}	
 	}
-	@PostMapping("employ/insert")//공고글 작성 페이지 (**03-24!15:00분부터 수정시작 첨부파일작성!전dto추가하고 오겠음!)
+	@PostMapping("employ/insert")//공고글 작성 페이지 (**03-24!!16:30분부터 수정시작 첨부파일작성!전dto추가!)
 	public String insertEmployList(Model model,
-			@ModelAttribute EmployInsertRequest employ) {
+			@ModelAttribute EmployInsertRequest employ
+			//아래 코드추가(첨부파일)2개! 추가해주고 try 안에 int result~위부터 코드추가작성!
+			//아래코드는 주석처리로!주석처리한건 지워주기!!
+			//,@ModelAttribute EmployAddRequest employ
+			,@RequestParam("uploadFile") MultipartFile uploadFile
+			,HttpSession session
+			) {
 		try {
+			//여기부터 코드 추가!해야하는데 다시 수정해야해서 dto 지우고
+			//dto지워줘야함!!다시 작성해야함(지우러가기!!주석저리하고 작성!)
+			if(uploadFile != null && !uploadFile.getOriginalFilename().isBlank()) {
+				//파일유틸에관련 추가해줘야한다?porm.xml 멀티파일관련추가!1개 더 추가 있음!!(추가해줬음!)
+				System.out.println("확인");
+			Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "employ");
+				employ.setEmployFileName(fileInfo.get("eFilename"));
+				employ.setEmployFileRename(fileInfo.get("eFileRename"));
+				employ.setEmployFilePath(fileInfo.get("eFilepath"));
+			}
 			int result = eService.insertEmploy(employ);
 			if(result >0) {
 				return "redirect:/employ/list";

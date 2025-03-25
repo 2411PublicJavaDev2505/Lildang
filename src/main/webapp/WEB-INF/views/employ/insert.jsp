@@ -66,7 +66,7 @@
 	                </div>
 	                <div class="salary">
 	                    <label for="salary">급여</label>
-	                    <input type="text" name="salary" id="salary">
+	                    <input type="num" name="salary" id="salary">
 	                </div>
 	                <div class="workingPeriod">
 	                    <label for="workingPeriod">근무기간</label>
@@ -94,7 +94,7 @@
 	                <div class="photo">
 	                <!-- 03/2414:11분부터수정시작 첨부파일 넣기!?안되면다시 돌려넣기! -->
 	                	<!--업체사진<input type="text" name="employFileName">  -->
-	                    업체사진:<input type="file" name="employFileName">
+	                    업체사진:<input type="file" name="uploadFile">
 	                </div>
 	                <div class="detail">
 	                    상세모집내용<br> 
