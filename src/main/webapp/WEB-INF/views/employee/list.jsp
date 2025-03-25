@@ -72,12 +72,17 @@
 				<div class="bottom-content">
 					<c:forEach var="employee" items="${eList }">
 						<div class="bottom-profile">
-							<img alt="profileimg" src="../resources/image/profile.png">
+							<c:if test="${employee.profileFilePath eq null }">
+								<img alt="profileimg" src="../resources/image/profile.png">
+							</c:if>
+							<c:if test="${employee.profileFilePath ne null }">
+								<img alt="profileimg" src="..${employee.profileFilePath }">
+							</c:if>
 							<p>
 								이름 : <a class="profile-name" href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
 								성별 : ${employee.gender } <br>
 								나이 : ${employee.age }세 <br>
-								평점 : 3.5/5.0 <br>
+								평점 : ${employee.score }/5 <br>
 							</p>
 						</div>					
 					</c:forEach>

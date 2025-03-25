@@ -18,9 +18,7 @@ public class MemberStoreLogic implements MemberStore{
 	//로그인!
 	@Override
 	public MemberVO selectOneByLogin(SqlSession session, LoginRequest member) {
-		System.out.println(member);
 		MemberVO result = session.selectOne("MemberMapper.selectOneByLogin",member);
-		System.out.println(result);
 		return result;
 	}
 
@@ -63,7 +61,19 @@ public class MemberStoreLogic implements MemberStore{
 	}
 
 	@Override
+	public int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review) {
+		return session.update("MemberMapper.updateEmployeeScore",review);
+	}
+
+	@Override
 	public List<MemberVO> selectSearchList(SqlSession session, String searchKeyword) {
 		return session.selectList("MemberMapper.selectSearchList", searchKeyword);
+	}
+	
+	// 신고 상세페이지에서 알바생 삭제
+	@Override
+	public int reportDeleteE(SqlSession session, String memberId) {
+		int result = session.delete("MemberMapper.reportDeleteE", memberId);
+		return result;
 	}
 }

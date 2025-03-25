@@ -14,11 +14,11 @@
         <title>Mypage - boss</title>
     </head>
     <body>
-     	<div class="container">
+     	<div id="container">
 	     	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    	<main>
 	        <h1>마이페이지</h1>
-	        <div id="container">
+	        <div class="main-content">
 	            <div id="left-main">
 	                <img src="../resources/image/profile.jpg" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
@@ -27,7 +27,6 @@
 	                    이름: ${member.name } <br>
 	                    성별: ${member.gender } <br>
 	                    나이: ${member.age } <br>
-	                    평점: 3.5/5.0
 	                </div>
 	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
 	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
@@ -38,17 +37,27 @@
 		                    <button class="writebtn" onClick="showInsert();">공고글 작성</button>
 		            		<c:forEach var="employ" items="${eList }">
 			                    <div class="hirename1">
-			                       <a href="/employ/detail?employNo=${employ.employNo }"> ${employ.employName } </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                        ${employ.education }            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                        ${employ.workplaceAddress }          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                        ${employ.workingEndTime }           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			                    	<table>
+			                    		<tr>
+			                    			<th>공고글 제목</th>
+			                    			<th>학력</th>
+			                    			<th>주소</th>
+			                    			<th>공고글 점수</th>
+			                    		</tr>
+			                    		<tr>
+			                    			<td><a href="/employ/detail?employNo=${employ.employNo }"> ${employ.employName } </a></td>
+			                    			<td>${employ.education } </td>
+			                    			<td>${employ.workplaceAddress }</td>
+			                    			<td>${employ.score }</td>
+			                    		</tr>
+			                    	</table>
 			                    </div>
 			                    <div class="hireplace1">
 			                        <p class="employeeinfo">이 공고에 지원한 알바생</p>
 			                        <c:forEach var="em" items="${emList }">
 			                        	<c:if test="${employ.employNo eq em.employNo && em.employeeYn eq 'Y' }">
 					                        <div class="employeedata">
-					                            <a href="/employee/detail?id=${em.employeeId }">${em.employeeName }</a>  1.0/5.0
+					                            <a href="/employee/detail?id=${em.employeeId }">${em.employeeName }</a>
 					                            <div class="btn">
 					                                <button class="chatbtn">채팅하기</button>
 					                               	<c:if test="${em.jobStartYn ne 'Y' }">
@@ -63,11 +72,11 @@
 					                               		알바완료
 					                               		<c:forEach var="rm" items="${rmList }">
 					                               			<c:if test="${rm.employeeId eq em.employeeId && rm.employNo eq em.employNo}">
-					                               				<button onclick="openReviewUpdate('${em.employeeId }','${em.employNo}');">리뷰수정</button>
+					                               				<button onclick="openReviewUpdate('${em.employeeId }','${em.employNo}');" class="chatbtn">리뷰수정</button>
 					                               				<input type="hidden" value="${num = num+1 }">
 					                               				<div class="update-review" id="update${em.employeeId }${em.employNo}">
 					                               					<div class="update-review-body">
-					                               						<h1>알바생에게 후기 남기기 - 수정</h1>
+					                               						<h2>알바생에게 후기 남기기 - 수정</h2>
 					                               						<form action="/review/employee/update" method="post">
 													     					<input type="hidden" value="${em.employeeId }" name="employeeId">
 													     					<input type="hidden" value="${em.employNo }" name="employNo">
@@ -76,25 +85,24 @@
 														     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${rm.reviewScore }">     					
 													     					</div>
 													     					<div class="review-content">
-													     						좋았던 점과 아쉬웠던 점을 적어주세요.
-													     						<textarea rows="10" cols="20" name="reviewDetail">${rm.reviewDetail }</textarea>
+													     						 <h5>좋았던 점과 아쉬웠던 점을 적어주세요.</h5>
+													     						<textarea rows="20" cols="50" name="reviewDetail">${rm.reviewDetail }</textarea>
 													     					</div>
-													     					<button>후기 작성</button>
-													     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+													     					<button class="chatbtn">후기 작성</button>
+													     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button" class="chatbtn">뒤로 가기</button>
 													     				</form>
 					                               					</div>
 					                               				</div>
 					                               			</c:if>
 					                               		</c:forEach>
 					                               		<c:if test="${num eq 0 }">
-						                               		<button onclick="writeReview('${em.employeeId }','${em.employNo}');">리뷰 작성</button>
+						                               		<button onclick="writeReview('${em.employeeId }','${em.employNo}');" class="chatbtn">리뷰 작성</button>
 					                               		</c:if>
 					                               		<input type="hidden" value="${num = 0 }">					                               		
 					                               		<div class="modal" id="insert${em.employeeId }${em.employNo}">
 											     			<div class="modal-body">
-											     				<h1>알바생에게 후기 남기기</h1>
+											     				<h2>알바생에게 후기 남기기</h2>
 											     				<form action="/review/employee" method="post">
-											     					${em.employeeId }
 											     					<input type="hidden" value="${em.employeeId }" name="employeeId">
 											     					<input type="hidden" value="${em.employNo }" name="employNo">
 											     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
@@ -103,7 +111,7 @@
 											     					</div>
 											     					<div class="review-content">
 											     						좋았던 점과 아쉬웠던 점을 적어주세요.
-											     						<textarea rows="10" cols="20" name="reviewDetail"></textarea>
+											     						<textarea rows="20" cols="50" name="reviewDetail"></textarea>
 											     					</div>
 											     					<button>후기 작성</button>
 											     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
@@ -119,32 +127,28 @@
 		            		</c:forEach>
 			               	</div>
 	                <div class="mypick">
-	                    <p class="picktitle">내가 찜한 알바생</p>
-	                <div class="pickplace">내가 찜한 알바생이 없어요...ㅠㅠ</div>
-	                </div>
-	                <div class="mypick">
 	                    <p class="picktitle">내가 제의한 알바생</p>
-	                <div class="pickplace">
-	                	<table>
-		                	<c:forEach var="match" items="${emList }">
-		                		<c:if test="${match.employerYn eq 'Y' }">
-			                		<tr>
-			                			<td>${match.employeeName }</td>
-			                			<td>${match.employeeId }</td>
-			                			<td>${match.employName }</td>
-			                			<td>
-			                				<c:if test="${match.employeeYn eq 'Y' }">
-			                					제의수락
-			                				</c:if>
-			                				<c:if test="${match.employeeYn eq 'N' }">
-			                					확인중
-			                				</c:if>
-			                			</td>
-			                		</tr>
-		                		</c:if>
-		                	</c:forEach>                	
-	                	</table>
-	                </div>
+		                <div class="pickplace">
+		                	<table>
+			                	<c:forEach var="match" items="${emList }">
+			                		<c:if test="${match.employerYn eq 'Y' }">
+				                		<tr>
+				                			<td>${match.employeeName }</td>
+				                			<td>${match.employeeId }</td>
+				                			<td>${match.employName }</td>
+				                			<td>
+				                				<c:if test="${match.employeeYn eq 'Y' }">
+				                					제의수락
+				                				</c:if>
+				                				<c:if test="${match.employeeYn eq 'N' }">
+				                					확인중
+				                				</c:if>
+				                			</td>
+				                		</tr>
+			                		</c:if>
+			                	</c:forEach>                	
+		                	</table>
+		                </div>
 	                </div>
 	            </div>
 	        </div>

@@ -24,9 +24,10 @@
 .searchbtn{
     font-size: 30px;
     border-radius: 15px;
-    background-color: #1ed483;
+    background-color: #b2f2bb;
     width: 100px;
     padding: 5px;
+    cursor : pointer;
 }
 .list{
     text-align: center;
@@ -75,4 +76,24 @@
 .next{
     margin-left: 15px;
 }
-
+.head {
+	text-align : center;
+}
+.btn {
+	display : flex;
+	justify-content : right;
+	gap : 30px;
+	margin-bottom : 20px;
+}
+.btn button {
+	padding: 15px 25px;
+	border : none;
+	border-radius : 10px;
+	background-color : #b2f2bb;
+	font-size : 25px;
+	font-weight : bold;
+	cursor : pointer;
+}
+.btn button:hover {
+	background-color:#1ED483;
+}

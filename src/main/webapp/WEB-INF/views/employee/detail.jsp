@@ -37,7 +37,9 @@
 		</div>
 		<div class="report">
 			<div class="report-body">
-				<h1>알바생 신고하기</h1>
+				<div class="head">
+					<h1>알바생 신고하기</h1>				
+				</div>
 				<div class="report-menu">
 					<form action="/report/einsert" method="post">
 						<input type="hidden" name="reportEmployeeId" value="${member.id }">
@@ -48,8 +50,15 @@
 						<div class="report-area">
 							<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>						
 						</div>
+<<<<<<< HEAD
+						<div class="report-btn">
+							<button>신고하기</button>
+							<button type="button" onclick="reportBackToPage();">뒤로가기</button>											
+						</div>
+=======
 						<button class="rbtn">신고하기</button>
 						<button class="back-btn" type="button" onclick="reportBackToPage();">뒤로가기</button>					
+>>>>>>> refs/remotes/origin/jaejun
 					</form>
 				</div>
 			</div>
@@ -167,6 +176,9 @@
 	                    <div class="job-introduce">자기소개서</div>
 	                    ${member.introduction }
 	                </div>
+	                <div class="review-list">
+	                </div>
+
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>
 	                    <button>찜하기</button>

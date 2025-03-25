@@ -3,7 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ReportMapper">
-
 	<resultMap type="ReportVO" id="rsetToReport">
 		<id property="reportNo" column="REPORT_NO"/>
 		<result property="reportDate" column="REPORT_DATE"/>
@@ -24,14 +23,20 @@
 	<select id="selectOneByDetail" resultMap="rsetToReport">
 		SELECT * FROM REPORT WHERE REPORT_DETAIL = #{reportDetail}  
 	</select>
+	<select id="selectOneByNo" resultMap="rsetToReport">
+		SELECT * FROM REPORT WHERE REPORT_NO = #{reportNo}
+	</select>
 	<insert id="eInsert">
 		INSERT INTO REPORT VALUES(SEQ_REPORT_NO.NEXTVAL, DEFAULT, DEFAULT
-		, NULL, #{reportDetail},#{reportWriterId},#{reportReason}
-		,NULL,NULL,NULL,'EMPLOYEE',#{reportEmployeeId})
+		, NULL, #{reportDetail},#{reportReason}
+		,NULL,NULL,'EMPLOYEE',#{reportWriterId},#{reportEmployeeId},NULL)
 	</insert>
 	<insert id="bInsert">
 		INSERT INTO REPORT VALUES(SEQ_REPORT_NO.NEXTVAL, DEFAULT, DEFAULT
-		,NULL, #{reportDetail},#{reportWriterId},#{reportReason}
-		,#{reportEmployNo},NULL,NULL,'EMPLOY',NULL)
+		,NULL, #{reportDetail},#{reportReason},NULL,NULL,'EMPLOY',#{reportWriterId}
+		,NULL,#{reportEmployNo})
 	</insert>
+	<delete id="deleteReport">
+		DELETE FROM REPORT WHERE REPORT_NO = #{reportNo}
+	</delete>
 </mapper>

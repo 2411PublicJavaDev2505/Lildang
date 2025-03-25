@@ -15,11 +15,13 @@
     <body>
    		<jsp:include page="/WEB-INF/views/include/header.jsp" />
         <div id="main">
-        	<div>
+        	<div class="head">
         		<h1>전체회원조회</h1>
-        		<button>회원조회</button>
-				<button onClick="reportList();">신고조회</button>
         	</div>
+        		<div class="btn">
+	        		<button>회원조회</button>
+					<button onClick="reportList();">신고조회</button>        		
+        		</div>
             <div class="search">
                 <select class="searchbar">
                     <option value="none">전체</option>  
@@ -30,6 +32,9 @@
             <div class="searchlist">
                 <table class="list">
                     <tr class="listhead">
+                        <!-- 03/25 번호가 없어서 일단테이블번호 주석처리함 
+                        번호를 없애면 밀림...-->
+                        <!--  <td>번호</td> -->
                         <td>번호</td>
                         <td>아이디</td>
                         <td>이름</td>
@@ -52,14 +57,17 @@
                 </table>
             </div>
             <div class="page">
+                <!-- li,ul지우고 확인해볼것!테이블css가 페이지넘어갈때 변화됨! -->
                 <ul class="pagination">
-                    <li><a href="#" class="back">이전</a></li>
-                    <li><a href="#" class="num">1</a></li>
-                    <li><a href="#" class="num">2</a></li>
-                    <li><a href="#" class="num">3</a></li>
-                    <li><a href="#" class="num">4</a></li>
-                    <li><a href="#" class="num">5</a></li>
-                    <li><a href="#" class="next">다음</a></li>
+                    <c:if test="${startNavi ne 1 }">
+	                    <li><a href="/manager/memberlist?page=${startNavi -1 }" class="back">이전</a></li>
+                    </c:if>
+                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
+                    	<a href="/manager/memberlist?page=${p }">${p }</a>
+                    </c:forEach>
+                    <c:if test="${endNavi ne maxPage}">
+                    <li><a href="/manager/memberlist?page${endNavi +1 }" class="next">다음</a></li>
+                    </c:if>
                 </ul>
             </div>
         </div>

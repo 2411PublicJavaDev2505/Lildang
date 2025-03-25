@@ -25,6 +25,7 @@ public class EmployVO {
 	private String employFilePath;
 	private String writerId;
 	private int jobNo;
+	private int score;
 	
 	public EmployVO() {}
 
@@ -112,6 +113,10 @@ public class EmployVO {
 		return jobNo;
 	}
 
+	public int getScore() {
+		return score;
+	}
+
 	@Override
 	public String toString() {
 		return "EmployVO [employNo=" + employNo + ", employName=" + employName + ", recruitStartDate="
@@ -121,8 +126,9 @@ public class EmployVO {
 				+ workingStartTime + ", workingEndTime=" + workingEndTime + ", workingDay=" + workingDay
 				+ ", employDetail=" + employDetail + ", writeTime=" + writeTime + ", updateTime=" + updateTime
 				+ ", employFileName=" + employFileName + ", employFileRename=" + employFileRename + ", employFilePath="
-				+ employFilePath + ", writerId=" + writerId + ", jobNo=" + jobNo + "]";
+				+ employFilePath + ", writerId=" + writerId + ", jobNo=" + jobNo + ", score=" + score + "]";
 	}
+
 	
 	
 }

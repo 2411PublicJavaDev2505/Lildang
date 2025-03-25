@@ -15,23 +15,27 @@
 <body>
 	<div id="container">
 	<div class="report">
-					<div class= "report-body">
-						<h1>사장님 신고하기</h1>
-						<div class="report-menu">
-						<form action="/report/binsert" method="post">
-							<input type="hidden" name="reportEmployNo" value="${result.employNo}">
-							<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
-							<div class="report-content">
-								<input type="text" placeholder="사유를 입력해주세요" name='reportReason'> 
-							</div>
-							<div class="report-area">
-								<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>
-							</div>
-							<button>신고하기</button>
-							<button type="button" onclick="reportBackToPage();">뒤로가기</button>					
-						</form>
-						</div>
-					</div>
+		<div class= "report-body">
+			<div class="head">
+				<h1>사장님 신고하기</h1>						
+			</div>
+			<div class="report-menu">
+			<form action="/report/binsert" method="post">
+				<input type="hidden" name="reportEmployNo" value="${result.employNo}">
+				<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
+				<div class="report-content">
+					<input type="text" placeholder="사유를 입력해주세요" name='reportReason'> 
+				</div>
+				<div class="report-area">
+					<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>
+				</div>
+				<div class="report-btn">
+					<button>신고하기</button>
+					<button type="button" onclick="reportBackToPage();">뒤로가기</button>												
+				</div>
+			</form>
+			</div>
+		</div>
 	</div>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<main>
@@ -48,7 +52,12 @@
 							</div>
 						</div>
 						<div class="first-top-right">
-							<img alt="구인글 사진" src="../resources/image/로고.png">				
+							<c:if test="${result.employFilePath eq null }">
+								<img alt="구인글 사진" src="../resources/image/로고.png">
+							</c:if>
+							<c:if test="${result.employFilePath ne null }">
+								<img alt="구인글 사진" src="..${result.employFilePath }">				
+							</c:if>
 						</div>
 					</div>
 					<div class="first-bottom">
@@ -99,32 +108,14 @@
 				<div class="fifth">
 					<h4>업체 평점/후기</h4>
 					<div class="fifth-content">
-						<p><b>평균평점:</b> 4.5/5.0</p>
+						<p><b>평균평점:</b> ${result.score }/5</p>
 						<div class="review">
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
-							<div class="review-content">
-								<p><b>이OO:</b>  친절하고 ~~</p>
-								<p>5.0</p>
-							</div>
+							<c:forEach var="r" items="${rList }">
+								<div class="review-content">
+									<p><b>${r.id }:</b>  ${r.reviewDetail }</p>
+									<p> 평점 : ${r.reviewScore }</p>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

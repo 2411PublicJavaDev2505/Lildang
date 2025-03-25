@@ -10,6 +10,7 @@ import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.store.EmployStore;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 
 @Repository
 public class EmployStoreLogic implements EmployStore{
@@ -50,6 +51,23 @@ public class EmployStoreLogic implements EmployStore{
 		return session.update("EmployMapper.updateEmploy", employ);
 	}
 
+	@Override
+	public int updateEmployScore(SqlSession session, ReviewEmployeeRequest review) {
+		return session.update("EmployMapper.updateEmployScore",review);
+	}
+
+	@Override // 신고 상세페이지에서 사장님 정보 가져오기
+	public EmployVO selectOneByNo(SqlSession session, int employNo) {
+		EmployVO employ = session.selectOne("EmployMapper.selectOneByNo", employNo);
+		return employ;
+	}
+
+	@Override // 신고 상세페이지에서 공고글 삭제하기
+	public int deleteEmployNo(SqlSession session, int employNo) {
+		int result = session.delete("EmployMapper.deleteEmployNo", employNo);
+		return result;
+	}
+	
 	@Override
 	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword) {
 		// TODO Auto-generated method stub

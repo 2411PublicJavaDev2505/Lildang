@@ -1,6 +1,7 @@
- package com.lildang.spring.employ.controller;
+package com.lildang.spring.employ.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,20 +12,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.lildang.spring.common.FileUtil;
+import com.lildang.spring.employ.controller.dto.EmployAddRequest;
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
+import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.employ.controller.dto.EmployUpdateRequest;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.member.service.MemberService;
 
 @Controller
 public class EmployController {
 	
 	private EmployService eService;
+	private MemberService mService;
+	
+	//파일업로드 코드추가!(03/24 18:33)
+	private FileUtil fileUtil;
 	
 	@Autowired
-	public EmployController(EmployService eService) {
+	public EmployController(EmployService eService, MemberService mService, FileUtil fileutil) {
 		this.eService = eService;
+		this.mService = mService;
+		this.fileUtil = fileutil;
 	}
 
 	@GetMapping("employ/detail")//공고글 상세
@@ -33,8 +45,10 @@ public class EmployController {
 			,HttpSession session) {	
 		try {
 			EmployVO result = eService.selectOneDetail(employNo);
+			List<EmployReviewRequest> rList = mService.selectERList(employNo);
 			if(result != null) {
 				model.addAttribute("result", result);
+				model.addAttribute("rList",rList);
 				return "employ/detail";
 			}else {
 				return "common/error";
@@ -127,10 +141,19 @@ public class EmployController {
 			return "common/error";
 		}	
 	}
-	@PostMapping("employ/insert")//공고글 작성 페이지 (**03-24!15:00분부터 수정시작 첨부파일작성!전dto추가하고 오겠음!)
+	@PostMapping("employ/insert")//공고글 작성 페이지 
 	public String insertEmployList(Model model,
-			@ModelAttribute EmployInsertRequest employ) {
+			@ModelAttribute EmployInsertRequest employ
+			,@RequestParam("uploadFile") MultipartFile uploadFile
+			,HttpSession session
+			) {
 		try {
+			if(uploadFile != null && !uploadFile.getOriginalFilename().isBlank()) {
+			Map<String, String> fileInfo = fileUtil.saveFile(uploadFile, session, "employ");
+				employ.setEmployFileName(fileInfo.get("eFilename"));
+				employ.setEmployFileRename(fileInfo.get("eFileRename"));
+				employ.setEmployFilePath(fileInfo.get("eFilepath"));
+			}
 			int result = eService.insertEmploy(employ);
 			if(result >0) {
 				return "redirect:/employ/list";

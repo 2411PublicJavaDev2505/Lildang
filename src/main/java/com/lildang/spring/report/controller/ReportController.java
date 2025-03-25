@@ -1,14 +1,21 @@
 package com.lildang.spring.report.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lildang.spring.employ.domain.EmployVO;
+import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.member.service.MemberService;
 import com.lildang.spring.report.controller.dto.ReportEmploy;
 import com.lildang.spring.report.controller.dto.ReportEmployee;
 import com.lildang.spring.report.domain.ReportVO;
@@ -19,27 +26,45 @@ import oracle.jdbc.proxy.annotation.Post;
 @Controller
 public class ReportController {
 	
-	private  ReportService rService;
+	private ReportService rService;
+	private EmployService eService;
+	private MemberService mService;
 	
 	@Autowired
-	public ReportController(ReportService rService) {
+	public ReportController(ReportService rService, EmployService eService,MemberService mService) {
 		this.rService = rService;
+		this.eService = eService;
+		this.mService = mService;
 	}
 	
-	//에러나서 아래 어노테이션 주석처리함!
-	//@GetMapping("manager/reportlist")
-	//ManagerController로 옮겨버림!!
-	//이밑에 코드는 어떻게 함??
-	public String showReportList(Model model) {
-		//신고전체리스트
+	// 신고목록 클릭해서 상세사항으로 들어가기
+	@GetMapping("/report/detail")
+	public String showReportDetail(@RequestParam("reportNo") int reportNo
+			,Model model) {
 		try {
-			List<ReportVO> rList = rService.selectList();
-			model.addAttribute("rList", rList);
-			return "manager/reportlist";
+			ReportVO report = rService.selectOneByNo(reportNo);
+			EmployVO employ = eService.selectOneByNo(report.getReportEmployNo());
+			if(report != null) {
+				model.addAttribute("report", report);
+				model.addAttribute("employ", employ);
+				String reportTarget = report.getReportTarget();
+				switch(reportTarget) {
+					case "EMPLOY" : 
+						return "manager/reportemploy";
+					case "EMPLOYEE" :
+						return "manager/reportemployee";
+					default :
+						return "common/error";
+				}
+			}else {
+				model.addAttribute("errorMsg", "서비스가 완료되지 않았습니다.");
+				return "common/error";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute("errorMsg",e.getMessage());
+			model.addAttribute("errorMsg", e.getMessage());
 			return "common/error";
+			
 		}
 	}
 	
@@ -98,4 +123,59 @@ public class ReportController {
 			return "common/error";
 		}
 	}
+	@GetMapping("report/reportdel")
+	public String reportDelete(Model model
+			,@RequestParam("reportNo") int reportNo) {
+		try {
+			int result = rService.deleteReport(reportNo);
+			if(result > 0) {
+				return "redirect:/manager/reportlist";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	@GetMapping("report/reportdelb")
+	public String reportDeleteB(Model model
+			,@RequestParam("employNo") int employNo){
+		try {
+			int result = eService.deleteEmployNo(employNo);
+			if(result > 0) {
+				return "redirect:/";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	
+	@GetMapping("report/reportdele")
+	public String reportDeleteE(Model model
+			,@RequestParam("id") String id) {
+		try {
+			int result = mService.reportDeleteE(id);
+			if(result > 0) {
+				model.addAttribute("id", id);
+				return "redirect:/";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	
 }

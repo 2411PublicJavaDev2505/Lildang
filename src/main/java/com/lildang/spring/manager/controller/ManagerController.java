@@ -1,6 +1,7 @@
 package com.lildang.spring.manager.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lildang.spring.common.PageUtil;
 import com.lildang.spring.manager.service.ManagerService;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.report.domain.ReportVO;
@@ -15,20 +17,32 @@ import com.lildang.spring.report.service.ReportService;
 
 @Controller
 public class ManagerController {
+	
 	private ManagerService mService;
-	//밑에 코드 추가!03-22 17:13 
 	private ReportService rService;
+	//페이지 코드추가
+	private PageUtil pageUtil;
 	
 	@Autowired
-	public ManagerController(ManagerService mService, ReportService rService) {
+	public ManagerController(ManagerService mService, ReportService rService, PageUtil pageUtil) {
 		this.mService =mService;
 		this.rService= rService;
+		this.pageUtil = pageUtil;
 	}
 	
-	@GetMapping("manager/memberlist")
-	public String showMemberList(Model model) {
+	@GetMapping("manager/memberlist") //페이징처리추가코드해주기!
+	public String showMemberList(
+			@RequestParam(value="page", defaultValue="1") int currentPage
+			,Model model) {
 		try {
-			List<MemberVO> mList = mService.selectList();
+			List<MemberVO> mList = mService.selectList(currentPage);
+			//페이징 코드추가!하고 getTotalCount만들어주기!
+			int totalCount = mService.getTotalCount();
+			Map<String, Integer> pageInfo
+			=pageUtil.generatePageInfo(totalCount, currentPage);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("mList", mList);
 			return "manager/memberlist";
 		} catch (Exception e) {
@@ -40,11 +54,9 @@ public class ManagerController {
 	
 	@GetMapping("manager/reportlist")
 	public String showReportList(Model model) {
-		//관리자신고조회
-		//여기부터 수정및추가함!및에 2개 주석처리한건 보고 지워주세요!
-		//System.out.println("확인");
-		//return "manager/reportlist";
 		try {
+			List<ReportVO> rList = rService.selectList();
+			model.addAttribute("rList", rList);
 			return "manager/reportlist";
 		} catch (Exception e) {
 			e.printStackTrace();
