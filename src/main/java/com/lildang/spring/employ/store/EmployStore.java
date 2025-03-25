@@ -11,8 +11,9 @@ import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 
 public interface EmployStore {
 	//공고 전체 조회 리스트
-
-	public List<EmployVO> selectList(SqlSession session);
+	
+	//페이징처리코드추가!
+	public List<EmployVO> selectList(SqlSession session,int currentPage);
 	//공고글 작성페이지
 	public int insertEmploy(SqlSession session, EmployInsertRequest employ);
 	//공고글 상세페이지
@@ -33,5 +34,7 @@ public interface EmployStore {
 	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword);
 	//헤더 공고글 검색
 	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword);
+	//페이징추가!!
+	public int getTotalCount(SqlSession session);
 
 }

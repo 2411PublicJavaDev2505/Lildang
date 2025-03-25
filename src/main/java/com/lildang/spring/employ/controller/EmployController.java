@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lildang.spring.common.FileUtil;
+import com.lildang.spring.common.PageUtil;
 import com.lildang.spring.employ.controller.dto.EmployAddRequest;
 import com.lildang.spring.employ.controller.dto.EmployInsertRequest;
 import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
@@ -28,15 +29,18 @@ public class EmployController {
 	
 	private EmployService eService;
 	private MemberService mService;
-	
 	//파일업로드 코드추가!(03/24 18:33)
 	private FileUtil fileUtil;
+	//페이지 유틸코드추가
+	private PageUtil pageUtil;
+	
 	
 	@Autowired
-	public EmployController(EmployService eService, MemberService mService, FileUtil fileutil) {
+	public EmployController(EmployService eService, MemberService mService, FileUtil fileutil, PageUtil pageUtil) {
 		this.eService = eService;
 		this.mService = mService;
 		this.fileUtil = fileutil;
+		this.pageUtil = pageUtil;
 	}
 
 	@GetMapping("employ/detail")//공고글 상세
@@ -128,10 +132,19 @@ public class EmployController {
 		}
 	}
 	
-	@GetMapping("employ/list") //공고글 전체 정보 조회
-	public String showEmployList(Model model) {
+	@GetMapping("employ/list") //공고글 전체 정보 조회(페이징 코드추가하는중!)
+	public String showEmployList(
+			@RequestParam(value="page", defaultValue="1") int currentPage
+			,Model model) {
 		try {
-			List<EmployVO> eList = eService.selectList();
+			List<EmployVO> eList = eService.selectList(currentPage);
+			//페이징 코드추가!!!!
+			int totalCount = eService.getTotalCount();
+			Map<String, Integer> pageInfo
+			=pageUtil.generatePageInfo(totalCount, currentPage);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("eList",eList);
 			return "employ/list";
 		} catch (Exception e) {

@@ -27,9 +27,9 @@ public class EmployServiceLogic implements EmployService{
 		this.session = session;
 	}
 
-	@Override//공고글 전체 정보 조회
-	public List<EmployVO> selectList() {
-		List<EmployVO> eList = eStore.selectList(session);
+	@Override//공고글 전체 정보 조회//페이징처리 코드추가!
+	public List<EmployVO> selectList(int currentPage) {
+		List<EmployVO> eList = eStore.selectList(session,currentPage);
 		return eList;
 	}
 
@@ -84,6 +84,12 @@ public class EmployServiceLogic implements EmployService{
 	public List<EmployVO> headerSearchList(String searchKeyword) {
 		// TODO Auto-generated method stub
 		return eStore.headerSearchList(session, searchKeyword);
+	}
+	//페이징처리추가
+	@Override
+	public int getTotalCount() {
+		int totalCount = eStore.getTotalCount(session);
+		return totalCount;
 	}
 
 }

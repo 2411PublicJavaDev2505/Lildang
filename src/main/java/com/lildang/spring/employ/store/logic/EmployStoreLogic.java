@@ -3,6 +3,7 @@ package com.lildang.spring.employ.store.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -15,9 +16,12 @@ import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 @Repository
 public class EmployStoreLogic implements EmployStore{
 
-	@Override//공고글 전체 정보 조회
-	public List<EmployVO> selectList(SqlSession session) {
-		List<EmployVO> eList = session.selectList("EmployMapper.selectList");
+	@Override//공고글 전체 정보 조회 03-25-16:33분 페이징 처리 시작(시작전 jsp작성하고옴!)
+	public List<EmployVO> selectList(SqlSession session, int currentPage) {
+		int limit =10;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		List<EmployVO> eList = session.selectList("EmployMapper.selectList",null, rowBounds);
 		return eList;
 	}
 
@@ -78,6 +82,12 @@ public class EmployStoreLogic implements EmployStore{
 	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword) {
 		// TODO Auto-generated method stub
 		return session.selectList("EmployMapper.headerSearchList", searchKeyword);
+	}
+	//페이징추가!
+	@Override
+	public int getTotalCount(SqlSession session) {
+		int totalCount = session.selectOne("EmployMapper.getTotalCount");
+		return totalCount;
 	}
 }
 

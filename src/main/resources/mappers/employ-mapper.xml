@@ -61,4 +61,8 @@
 	<select id="headerSearchList" resultMap="rsetToEmploy">
 		SELECT * FROM EMPLOY WHERE EMPLOY_NAME LIKE '%'||#{employName}||'%'
 	</select>
+	<!-- 페이징처리 코드추가 -->
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM EMPLOY 
+	</select>
 </mapper>

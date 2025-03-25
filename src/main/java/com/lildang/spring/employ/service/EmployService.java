@@ -10,8 +10,8 @@ import com.lildang.spring.employ.domain.EmployVO;
 
 public interface EmployService {
 
-
-	List<EmployVO> selectList();//공고글 전체 정보 조회
+	//페이징코드추가!
+	List<EmployVO> selectList(int currentPage);//공고글 전체 정보 조회
 
 	int insertEmploy(EmployInsertRequest employ);//공고글 작성
 
@@ -30,5 +30,7 @@ public interface EmployService {
 	List<EmployVO> selectSearchList(String eSearchKeyword);
 
 	List<EmployVO> headerSearchList(String searchKeyword);
+	//페이징처리코드추가!
+	int getTotalCount();
 
 }
