@@ -36,7 +36,7 @@
 	                <div class="mycv">
 	                    <p class="cvtitle">내 이력서</p>
 	                  	<c:if test="${member.cvYn eq 'N' }">
-		                    <button class="cvbtn1" onClick="showCvInsert();">이력서 작성</button>	                  	
+		                    <button class="cvbtn" onClick="showCvInsert();">이력서 작성</button>	                  	
 		                    <div class="cvplace">이력서를 작성해주세요...ㅠㅠ</div>
 	                  	</c:if>
 	                  	<c:if test="${member.cvYn eq 'Y' }">

@@ -101,7 +101,7 @@
 					                               		<input type="hidden" value="${num = 0 }">					                               		
 					                               		<div class="modal" id="insert${em.employeeId }${em.employNo}">
 											     			<div class="modal-body">
-											     				<h1>알바생에게 후기 남기기</h1>
+											     				<h2>알바생에게 후기 남기기</h2>
 											     				<form action="/review/employee" method="post">
 											     					<input type="hidden" value="${em.employeeId }" name="employeeId">
 											     					<input type="hidden" value="${em.employNo }" name="employNo">

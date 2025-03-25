@@ -15,27 +15,27 @@
 <body>
 	<div id="container">
 	<div class="report">
-					<div class= "report-body">
-						<div class="head">
-							<h1>사장님 신고하기</h1>						
-						</div>
-						<div class="report-menu">
-						<form action="/report/binsert" method="post">
-							<input type="hidden" name="reportEmployNo" value="${result.employNo}">
-							<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
-							<div class="report-content">
-								<input type="text" placeholder="사유를 입력해주세요" name='reportReason'> 
-							</div>
-							<div class="report-area">
-								<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>
-							</div>
-							<div class="report-btn">
-								<button>신고하기</button>
-								<button type="button" onclick="reportBackToPage();">뒤로가기</button>												
-							</div>
-						</form>
-						</div>
-					</div>
+		<div class= "report-body">
+			<div class="head">
+				<h1>사장님 신고하기</h1>						
+			</div>
+			<div class="report-menu">
+			<form action="/report/binsert" method="post">
+				<input type="hidden" name="reportEmployNo" value="${result.employNo}">
+				<input type="hidden" name="reportWriterId" value="${sessionScope.id }">
+				<div class="report-content">
+					<input type="text" placeholder="사유를 입력해주세요" name='reportReason'> 
+				</div>
+				<div class="report-area">
+					<textarea rows="20" cols="30" placeholder="상세한 내용을 적어주세요." name="reportDetail"></textarea>
+				</div>
+				<div class="report-btn">
+					<button>신고하기</button>
+					<button type="button" onclick="reportBackToPage();">뒤로가기</button>												
+				</div>
+			</form>
+			</div>
+		</div>
 	</div>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<main>

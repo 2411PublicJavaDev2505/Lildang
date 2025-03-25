@@ -34,22 +34,6 @@ public class ReportController {
 		this.eService = eService;
 	}
 	
-	//에러나서 아래 어노테이션 주석처리함!
-	//@GetMapping("manager/reportlist")
-	//ManagerController로 옮겨버림!!
-	//이밑에 코드는 어떻게 함??
-	public String showReportList(Model model) {
-		//신고전체리스트
-		try {
-			List<ReportVO> rList = rService.selectList();
-			model.addAttribute("rList", rList);
-			return "manager/reportlist";
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("errorMsg",e.getMessage());
-			return "common/error";
-		}
-	}
 	// 신고목록 클릭해서 상세사항으로 들어가기
 	@GetMapping("/report/detail")
 	public String showReportDetail(@RequestParam("reportNo") int reportNo
@@ -62,16 +46,16 @@ public class ReportController {
 				model.addAttribute("employ", employ);
 				String reportTarget = report.getReportTarget();
 				switch(reportTarget) {
-				case "EMPLOY" : 
-					return "manager/reportemploy";
-				case "EMPLOYEE" :
-					return "manager/reportemployee";
-				default :
-					return "common/error";
+					case "EMPLOY" : 
+						return "manager/reportemploy";
+					case "EMPLOYEE" :
+						return "manager/reportemployee";
+					default :
+						return "common/error";
 				}
 			}else {
 				model.addAttribute("errorMsg", "서비스가 완료되지 않았습니다.");
-				return "common/error";				
+				return "common/error";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,6 +64,7 @@ public class ReportController {
 			
 		}
 	}
+	
 	// 사장입장에서 알바생 신고
 	@GetMapping("report/einsert")
 	public String showReportEInsert(Model model) {

@@ -18,9 +18,7 @@ public class MemberStoreLogic implements MemberStore{
 	//로그인!
 	@Override
 	public MemberVO selectOneByLogin(SqlSession session, LoginRequest member) {
-		System.out.println(member);
 		MemberVO result = session.selectOne("MemberMapper.selectOneByLogin",member);
-		System.out.println(result);
 		return result;
 	}
 

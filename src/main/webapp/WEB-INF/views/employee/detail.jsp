@@ -171,6 +171,9 @@
 	                    <div class="job-introduce">자기소개서</div>
 	                    ${member.introduction }
 	                </div>
+	                <div class="review-list">
+	                	
+	                </div>
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>
 	                    <button>찜하기</button>
