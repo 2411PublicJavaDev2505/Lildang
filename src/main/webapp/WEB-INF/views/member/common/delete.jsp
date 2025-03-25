@@ -12,13 +12,14 @@
         <title>mypage-delete employee</title>
     </head>
     <body>
+    <div id=container>
     <div class="container">
         <jsp:include page="/WEB-INF/views/include/header.jsp" />
     	<main>
 	        <h1>마이페이지 - 정보수정</h1>
 	        <div id="container">
 	            <div id="left-main">
-	                <img src="./img/profile.png" alt="profile"> <br>
+	                <img src="/resources/image/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
 	                   	id:${member.id }<br>
@@ -37,13 +38,13 @@
 	                    <label>PW 확인:</label>
 	                    <input type="password"></input>
 	                    <div class="rightdeletebtn">
-	                        <button class="ybtn" onClick="deleteConfirm();">예(탈퇴)</button>
+	                        <button class="ybtn" onClick="deleteConfirm();">예</button>
 	                        <button class="nbtn" onClick="returnToMypage();">아니오</button>
 	                    </div>	                	
 	                </div>
 	                
 	                <div class="rightbtn">
-	                    <button class="returnbtn">초기화</button>
+	                    <button class="returnbtn">초기화</button>
 	                    <button class="modifybtn">수정하기</button>
 	                </div>
 	            </div>
@@ -70,6 +71,7 @@
     		}
 
     	</script>
+    	</div>
     	</div>
     </body>
 </html>

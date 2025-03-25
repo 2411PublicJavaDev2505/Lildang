@@ -20,7 +20,7 @@
 	        <h1>마이페이지</h1>
 	        <div class="main-content">
 	            <div id="left-main">
-	                <img src="../resources/image/profile.jpg" alt="profile"> <br>
+	                <img src="../resources/image/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
 	                    아이디: ${member.id }   <br>
@@ -28,8 +28,8 @@
 	                    성별: ${member.gender } <br>
 	                    나이: ${member.age } <br>
 	                </div>
-	                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
-	                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>
+		                <button class="modifybtn" onClick="showUpdate();">수정하기</button>
+		                <button class="deletebtn" onClick="showDelete();">탈퇴하기</button>	                
 	            </div>
 	            <div id="right-main">
 		                <div class="myhire">
