@@ -37,5 +37,10 @@
 		,NULL, #{reportDetail},#{reportReason},NULL,NULL,'EMPLOY',#{reportWriterId}
 		,NULL,#{reportEmployNo})
 	</insert>
-	
+	<delete id="deleteReport">
+		DELETE FROM REPORT WHERE REPORT_NO = #{reportNo}
+	</delete>
+	<delete id="deleteReportEmployeeId">
+		DELETE FROM REPORT WHERE REPORT_EMPLOYEE_ID = #{reportEmployeeId}
+	</delete>
 </mapper>

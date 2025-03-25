@@ -20,5 +20,9 @@ public interface ReportService {
 	int reportBInsert(ReportEmploy report);
 	// 신고 상세페이지 보기
 	ReportVO selectOneByNo(int reportNo);
+	// 신고글 삭제
+	int deleteReport(int reportNo);
+	// 신고 상세에서 알바생 삭제
+	int deleteReportEmployeeId(String reportEmployeeId);
 
 }

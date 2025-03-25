@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lildang.spring.employ.domain.EmployVO;
+import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.report.controller.dto.ReportEmploy;
 import com.lildang.spring.report.controller.dto.ReportEmployee;
 import com.lildang.spring.report.domain.ReportVO;
@@ -23,11 +25,13 @@ import oracle.jdbc.proxy.annotation.Post;
 @Controller
 public class ReportController {
 	
-	private  ReportService rService;
+	private ReportService rService;
+	private EmployService eService;
 	
 	@Autowired
-	public ReportController(ReportService rService) {
+	public ReportController(ReportService rService, EmployService eService) {
 		this.rService = rService;
+		this.eService = eService;
 	}
 	
 	//에러나서 아래 어노테이션 주석처리함!
@@ -52,8 +56,10 @@ public class ReportController {
 			,Model model) {
 		try {
 			ReportVO report = rService.selectOneByNo(reportNo);
+			EmployVO employ = eService.selectOneByNo(report.getReportEmployNo());
 			if(report != null) {
 				model.addAttribute("report", report);
+				model.addAttribute("employ", employ);
 				String reportTarget = report.getReportTarget();
 				switch(reportTarget) {
 				case "EMPLOY" : 
@@ -126,6 +132,58 @@ public class ReportController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errorMessage", e.getMessage());
+			return "common/error";
+		}
+	}
+	@GetMapping("report/reportdel")
+	public String reportDelete(Model model
+			,@RequestParam("reportNo") int reportNo) {
+		try {
+			int result = rService.deleteReport(reportNo);
+			if(result > 0) {
+				return "redirect:/manager/reportlist";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	@GetMapping("report/reportdelb")
+	public String reportDeleteB(Model model
+			,@RequestParam("employNo") int employNo){
+		try {
+			int result = eService.deleteEmployNo(employNo);
+			if(result > 0) {
+				return "redirect:/";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
+			return "common/error";
+		}
+	}
+	@GetMapping("report/reportdele")
+	public String reportDeleteE(Model model
+			,@RequestParam("reportEmployeeId") String reportEmployeeId) {
+		try {
+			int result = rService.deleteReportEmployeeId(reportEmployeeId);
+			if(result > 0) {
+				return "redirect:/";
+			}else {
+				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg",e.getMessage());
 			return "common/error";
 		}
 	}

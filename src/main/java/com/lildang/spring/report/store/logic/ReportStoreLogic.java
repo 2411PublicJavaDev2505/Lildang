@@ -44,5 +44,17 @@ public class ReportStoreLogic implements ReportStore{
 		ReportVO report = session.selectOne("ReportMapper.selectOneByNo", reportNo);
 		return report;
 	}
+	// 신고글 삭제
+	@Override
+	public int deleteReport(SqlSession session, int reportNo) {
+		int result = session.delete("ReportMapper.deleteReport", reportNo);
+		return result;
+	}
+	//신고 상세페이지에서 알바생 회원삭제
+	@Override
+	public int deleteReportEmployeeId(SqlSession session, String reportEmployeeId) {
+		int result = session.delete("ReportMapper.deleteReportEmployeeID", reportEmployeeId);
+		return result;
+	}
 
 }
