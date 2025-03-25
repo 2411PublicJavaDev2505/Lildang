@@ -1,6 +1,7 @@
 package com.lildang.spring.manager.store;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -11,5 +12,7 @@ public interface ManagerStore {
 	List<MemberVO> selectList(SqlSession session,int currentPage);
 	//페이징추가코드!
 	int getTotalCount(SqlSession session);
+	// 관리자 입장에서 회원 검색
+	List<MemberVO> selectMemberSearchList(SqlSession session, Map<String, String> searchMap);
 
 }
