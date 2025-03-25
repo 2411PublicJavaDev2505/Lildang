@@ -52,7 +52,12 @@
 							</div>
 						</div>
 						<div class="first-top-right">
-							<img alt="구인글 사진" src="../resources/image/로고.png">				
+							<c:if test="${result.employFilePath eq null }">
+								<img alt="구인글 사진" src="../resources/image/로고.png">
+							</c:if>
+							<c:if test="${result.employFilePath ne null }">
+								<img alt="구인글 사진" src="..${result.employFilePath }">				
+							</c:if>
 						</div>
 					</div>
 					<div class="first-bottom">

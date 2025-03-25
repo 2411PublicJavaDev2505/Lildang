@@ -20,7 +20,7 @@
 	        <h1>마이페이지</h1>
 	        <div class="main-content">
 	            <div id="left-main">
-	                <img src="../resources/image/profile.jpg" alt="profile"> <br>
+	                <img src="../resources/image/profile.png" alt="profile"> <br>
 	                <button class="imgbtn">사진변경</button>
 	                <div id="information">
 	                    아이디: ${member.id }   <br>

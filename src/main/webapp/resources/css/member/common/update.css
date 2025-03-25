@@ -20,8 +20,13 @@ h1{
                 width: 120px;
                 margin: 15px;
                 font-size: 20px;
-                background-color: #1ED483;
+                background-color: #b2f2bb;
                 font-weight: bolder;
+                border: 1px solid #eee;
+                cursor:pointer;
+            }
+            .imgbtn:hover{
+            	background-color:#1ed483;
             }
             #information {
                 font-size: 30px;
@@ -33,18 +38,28 @@ h1{
                 border-radius: 20px;
                 height: 40px;
                 width: 120px;
-                
+                border: 1px solid #eee;
                 font-size: 20px;
-                background-color: #1ED483;
+                background-color: #b2f2bb;
                 font-weight: bolder;
+                cursor:pointer;
+            }
+            .modifybtn:hover{
+            	background-color:#1ed483;
             }
             .deletebtn{
                 border-radius: 20px;
                 height: 40px;
                 width: 120px;           
                 font-size: 20px;
-                background-color: #1ED483;
+                background-color: #b2f2bb;
                 font-weight: bolder;
+                border: 1px solid #eee;
+                margin-bottom:30px;
+                cursor: pointer;
+            }
+            .deletebtn:hover{
+            	background-color:#1ed483;
             }
             #right-main{
                 text-align: center;           
@@ -68,25 +83,36 @@ h1{
                 border-radius: 10px;
                 margin-bottom: 20px;
                 font-size: 25px;
-                background-color: #D9D9D9;
+                background-color: #eee;
+                border: 1px solid #eee;
             } 
             .returnbtn{
                 border-radius: 20px;
                 height: 40px;
                 width: 120px;           
                 font-size: 20px;
-                background-color: #D9D9D9;
+                background-color: #eee;
                 font-weight: bolder;
+                border: 1px solid #eee;
+                cursor:pointer;
+            }
+            .returnbtn:hover{
+            	background-color:#d9d9d9;
             }
             .modifybtn{
                 border-radius: 20px;
                 height: 40px;
                 width: 120px;           
                 font-size: 20px;
-                background-color: #1ED483;
+                background-color: #sb2f2bb;
                 font-weight: bolder;
+                border: 1px solid #eee;
+                cursor:pointer;
+            }
+            .modifybtn:hover{
+            	background-color:#1ed483;
             }
             .rightbtn{
-                width: 600px;
-                margin-top: 100px;
+                width: 600px;   
+                margin-top: 30px;          
             }

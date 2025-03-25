@@ -72,7 +72,12 @@
 				<div class="bottom-content">
 					<c:forEach var="employee" items="${eList }">
 						<div class="bottom-profile">
-							<img alt="profileimg" src="../resources/image/profile.png">
+							<c:if test="${employee.profileFilePath eq null }">
+								<img alt="profileimg" src="../resources/image/profile.png">
+							</c:if>
+							<c:if test="${employee.profileFilePath ne null }">
+								<img alt="profileimg" src="..${employee.profileFilePath }">
+							</c:if>
 							<p>
 								이름 : <a class="profile-name" href="/employee/detail?id=${employee.id }">${employee.name }</a> <br>
 								성별 : ${employee.gender } <br>
