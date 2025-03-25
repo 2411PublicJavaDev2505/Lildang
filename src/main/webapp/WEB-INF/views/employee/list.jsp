@@ -82,6 +82,23 @@
 						</div>					
 					</c:forEach>
 				</div>
+				<!-- 여기부터 페이지추가 -->
+				<div class="page">
+				  <!-- li,ul지우고 확인해볼것!테이블css가 페이지넘어갈때 변화됨!employlist도 확인! li
+				  일단지워준다...다음버튼이 아래로가있음...colspan~코드추가!
+				 	-->
+	                <ul class="pagination" colspan="4" align="center">
+	                    <c:if test="${startNavi ne 1 }">
+		                    <a href="/employee/list?page=${startNavi -1 }" class="back">이전</a>
+	                    </c:if>
+	                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
+	                    	<a href="/employee/list?page=${p }">${p }</a>
+	                    </c:forEach>
+	                    <c:if test="${endNavi ne maxPage}">
+	                    	<a href="/employee/list?page=${endNavi +1 }" class="next">다음</a>
+	                    </c:if>
+	                </ul>
+	            </div>
 			</div>
 		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />

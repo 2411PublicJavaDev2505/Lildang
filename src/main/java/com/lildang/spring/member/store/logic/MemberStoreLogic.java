@@ -2,6 +2,7 @@ package com.lildang.spring.member.store.logic;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
@@ -54,10 +55,13 @@ public class MemberStoreLogic implements MemberStore{
 	public int cvDelete(SqlSession session, String id) {
 		return session.update("MemberMapper.cvDelete",id);
 	}
-
+	//페이징처리!코드추가!(여기도 에러나서 지울때 코드 return 조심할것!!!작성후다시 employee콘트롤러로!!
 	@Override
-	public List<MemberVO> selectMemberList(SqlSession session) {
-		return session.selectList("MemberMapper.selectMemberList");
+	public List<MemberVO> selectMemberList(SqlSession session, int currentPage) {
+		int limit =9;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		return session.selectList("MemberMapper.selectMemberList",null,rowBounds);
 	}
 
 	@Override
@@ -75,5 +79,11 @@ public class MemberStoreLogic implements MemberStore{
 	public int reportDeleteE(SqlSession session, String memberId) {
 		int result = session.delete("MemberMapper.reportDeleteE", memberId);
 		return result;
+	}
+	//페이징추가!!
+	@Override
+	public int getTotalCount(SqlSession session) {
+		int totalCount = session.selectOne("MemberMapper.getTotalCount");
+		return totalCount;
 	}
 }

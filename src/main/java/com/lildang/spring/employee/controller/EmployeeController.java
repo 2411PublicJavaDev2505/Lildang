@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lildang.spring.common.PageUtil;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
 import com.lildang.spring.employee.service.EmployeeService;
@@ -23,17 +24,29 @@ public class EmployeeController {
 	
 	private MemberService mService;
 	private EmployService eService;
+	//페이지 유틸코드추가!
+	private PageUtil pageUtil;
 	
 	
 	@Autowired
-	public EmployeeController(MemberService mService, EmployService eService) {
+	public EmployeeController(MemberService mService, EmployService eService, PageUtil pageUtil) {
 		this.mService = mService;
 		this.eService = eService;
+		this.pageUtil = pageUtil;
 	}
-	@GetMapping("employee/list")
-	public String showEmployeeList(Model model) {
+	@GetMapping("employee/list")//알바생리스트페이징시작점!!안되면 지워주기!!3/25 18:33
+	public String showEmployeeList(
+			@RequestParam(value="page", defaultValue="1") int currentPage
+			,Model model) {
 		try {
-			List<MemberVO> eList = mService.selectMemberList();
+			List<MemberVO> eList = mService.selectMemberList(currentPage);
+			//페이징코드추가!
+			int totalCount = mService.getTotalCount();//여기옆에 currentpage만들고 와서 e를 바꿔주기!!
+			Map<String, Integer> pageInfo
+			=pageUtil.generatePageInfo(totalCount, currentPage);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("eList",eList);
 			return "employee/list";				
 		} catch (Exception e) {

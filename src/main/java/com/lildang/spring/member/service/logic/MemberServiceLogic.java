@@ -120,10 +120,10 @@ public class MemberServiceLogic implements MemberService{
 		int dResult = dStore.desiredJobDelete(session, id);
 		return cvResult + eResult + lResult + cResult + dResult; 
 	}
-
+	//페이징코드추가!에러나서 지울때 return은 놔두고 ()안에만 바꿔줄것!!!
 	@Override
-	public List<MemberVO> selectMemberList() {
-		return mStore.selectMemberList(session);
+	public List<MemberVO> selectMemberList(int currentPage) {
+		return mStore.selectMemberList(session, currentPage);
 	}
 
 	@Override
@@ -179,6 +179,13 @@ public class MemberServiceLogic implements MemberService{
 	public int reportDeleteE(String id) {
 		int result = mStore.reportDeleteE(session, id);
 		return result;
+	}
+	//페이지코드 추가!!!(***틀리면 여기볼것!!****)
+	@Override
+	public int getTotalCount() {
+		int totalCount = mStore.getTotalCount(session);
+		return totalCount;
+		
 	}
 
 

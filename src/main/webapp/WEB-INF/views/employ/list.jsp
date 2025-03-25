@@ -66,7 +66,8 @@
 	                    </c:forEach>
 	                </table>
 	            </div>
-		            <!-- 페이징처리하면서 밑에코드 작성! -->
+		            <!-- 페이징처리하면서 밑에코드 작성! 다음버튼 여기서는 안보임!!
+		            코드수정하고-->
 		            <div class="page">
 	                <ul class="pagination">
 	                    <c:if test="${startNavi ne 1 }">
@@ -76,7 +77,7 @@
 	                    	<a href="/employ/list?page=${p }">${p }</a>
 	                    </c:forEach>
 	                    <c:if test="${endNavi ne maxPage}">
-	                    <li><a href="/employ/list?page${endNavi +1 }" class="next">다음</a></li>
+	                    <li><a href="/employ/list?page=${endNavi +1 }" class="next">다음</a></li>
 	                    </c:if>
 	                </ul>
 	            </div>
