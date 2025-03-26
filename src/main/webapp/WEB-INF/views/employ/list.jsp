@@ -120,6 +120,16 @@
         	function sort(eSearchKeyword,searchKeyword) {
         		location.href = "/employ/list?selectOption="+document.querySelector(".infoption").value+"&eSearchKeyword="+eSearchKeyword+"&searchKeyword="+searchKeyword;
         	}
+        	document.querySelectorAll('.pagination a').forEach(link => {
+        	    link.addEventListener('mouseenter', () => {
+        	        link.style.backgroundColor = "#b2f2bb";
+        	    });
+
+        	    link.addEventListener('mouseleave', () => {
+        	        link.style.backgroundColor = "transparent";
+        	        link.style.color = "black";
+        	    });
+        	});
         </script>
 	</body>
 </html>
