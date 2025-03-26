@@ -77,10 +77,19 @@ public class ManagerController {
 		}
 	}
 	
-	@GetMapping("manager/reportlist")
-	public String showReportList(Model model) {
+	@GetMapping("manager/reportlist") //관리자 신고 게시글관리 페이징처리 시작!!!!
+	public String showReportList(
+			@RequestParam(value="page",defaultValue="1") int currnetPage
+			,Model model) {
 		try {
-			List<ReportVO> rList = rService.selectList();
+			List<ReportVO> rList = rService.selectList(currnetPage);
+			//페이징코드 추가해줌!
+			int totalCount = rService.getTotalCount(); //rService로
+			Map<String, Integer> pageInfo
+			=pageUtil.generatePageInfo(totalCount, currnetPage);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("rList", rList);
 			return "manager/reportlist";
 		} catch (Exception e) {

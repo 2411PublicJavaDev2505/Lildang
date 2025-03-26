@@ -24,10 +24,10 @@ public class ReportServiceLogic implements ReportService{
 		this.session = session;
 	}
 	
-	//신고전체리스트
+	//신고전체리스트(페이징처리 시작전 확인작업)코드추가!!
 	@Override
-	public List<ReportVO> selectList() {
-		List<ReportVO> rList = rStore.selectList(session);
+	public List<ReportVO> selectList(int currentPage) {
+		List<ReportVO> rList = rStore.selectList(session, currentPage);
 		return rList;
 	}
 	//3/24 신고내용 출력?reportemployee.jsp로 보내기!
@@ -61,6 +61,12 @@ public class ReportServiceLogic implements ReportService{
 	public int deleteReport(int reportNo) {
 		int result = rStore.deleteReport(session, reportNo);
 		return result;
+	}
+	//페이징처리 오후작업 코드추가!!
+	@Override
+	public int getTotalCount() {
+		int totalCount = rStore.getTotalCount(session);
+		return totalCount;
 	}
 
 }

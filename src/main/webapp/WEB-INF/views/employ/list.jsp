@@ -79,7 +79,7 @@
 			                    	<a href="/employ/list?page=${p }&selectOption=${selectOption}&eSearchKeyword=${eSearchKeyword}">${p }</a>
 			                    </c:forEach>
 			                    <c:if test="${endNavi ne maxPage}">
-			                    	<li><a href="/employ/list?page${endNavi +1 }&selectOption=${selectOption}&eSearchKeyword=${eSearchKeyword}" class="next">다음</a></li>
+			                    	<li><a href="/employ/list?page=${endNavi +1 }&selectOption=${selectOption}&eSearchKeyword=${eSearchKeyword}" class="next">다음</a></li>
 			                    </c:if>
 		                	</ul>
 		            	</c:if>
@@ -93,7 +93,7 @@
 				                    	<a href="/employ/list?page=${p }&selectOption=${selectOption}&searchKeyword=${searchKeyword}">${p }</a>
 				                    </c:forEach>
 				                    <c:if test="${endNavi ne maxPage}">
-				                    <li><a href="/employ/list?page${endNavi +1 }&selectOption=${selectOption}&searchKeyword=${searchKeyword}" class="next">다음</a></li>
+				                    <li><a href="/employ/list?page=${endNavi +1 }&selectOption=${selectOption}&searchKeyword=${searchKeyword}" class="next">다음</a></li>
 				                    </c:if>
 				                </ul>
 		            		</c:if>
@@ -106,7 +106,7 @@
 				                    	<a href="/employ/list?page=${p }&selectOption=${selectOption}">${p }</a>
 				                    </c:forEach>
 				                    <c:if test="${endNavi ne maxPage}">
-				                    <li><a href="/employ/list?page${endNavi +1 }&selectOption=${selectOption}" class="next">다음</a></li>
+				                    <li><a href="/employ/list?page=${endNavi +1 }&selectOption=${selectOption}" class="next">다음</a></li>
 				                    </c:if>
 				                </ul>
 		            		</c:if>
