@@ -16,37 +16,9 @@
     <jsp:include page="/WEB-INF/views/include/header.jsp" />
     <main>
         <h1>신고 게시글 관리</h1>
-        	<div class="main-container">
-                <!-- lable의ㅡfor 값,select name값,option의 value값 전체 수정해야함.......
-                일단 값을 넘겨주려면 form태그로 감싸야한다? -->
-                <div class="search-content">
-	                <label for="reportdetail">검색어</label>
-	                    <select name="reportdetail" id="reportdetail">
-	                        <option value="전체">전체</option>
-	                        <option value="reportdetail">신고내용</option>
-	                        <option value="report_writer_id">신고자</option>
-	                    </select>                
-                </div>
-                <div class="date-content">
-                    <label for="reportdate">날짜</label>
-                    <select name="reportdate" id="reportdate">
-                        <option value="reportdate">접수일</option>
-                        <option value="checkdata">처리일</option>
-                        <input type="date" name="startdate" id="startdate">~<input type="date" name="lastdate" id="lastdate">
-                    </select>
-                </div>
-                <div class="hadle-content">
-                    <label for="">구분</label>
-                    <label><input type="radio" name="check">전체</label>
-                    <label><input type="radio" name="check" >처리</label>
-                    <label><input type="radio" name="check">미처리</label>
-                </div>
                 <div class="btn">
                     <div class="search-btn">
-                        <button type="submit">검색하기</button>
-                    </div>
-                    <div class="reset-btn">
-                        <button type="reset">초기화</button>
+                        <button onClick="memberList();">회원조회</button>
                     </div>
                 </div>
                 <table>
@@ -62,14 +34,13 @@
 		                	<tr>
 		                		<td>${rList.reportNo }</td>
 		                		<td>${rList.reportDate }</td>
-		                		<td><a href="/report/detail?reportNo=${rList.reportNo}">${rList.reportReason }</td>
+		                		<td id="link"><a href="/report/detail?reportNo=${rList.reportNo}">${rList.reportReason }</td>
 		                		<td>${rList.reportWriterId }</td>
 		                		<td>${rList.checkDate }</td>
 		                		<td>${rList.checkYN }</td>
 		                	</tr>
                 		</c:forEach>
                		</table>
-            </div> 
             <div class="page">
 	                <!-- 신고리스트페이지작업  -->
 	                <ul class="pagination">
@@ -88,6 +59,19 @@
     <jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
     <script type="text/javascript">
+    const memberList = () => {
+		location.href = "/manager/memberlist";
+	}
+    document.querySelectorAll('#link a').forEach(link => {
+	    link.addEventListener('mouseenter', () => {
+	        link.style.backgroundColor = "#b2f2bb";
+	    });
+
+	    link.addEventListener('mouseleave', () => {
+	        link.style.backgroundColor = "transparent";
+	        link.style.color = "black";
+	    });
+	});
 	    document.querySelectorAll('.pagination a').forEach(link => {
 		    link.addEventListener('mouseenter', () => {
 		        link.style.backgroundColor = "#b2f2bb";

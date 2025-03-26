@@ -34,5 +34,15 @@
         </c:if>
     </div>
     <script type="text/javascript">
+    document.querySelectorAll('.nav a').forEach(link => {
+	    link.addEventListener('mouseenter', () => {
+	        link.style.backgroundColor = "#b2f2bb";
+	    });
+
+	    link.addEventListener('mouseleave', () => {
+	        link.style.backgroundColor = "transparent";
+	        link.style.color = "black";
+	    });
+	});
     </script>
 </header>

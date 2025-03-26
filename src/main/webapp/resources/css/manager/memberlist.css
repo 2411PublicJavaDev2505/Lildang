@@ -30,9 +30,10 @@
     cursor : pointer;
     border : none;
 }
-.searchbtn button:hover {
+.searchbtn button:hover{
 	background-color:#1ED483;
 }
+
 .list{
 	width : 1300px;
     text-align: center;
@@ -73,7 +74,6 @@
     line-height: 1.5;
     color: black;
     transition: background-color 0.3s, color 0.3s;
-    
 }
 .back{
     margin-right: 15px;
@@ -92,6 +92,7 @@
 }
 .btn button {
 	padding: 15px 25px;
+	margin-right : 100px;
 	border : none;
 	border-radius : 10px;
 	background-color : #b2f2bb;
