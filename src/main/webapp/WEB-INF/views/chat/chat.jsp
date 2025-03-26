@@ -33,16 +33,15 @@
 	        <div class="message">
 	        	<form action="/chat/send" method="post">
 	        		<input type="hidden" value="${writerId }" name="writerId">
-	        		<input type="hidden" value="${receiverId }" name="receiverId">        
-	        		<input type="text" placeholder="메세지를 입력해주세요" name="chatDetail">
-		            <button type="submit">
+	        		<input type="hidden" value="${receiverId }" name="receiverId">
+	        		<input type="text" placeholder="메세지를 입력해주세요" name="chatDetail" id="input">
+		            <button type="submit" id="submitbtn">
 		                <img src="../resources/image/send.256x233.png" alt="send">
-		            </button>
+		            </button>	        		
 	        	</form>
 	        </div>
 	        <div class="btn">
-	            <button>신고하기</button>
-	            <button>채팅방 나가기</button>
+	            <button onClick="history.back();">채팅방 나가기</button>
 	        </div>
 	    </main>
 	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />

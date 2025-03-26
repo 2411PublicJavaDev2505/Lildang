@@ -219,3 +219,9 @@ td {
 	border: none;
 	height: 20px;
 }
+.review-list th, td{
+	border : 1px solid #ddd;
+	border-radius : 10px;
+	font-size : 20px;
+	font-weight : bold;
+}

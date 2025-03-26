@@ -87,6 +87,18 @@
     </main>
     <jsp:include page="/WEB-INF/views/include/footer.jsp" />
     </div>
+    <script type="text/javascript">
+	    document.querySelectorAll('.pagination a').forEach(link => {
+		    link.addEventListener('mouseenter', () => {
+		        link.style.backgroundColor = "#b2f2bb";
+		    });
+	
+		    link.addEventListener('mouseleave', () => {
+		        link.style.backgroundColor = "transparent";
+		        link.style.color = "black";
+		    });
+		});
+    </script>
 </body>
 </body>
 </html>

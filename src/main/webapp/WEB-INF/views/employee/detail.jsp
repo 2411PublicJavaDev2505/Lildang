@@ -173,7 +173,7 @@
 	                </div>
 	                <div class="review-list">
 	                	<h3>이 알바생의 경력</h3>
-	                	<table>
+	                	<table id="review">
 	                		<tr>
 	                			<th>공고글 제목</th>
 	                			<th>후기내용</th>

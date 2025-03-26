@@ -84,3 +84,12 @@ th,td {
 .search-btn button{
     background-color: #b2f2bb;
 }
+.pagination {
+	text-align : center;
+	margin-bottom : 30px;
+}
+.pagination a{
+	padding : 10px;
+	border-radius : 8px;
+	transition: background-color 0.3s, color 0.3s;
+}
