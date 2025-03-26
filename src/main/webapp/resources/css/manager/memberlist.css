@@ -63,6 +63,7 @@
 .pagination li{
     display: inline;
     text-align: center;
+    list-style-type:none;
 }
 .pagination a{
     float: left;
