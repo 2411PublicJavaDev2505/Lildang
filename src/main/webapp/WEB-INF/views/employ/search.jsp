@@ -65,35 +65,6 @@
 		                        <td class="d1">${eList.writeTime }</td>
 		                    </tr>
 	                    </c:forEach>
-	                    <!--<tr>
-	                        <td><div class="circle1">.</div>장기하 장기학원에서 장기 선생님 구해요.</td>
-	                        <td>서울 동대문구</td>
-	                        <td>09:00~18:00</td>
-	                        <td>시급 50,000원</td>
-	                        <td class="d1">03/12(수)</td>
-	                    </tr>
-	                    <tr>
-	                        <td><div class="circle">.</div>메가커피 파트타임 알바생 구합니다(월,수,금)</td>
-	                        <td>서울 중구</td>
-	                        <td>12:00~14:00</td>
-	                        <td>시급 13,000원</td>
-	                        <td class="d1">03/13(목)</td>
-	                    </tr>
-	                    <tr>
-	                        <td><div class="circle1">.</div>세븐일레븐 청계천로 점에서 새벽알바 구합니다.(월,수,금)</td>
-	                        <td>서울 종로구</td>
-	                        <td>02:00~04:00</td>
-	                        <td>시급 13,000원</td>
-	                        <td class="d1">03/14(금)</td>
-	                    </tr>
-	                    <tr>
-	                        <td><div class="circle1">.</div>내일 알바 대신 해주실분 구해요!</td>
-	                        <td>서울 용산구</td>
-	                        <td>12:00~22:00</td>
-	                        <td>시급 11,000원</td>
-	                        <td class="d1">03/15(토)</td>
-	                    </tr>
-					-->
 	                </table>
 	            </div>
 	        </div>

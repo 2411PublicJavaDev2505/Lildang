@@ -71,5 +71,7 @@ public interface MemberService {
 	List<RERequest> selectEMList(String id);
 
 	int updateProfile(ProfileUpdateRequest profile);
+
+	int cvUpdate(CvInsertRequest cv);
 	
 }

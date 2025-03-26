@@ -92,6 +92,11 @@ public class EmployServiceLogic implements EmployService{
 		return totalCount;
 	}
 
+	@Override
+	public String selectIdByEmployNo(int employNo) {
+		return null;
+	}
+
 }
 
 

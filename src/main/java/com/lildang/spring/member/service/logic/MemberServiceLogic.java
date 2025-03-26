@@ -90,12 +90,12 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int cvInsert(CvInsertRequest cv) {
-		int cvResult = mStore.cvInsert(session, cv);
-		int eResult = eStore.educationInsert(session, cv.geteList());
-		int lResult = lStore.licenseInsert(session, cv.getlList());
-		int cResult = cStore.careerInsert(session, cv.getcList());
-		int dResult = dStore.desiredJobInsert(session, cv.getjList());
-		return cvResult+eResult+lResult+cResult+dResult;
+		int result = mStore.cvInsert(session, cv);
+		result += eStore.educationInsert(session, cv.geteList());
+		result += lStore.licenseInsert(session, cv.getlList());
+		result += cStore.careerInsert(session, cv.getcList());
+		result += dStore.desiredJobInsert(session, cv.getjList());
+		return result;
 	}
 
 	@Override
@@ -114,12 +114,12 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int cvDelete(String id) {
-		int cvResult = mStore.cvDelete(session, id);
-		int eResult = eStore.educationDelete(session, id);
-		int lResult = lStore.licenseDelete(session, id);
-		int cResult = cStore.careerDelete(session, id);
-		int dResult = dStore.desiredJobDelete(session, id);
-		return cvResult + eResult + lResult + cResult + dResult; 
+		int result = mStore.cvDelete(session, id);
+		result += eStore.educationDelete(session, id);
+		result += lStore.licenseDelete(session, id);
+		result += cStore.careerDelete(session, id);
+		result += dStore.desiredJobDelete(session, id);
+		return result; 
 	}
 
 	@Override
@@ -129,9 +129,9 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int reviewEmployeeInsert(ReviewEmployeeRequest review) {
-		int result1 = rStore.reviewEmployeeInsert(session, review);
-		int result2 = mStore.updateEmployeeScore(session, review);
-		return result1+result2;
+		int result = rStore.reviewEmployeeInsert(session, review);
+		result += mStore.updateEmployeeScore(session, review);
+		return result;
 	}
 
 	@Override
@@ -141,16 +141,16 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int reviewEmployeeUpdate(ReviewEmployeeRequest review) {
-		int result1 = rStore.reviewEmployeeUpdate(session, review);
-		int result2 = mStore.updateEmployeeScore(session, review);
-		return result1+result2;
+		int result = rStore.reviewEmployeeUpdate(session, review);
+		result += mStore.updateEmployeeScore(session, review);
+		return result;
 	}
 
 	@Override
 	public int reviewEmployInsert(ReviewEmployeeRequest review) {
-		int result1 = rStore.reviewEmployInsert(session, review);
-		int result2 = emStore.updateEmployScore(session, review);
-		return result1+result2;
+		int result = rStore.reviewEmployInsert(session, review);
+		result += emStore.updateEmployScore(session, review);
+		return result;
 	}
 
 	@Override
@@ -160,9 +160,9 @@ public class MemberServiceLogic implements MemberService{
 
 	@Override
 	public int reviewEmployUpdate(ReviewEmployeeRequest review) {
-		int result1 = rStore.reviewEmployUpdate(session, review);
-		int result2 = emStore.updateEmployScore(session, review);
-		return result1+result2;
+		int result = rStore.reviewEmployUpdate(session, review);
+		result += emStore.updateEmployScore(session, review);
+		return result;
 	}
 
 	@Override
@@ -190,6 +190,20 @@ public class MemberServiceLogic implements MemberService{
 	@Override
 	public int updateProfile(ProfileUpdateRequest profile) {
 		return mStore.updateProfile(session, profile);
+	}
+
+	@Override
+	public int cvUpdate(CvInsertRequest cv) {
+		int result = mStore.cvUdpate(session, cv);
+		result += eStore.educationDelete(session, cv.getId());
+		result += lStore.licenseDelete(session, cv.getId());
+		result += cStore.careerDelete(session, cv.getId());
+		result += dStore.desiredJobDelete(session, cv.getId());
+		result += eStore.educationInsert(session, cv.geteList());
+		result += lStore.licenseInsert(session, cv.getlList());
+		result += cStore.careerInsert(session, cv.getcList());
+		result += dStore.desiredJobInsert(session, cv.getjList());
+		return result;
 	}
 
 }

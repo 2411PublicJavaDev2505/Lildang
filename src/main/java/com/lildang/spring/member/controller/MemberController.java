@@ -418,6 +418,47 @@ public class MemberController {
 		}
 	}
 	
+	@PostMapping("member/cvupdate")
+	public String cvUpdate(Model model
+			,@RequestParam("schoolName") List<String> schoolNames
+			,@RequestParam("entranceDate") List<Date> entranceDates
+			,@RequestParam("graduateDate") List<Date> graduateDates
+			,@RequestParam("comanyName") List<String> comanyNames
+			,@RequestParam("workingPeriod") List<String> workingPeriods
+			,@RequestParam("position") List<String> positions
+			,@RequestParam("work") List<String> works
+			,@RequestParam("institution") List<String> institutions
+			,@RequestParam("licenseName") List<String> licenseNames
+			,@RequestParam("getDate") List<Date> getDates
+			,@RequestParam("jobNo") List<Integer> jobNos
+			,HttpSession session
+			,@ModelAttribute CvInsertRequest cv) {
+		try {
+			for(int i=0;i<schoolNames.size();i++) {
+				cv.geteList().add(new EducationInsertRequest(schoolNames.get(i), entranceDates.get(i), graduateDates.get(i), cv.getId()));
+			}
+			for(int i=0;i<comanyNames.size(); i++) {
+				cv.getcList().add(new CareerInsertRequest(comanyNames.get(i), workingPeriods.get(i), positions.get(i), works.get(i), cv.getId()));
+			}
+			for(int i=0;i<institutions.size();i++) {
+				cv.getlList().add(new LicenseInsertRequest(institutions.get(i), licenseNames.get(i), getDates.get(i), cv.getId()));
+			}
+			for(int i=0;i<jobNos.size();i++) {
+				cv.getjList().add(new DesiredJobVO(jobNos.get(i), cv.getId()));
+			}
+			int result = mService.cvUpdate(cv);
+			if(result > 0) {
+				return "redirect:/member/edetail";
+			}else {
+				return "common/error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMsg", e.getMessage());
+			return "common/error";
+		}
+	}
+	
 	@GetMapping("member/cvdelete")
 	public String cvDelete(Model model, HttpSession session) {
 		try {

@@ -33,4 +33,6 @@ public interface EmployService {
 	//페이징처리코드추가!
 	int getTotalCount();
 
+	String selectIdByEmployNo(int employNo);
+
 }

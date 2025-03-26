@@ -137,7 +137,7 @@ public class EmployController {
 		try {
 			List<EmployVO> eList = eService.headerSearchList(searchKeyword);
 			model.addAttribute("eList", eList);
-			return "employ/hsearch";
+			return "employ/search";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -145,7 +145,7 @@ public class EmployController {
 			return "common/error";
 		}
 	}
-	
+
 	@GetMapping("employ/list") //공고글 전체 정보 조회(페이징 코드추가하는중!)
 	public String showEmployList(
 			@RequestParam(value="page", defaultValue="1") int currentPage

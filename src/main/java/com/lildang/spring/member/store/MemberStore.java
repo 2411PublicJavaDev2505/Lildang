@@ -53,4 +53,6 @@ public interface MemberStore {
 
 	int updateProfile(SqlSession session, ProfileUpdateRequest profile);
 
+	int cvUdpate(SqlSession session, CvInsertRequest cv);
+
 }

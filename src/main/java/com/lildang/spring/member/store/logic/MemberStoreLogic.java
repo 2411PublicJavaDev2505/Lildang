@@ -82,4 +82,9 @@ public class MemberStoreLogic implements MemberStore{
 	public int updateProfile(SqlSession session, ProfileUpdateRequest profile) {
 		return session.update("MemberMapper.updateProfile", profile);
 	}
+
+	@Override
+	public int cvUdpate(SqlSession session, CvInsertRequest cv) {
+		return session.update("MemberMapper.cvUpdate", cv);
+	}
 }

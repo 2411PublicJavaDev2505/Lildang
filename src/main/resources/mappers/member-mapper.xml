@@ -83,4 +83,8 @@
 		UPDATE MEMBER SET PROFILE_FILE_NAME=#{profileFileName}, PROFILE_FILE_RENAME=#{profileFileRename}
 		,PROFILE_FILE_PATH=#{profileFilePath} WHERE ID=#{id}
 	</update>
+	<update id="cvUpdate">
+		UPDATE MEMBER SET MEMBER_COMMENT=#{memberComment},INTRODUCTION=#{introduction}
+		,CV_UPDATE_TIME=SYSTIMESTAMP, CV_YN='Y' WHERE ID=#{id}
+	</update>
 </mapper>
