@@ -20,13 +20,11 @@
 	        		<h1>전체회원조회</h1>
 	        	</div>
 	        		<div class="btn">
-		        		<button>회원조회</button>
 						<button onClick="reportList();">신고조회</button>        		
 	        		</div>
 	        		<form action="/manager/search">
 			            <div class="search">
 			                <select class="searchbar" name="memberSearch">
-			                    <option value="none">전체</option>
 			                    <option value="id">아이디</option>
 			                    <option value="name">이름</option>  
 			                </select>
@@ -78,7 +76,6 @@
     	</div>
         <script type="text/javascript">
         	const reportList = () => {
-        		console.log("확인");
         		location.href = "/manager/reportlist";
         	}
         	document.querySelectorAll('.pagination a').forEach(link => {

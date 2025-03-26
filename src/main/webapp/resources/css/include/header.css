@@ -59,6 +59,9 @@ header {
     margin-right: 30px;
 }
 .nav a{
+	padding : 10px;
+	border-radius : 10px;
     color: #a8a81f;
     text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; 
 }

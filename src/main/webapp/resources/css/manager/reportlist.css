@@ -71,7 +71,7 @@ th,td {
 }                     
 .btn {
     display: flex;
-    justify-content: center; 
+    justify-content: right; 
 }
 .btn button {
     padding: 15px 25px;
@@ -81,8 +81,17 @@ th,td {
     font-size: 20px;
     font-weight: bold;
 }
+#link a {
+	padding : 4px;
+	border-radius : 8px;
+	transition: background-color 0.3s, color 0.3s;
+}
 .search-btn button{
     background-color: #b2f2bb;
+    cursor : pointer;
+}
+.search-btn button:hover {
+	 background-color: #1ed483;
 }
 .pagination {
 	text-align : center;
