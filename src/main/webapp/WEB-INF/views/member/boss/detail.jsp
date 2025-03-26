@@ -31,7 +31,7 @@
 	            		<input type="hidden" name="profileFileName" value="${member.profileFileName }">
 	            		<input type="hidden" name="profileFileRename" value="${member.profileFileRename }">
 	            		<input type="hidden" name="profileFilePath" value="${member.profileFilePath }">
-		            	<input type="file" name="reloadFile">
+		            	<input type="file" name="reloadFile" class="reloadfile">
 		            	<button class="imgbtn">사진변경</button>
 	            	</form>
 	                <div id="information">
@@ -142,10 +142,16 @@
 	                    <p class="picktitle">내가 제의한 알바생</p>
 		                <div class="pickplace">
 		                	<table>
+		                		<tr class="tabletitle">
+		                			<th>알바생 이름</th>
+		                			<th>알바생 ID</th>
+		                			<th>공고글 제목</th>
+		                			<th>제의 현황</th>
+		                		</tr>
 			                	<c:forEach var="match" items="${emList }">
 			                		<c:if test="${match.employerYn eq 'Y' }">
 				                		<tr>
-				                			<td>${match.employeeName }</td>
+				                			<td >${match.employeeName }</td>
 				                			<td>${match.employeeId }</td>
 				                			<td>${match.employName }</td>
 				                			<td>

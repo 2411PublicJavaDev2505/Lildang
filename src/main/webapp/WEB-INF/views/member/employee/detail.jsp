@@ -31,7 +31,9 @@
 	            		<input type="hidden" name="profileFileName" value="${member.profileFileName }">
 	            		<input type="hidden" name="profileFileRename" value="${member.profileFileRename }">
 	            		<input type="hidden" name="profileFilePath" value="${member.profileFilePath }">
-		            	<input type="file" name="reloadFile">
+	            		<div class="file">
+		            		<input type="file" name="reloadFile" class="reloadfile">
+	            		</div>
 		            	<button class="imgbtn">사진변경</button>
 	            	</form>
 	                <div id="information">

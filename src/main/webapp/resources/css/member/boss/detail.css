@@ -133,7 +133,7 @@ main h1{
     text-align: left;
     margin-left: 20px;
     display: flex;
-    margin-bottom: 3px;
+   margin-bottom: 3px;
 }
 .btn{
     margin-left: 500px;
@@ -149,10 +149,12 @@ main h1{
     border: 1px solid black;
     width: 800px;
     border-radius: 10px;
-    font-size: 20px;
-    padding: 10px 0px 0px 0px;
+    font-size: 15px;
+    padding: 5px;
     margin-top: 80px;
-    font-weight: bold;
+}
+.pickplace td{
+	border-top: 1px solid black;
 }
 .employeeinfo{
     width: 200px;
@@ -171,4 +173,29 @@ table td,th {
 
 button:hover{
 	background-color: #1ED483;
+}
+.reloadfile{
+	border: 1px solid #eee;
+	background-color: #eee;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	border-radius: 10px;
+  	margin:10px 0px 0px 50px;
+  	width:230px;
+}
+input[type=file]::file-selector-button{
+	width: 100px;
+  	height: 20px;
+ 	background: #b2f2bb;
+  	border: 1px solid #eee;
+ 	border-radius: 10px;
+ 	cursor: pointer;
+ 	font-weight: bold;
+}
+input[type=file]::file-selector-button:hover{
+	background-color: #1ed483;
+}
+.tabletitle{
+	background-color: #b2f2bb;
 }
