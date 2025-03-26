@@ -26,7 +26,7 @@ public class ChatController {
 			,@RequestParam("writerId") String writerId
 			,@RequestParam("employNo") int employNo) {
 		try {
-			String receiverId = eService.selectIdByEmployNo(employNo);
+//			String receiverId = eService.selectIdByEmployNo(employNo);
 			return "chat/chat";
 		} catch (Exception e) {
 			e.printStackTrace();

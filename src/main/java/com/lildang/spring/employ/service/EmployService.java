@@ -26,13 +26,17 @@ public interface EmployService {
 	EmployVO selectOneByNo(int employNo); // 신고 상세페이지에서 사장님 정보 가져오기
 
 	int deleteEmployNo(int employNo); // 신고 상세페이지에서 공고글 삭제하기
-	
-	List<EmployVO> selectSearchList(String eSearchKeyword);
 
-	List<EmployVO> headerSearchList(String searchKeyword);
+	List<EmployVO> headerSearchList(String searchKeyword, int currentPage, String selectOption);
 	//페이징처리코드추가!
 	int getTotalCount();
 
 	String selectIdByEmployNo(int employNo);
+	
+	List<EmployVO> selectSearchList(String eSearchKeyword, int currentPage, String selectOption);
+
+	int getCountSearchList(String eSearchKeyword, String selectOption);
+
+	int getCountHeaderSearchList(String searchKeyword, String selectOption);
 
 }

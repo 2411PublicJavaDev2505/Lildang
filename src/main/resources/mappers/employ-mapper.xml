@@ -29,6 +29,13 @@
 	</resultMap>
 	<select id="selectList" resultMap="rsetToEmploy" >
 		SELECT * FROM EMPLOY
+		<if test="selectOption == 'none'"></if>
+		<if test="selectOption == 'recent'">
+			ORDER BY WRITE_TIME DESC
+		</if>
+		<if test="selectOption == 'score'">
+			ORDER BY SCORE DESC
+		</if>
 	</select>
 	<insert id="insertEmploy">
 		INSERT INTO EMPLOY VALUES(SEQ_EMPLOY_NO.NEXTVAL,#{employName}, #{recruitStartDate}, #{recruitEndDate}, #{recruitNumber}, #{education}, #{workplaceAddress}, #{workplaceName}, #{salary}, #{workingPeriod}, #{workingStartTime}, #{workingEndTime}, #{workingDay}, #{employDetail},SYSTIMESTAMP,SYSTIMESTAMP, #{employFileName}, #{employFileRename}, #{employFilePath}, #{writerId}, #{jobNo}, DEFAULT)
@@ -64,10 +71,60 @@
 		UPDATE EMPLOY SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_EMPLOY WHERE EMPLOY_NO=#{employNo}) WHERE EMPLOY_NO=#{employNo}
 	</update>
 	<select id="selectSearchList" resultMap="rsetToEmploy">
-		SELECT * FROM EMPLOY WHERE WORKPLACE_ADDRESS LIKE '%'||#{workplaceAddress}||'%'
+		SELECT * FROM EMPLOY 
+		<where>
+			<if test="selectOption == 'none'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%'
+			</if>
+			<if test="selectOption == 'recent'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%' ORDER BY WRITE_TIME DESC
+			</if>
+			<if test="selectOption == 'score'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%' ORDER BY SCORE DESC
+			</if>
+		</where>
+	</select>
+	<select id="getCountSearchList" resultType="_int">
+		SELECT COUNT(*) FROM EMPLOY 
+		<where>
+			<if test="selectOption == 'none'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%'
+			</if>
+			<if test="selectOption == 'recent'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%' ORDER BY WRITE_TIME DESC
+			</if>
+			<if test="selectOption == 'score'">
+				WORKPLACE_ADDRESS LIKE '%'||#{eSearchKeyword}||'%' ORDER BY SCORE DESC
+			</if>
+		</where>
 	</select>
 	<select id="headerSearchList" resultMap="rsetToEmploy">
-		SELECT * FROM EMPLOY WHERE EMPLOY_NAME LIKE '%'||#{employName}||'%'
+		SELECT * FROM EMPLOY 
+		<where>
+			<if test="selectOption == 'none'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="selectOption == 'recent'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%' ORDER BY WRITE_TIME DESC
+			</if>
+			<if test="selectOption == 'score'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%' ORDER BY SCORE DESC
+			</if>
+		</where>
+	</select>
+	<select id="getCountHeaderSearchList" resultType="_int">
+		SELECT COUNT(*) FROM EMPLOY 
+		<where>
+			<if test="selectOption == 'none'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="selectOption == 'recent'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%' ORDER BY WRITE_TIME DESC
+			</if>
+			<if test="selectOption == 'score'">
+				EMPLOY_NAME LIKE '%'||#{searchKeyword}||'%' ORDER BY SCORE DESC
+			</if>
+		</where>
 	</select>
 	<!-- 페이징처리 코드추가 -->
 	<select id="getTotalCount" resultType="_int">

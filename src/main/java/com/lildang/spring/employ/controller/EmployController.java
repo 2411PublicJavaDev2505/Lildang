@@ -1,5 +1,6 @@
 package com.lildang.spring.employ.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -114,52 +115,36 @@ public class EmployController {
 		}
 	}
 	
-	@GetMapping("employ/search")//공고글 검색
-	public String employSearch(
-			@RequestParam("eSearchKeyword") String eSearchKeyword
-			,Model model) {
-		try {
-			List<EmployVO> eList = eService.selectSearchList(eSearchKeyword);
-			model.addAttribute("eList", eList);
-			return "employ/search";
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			model.addAttribute("errorMessage",e.getMessage());
-			return "common/error";
-		}
-	}
-	
-	@GetMapping("employ/hsearch")//헤더 공고글 검색
-	public String hEmploySearch(
-			@RequestParam("searchKeyword") String searchKeyword
-			,Model model) {
-		try {
-			List<EmployVO> eList = eService.headerSearchList(searchKeyword);
-			model.addAttribute("eList", eList);
-			return "employ/search";
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			model.addAttribute("errorMessage",e.getMessage());
-			return "common/error";
-		}
-	}
-
 	@GetMapping("employ/list") //공고글 전체 정보 조회(페이징 코드추가하는중!)
 	public String showEmployList(
 			@RequestParam(value="page", defaultValue="1") int currentPage
+			,@RequestParam(value="selectOption", defaultValue="none") String selectOption
+			,@RequestParam(value="eSearchKeyword", defaultValue="전체") String eSearchKeyword
+			,@RequestParam(value="searchKeyword", defaultValue="") String searchKeyword
 			,Model model) {
 		try {
-			List<EmployVO> eList = eService.selectList(currentPage);
+			List<EmployVO> eList = null;
+			int totalCount = 0;
+			if(!eSearchKeyword.equals("전체")) {
+				eList = eService.selectSearchList(eSearchKeyword, currentPage, selectOption);
+				totalCount = eService.getCountSearchList(eSearchKeyword, selectOption);
+			}else if(!searchKeyword.isEmpty()){
+				eList = eService.headerSearchList(searchKeyword, currentPage, selectOption);
+				totalCount = eService.getCountHeaderSearchList(searchKeyword, selectOption);
+			}else {
+				eList = eService.selectList(currentPage);				
+				totalCount = eService.getTotalCount();
+			}
 			//페이징 코드추가!!!!
-			int totalCount = eService.getTotalCount();
 			Map<String, Integer> pageInfo
 			=pageUtil.generatePageInfo(totalCount, currentPage);
 			model.addAttribute("maxPage", pageInfo.get("maxPage"));
 			model.addAttribute("startNavi", pageInfo.get("startNavi"));
 			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("eList",eList);
+			model.addAttribute("selectOption",selectOption);
+			model.addAttribute("eSearchKeyword",eSearchKeyword);
+			model.addAttribute("searchKeyword",searchKeyword);
 			return "employ/list";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -210,5 +195,4 @@ public class EmployController {
 			return "common/error";
 		}
 	}
-	
 }
