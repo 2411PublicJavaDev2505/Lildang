@@ -13,11 +13,11 @@
         <title>mypage-modify employee</title>
     </head>
     <body>
-    	<div class="container">
+    	<div id="container">
     		<jsp:include page="/WEB-INF/views/include/header.jsp" />
     		<main>
 		        <h1>마이페이지 - 정보수정</h1>
-		        <div id="container">
+		        <div class="container">
 		            <div id="left-main">
 		                <c:if test="${member.profileFilePath eq null }">
 		                <img src="../resources/image/profile.png" alt="profile"> <br>
