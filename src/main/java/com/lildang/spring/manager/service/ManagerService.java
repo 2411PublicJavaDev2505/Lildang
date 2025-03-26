@@ -11,6 +11,6 @@ public interface ManagerService {
 	//페이징!
 	int getTotalCount();
 	// 관리자 페이지에서 회원검색
-	List<MemberVO> selectMemberSearchList(Map<String, String> searchMap);
+	List<MemberVO> selectMemberSearchList(Map<String, String> searchMap, int currentPage);
 
 }

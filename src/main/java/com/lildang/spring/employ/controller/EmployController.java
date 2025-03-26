@@ -63,7 +63,6 @@ public class EmployController {
 			model.addAttribute("errorMessage",e.getMessage());
 			return "common/error";
 		}
-		
 	}
 	
 	@GetMapping("employ/insert")
