@@ -1,7 +1,9 @@
 package com.lildang.spring.employ.store.logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -42,8 +44,6 @@ public class EmployStoreLogic implements EmployStore{
 		return session.delete("EmployMapper.deleteEmploy", employNo);
 	}
 
-
-
 	@Override
 	public List<EmployVO> selectListById(SqlSession session, String id) {
 		List<EmployVO> eList = session.selectList("EmployMapper.selectListById", id);
@@ -73,15 +73,26 @@ public class EmployStoreLogic implements EmployStore{
 	}
 	
 	@Override
-	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword) {
-		// TODO Auto-generated method stub
-		return session.selectList("EmployMapper.selectSearchList", eSearchKeyword);
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword, int currentPage, String selectOption) {
+		int limit =10;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("eSearchKeyword", eSearchKeyword);
+		map.put("selectOption", selectOption);
+		return session.selectList("EmployMapper.selectSearchList", map, rowBounds);
 	}
 
 	@Override
-	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword) {
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword, int currentPage, String selectOption) {
 		// TODO Auto-generated method stub
-		return session.selectList("EmployMapper.headerSearchList", searchKeyword);
+		int limit =10;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchKeyword", searchKeyword);
+		map.put("selectOption", selectOption);
+		return session.selectList("EmployMapper.headerSearchList", map, rowBounds);
 	}
 	//페이징추가!
 	@Override
@@ -89,5 +100,22 @@ public class EmployStoreLogic implements EmployStore{
 		int totalCount = session.selectOne("EmployMapper.getTotalCount");
 		return totalCount;
 	}
+
+	@Override
+	public int getCountSearchList(SqlSession session, String eSearchKeyword, String selectOption) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("eSearchKeyword", eSearchKeyword);
+		map.put("selectOption", selectOption);
+		return session.selectOne("EmployMapper.getCountSearchList",map);
+	}
+
+	@Override
+	public int getCountHeaderSearchList(SqlSession session, String searchKeyword, String selectOption) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchKeyword", searchKeyword);
+		map.put("selectOption", selectOption);
+		return session.selectOne("EmployMapper.getCountHeaderSearchList",map);
+	}
+
 }
 

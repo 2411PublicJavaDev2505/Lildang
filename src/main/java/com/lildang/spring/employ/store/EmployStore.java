@@ -31,10 +31,14 @@ public interface EmployStore {
 	// 신고 상세페이지에서 공고글 삭제하기
 	public int deleteEmployNo(SqlSession session, int employNo);
 	//공고글 검색
-	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword);
+	public List<EmployVO> selectSearchList(SqlSession session, String eSearchKeyword, int currentpage, String selectOption);
 	//헤더 공고글 검색
-	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword);
+	public List<EmployVO> headerSearchList(SqlSession session, String searchKeyword, int currentPage, String selectOption);
 	//페이징추가!!
 	public int getTotalCount(SqlSession session);
+	
+	public int getCountSearchList(SqlSession session, String eSearchKeyword, String selectOption);
+	
+	public int getCountHeaderSearchList(SqlSession session, String searchKeyword, String selectOption);
 
 }

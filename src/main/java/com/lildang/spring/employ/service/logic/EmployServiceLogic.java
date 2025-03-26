@@ -76,20 +76,30 @@ public class EmployServiceLogic implements EmployService{
 	}
 	
 	@Override
-	public List<EmployVO> selectSearchList(String eSearchKeyword) {
-		return eStore.selectSearchList(session, eSearchKeyword);
+	public List<EmployVO> selectSearchList(String eSearchKeyword, int currentpage, String selectOption) {
+		return eStore.selectSearchList(session, eSearchKeyword, currentpage, selectOption);
 	}
 
 	@Override
-	public List<EmployVO> headerSearchList(String searchKeyword) {
+	public List<EmployVO> headerSearchList(String searchKeyword,int currentPage, String selectOption) {
 		// TODO Auto-generated method stub
-		return eStore.headerSearchList(session, searchKeyword);
+		return eStore.headerSearchList(session, searchKeyword, currentPage, selectOption);
 	}
 	//페이징처리추가
 	@Override
 	public int getTotalCount() {
 		int totalCount = eStore.getTotalCount(session);
 		return totalCount;
+	}
+
+	@Override
+	public int getCountSearchList(String eSearchKeyword, String selectOption) {
+		return eStore.getCountSearchList(session, eSearchKeyword, selectOption);
+	}
+
+	@Override
+	public int getCountHeaderSearchList(String searchKeyword, String selectOption) {
+		return eStore.getCountHeaderSearchList(session, searchKeyword, selectOption);
 	}
 
 }
