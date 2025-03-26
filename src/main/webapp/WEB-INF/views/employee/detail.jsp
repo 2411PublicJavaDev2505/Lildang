@@ -188,7 +188,7 @@
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>
 	                    <c:if test=""></c:if>
-	                    <button>채팅하기</button>
+	                    <button onclick="chat('${sessionScope.id}','${member.id }');">채팅하기</button>
 	                    <button type="button">돌아가기</button>
 	                </div>
 	            </div>
@@ -208,6 +208,9 @@
 		}
 		const backToPage = () => {
 			document.querySelector(".modal").style.display = "none";
+		}
+		const chat = (writerId,receiverId ) => {
+			location.href = "/chat/chat?writerId="+ writerId+"&receiverId="+receiverId;
 		}
 	</script>
 </body>

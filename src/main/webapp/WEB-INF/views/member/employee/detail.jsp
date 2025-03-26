@@ -85,9 +85,9 @@
 	                    <h4 class="worktitle">내가 일했던 곳</h4>
 	                    <div class="workplace">
 	                    	<c:forEach var="em" items="${emList }">
-	                    		<table>
+	                    		<table class="career-table">
 	                    			<tr>
-	                    				<td>${em.employName }</td>
+	                    				<td><a href="/employ/detail?employNo=${em.employNo }">${em.employName }</a></td>
 	                    				<td>6개월</td>
 	                    				<td>${em.jobStartTime } ~ ${em.jobEndTime }</td>
 	                    			</tr>
