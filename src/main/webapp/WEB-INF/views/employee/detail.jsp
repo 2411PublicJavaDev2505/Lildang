@@ -64,9 +64,6 @@
 	            <div class="sidebar">
 				    <div class="profile-image">
 				    	<div class="profile-img"></div>
-				    	<div class="img-input">
-				         <input type="text" name="profileFileName">
-				    	</div>
 				    </div>
 				    <div class="profile-name">
 				    	<p> <b>${member.name }</b></p>
@@ -88,8 +85,8 @@
 				        <div class="profile-education-school">
 				            ${edu.schoolName }
 				        </div>
-			            입학 : ${edu.entranceDate }
-			            졸업 : ${edu.graduateDate }
+			            <div class="term">입학 : ${edu.entranceDate }</div>
+			            <div class="term">졸업 : ${edu.graduateDate }</div>
 				    </c:forEach>
 				    <div class="reportBtn">
 				    	<button onClick="showReport();">신고하기</button>				    
@@ -133,10 +130,10 @@
 	                    </div>
 	                    <table id="career">
 	                        <tr>
-	                            <td>회사명</td>
-	                            <td>근무기간</td>
-	                            <td>직책</td>
-	                            <td>담당업무</td>
+	                            <th>회사명</th>
+	                            <th>근무기간</th>
+	                            <th>직책</th>
+	                            <th>담당업무</th>
 	                        </tr>
 	                        <c:forEach var="career" items="${member.cList }">
 	                        	<tr>
@@ -149,14 +146,14 @@
 	                    </table>
 	                </div>
 	                <div class="job-license">
-	                    <div class="insert-btn">
+	                    <div class="license-title">
 	                    	주요 자격증
 	                    </div>
 	                    <table id="license">
 	                        <tr>
-	                            <td>발급기관</td>
-	                            <td>자격증명</td>
-	                            <td>취득일자</td>
+	                            <th>발급기관</th>
+	                            <th>자격증명</th>
+	                            <th>취득일자</th>
 	                        </tr>
 	                        <c:forEach var="license" items="${member.lList }">
 	                        	<tr>
@@ -169,7 +166,7 @@
 	                </div>
 	                <div id="job-introduce">
 	                    <div class="job-introduce">자기소개서</div>
-	                    ${member.introduction }
+	                    <div class="intplace">${member.introduction }</div>
 	                </div>
 	                <div class="review-list">
 	                	<h3>이 알바생의 경력</h3>
