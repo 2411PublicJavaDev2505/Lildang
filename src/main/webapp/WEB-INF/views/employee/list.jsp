@@ -44,10 +44,11 @@
 			</div>
 			<div class="main-bottom">
 				<div class="bottom-select">
-					<select>
-						<option>평점순</option>
-						<option>평점순</option>
-						<option>평점순</option>
+					<select name="selectOption" id="selectOp" onchange="selectOp();">
+						<option value="none">전체</option>
+						<option value="score">평점순</option>
+						<option value="male">남성</option>
+						<option value="female">여성</option>
 					</select>				
 				</div>
 				<div class="bottom-content">
@@ -88,5 +89,11 @@
 		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+		const selectOp = () => {
+			const value = document.querySelector("#selectOp").value;
+			location.href = "/employee/option?selectOption="+value;
+		}
+	</script>
 </body>
 </html>

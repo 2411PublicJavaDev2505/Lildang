@@ -57,4 +57,6 @@ public interface MemberStore {
 
 	int cvUdpate(SqlSession session, CvInsertRequest cv);
 
+	List<MemberVO> selectEmployeeOption(SqlSession session, String selectOption);
+
 }

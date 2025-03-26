@@ -93,4 +93,19 @@ public class EmployeeController {
 			return "common/error";
 		}
 	}
+	@GetMapping("employee/option")
+	public String EmployeeOption(
+			@RequestParam("selectOption") String selectOption
+			,Model model) {
+		try {
+			List<MemberVO> eList = mService.selectEmployeeOption(selectOption);
+			model.addAttribute("eList",eList);
+			return "employee/list";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
+	}
 }

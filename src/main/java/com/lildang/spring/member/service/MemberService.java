@@ -76,5 +76,7 @@ public interface MemberService {
 	int updateProfile(ProfileUpdateRequest profile);
 
 	int cvUpdate(CvInsertRequest cv);
+
+	List<MemberVO> selectEmployeeOption(String selectOption);
 	
 }

@@ -128,7 +128,7 @@
 					</div>
 				</div>
 				<div class="seventh">
-						<button class="left-btn" onClick="showReport();">신고하기</button>
+						<button class="left-btn" onclick="showReport();">신고하기</button>
 					<div>
 						<c:if test="${result.writerId eq sessionScope.id }">
 							<button class="center-btn" onclick="deleteEmploy(${result.employNo});">삭제하기</button>
@@ -151,6 +151,7 @@
 	</div>
 	<script type="text/javascript">
 		const showReport = () => {
+			console.log("확인")
 			document.querySelector(".report").style.display = "flex";
 		}
 		const reportBackToPage = () => {

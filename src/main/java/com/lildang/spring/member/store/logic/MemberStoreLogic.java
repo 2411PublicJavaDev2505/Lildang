@@ -99,4 +99,10 @@ public class MemberStoreLogic implements MemberStore{
 	public int cvUdpate(SqlSession session, CvInsertRequest cv) {
 		return session.update("MemberMapper.cvUpdate", cv);
 	}
+
+	@Override
+	public List<MemberVO> selectEmployeeOption(SqlSession session, String selectOption) {
+		// TODO Auto-generated method stub
+		return session.selectList("MemberMapper.selectEmployeeOption", selectOption);
+	}
 }
