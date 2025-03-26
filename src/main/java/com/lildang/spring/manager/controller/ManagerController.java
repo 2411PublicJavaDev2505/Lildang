@@ -30,16 +30,24 @@ public class ManagerController {
 		this.rService= rService;
 		this.pageUtil = pageUtil;
 	}
-	@GetMapping("manager/search")// 회원정보 검색(페이징처리 수정 시작!!03-26:12:05
-	public String memberSearch(@RequestParam("memberSearch") String memberSearch
+	@GetMapping("manager/search")// 회원정보 검색
+	public String memberSearch(
+			@RequestParam("memberSearch") String memberSearch
 			,@RequestParam("searchKeyword") String searchKeyword
+			,@RequestParam(value="page", defaultValue="1") int currentPage
 			,Model model) {
 		try {
 			Map<String, String> searchMap = new HashMap<String, String>();
+			int totalCount = mService.getTotalCount();
+			Map<String, Integer> pageInfo=pageUtil.generatePageInfo(totalCount, currentPage);
 			searchMap.put("searchKeyword", searchKeyword);
 			searchMap.put("memberSearch", memberSearch);
-			List<MemberVO>  mList = mService.selectMemberSearchList(searchMap);
+			searchMap.put("currentPage", String.valueOf(currentPage));
+			List<MemberVO>  mList = mService.selectMemberSearchList(searchMap, currentPage);
 			model.addAttribute("mList", mList);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			return "manager/search";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,8 +64,7 @@ public class ManagerController {
 			List<MemberVO> mList = mService.selectList(currentPage);
 			//페이징 코드추가!하고 getTotalCount만들어주기!
 			int totalCount = mService.getTotalCount();
-			Map<String, Integer> pageInfo
-			=pageUtil.generatePageInfo(totalCount, currentPage);
+			Map<String, Integer> pageInfo=pageUtil.generatePageInfo(totalCount, currentPage);
 			model.addAttribute("maxPage", pageInfo.get("maxPage"));
 			model.addAttribute("startNavi", pageInfo.get("startNavi"));
 			model.addAttribute("endNavi", pageInfo.get("endNavi"));

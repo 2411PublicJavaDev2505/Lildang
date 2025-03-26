@@ -13,6 +13,6 @@ public interface ManagerStore {
 	//페이징추가코드!
 	int getTotalCount(SqlSession session);
 	// 관리자 입장에서 회원 검색
-	List<MemberVO> selectMemberSearchList(SqlSession session, Map<String, String> searchMap);
+	List<MemberVO> selectMemberSearchList(SqlSession session, Map<String, String> searchMap, int currentPage);
 
 }

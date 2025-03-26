@@ -63,13 +63,13 @@
 	                <!-- li,ul지우고 확인해볼것!테이블css가 페이지넘어갈때 변화됨! -->
 	                <ul class="pagination">
 	                    <c:if test="${startNavi ne 1 }">
-		                    <li><a href="/manager/memberlist?page=${startNavi -1 }" class="back">이전</a></li>
+		                    <li><a href="/manager/search?page=${startNavi -1 }&memberSearch=${param.memberSearch}&searchKeyword=${param.searchKeyword}" class="back">이전</a></li>
 	                    </c:if>
 	                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
-	                    	<a href="/manager/memberlist?page=${p }">${p }</a>
+	                    	<a href="/manager/search?page=${p }&memberSearch=${param.memberSearch}&searchKeyword=${param.searchKeyword}">${p }</a>
 	                    </c:forEach>
 	                    <c:if test="${endNavi ne maxPage}">
-	                    <li><a href="/manager/memberlist?page${endNavi +1 }" class="next">다음</a></li>
+	                    <li><a href="/manager/search?page=${endNavi +1 }&memberSearch=${param.memberSearch}&searchKeyword=${param.searchKeyword}" class="next">다음</a></li>
 	                    </c:if>
 	                </ul>
 	            </div>

@@ -40,11 +40,14 @@ public class ManagerServiceLogic implements ManagerService{
 	}
 
 
+
 	@Override
-	public List<MemberVO> selectMemberSearchList(Map<String, String> searchMap) {
-		List<MemberVO> mList = mStore.selectMemberSearchList(session, searchMap);
+	public List<MemberVO> selectMemberSearchList(Map<String, String> searchMap, int currentPage) {
+		List<MemberVO> mList = mStore.selectMemberSearchList(session, searchMap, currentPage);
 		return mList;
 	}
+
+	
 
 
 }
