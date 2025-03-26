@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lildang.spring.common.PageUtil;
 import com.lildang.spring.employ.domain.EmployVO;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.employee.controller.dto.RERequest;
 import com.lildang.spring.employee.service.EmployeeService;
+import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.domain.MemberVO;
 import com.lildang.spring.member.service.MemberService;
 
@@ -26,7 +28,6 @@ public class EmployeeController {
 	private EmployService eService;
 	//페이지 유틸코드추가!
 	private PageUtil pageUtil;
-	
 	
 	@Autowired
 	public EmployeeController(MemberService mService, EmployService eService, PageUtil pageUtil) {
@@ -63,7 +64,9 @@ public class EmployeeController {
 		try {
 			MemberVO member = mService.selectCvById(id);
 			List<EmployVO> eList = eService.selectListById((String)session.getAttribute("id"));
+			List<RERequest> reList = mService.selectEMList(member.getId());
 			if(member != null) {
+				model.addAttribute("reList",reList);
 				model.addAttribute("member",member);
 				model.addAttribute("eList",eList);
 				return "employee/detail";

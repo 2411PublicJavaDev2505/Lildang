@@ -68,4 +68,19 @@
 	<delete id="reportDeleteE">
 		DELETE FROM MEMBER WHERE ID = #{id}
 	</delete>
+	<select id="selectMemberSearchList" resultMap="rsetToMember">
+		SELECT * FROM MEMBER 
+		<where>
+			<if test="memberSearch == 'name'">
+				NAME LIKE '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="memberSearch == 'id'">
+				ID LIKE '%'||#{searchKeyword}||'%'
+			</if>
+		</where>
+	</select>
+	<update id="updateProfile">
+		UPDATE MEMBER SET PROFILE_FILE_NAME=#{profileFileName}, PROFILE_FILE_RENAME=#{profileFileRename}
+		,PROFILE_FILE_PATH=#{profileFilePath} WHERE ID=#{id}
+	</update>
 </mapper>

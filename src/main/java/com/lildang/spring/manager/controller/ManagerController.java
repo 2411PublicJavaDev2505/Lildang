@@ -1,12 +1,13 @@
 package com.lildang.spring.manager.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lildang.spring.common.PageUtil;
@@ -28,6 +29,23 @@ public class ManagerController {
 		this.mService =mService;
 		this.rService= rService;
 		this.pageUtil = pageUtil;
+	}
+	@GetMapping("manager/search")// 회원정보 검색
+	public String memberSearch(@RequestParam("memberSearch") String memberSearch
+			,@RequestParam("searchKeyword") String searchKeyword
+			,Model model) {
+		try {
+			Map<String, String> searchMap = new HashMap<String, String>();
+			searchMap.put("searchKeyword", searchKeyword);
+			searchMap.put("memberSearch", memberSearch);
+			List<MemberVO>  mList = mService.selectMemberSearchList(searchMap);
+			model.addAttribute("mList", mList);
+			return "manager/search";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage",e.getMessage());
+			return "common/error";
+		}
 	}
 	
 	@GetMapping("manager/memberlist") //페이징처리추가코드해주기!

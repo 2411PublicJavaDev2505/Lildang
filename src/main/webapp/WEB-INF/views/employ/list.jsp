@@ -39,6 +39,7 @@
 	            <div class="conditionbtn">
 	                <button class="cbtn2" type="submit">검색</button>
 				</div>
+	            </form>
 	            <div class="jobinf">
 	                <h1 class="infword">채용정보</h1>
 	                <select class="infoption">
@@ -67,17 +68,17 @@
 	                </table>
 	            </div>
 		            <!-- 페이징처리하면서 밑에코드 작성! 다음버튼 여기서는 안보임!!
-		            코드수정하고-->
+		            코드수정하고 li지워줬음!!이전버튼 class지워줬음 -->
 		            <div class="page">
-	                <ul class="pagination">
+	                <ul class="pagination" align="center">
 	                    <c:if test="${startNavi ne 1 }">
-		                    <li><a href="/employ/list?page=${startNavi -1 }" class="back">이전</a></li>
+		                    <a href="/employ/list?page=${startNavi -1 }" >이전</a>
 	                    </c:if>
 	                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
 	                    	<a href="/employ/list?page=${p }">${p }</a>
 	                    </c:forEach>
 	                    <c:if test="${endNavi ne maxPage}">
-	                    <li><a href="/employ/list?page=${endNavi +1 }" class="next">다음</a></li>
+	                    	<a href="/employ/list?page=${endNavi +1 }" class="next">다음</a>
 	                    </c:if>
 	                </ul>
 	            </div>

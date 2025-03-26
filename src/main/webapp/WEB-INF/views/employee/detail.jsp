@@ -172,6 +172,21 @@
 	                    ${member.introduction }
 	                </div>
 	                <div class="review-list">
+	                	<h3>이 알바생의 경력</h3>
+	                	<table>
+	                		<tr>
+	                			<th>공고글 제목</th>
+	                			<th>후기내용</th>
+	                			<th>평점</th>
+	                		</tr>
+	                		<c:forEach var="re" items="${reList }">
+	                			<tr>
+	                				<td>${re.employName }</td>
+	                				<td>${re.reviewDetail }</td>
+	                				<td>${re.reviewScore }</td>
+	                			</tr>
+	                		</c:forEach>
+	                	</table>
 	                </div>
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>

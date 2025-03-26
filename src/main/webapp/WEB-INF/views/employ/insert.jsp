@@ -15,8 +15,6 @@
 			<jsp:include page="/WEB-INF/views/include/header.jsp" />
 		<div class="main-content">
 		<main>
-	    <!-- 아래도 수정함! 원래코드는 주석처리!-->
-	    <!-- <form action="/employ/insert" method="post"> -->
 	    	<form action="/employ/insert" method="post" enctype="multipart/form-data">
 	    	<input type="hidden" value="${sessionScope.id }" name="writerId">
 	        <div>

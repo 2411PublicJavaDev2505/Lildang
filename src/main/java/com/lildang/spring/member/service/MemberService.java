@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
+import com.lildang.spring.employee.controller.dto.RERequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.MemberVO;
@@ -65,7 +67,13 @@ public interface MemberService {
 	List<EmployReviewRequest> selectERList(int employNo);
 	// 신고 상세페이지에서 알바생 삭제
 	int reportDeleteE(String id);
+
 	//페이징코드추가!EmployeeController에서옴!
 	int getTotalCount();
+
+	List<RERequest> selectEMList(String id);
+
+	int updateProfile(ProfileUpdateRequest profile);
+
 	
 }

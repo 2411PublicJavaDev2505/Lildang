@@ -1,7 +1,7 @@
 package com.lildang.spring.manager.service.logic;
 
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +38,13 @@ public class ManagerServiceLogic implements ManagerService{
 		int totalCount = mStore.getTotalCount(session);
 		return totalCount;
 	}
-	
+
+
+	@Override
+	public List<MemberVO> selectMemberSearchList(Map<String, String> searchMap) {
+		List<MemberVO> mList = mStore.selectMemberSearchList(session, searchMap);
+		return mList;
+	}
+
 
 }

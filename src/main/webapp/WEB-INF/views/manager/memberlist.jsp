@@ -23,20 +23,23 @@
 		        		<button>회원조회</button>
 						<button onClick="reportList();">신고조회</button>        		
 	        		</div>
-	            <div class="search">
-	                <select class="searchbar">
-	                    <option value="none">전체</option>  
-	                </select>
-	                <input class="searchbox" type="text" placeholder="검색 할 회원 정보를 입력하세요.">
-	                <button class="searchbtn">검색</button>
-	            </div>
+	        		<form action="/manager/search">
+			            <div class="search">
+			                <select class="searchbar" name="memberSearch">
+			                    <option value="none">전체</option>
+			                    <option value="id">아이디</option>
+			                    <option value="name">이름</option>  
+			                </select>
+			                <input class="searchbox" type="text" name="searchKeyword" placeholder="검색 할 회원 정보를 입력하세요.">
+			                <button class="searchbtn">검색</button>
+			            </div>	        	
+	        		</form>
 	            <div class="searchlist">
 	                <table class="list">
 	                    <tr class="listhead">
 	                        <!-- 03/25 번호가 없어서 일단테이블번호 주석처리함 
 	                        번호를 없애면 밀림...-->
 	                        <!--  <td>번호</td> -->
-	                        <td>번호</td>
 	                        <td>아이디</td>
 	                        <td>이름</td>
 	                        <td>전화번호</td>
@@ -46,7 +49,6 @@
 	                    </tr>
 	                    <c:forEach var="member" items="${mList }">
 		                    <tr>
-		                    <td></td>
 		                        <td>${member.id }</td>
 		                        <td>${member.name }</td>
 		                        <td>${member.phone }</td>

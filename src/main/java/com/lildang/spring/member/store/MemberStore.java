@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
@@ -51,5 +52,7 @@ public interface MemberStore {
 	int reportDeleteE(SqlSession session, String id);
 	//페이징코드추가!!
 	int getTotalCount(SqlSession session);
+
+	int updateProfile(SqlSession session, ProfileUpdateRequest profile);
 
 }

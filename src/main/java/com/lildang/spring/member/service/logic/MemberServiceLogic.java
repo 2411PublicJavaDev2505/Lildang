@@ -6,11 +6,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.employ.controller.dto.EmployReviewRequest;
 import com.lildang.spring.employ.store.EmployStore;
-import com.lildang.spring.employee.store.EmployeeStore;
+import com.lildang.spring.employee.controller.dto.RERequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
 import com.lildang.spring.member.controller.dto.LoginRequest;
 import com.lildang.spring.member.domain.CareerVO;
@@ -188,5 +189,14 @@ public class MemberServiceLogic implements MemberService{
 		
 	}
 
+	@Override
+	public List<RERequest> selectEMList(String id) {
+		return rStore.selectEMList(session, id);
+	}
+
+	@Override
+	public int updateProfile(ProfileUpdateRequest profile) {
+		return mStore.updateProfile(session, profile);
+	}
 
 }

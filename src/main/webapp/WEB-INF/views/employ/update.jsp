@@ -14,7 +14,7 @@
 	<div class="container">
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	<main>
-	    <form action="/employ/update" method="POST">
+	    <form action="/employ/update" method="POST" enctype="multipart/form-data">
 	    	<input type="hidden" value="${employ.employNo }" name="employNo">
 	        <div id="insertmain">
 	            <div>
@@ -90,7 +90,7 @@
 	                    </select>
 	                </div>
 	                <div>
-	                    업체사진<input type="file" name="employFileName" id="employFileName" value="${employ.employFileName }">
+	                    업체사진<input type="file" name="uploadFile" id="employFileName" value="${employ.employFileName }">
 	                </div>
 	                <div>
 	                    상세모집내용<br> 

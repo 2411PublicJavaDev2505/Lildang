@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 public class PageUtil {
 	public Map<String, Integer> generatePageInfo(int totalCount, int currentPage) {
 		Map<String, Integer> pageInfo = new HashMap<String, Integer>();
-		//boardLimit=10에서 9로수정함!다른곳에서도 영향받을듯!!다시10
 		int boardLimit = 10;
 		int maxPage = 0;
 		if(totalCount % boardLimit !=0) {

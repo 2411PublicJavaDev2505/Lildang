@@ -20,8 +20,20 @@
 	        <h1>마이페이지</h1>
     		<div class="main-container">
 	            <div id="left-main">
-	                <img src="../resources/image/profile.png" alt="profile"> <br>
-	                <button class="imgbtn">사진변경</button>
+	                <c:if test="${member.profileFilePath eq null }">
+		                <img src="../resources/image/profile.png" alt="profile"> <br>
+	            	</c:if>
+	            	<c:if test="${member.profileFilePath ne null }">
+	            		<img src="..${member.profileFilePath }" alt="profile"> <br>
+	            	</c:if>
+	            	<form action="/member/pupdate" method="post" enctype="multipart/form-data">
+	            		<input type="hidden" name="id" value="${member.id }">
+	            		<input type="hidden" name="profileFileName" value="${member.profileFileName }">
+	            		<input type="hidden" name="profileFileRename" value="${member.profileFileRename }">
+	            		<input type="hidden" name="profileFilePath" value="${member.profileFilePath }">
+		            	<input type="file" name="reloadFile">
+		            	<button class="imgbtn">사진변경</button>
+	            	</form>
 	                <div id="information">
 	                    아이디: ${member.id }<br>
 	                    이름: ${member.name } <br>
@@ -40,7 +52,7 @@
 		                    <div class="cvplace">이력서를 작성해주세요...ㅠㅠ</div>
 	                  	</c:if>
 	                  	<c:if test="${member.cvYn eq 'Y' }">
-		                    <button class="cvbtn">이력서 수정</button>
+		                    <button class="cvbtn" onclick="cvUpdate();">이력서 수정</button>
 		                    <button class="cvbtn" onclick="cvDelete();">이력서 삭제</button>	                  	
 		                    <div class="cvplace"><a href="/member/cvdetail">${member.memberComment }</a></div>
 	                  	</c:if>
@@ -152,6 +164,9 @@
     		if(confirm("정말 삭제하시겠습니까?")){
     			location.replace("/member/cvdelete");
     		}
+    	}
+    	const cvUpdate = () => {
+    		location.href = "/member/cvupdate";
     	}
     	const accept = (employeeId, employNo) => {
     		if(confirm("정말 수락하시겠습니까?")){

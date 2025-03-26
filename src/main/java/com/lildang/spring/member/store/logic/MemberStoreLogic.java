@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.lildang.spring.member.controller.dto.MemberRegisterRequest;
+import com.lildang.spring.member.controller.dto.ProfileUpdateRequest;
 import com.lildang.spring.member.controller.dto.ReviewEmployeeRequest;
 import com.lildang.spring.member.controller.dto.UpdateRequest;
 import com.lildang.spring.member.controller.dto.CvInsertRequest;
@@ -80,10 +81,17 @@ public class MemberStoreLogic implements MemberStore{
 		int result = session.delete("MemberMapper.reportDeleteE", memberId);
 		return result;
 	}
+
 	//페이징추가!!
 	@Override
 	public int getTotalCount(SqlSession session) {
 		int totalCount = session.selectOne("MemberMapper.getTotalCount");
 		return totalCount;
+
+	}
+	@Override
+	public int updateProfile(SqlSession session, ProfileUpdateRequest profile) {
+		return session.update("MemberMapper.updateProfile", profile);
+
 	}
 }

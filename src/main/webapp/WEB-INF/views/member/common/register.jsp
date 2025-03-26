@@ -22,6 +22,8 @@
 		        <h2>일당해라</h2>
 		      </div>
 		      <h1>회원가입</h1>
+		      	  <div id="msgTag" style="color: red;"></div>
+		      
 		      <div class="checkbox">
 		        <label>
 		          <input type="radio" value="employer" name="role">사장님
@@ -38,13 +40,13 @@
 		      <div class="form-group">
 		        <input type="text" name="name" placeholder="이름을 입력해주세요" required>
 		      </div>
-		      <label class="required" id="pw">비밀번호</label> 
+		      <label class="required">비밀번호</label> 
 		      <div class="form-group">
-		        <input type="password" class="pw" name="pw" placeholder="8~20자리 영문/숫자/특수문자 조합" required>
+		        <input type="password" id="pw" name="pw" placeholder="8~20자리 영문/숫자 조합" required>
 		      </div>
-		      <label class="required" id="pw-re">비밀번호 재입력</label> 
+		      <label class="required" >비밀번호 재입력</label> 
 		      <div class="form-group">
-		        <input type="password" class="pwRe" placeholder="비밀번호를 재입력 해주세요" required>
+		        <input type="password" id="pw-re" placeholder="비밀번호를 재입력 해주세요" required>
 		      </div>
 		      <label class="required">전화번호</label>
 		      <div class="form-group">
@@ -71,7 +73,22 @@
 	  <jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 	<script type="text/javascript">
-		
+	const registerBtn = document.querySelector(".register-btn");
+	registerBtn.addEventListener("click", function () {
+		const pw = document.querySelector("#pw");
+		const pwRe = document.querySelector("#pw-re");
+		const msgTag = document.querySelector("#msgTag"); // 오류 메시지 출력용
+		const pwExp = /[a-zA-Z0-9]{8,20}/;
+		const pwReExp = /[a-zA-Z0-9]{8,20}$/;
+		if(!pwExp.test(pw.value.trim())){
+			msgTag.innerText = "비밀번호는 영어소문자,대문자,숫자만 입력 가능해야 하고 8~20자리여야 합니다"
+			event.preventDefault();
+		}
+		if(pw.value.trim() !== pwRe.value.trim()){
+			msgTag.innerText = "같은 값을 입력해주세요."
+			event.preventDefault();
+		}
+	})
 	</script>
 </body>
 </html> 
