@@ -20,7 +20,7 @@
 	        <div>
 	            <div class="title">
                 <label for="title">공고제목</label>
-	                <input type="text" id="title" name="employName">
+	                <input type="text" id="title" name="employName" required="required">
 	            </div>
 	                <div class="job">
 	                    <label for="job">업직종</label>
@@ -37,11 +37,11 @@
 	                </div>
 	                <div class="recruitNumber">
 	                    <label for="recruitNumber">모집인원</label>
-	                    <input type="number" name="recruitNumber" id="recruitNumber" min="0">명
+	                    <input type="number" name="recruitNumber" id="recruitNumber" min="0" required="required">명
 	                </div>
 	                <div class="recruitDate">
 	                    <label for="recruitDate">모집기간</label>
-	                    <input type="date" name="recruitStartDate" class="recruitStartDate">~<input type="date" name="recruitEndDate" class="recruitEndDate">
+	                    <input type="date" name="recruitStartDate" class="recruitStartDate" required="required">~<input type="date" name="recruitEndDate" class="recruitEndDate" required="required">
 	                </div>
 	                <div class="educationNo">
 	                    <label for="educationNo">학력</label>
@@ -56,23 +56,23 @@
 	                </div>
 	                <div class="workplaceName">
 	                    <label for="workplaceName">근무지명</label>
-	                    <input type="text" name="workplaceName" id="workplaceName">
+	                    <input type="text" name="workplaceName" id="workplaceName" required="required">
 	                </div>
 	                <div class="workplaceAddress">
 	                    <label for="workplaceAddress">근무주소</label>
-	                    <input type="text" name="workplaceAddress" id="workplaceAddress">
+	                    <input type="text" name="workplaceAddress" id="workplaceAddress" required="required">
 	                </div>
 	                <div class="salary">
 	                    <label for="salary">급여</label>
-	                    <input type="num" name="salary" id="salary">
+	                    <input type="num" name="salary" id="salary" required="required">
 	                </div>
 	                <div class="workingPeriod">
 	                    <label for="workingPeriod">근무기간</label>
-	                    <input type="date" name="workingPeriod" id="workingPeriod">
+	                    <input type="date" name="workingPeriod" id="workingPeriod" required="required">
 	                </div>
 	                <div class="workTime">
 	                    <label for="workTime">근무시간</label>
-	                    <input type="time" name="workingStartTime" id="workingStartTime">~<input type="time" name="workingEndTime" id="workingEndTime">
+	                    <input type="time" name="workingStartTime" id="workingStartTime" required="required">~<input type="time" name="workingEndTime" id="workingEndTime" required="required">
 	                </div>
 	                <div class="workingDay">
 	                    <label for="workingDay">요일</label>
@@ -100,12 +100,21 @@
 	                </div>
 	            </div>
                 <div class="btn">
-                    <button type="submit">작성하기</button><button type="submit">돌아가기</button>
+                    <button type="submit" id="submitbtn">작성하기</button><button type="submit">돌아가기</button>
                 </div>
 	    </form>
 		</main>		
 		</div>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 		</div>
+		<script type="text/javascript">
+			document.querySelector("#submitbtn").addEventListener("click",function() {
+				if(document.querySelector("#employDetail").value.trim() == ""){
+					alert("상세내용을 작성해주세요!!");
+					event.preventDefault();
+				}
+			})
+			
+		</script>
 </body>
 </html>
