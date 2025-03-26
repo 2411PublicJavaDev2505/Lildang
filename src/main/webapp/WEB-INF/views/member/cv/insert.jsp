@@ -22,14 +22,14 @@
 					    <div class="profile-image">
 					    	<div class="profile-img"></div>
 					    	<div class="img-input">
-					         <input type="file" name="uploadFile">
+					        	<input type="file" name="uploadFile">
 					    	</div>
 					    </div>
 					    <div class="profile-name">
 					    	<p> <b>${member.name }</b></p>
 					    </div>
 					    <div class="introduce">
-					      <textarea rows="3" cols="30" placeholder="지원자를 소개 할 수 있는 짧은 글을 적어주세요." name="memberComment"></textarea>
+					      <textarea rows="3" cols="30" placeholder="지원자를 소개 할 수 있는 짧은 글을 적어주세요." name="memberComment" id="memberComment"></textarea>
 					    </div>
 						<div id="profile-contact">CONTACT</div>
 						<div class="profile-contact">
@@ -42,15 +42,15 @@
 						</div>
 					    <div class="profile-education">주요 학력사항</div>
 				        <div class="profile-education-school">
-				            <input type="text" placeholder="OO대학교 OO학과"  name="schoolName">
+				            <input type="text" placeholder="OO대학교 OO학과"  name="schoolName" required="required">
 				        </div>
-			            입학 : <input type="date" class="edu-input" name="entranceDate">
-			            졸업 : <input type="date" class="edu-input" name="graduateDate">
+			            입학 : <input type="date" class="edu-input" name="entranceDate" required="required">
+			            졸업 : <input type="date" class="edu-input" name="graduateDate" required="required">
 				        <div class="profile-education-school">
-				            <input type="text" placeholder="OO고등학교" name="schoolName">
+				            <input type="text" placeholder="OO고등학교" name="schoolName" required="required">
 				        </div>
-			            입학 : <input type="date" class="edu-input" name="entranceDate">
-			            졸업 : <input type="date" class="edu-input" name="graduateDate">
+			            입학 : <input type="date" class="edu-input" name="entranceDate" required="required">
+			            졸업 : <input type="date" class="edu-input" name="graduateDate" required="required">
 		            </div>
 		            <div class="content-area">
 		                <div class="title-container">
@@ -95,10 +95,10 @@
 		                </div>
 		                <div id="job-introduce">
 		                    <div class="job-introduce">자기소개서</div>
-		                    <textarea rows="20" cols="99" name="introduction"></textarea>
+		                    <textarea rows="20" cols="99" name="introduction" id="introduction"></textarea>
 		                </div>
 		                <div class="btn">
-		                    <button type="submit">작성완료</button>
+		                    <button type="submit" id="insertbtn">작성완료</button>
 		                    <button onclick="backToMypage();" type="button">돌아가기</button>
 		                </div>
 		            </div>
@@ -114,10 +114,10 @@
 			const col2 = row.insertCell(1);
 			const col3 = row.insertCell(2);
 			const col4 = row.insertCell(3);
-			col1.innerHTML = "<input type='text' name='comanyName'>";
-			col2.innerHTML = "<input type='text' name='workingPeriod'>";
-			col3.innerHTML = "<input type='text' name='position'>";
-			col4.innerHTML = "<input type='text' name='work'>";
+			col1.innerHTML = "<input type='text' name='comanyName' required='required'>";
+			col2.innerHTML = "<input type='text' name='workingPeriod' required='required'>";
+			col3.innerHTML = "<input type='text' name='position' required='required'>";
+			col4.innerHTML = "<input type='text' name='work' required='required'>";
 		}
 		function addLicense() {
 			const row = document.querySelector("#license").insertRow();
@@ -125,13 +125,23 @@
 			const col1 = row.insertCell(0);
 			const col2 = row.insertCell(1);
 			const col3 = row.insertCell(2);
-			col1.innerHTML = "<input type='text' name='institution'>";
-			col2.innerHTML = "<input type='text' name='licenseName'>";
-			col3.innerHTML = "<input type='date' name='getDate'>";
+			col1.innerHTML = "<input type='text' name='institution' required='required'>";
+			col2.innerHTML = "<input type='text' name='licenseName' required='required'>";
+			col3.innerHTML = "<input type='date' name='getDate' required='required'>";
 		}
 		function backToMypage() {
 			location.href = "/member/edetail";
 		}
+		document.querySelector("#insertbtn").addEventListener("click",function() {
+			if(document.querySelector("#memeberComment").value.trim() == ""){
+				alert("자기소개글을 입력해주세요!");
+				event.preventDefault();
+			}
+			if(document.querySelector("#introduction").value.trim() == ""){
+				alert("자기소개서를 입력해주세요!");
+				event.preventDefault();
+			}
+		})
 	</script>
 </body>
 </html>

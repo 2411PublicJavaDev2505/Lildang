@@ -97,10 +97,18 @@
 	                    <textarea name="employDetail" id="employDetail" rows="5" cols="60">${employ.employDetail }</textarea>
 	                </div>
 	            </div>
-	        <button type="submit" >수정하기</button><button type="submit">돌아가기</button>
+	        <button type="submit" id="sbtn">수정하기</button><button type="submit">돌아가기</button>
 	    </form>
 	</main>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+		document.querySelector("#sbtn").addEventListener("click", function() {
+			if(document.querySelector("#employDetail").value.trim() == ""){
+				alert("상세내용을 입력해주세요!");
+				event.preventDefault();
+			}
+		})
+	</script>
 </body>   
 </html>
