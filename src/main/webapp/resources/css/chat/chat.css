@@ -53,3 +53,12 @@
     margin-left: 6cap;
     background-color: #1ED483;
 }
+
+.my-msg{
+	width: 100%;
+	text-align: right;
+}
+.not-my-msg{
+	width: 100%;
+	text-align: left
+}

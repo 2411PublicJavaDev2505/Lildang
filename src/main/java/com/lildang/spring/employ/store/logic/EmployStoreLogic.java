@@ -117,5 +117,10 @@ public class EmployStoreLogic implements EmployStore{
 		return session.selectOne("EmployMapper.getCountHeaderSearchList",map);
 	}
 
+	@Override
+	public String selectIdByEmployNo(SqlSession session, int employNo) {
+		return session.selectOne("EmployMapper.selectIdByEmployNo",employNo);
+	}
+
 }
 

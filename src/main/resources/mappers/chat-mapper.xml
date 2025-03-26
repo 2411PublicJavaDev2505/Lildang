@@ -3,5 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ChatMapper">
-
+	<resultMap type="ChatVO" id="rsetToChat">
+		<id property="chatNo" column="CHAT_NO"/>
+		<id property="writerId" column="WRITER_ID"/>
+		<result property="chatDetail" column="CHAT_DETAIL"/>
+		<result property="chatTime" column="CHAT_TIME"/>
+		<result property="receiverId" column="RECEIVER_ID"/>
+	</resultMap>
+	<select id="selectList" resultMap="rsetToChat">
+		SELECT * FROM CHAT WHERE WRITER_ID=#{writerId} OR RECEIVER_ID=#{writerId}
+	</select>
+	<insert id="sendChat">
+		INSERT INTO CHAT VALUES(SEQ_CHAT_NO.NEXTVAL,#{writerId},#{chatDetail},SYSTIMESTAMP,#{receiverId})
+	</insert>
 </mapper>
