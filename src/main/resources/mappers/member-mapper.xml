@@ -167,4 +167,7 @@
 	<select id="getTotal" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER WHERE ROLE = 'EMPLOYEE'
 	</select>
+	<select id="selectNameById" resultType="string">
+		SELECT NAME FROM MEMBER WHERE ID = #{receiverId}
+	</select>
 </mapper>

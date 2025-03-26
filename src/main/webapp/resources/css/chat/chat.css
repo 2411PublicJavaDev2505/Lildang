@@ -3,10 +3,11 @@
 }
 .chat-content {
     width: 500px;
-    height: 600px;
+    --height: 600px;
     border: 1px solid #ddd;
     border-radius: 15px;
     margin: 0 auto;
+    padding: 10px;
 }
 .message {
     width: 400px;
@@ -20,13 +21,13 @@
     margin-top: 20px;
     border-radius: 20px;
 }
+
 .message input {
     width: 300px;
     border-style: none;
     border-radius: 5px;
     background-color: #f2f2f2;
     font-size : 18px;
-	margin-bottom : 65px;
 }
 
 .message input:focus{
@@ -39,7 +40,6 @@
 .message button img {
     width: 30px;
     height: 30px;
-    margin-top : 55px;
 }
 
 .btn {
@@ -55,14 +55,34 @@
     background-color: #A8A81F;
 }
 .btn button:last-child {
-    background-color: #1ED483;
+    background-color: #b2f2bb;
+}
+
+.btn button:last-child:hover {
+    background-color: #11d17b;
 }
 
 .my-msg{
 	width: 100%;
-	text-align: right;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 10px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
+
+.me, .receiver-name{
+	width: 100px;
+	height : 20x;
+	background-color: #b2f2bb;
+	text-align: center;
+	border-radius: 10px;
+}
+
 .not-my-msg{
 	width: 100%;
-	text-align: left
+	display: flex;
+	gap: 10px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }

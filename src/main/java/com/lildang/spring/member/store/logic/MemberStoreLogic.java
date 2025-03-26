@@ -113,4 +113,9 @@ public class MemberStoreLogic implements MemberStore{
 	public int getTotal(SqlSession session) {
 		return session.selectOne("MemberMapper.getTotal");
 	}
+
+	@Override
+	public String selectNameById(SqlSession session, String receiverId) {
+		return session.selectOne("MemberMapper.selectNameById",receiverId);
+	}
 }

@@ -81,5 +81,7 @@ public interface MemberService {
 	List<MemberVO> selectSearchList(Map<String, String> map, int currentPage);
 
 	int getTotal();
+
+	String selectNameById(String receiverId);
 	
 }

@@ -224,4 +224,9 @@ public class MemberServiceLogic implements MemberService{
 		return mStore.getTotal(session);
 	}
 
+	@Override
+	public String selectNameById(String receiverId) {
+		return mStore.selectNameById(session, receiverId);
+	}
+
 }

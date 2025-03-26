@@ -13,33 +13,39 @@
     <title>채팅</title>
 </head>
 <body>
-	<div class="container">
+	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	    <main>
 	        <div class="title">
-	            <h1>내채팅</h1>
+	            <h1>${receiverName }님과의 채팅</h1>
 	            <h2><i class="fa-light fa-paper-plane"></i></h2>
 	        </div>
 	        <div class="chat-content">
 	        	<c:forEach var="chat" items="${cList }">
 	        		<c:if test="${chat.writerId eq sessionScope.id}">
-	        			<div class="my-msg">${chat.chatDetail }</div>
+	        			<div class="my-msg">
+	        				<div class="me">나</div>
+	        				<div class="my-msg-detail">${chat.chatDetail }</div>
+	        			</div>
 	        		</c:if>
 	        		<c:if test="${chat.writerId ne sessionScope.id}">
-	        			<div class="not-my-msg">${chat.chatDetail }</div>
+	        			<div class="not-my-msg">
+	        				<div class="receiver-name">${receiverName }</div>
+	        				<div class="receive-msg">${chat.chatDetail }</div>
+	        			</div>
 	        		</c:if>
 	        	</c:forEach>
 	        </div>
-	        <div class="message">
-	        	<form action="/chat/send" method="post">
+        	<form action="/chat/send" method="post">
+        		<div class="message">
 	        		<input type="hidden" value="${writerId }" name="writerId">
 	        		<input type="hidden" value="${receiverId }" name="receiverId">
-	        		<input type="text" placeholder="메세지를 입력해주세요" name="chatDetail" id="input">
+	        		<input type="text" placeholder="메세지를 입력해주세요" name="chatDetail" id="input" required="required">
 		            <button type="submit" id="submitbtn">
 		                <img src="../resources/image/send.256x233.png" alt="send">
 		            </button>	        		
-	        	</form>
-	        </div>
+        		</div>
+        	</form>
 	        <div class="btn">
 	            <button onClick="history.back();">채팅방 나가기</button>
 	        </div>

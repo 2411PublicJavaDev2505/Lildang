@@ -190,7 +190,8 @@
 	                </div>
 	                <div class="btn">
 	                    <button onclick="openModal();">알바 제의하기</button>
-	                    <button>찜하기</button>
+	                    <c:if test=""></c:if>
+	                    <button>채팅하기</button>
 	                    <button type="button">돌아가기</button>
 	                </div>
 	            </div>

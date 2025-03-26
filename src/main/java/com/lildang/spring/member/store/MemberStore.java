@@ -63,4 +63,6 @@ public interface MemberStore {
 
 	int getTotal(SqlSession session);
 
+	String selectNameById(SqlSession session, String receiverId);
+
 }

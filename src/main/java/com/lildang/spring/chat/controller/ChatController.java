@@ -18,6 +18,7 @@ import com.lildang.spring.chat.controller.dto.ChatSendRequest;
 import com.lildang.spring.chat.domain.ChatVO;
 import com.lildang.spring.chat.service.ChatService;
 import com.lildang.spring.employ.service.EmployService;
+import com.lildang.spring.member.service.MemberService;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -26,11 +27,13 @@ public class ChatController {
 
 	private ChatService cService;
 	private EmployService eService;
+	private MemberService mService;
 	
 	@Autowired
-	public ChatController(ChatService cService, EmployService eService) {
+	public ChatController(ChatService cService, EmployService eService, MemberService mService) {
 		this.cService = cService;
 		this.eService = eService;
+		this.mService = mService;
 	}
 
 	@GetMapping("chat/toboss")
@@ -39,14 +42,7 @@ public class ChatController {
 			,@RequestParam("employNo") int employNo) {
 		try {
 			String receiverId = eService.selectIdByEmployNo(employNo);
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("receiverId", receiverId);
-			map.put("writerId", writerId);
-			List<ChatVO> cList = cService.selectList(map);
-			model.addAttribute("cList",cList);
-			model.addAttribute("receiverId",map.get("receiverId"));
-			model.addAttribute("writerId",map.get("writerId"));
-			return "chat/chat";
+			return "redirect:/chat/chat?writerId="+writerId+"&receiverId="+receiverId;
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errorMessage",e.getMessage());
@@ -59,10 +55,8 @@ public class ChatController {
 			,@ModelAttribute ChatSendRequest chat
 			,HttpSession session) {
 		try {
-			System.out.println(chat);
 			int result = cService.sendChat(chat);
 			String role = (String)session.getAttribute("role");
-			System.out.println(role);
 			if(result > 0) {
 				return "redirect:/chat/chat?writerId="+chat.getWriterId()+"&receiverId="+chat.getReceiverId();
 			}else {
@@ -84,10 +78,11 @@ public class ChatController {
 			map.put("receiverId", receiverId);
 			map.put("writerId", writerId);
 			List<ChatVO> cList = cService.selectList(map);
-			System.out.println(cList);
+			String receiverName = mService.selectNameById(receiverId);
 			model.addAttribute("cList",cList);
 			model.addAttribute("receiverId",map.get("receiverId"));
 			model.addAttribute("writerId",map.get("writerId"));
+			model.addAttribute("receiverName", receiverName);
 			return "chat/chat";
 		} catch (Exception e) {
 			e.printStackTrace();

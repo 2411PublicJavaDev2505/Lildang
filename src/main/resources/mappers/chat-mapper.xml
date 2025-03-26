@@ -11,7 +11,7 @@
 		<result property="receiverId" column="RECEIVER_ID"/>
 	</resultMap>
 	<select id="selectList" resultMap="rsetToChat">
-		SELECT * FROM CHAT WHERE WRITER_ID=#{writerId} OR RECEIVER_ID=#{writerId}
+		SELECT * FROM CHAT WHERE WRITER_ID=#{writerId} OR RECEIVER_ID=#{writerId} ORDER BY CHAT_TIME
 	</select>
 	<insert id="sendChat">
 		INSERT INTO CHAT VALUES(SEQ_CHAT_NO.NEXTVAL,#{writerId},#{chatDetail},SYSTIMESTAMP,#{receiverId})
