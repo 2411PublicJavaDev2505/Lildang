@@ -213,4 +213,10 @@ public class MemberServiceLogic implements MemberService{
 		return result;
 	}
 
+	@Override
+	public List<MemberVO> selectEmployeeOption(String selectOption) {
+		// TODO Auto-generated method stub
+		return mStore.selectEmployeeOption(session, selectOption);
+	}
+
 }

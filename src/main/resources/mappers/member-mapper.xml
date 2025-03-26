@@ -87,4 +87,19 @@
 		UPDATE MEMBER SET MEMBER_COMMENT=#{memberComment},INTRODUCTION=#{introduction}
 		,CV_UPDATE_TIME=SYSTIMESTAMP, CV_YN='Y' WHERE ID=#{id}
 	</update>
+	<select id="selectEmployeeOption" resultMap="rsetToMember">
+		SELECT * FROM MEMBER 
+			<if test="selectOption == 'none'">
+			</if>
+			<if test="selectOption == 'score'">
+				ORDER BY SCORE DESC
+			</if>
+			<if test="selectOption == 'male'">
+				WHERE GENDER = 'M'
+			</if>
+			<if test="selectOption == 'female'">
+				WHERE GENDER = 'F'
+			</if>
+			
+	</select>
 </mapper>
