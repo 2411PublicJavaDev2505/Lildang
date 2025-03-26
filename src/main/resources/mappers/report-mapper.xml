@@ -39,4 +39,8 @@
 	<delete id="deleteReport">
 		DELETE FROM REPORT WHERE REPORT_NO = #{reportNo}
 	</delete>
+	<!-- 페이징페이지 토탈카운트추가 -->
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM REPORT
+	</select>
 </mapper>

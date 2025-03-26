@@ -2,6 +2,7 @@ package com.lildang.spring.report.store.logic;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -12,10 +13,14 @@ import com.lildang.spring.report.store.ReportStore;
 
 @Repository
 public class ReportStoreLogic implements ReportStore{
-	//관리자 신고리스트
+	//관리자 신고리스트 (페이징처리 신고게시글 페이징 처리작업전 확인!!)
 	@Override
-	public List<ReportVO> selectList(SqlSession session) {
-		List<ReportVO> rList = session.selectList("ReportMapper.reportList",session);
+	public List<ReportVO> selectList(SqlSession session, int currentPage) {
+		//여기부터 페이징처리 시작코드!!!중간에 커밋하면 주석처리하고 컴밋할것!!!
+		int limit =10;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		List<ReportVO> rList = session.selectList("ReportMapper.reportList",session, rowBounds);
 		return rList;
 	}
 
@@ -49,5 +54,11 @@ public class ReportStoreLogic implements ReportStore{
 	public int deleteReport(SqlSession session, int reportNo) {
 		int result = session.delete("ReportMapper.deleteReport", reportNo);
 		return result;
+	}
+	//신고 관리 페이징처리!!!!3/26/15:31 맵퍼적어주면 jsp 건들기!!!
+	@Override
+	public int getTotalCount(SqlSession session) {
+		int totalCount = session.selectOne("ReportMapper.getTotalCount");
+		return totalCount;
 	}
 }
