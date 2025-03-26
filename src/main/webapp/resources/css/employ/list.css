@@ -119,10 +119,20 @@
 	color:#b2f2bb;
 }
 
+.page{
+	text-align:center;
+}
+
 .pagination{
+	/*지운거여기적기
+	display: flex;
+	*/
 	margin-top: 20px;
 	text-align: center;
-	display: flex;
+	display: inline-block;
+	padding:0;
+	align-items:center;
+	list-style: none;
 }
 .pagination num{
 	justify-content:center;
@@ -137,6 +147,8 @@
 }
 .pagination li{
 	list-style-type: none;
+	text-align:center;
+	display: inline;
 }
 .next{
 	text-align:center;

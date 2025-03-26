@@ -69,7 +69,7 @@
 						</div>					
 					</c:forEach>
 				</div>
-				<!-- 여기부터 페이지추가 div class이름 바꿔줌!원래는page임!!-->
+				<!-- 여기부터 페이지추가 div class이름 바꿔줌!원래는page임!!여긴잘된곳?참고!-->
 				<div class="pagination">
 				  <!-- li지우고 css건드리긴했으나 건드려야함!
 				 	-->

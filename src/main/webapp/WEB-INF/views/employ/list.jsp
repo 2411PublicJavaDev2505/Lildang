@@ -68,7 +68,7 @@
 	                    </c:forEach>
 	                </table>
 	            </div>
-		            <!-- 페이징처리하면서 밑에코드 작성! -->
+		            <!-- 페이징처리하면서 밑에코드 작성!css 03/26 16:37분부터시작! -->
 		            <div class="page">
 		            	<c:if test="${eSearchKeyword ne '전체' }">
 		            		<ul class="pagination">
@@ -83,6 +83,7 @@
 			                    </c:if>
 		                	</ul>
 		            	</c:if>
+		            	<!-- css작업시작!!03-08-17:09 지우기!! -->
 		            	<c:if test="${eSearchKeyword eq '전체' }">
 		            		<c:if test="${searchKeyword ne '' }">
 		            			<ul class="pagination">
