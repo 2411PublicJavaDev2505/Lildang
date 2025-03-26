@@ -60,22 +60,33 @@
     width: 1500px;
     margin: 0 auto;
     justify-content: center;
+    
+}
+.title td{
+	background-color: #d9d9d9;
 }
 .table1{
     border-collapse: collapse;
     font-size: 30px;
     text-align: center;
     width: 1500px;
+   
     
 }
 .table1 tr  td{
-    border: 1px solid black;
+    /*지운것
     border-top: none;
     border-left: none;
+    */
+    /*추가한거
+    
+    */
+    border: 1px solid black;
     padding: 3px;
+    
 }
 .table1 .d1{
-    border-right: none;
+    
 }
 .circle{
     border: 1px solid black;
@@ -126,8 +137,9 @@
 .pagination{
 	/*지운거여기적기
 	display: flex;
+	
 	*/
-	margin-top: 20px;
+	margin-top: 50px;
 	text-align: center;
 	display: inline-block;
 	padding:0;
@@ -135,7 +147,11 @@
 	list-style: none;
 }
 .pagination num{
-	justify-content:center;
+	/*
+	color: #222;
+	아래코드는 어디감???
+	*/
+	/*justify-content:center;
 	align-items:center;
 	padding: 5px;
 	border:1px solid #eee;
@@ -143,7 +159,8 @@
 	text-decoration:none;
 	min-width: 35px;
 	height:35px;
-	color: #222;
+	line-height: 1.5;*/
+	
 }
 .pagination li{
 	list-style-type: none;
@@ -151,8 +168,31 @@
 	display: inline;
 }
 .next{
-	text-align:center;
+	/*
 	margin-top: 20px;
+	text-align:center;
+	*/
+	
+	
+}
+.pagination a{
+	/*추가
+	display:block; <--세로로만들어줌...
+	text-decoration: none; <--밑줄없애는거!
+	padding:5px 12px; <--페이지 간격 넓히는거!
+	line-height: 1.5;??
+	float: left; 다음버튼 내려가서뺐음!
+	*/
+	
+	
+	border-radius: 8px;
+	font-size:20px;
+	text-decoration: none;
+	padding:5px 12px;
+	line-height: 1.5;
+	color: black;
+	transition: background-color 0.3s, color 0.3s;
+	
 }
 .pagination a:hover{
 	background-color: #1ed483;
@@ -165,4 +205,10 @@
 .pagination .back,
 .pagination .next{
 	padding: 8px 15px;
+}
+.back{
+	 margin-right: 15px;
+}
+.next{
+	 margin-left: 15px;
 }
