@@ -53,17 +53,53 @@
 		,CV_WRITE_TIME=NULL,CV_UPDATE_TIME=NULL, CV_YN='N' WHERE ID=#{id}
 	</update>
 	<select id="selectMemberList" resultMap="rsetToMember">
-		SELECT * FROM MEMBER WHERE ROLE='EMPLOYEE'
+		SELECT * FROM MEMBER 
+		<if test="selectOption == 'none'">
+			WHERE ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'score'">
+			WHERE ROLE = 'EMPLOYEE' ORDER BY SCORE DESC
+		</if>
+		<if test="selectOption == 'male'">
+			WHERE GENDER = 'M' AND ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'female'">
+			WHERE GENDER = 'F' AND ROLE = 'EMPLOYEE'
+		</if>
 	</select>
 	<update id="updateEmployeeScore">
 		UPDATE MEMBER SET SCORE=(SELECT ROUND(AVG(REVIEW_SCORE)) FROM REVIEW_MEMBER WHERE EMPLOYEE_ID=#{employeeId}) WHERE ID=#{employeeId}
 	</update>
 	<select id="selectSearchList" resultMap="rsetToMember">
-		SELECT * FROM MEMBER WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%'
+		SELECT * FROM MEMBER 
+		<if test="selectOption == 'none'">
+			WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'score'">
+			WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE' ORDER BY SCORE DESC
+		</if>
+		<if test="selectOption == 'male'">
+			WHERE GENDER = 'M' AND ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'female'">
+			WHERE GENDER = 'F' AND ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+		</if>
 	</select>
 	<!-- gettotalCount추가페이징처리!에러나면 지워줄것! -->
 	<select id="getTotalCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER 
+		<if test="selectOption == 'none'">
+			WHERE ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'score'">
+			WHERE ROLE = 'EMPLOYEE' ORDER BY SCORE DESC
+		</if>
+		<if test="selectOption == 'male'">
+			WHERE GENDER = 'M' AND ROLE = 'EMPLOYEE'
+		</if>
+		<if test="selectOption == 'female'">
+			WHERE GENDER = 'F' AND ROLE = 'EMPLOYEE'
+		</if>
 	</select>
 	<delete id="reportDeleteE">
 		DELETE FROM MEMBER WHERE ID = #{id}
@@ -101,16 +137,34 @@
 	<select id="selectEmployeeOption" resultMap="rsetToMember">
 		SELECT * FROM MEMBER 
 			<if test="selectOption == 'none'">
+				WHERE ROLE = 'EMPLOYEE'
 			</if>
 			<if test="selectOption == 'score'">
-				ORDER BY SCORE DESC
+				WHERE ROLE = 'EMPLOYEE' ORDER BY SCORE DESC
 			</if>
 			<if test="selectOption == 'male'">
-				WHERE GENDER = 'M'
+				WHERE GENDER = 'M' AND ROLE = 'EMPLOYEE'
 			</if>
 			<if test="selectOption == 'female'">
-				WHERE GENDER = 'F'
+				WHERE GENDER = 'F' AND ROLE = 'EMPLOYEE'
 			</if>
-			
+	</select>
+	<select id="getSearchTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER 
+			<if test="selectOption == 'none'">
+				WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+			</if>
+			<if test="selectOption == 'score'">
+				WHERE ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE' ORDER BY SCORE DESC
+			</if>
+			<if test="selectOption == 'male'">
+				WHERE GENDER = 'M' AND ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+			</if>
+			<if test="selectOption == 'female'">
+				WHERE GENDER = 'F' AND ADDRESS LIKE '%'||#{searchKeyword}||'%' AND ROLE = 'EMPLOYEE'
+			</if>
+	</select>
+	<select id="getTotal" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER WHERE ROLE = 'EMPLOYEE'
 	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.lildang.spring.member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -48,7 +49,7 @@ public interface MemberService {
 
 	int cvDelete(String id);
 	//employee에서 넘어옴??페이징작성!
-	List<MemberVO> selectMemberList(int currentPage);
+	List<MemberVO> selectMemberList(Map<String, String> map, int currentPage);
 
 	int reviewEmployeeInsert(ReviewEmployeeRequest review);
 
@@ -62,14 +63,12 @@ public interface MemberService {
 
 	int reviewEmployUpdate(ReviewEmployeeRequest review);
 	
-	List<MemberVO> selectSearchList(String searchKeyword);
-
 	List<EmployReviewRequest> selectERList(int employNo);
 	// 신고 상세페이지에서 알바생 삭제
 	int reportDeleteE(String id);
 
 	//페이징코드추가!EmployeeController에서옴!
-	int getTotalCount();
+	int getTotalCount(Map<String, String> map);
 
 	List<RERequest> selectEMList(String id);
 
@@ -77,6 +76,10 @@ public interface MemberService {
 
 	int cvUpdate(CvInsertRequest cv);
 
-	List<MemberVO> selectEmployeeOption(String selectOption);
+	int getSearchTotalCount(Map<String, String> map);
+
+	List<MemberVO> selectSearchList(Map<String, String> map, int currentPage);
+
+	int getTotal();
 	
 }

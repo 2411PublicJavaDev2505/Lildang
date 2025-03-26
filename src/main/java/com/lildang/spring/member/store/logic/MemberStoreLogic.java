@@ -1,6 +1,7 @@
 package com.lildang.spring.member.store.logic;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -58,11 +59,11 @@ public class MemberStoreLogic implements MemberStore{
 	}
 	//페이징처리!코드추가!(여기도 에러나서 지울때 코드 return 조심할것!!!작성후다시 employee콘트롤러로!!
 	@Override
-	public List<MemberVO> selectMemberList(SqlSession session, int currentPage) {
+	public List<MemberVO> selectMemberList(SqlSession session,Map<String, String> map, int currentPage) {
 		int limit =9;
 		int offset =(currentPage-1)*limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
-		return session.selectList("MemberMapper.selectMemberList",null,rowBounds);
+		return session.selectList("MemberMapper.selectMemberList",map,rowBounds);
 	}
 
 	@Override
@@ -70,11 +71,6 @@ public class MemberStoreLogic implements MemberStore{
 		return session.update("MemberMapper.updateEmployeeScore",review);
 	}
 
-	@Override
-	public List<MemberVO> selectSearchList(SqlSession session, String searchKeyword) {
-		return session.selectList("MemberMapper.selectSearchList", searchKeyword);
-	}
-	
 	// 신고 상세페이지에서 알바생 삭제
 	@Override
 	public int reportDeleteE(SqlSession session, String memberId) {
@@ -84,8 +80,8 @@ public class MemberStoreLogic implements MemberStore{
 
 	//페이징추가!!
 	@Override
-	public int getTotalCount(SqlSession session) {
-		int totalCount = session.selectOne("MemberMapper.getTotalCount");
+	public int getTotalCount(SqlSession session, Map<String, String> map) {
+		int totalCount = session.selectOne("MemberMapper.getTotalCount", map);
 		return totalCount;
 
 	}
@@ -99,10 +95,22 @@ public class MemberStoreLogic implements MemberStore{
 	public int cvUdpate(SqlSession session, CvInsertRequest cv) {
 		return session.update("MemberMapper.cvUpdate", cv);
 	}
+	
+	@Override
+	public int getSearchTotalCount(SqlSession session, Map<String, String> map) {
+		return session.selectOne("MemberMapper.getSearchTotalCount",map);
+	}
 
 	@Override
-	public List<MemberVO> selectEmployeeOption(SqlSession session, String selectOption) {
-		// TODO Auto-generated method stub
-		return session.selectList("MemberMapper.selectEmployeeOption", selectOption);
+	public List<MemberVO> selectSearchList(SqlSession session, Map<String, String> map, int currentPage) {
+		int limit =9;
+		int offset =(currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		return session.selectList("MemberMapper.selectSearchList",map, rowBounds);
+	}
+
+	@Override
+	public int getTotal(SqlSession session) {
+		return session.selectOne("MemberMapper.getTotal");
 	}
 }

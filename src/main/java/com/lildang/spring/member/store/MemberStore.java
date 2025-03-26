@@ -1,6 +1,7 @@
 package com.lildang.spring.member.store;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -43,20 +44,23 @@ public interface MemberStore {
 
 	int cvDelete(SqlSession session, String id);
 	//employee페이징코드추가!
-	List<MemberVO> selectMemberList(SqlSession session,int currentPage);
+	List<MemberVO> selectMemberList(SqlSession session,Map<String, String> map, int currentPage);
 
 	int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review);
 	
-	List<MemberVO> selectSearchList(SqlSession session, String searchKeyword);
 	// 신고 상세페이지에서 알바생 삭제
 	int reportDeleteE(SqlSession session, String id);
 	//페이징코드추가!!
-	int getTotalCount(SqlSession session);
+	int getTotalCount(SqlSession session, Map<String, String> map);
 
 	int updateProfile(SqlSession session, ProfileUpdateRequest profile);
 
 	int cvUdpate(SqlSession session, CvInsertRequest cv);
 
-	List<MemberVO> selectEmployeeOption(SqlSession session, String selectOption);
+	int getSearchTotalCount(SqlSession session, Map<String, String> map);
+
+	List<MemberVO> selectSearchList(SqlSession session, Map<String, String> map, int currentPage);
+
+	int getTotal(SqlSession session);
 
 }

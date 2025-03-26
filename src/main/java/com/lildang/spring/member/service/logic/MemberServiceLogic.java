@@ -1,6 +1,7 @@
 package com.lildang.spring.member.service.logic;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,8 +124,8 @@ public class MemberServiceLogic implements MemberService{
 	}
 	//페이징코드추가!에러나서 지울때 return은 놔두고 ()안에만 바꿔줄것!!!
 	@Override
-	public List<MemberVO> selectMemberList(int currentPage) {
-		return mStore.selectMemberList(session, currentPage);
+	public List<MemberVO> selectMemberList(Map<String, String> map, int currentPage) {
+		return mStore.selectMemberList(session, map, currentPage);
 	}
 
 	@Override
@@ -166,11 +167,6 @@ public class MemberServiceLogic implements MemberService{
 	}
 
 	@Override
-	public List<MemberVO> selectSearchList(String searchKeyword) {
-		return mStore.selectSearchList(session, searchKeyword);
-	}
-
-	@Override
 	public List<EmployReviewRequest> selectERList(int employNo) {
 		return rStore.selectERList(session, employNo);
 	}
@@ -183,8 +179,8 @@ public class MemberServiceLogic implements MemberService{
 	}
 	//페이지코드 추가!!!(***틀리면 여기볼것!!****)
 	@Override
-	public int getTotalCount() {
-		int totalCount = mStore.getTotalCount(session);
+	public int getTotalCount(Map<String, String> map) {
+		int totalCount = mStore.getTotalCount(session, map);
 		return totalCount;
 		
 	}
@@ -214,9 +210,18 @@ public class MemberServiceLogic implements MemberService{
 	}
 
 	@Override
-	public List<MemberVO> selectEmployeeOption(String selectOption) {
-		// TODO Auto-generated method stub
-		return mStore.selectEmployeeOption(session, selectOption);
+	public int getSearchTotalCount(Map<String, String> map) {
+		return mStore.getSearchTotalCount(session, map);
+	}
+
+	@Override
+	public List<MemberVO> selectSearchList(Map<String, String> map, int currentPage) {
+		return mStore.selectSearchList(session, map, currentPage);
+	}
+
+	@Override
+	public int getTotal() {
+		return mStore.getTotal(session);
 	}
 
 }

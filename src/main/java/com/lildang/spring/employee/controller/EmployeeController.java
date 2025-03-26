@@ -35,27 +35,6 @@ public class EmployeeController {
 		this.eService = eService;
 		this.pageUtil = pageUtil;
 	}
-	@GetMapping("employee/list")//알바생리스트페이징시작점!!안되면 지워주기!!3/25 18:33
-	public String showEmployeeList(
-			@RequestParam(value="page", defaultValue="1") int currentPage
-			,Model model) {
-		try {
-			List<MemberVO> eList = mService.selectMemberList(currentPage);
-			//페이징코드추가!
-			int totalCount = mService.getTotalCount();//여기옆에 currentpage만들고 와서 e를 바꿔주기!!
-			Map<String, Integer> pageInfo
-			=pageUtil.generatePageInfo(totalCount, currentPage);
-			model.addAttribute("maxPage", pageInfo.get("maxPage"));
-			model.addAttribute("startNavi", pageInfo.get("startNavi"));
-			model.addAttribute("endNavi", pageInfo.get("endNavi"));
-			model.addAttribute("eList",eList);
-			return "employee/list";				
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "common/error";
-		}
-	}
-	
 	@GetMapping("employee/detail")
 	public String showEmployeeDetail(Model model
 			,@RequestParam("id") String id
@@ -79,32 +58,41 @@ public class EmployeeController {
 			return "common/error";
 		}		
 	}
-	@GetMapping("employee/search")
-	public String EmployeeSearch(
-			@RequestParam("searchKeyword") String searchKeyword
+	
+	@GetMapping("employee/list")//알바생리스트페이징시작점!!안되면 지워주기!!3/25 18:33
+	public String showEmployeeList(
+			@RequestParam(value="page", defaultValue="1") int currentPage
+			,@RequestParam(value="searchKeyword", defaultValue="") String searchKeyword
+			,@RequestParam(value="selectOption", defaultValue="none") String selectOption
 			,Model model) {
 		try {
-			List<MemberVO> mList = mService.selectSearchList(searchKeyword);
-			model.addAttribute("mList",mList);		
-			return "employee/search";
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			return "common/error";
-		}
-	}
-	@GetMapping("employee/option")
-	public String EmployeeOption(
-			@RequestParam("selectOption") String selectOption
-			,Model model) {
-		try {
-			List<MemberVO> eList = mService.selectEmployeeOption(selectOption);
+			
+			List<MemberVO> eList = null;
+			int totalCount = 0;
+			Map<String,String> map = new HashMap<String, String>();
+			map.put("searchKeyword", searchKeyword);
+			map.put("selectOption", selectOption);
+			
+			if(searchKeyword.isEmpty()) {
+				eList = mService.selectMemberList(map, currentPage);
+				//페이징코드추가!
+				totalCount = mService.getTotalCount(map);//여기옆에 currentpage만들고 와서 e를 바꿔주기!!
+			}else {
+				eList = mService.selectSearchList(map, currentPage);
+				totalCount = mService.getSearchTotalCount(map);
+			}
+			int total = mService.getTotal();
+			Map<String, Integer> pageInfo = pageUtil.generatePageInfo(totalCount, currentPage);
+			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("startNavi", pageInfo.get("startNavi"));
+			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			model.addAttribute("eList",eList);
-			return "employee/list";
+			model.addAttribute("total",total);
+			model.addAttribute("searchKeyword",searchKeyword);
+			model.addAttribute("selectOption",selectOption);
+			return "employee/list";				
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			model.addAttribute("errorMessage",e.getMessage());
 			return "common/error";
 		}
 	}

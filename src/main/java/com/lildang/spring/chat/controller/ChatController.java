@@ -43,7 +43,6 @@ public class ChatController {
 			map.put("receiverId", receiverId);
 			map.put("writerId", writerId);
 			List<ChatVO> cList = cService.selectList(map);
-			System.out.println(cList);
 			model.addAttribute("cList",cList);
 			model.addAttribute("receiverId",map.get("receiverId"));
 			model.addAttribute("writerId",map.get("writerId"));
