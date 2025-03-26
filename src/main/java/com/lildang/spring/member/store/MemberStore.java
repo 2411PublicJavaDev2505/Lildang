@@ -42,14 +42,16 @@ public interface MemberStore {
 	int cvInsert(SqlSession session, CvInsertRequest cv);
 
 	int cvDelete(SqlSession session, String id);
-
-	List<MemberVO> selectMemberList(SqlSession session);
+	//employee페이징코드추가!
+	List<MemberVO> selectMemberList(SqlSession session,int currentPage);
 
 	int updateEmployeeScore(SqlSession session, ReviewEmployeeRequest review);
 	
 	List<MemberVO> selectSearchList(SqlSession session, String searchKeyword);
 	// 신고 상세페이지에서 알바생 삭제
 	int reportDeleteE(SqlSession session, String id);
+	//페이징코드추가!!
+	int getTotalCount(SqlSession session);
 
 	int updateProfile(SqlSession session, ProfileUpdateRequest profile);
 

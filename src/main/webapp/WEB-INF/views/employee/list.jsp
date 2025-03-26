@@ -68,6 +68,22 @@
 						</div>					
 					</c:forEach>
 				</div>
+				<!-- 여기부터 페이지추가 div class이름 바꿔줌!원래는page임!!-->
+				<div class="pagination">
+				  <!-- li지우고 css건드리긴했으나 건드려야함!
+				 	-->
+	                <ul class="pagination" colspan="4" align="center">
+	                    <c:if test="${startNavi ne 1 }">
+		                    <a href="/employee/list?page=${startNavi -1 }" class="back">이전</a>
+	                    </c:if>
+	                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
+	                    	<a href="/employee/list?page=${p }">${p }</a>
+	                    </c:forEach>
+	                    <c:if test="${endNavi ne maxPage}">
+	                    	<a href="/employee/list?page=${endNavi +1 }" class="next">다음</a>
+	                    </c:if>
+	                </ul>
+	            </div>
 			</div>
 		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />

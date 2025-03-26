@@ -47,8 +47,8 @@ public interface MemberService {
 	MemberVO selectCvById(String id);
 
 	int cvDelete(String id);
-
-	List<MemberVO> selectMemberList();
+	//employee에서 넘어옴??페이징작성!
+	List<MemberVO> selectMemberList(int currentPage);
 
 	int reviewEmployeeInsert(ReviewEmployeeRequest review);
 
@@ -67,6 +67,9 @@ public interface MemberService {
 	List<EmployReviewRequest> selectERList(int employNo);
 	// 신고 상세페이지에서 알바생 삭제
 	int reportDeleteE(String id);
+
+	//페이징코드추가!EmployeeController에서옴!
+	int getTotalCount();
 
 	List<RERequest> selectEMList(String id);
 

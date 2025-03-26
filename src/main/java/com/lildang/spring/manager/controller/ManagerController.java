@@ -30,7 +30,7 @@ public class ManagerController {
 		this.rService= rService;
 		this.pageUtil = pageUtil;
 	}
-	@GetMapping("manager/search")// 회원정보 검색
+	@GetMapping("manager/search")// 회원정보 검색(페이징처리 수정 시작!!03-26:12:05
 	public String memberSearch(@RequestParam("memberSearch") String memberSearch
 			,@RequestParam("searchKeyword") String searchKeyword
 			,Model model) {
