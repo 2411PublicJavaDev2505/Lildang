@@ -131,25 +131,25 @@
 						<button class="left-btn" onclick="showReport();">신고하기</button>
 					<div>
 						<c:if test="${result.writerId eq sessionScope.id }">
-							<button class="center-btn" onclick="deleteEmploy(${result.employNo});">삭제하기</button>
-							<button class="center-btn" onclick="updateEmploy(${result.employNo});">수정하기</button>												
+							<button class="center-btn" onclick="deleteEmploy('${result.employNo}');">삭제하기</button>
+							<button class="center-btn" onclick="updateEmploy('${result.employNo}');">수정하기</button>												
 						</c:if>
 						<c:if test="${result.writerId ne sessionScope.id }">
 							<button class="center-btn" onclick="chat('${sessionScope.id}','${result.employNo }');">채팅하기</button>						
 						</c:if>
 						<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
-							<button class="center-btn" onclick="apply(${result.employNo});">지원하기</button>												
+							<button class="center-btn" onclick="apply('${result.employNo}');">지원하기</button>												
 						</c:if>
 					</div>
 					<div>
-						<button class="right-btn" onClick="location.href='/employ/list'">목록으로</button>
+						<button class="right-btn" onclick="location.href='/employ/list'">목록으로</button>
 					</div>
 				</div>
 			</div>
 		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
-	<script type="text/javascript">
+	<script>
 		const showReport = () => {
 			console.log("확인")
 			document.querySelector(".report").style.display = "flex";
@@ -171,7 +171,7 @@
 			location.href = "/match/apply?employNo="+employNo;
 		}
 		const chat = (id, employNo) => {
-			location.href = "chat/toboss?writerId="+id+"&employNo="employNo;	
+			location.href = "/chat/toboss?writerId="+id+"&employNo="+employNo;	
 		}
 	</script>
 </body>

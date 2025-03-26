@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +20,25 @@
 	            <h1>내채팅</h1>
 	            <h2><i class="fa-light fa-paper-plane"></i></h2>
 	        </div>
-	        <div class="chat-content">채팅내용</div>
+	        <div class="chat-content">
+	        	<c:forEach var="chat" items="${cList }">
+	        		<c:if test="${chat.writerId eq sessionScope.id}">
+	        			<div class="my-msg">${chat.chatDetail }</div>
+	        		</c:if>
+	        		<c:if test="${chat.writerId ne sessionScope.id}">
+	        			<div class="not-my-msg">${chat.chatDetail }</div>
+	        		</c:if>
+	        	</c:forEach>
+	        </div>
 	        <div class="message">
-	            <input type="text" placeholder="메세지를 입력해주세요">
-	            <button type="submit">
-	                <img src="../resources/image/send.256x233.png" alt="send">
-	            </button>
+	        	<form action="/chat/send" method="post">
+	        		<input type="hidden" value="${writerId }" name="writerId">
+	        		<input type="hidden" value="${receiverId }" name="receiverId">        
+	        		<input type="text" placeholder="메세지를 입력해주세요" name="chatDetail">
+		            <button type="submit">
+		                <img src="../resources/image/send.256x233.png" alt="send">
+		            </button>
+	        	</form>
 	        </div>
 	        <div class="btn">
 	            <button>신고하기</button>

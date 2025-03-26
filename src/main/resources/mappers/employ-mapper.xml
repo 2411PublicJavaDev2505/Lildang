@@ -130,4 +130,7 @@
 	<select id="getTotalCount" resultType="_int">
 		SELECT COUNT(*) FROM EMPLOY 
 	</select>
+	<select id="selectIdByEmployNo" resultType="string">
+		SELECT WRITER_ID FROM EMPLOY WHERE EMPLOY_NO=#{employNo}
+	</select>
 </mapper>

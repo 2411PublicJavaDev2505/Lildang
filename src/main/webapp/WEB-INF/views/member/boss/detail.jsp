@@ -71,7 +71,7 @@
 					                        <div class="employeedata">
 					                            <a href="/employee/detail?id=${em.employeeId }">${em.employeeName }</a>
 					                            <div class="btn">
-					                                <button class="chatbtn">채팅하기</button>
+					                                <button class="chatbtn" onclick="chat('${sessionScope.id}','${em.employeeId }');">채팅하기</button>
 					                               	<c:if test="${em.jobStartYn ne 'Y' }">
 						                                <button class="ybtn" onclick="startJob('${em.employeeId }','${em.employNo }');">수락</button>
 						                                <button class="nbtn" onclick="reject('${em.employeeId }','${em.employNo }');">거절</button>
@@ -203,6 +203,9 @@
     		}
     		const backUpdate = (employeeId, employNo) => {
     			document.querySelector("#update"+employeeId+employNo).style.display = "none";
+    		}
+    		const chat = (writerId,receiverId) => {
+    			location.href = "/chat/chat?writerId="+writerId+"&receiverId="+receiverId;
     		}
     	</script>
     </body>

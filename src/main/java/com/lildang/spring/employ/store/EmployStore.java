@@ -40,5 +40,7 @@ public interface EmployStore {
 	public int getCountSearchList(SqlSession session, String eSearchKeyword, String selectOption);
 	
 	public int getCountHeaderSearchList(SqlSession session, String searchKeyword, String selectOption);
+	
+	public String selectIdByEmployNo(SqlSession session, int employNo);
 
 }

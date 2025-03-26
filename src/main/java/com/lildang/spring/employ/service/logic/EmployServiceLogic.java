@@ -94,8 +94,10 @@ public class EmployServiceLogic implements EmployService{
 
 	@Override
 	public String selectIdByEmployNo(int employNo) {
-		return null;
+		return eStore.selectIdByEmployNo(session, employNo);
 	}
+	
+	@Override
 	public int getCountSearchList(String eSearchKeyword, String selectOption) {
 		return eStore.getCountSearchList(session, eSearchKeyword, selectOption);
 	}
