@@ -52,15 +52,12 @@
 }
 .page{
     text-align: center;
-    width: 50%;
 }
 .pagination{
     list-style: none;
     display: inline-block;
     padding: 0;
     margin-top: 50px;
-    margin-left: 550px;
-    width: 500px;
 }
 .pagination li{
     display: inline;
@@ -69,11 +66,14 @@
 .pagination a{
     float: left;
     display: block;
+    border-radius : 5px;
     font-size: 20px;
     text-decoration: none;
     padding: 5px 12px;
     line-height: 1.5;
     color: black;
+    transition: background-color 0.3s, color 0.3s;
+    
 }
 .back{
     margin-right: 15px;

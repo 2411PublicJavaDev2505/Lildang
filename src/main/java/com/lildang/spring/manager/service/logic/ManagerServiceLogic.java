@@ -35,19 +35,22 @@ public class ManagerServiceLogic implements ManagerService{
 	//페이징추가!
 	@Override
 	public int getTotalCount() {
-		int totalCount = mStore.getTotalCount(session);
+	 	int totalCount = mStore.getTotalCount(session);
 		return totalCount;
 	}
 
 
-
+	// 검색
 	@Override
 	public List<MemberVO> selectMemberSearchList(Map<String, String> searchMap, int currentPage) {
 		List<MemberVO> mList = mStore.selectMemberSearchList(session, searchMap, currentPage);
 		return mList;
 	}
 
-	
 
-
+	@Override
+	public int getTotalCountByMember(Map<String, String> searchMap) {
+		int getTotalCount = mStore.getTotalCountByMember(session, searchMap);
+		return getTotalCount;
+	}
 }

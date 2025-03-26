@@ -14,5 +14,7 @@ public interface ManagerStore {
 	int getTotalCount(SqlSession session);
 	// 관리자 입장에서 회원 검색
 	List<MemberVO> selectMemberSearchList(SqlSession session, Map<String, String> searchMap, int currentPage);
+	// 검색 후 페이지네이션
+	int getTotalCountByMember(SqlSession session, Map<String, String> searchMap);
 
 }

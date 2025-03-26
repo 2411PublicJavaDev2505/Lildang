@@ -77,7 +77,7 @@
 	                    	<a href="/employ/list?page=${p }">${p }</a>
 	                    </c:forEach>
 	                    <c:if test="${endNavi ne maxPage}">
-	                    <li><a href="/employ/list?page${endNavi +1 }" class="next">다음</a></li>
+	                    <li><a href="/employ/list?page=${endNavi +1 }" class="next">다음</a></li>
 	                    </c:if>
 	                </ul>
 	            </div>
