@@ -38,7 +38,11 @@ public class ManagerStoreLogic implements ManagerStore{
 		List<MemberVO> mList = session.selectList("MemberMapper.selectMemberSearchList", searchMap, rowBounds);
 		return mList;
 	}
-
-	
+	// 회원 검색 후 페이지네이션
+	@Override
+	public int getTotalCountByMember(SqlSession session, Map<String, String> searchMap) {
+		int getTotalCount = session.selectOne("MemberMapper.getTotalCountByMember", searchMap);
+		return getTotalCount;
+	}	
 }
 

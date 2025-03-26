@@ -56,6 +56,10 @@
 		      <div class="form-group">
 		        <input type="text" id="email" name="email" placeholder="이메일을 입력해주세요" required>
 		      </div>
+		      <label class="required">주소</label>
+		      <div class="form-group">
+		        <input type="text" id="address" name="address" placeholder="주소를 입력해주세요" required>
+		      </div>
 		      <label class="required">생년월일</label>
 		      <div class="form-group">
 		        <input type="date" name="birth" required>
@@ -80,6 +84,7 @@
 		const pw = document.querySelector("#pw");
 		const pwRe = document.querySelector("#pw-re");
 		const phone = document.querySelector("#phone");
+		const address = document.querySelector("#address");
 		const email = document.querySelector("#email");
 		const msgTag = document.querySelector("#msgTag"); // 오류 메시지 출력용
 		const idExp = /^[a-z][a-z0-9]{4,11}$/;
@@ -87,6 +92,7 @@
 		const pwExp = /[a-zA-Z0-9]{8,20}/;
 		const pwReExp = /[a-zA-Z0-9]{8,20}$/;
 		const phoneExp = /^010\d{8}$/;
+		const addressExp = /^[가-힣]{5,20}/;
 		const emailExp = /^[a-zA-Z0-9._%+-]{4,12}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		
 		if(!idExp.test(id.value.trim())){
@@ -107,6 +113,10 @@
 		}
 		if(!phoneExp.test(phone.value.trim())){
 			msgTag.innerText = "010으로 시작하고 11자리여야 합니다."
+			event.preventDefault();
+		}
+		if(!addressExp.test(address.value.trim())){
+			msgTag.innerText = "주소를 자치구까지 작성해주세요."
 			event.preventDefault();
 		}
 		if(!emailExp.test(email.value.trim())){

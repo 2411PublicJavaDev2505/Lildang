@@ -38,14 +38,15 @@ public class ManagerController {
 			,Model model) {
 		try {
 			Map<String, String> searchMap = new HashMap<String, String>();
-			int totalCount = mService.getTotalCount();
-			Map<String, Integer> pageInfo=pageUtil.generatePageInfo(totalCount, currentPage);
 			searchMap.put("searchKeyword", searchKeyword);
 			searchMap.put("memberSearch", memberSearch);
 			searchMap.put("currentPage", String.valueOf(currentPage));
 			List<MemberVO>  mList = mService.selectMemberSearchList(searchMap, currentPage);
+			int totalCount = mService.getTotalCountByMember(searchMap);
+			Map<String, Integer> pageInfo=pageUtil.generatePageInfo(totalCount, currentPage);
 			model.addAttribute("mList", mList);
 			model.addAttribute("maxPage", pageInfo.get("maxPage"));
+			model.addAttribute("totalCount", totalCount);
 			model.addAttribute("startNavi", pageInfo.get("startNavi"));
 			model.addAttribute("endNavi", pageInfo.get("endNavi"));
 			return "manager/search";

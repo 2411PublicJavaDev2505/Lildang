@@ -81,6 +81,16 @@
         		console.log("확인");
         		location.href = "/manager/reportlist";
         	}
+        	document.querySelectorAll('.pagination a').forEach(link => {
+        	    link.addEventListener('mouseenter', () => {
+        	        link.style.backgroundColor = "#b2f2bb";
+        	    });
+
+        	    link.addEventListener('mouseleave', () => {
+        	        link.style.backgroundColor = "transparent";
+        	        link.style.color = "black";
+        	    });
+        	});
         </script>
     </body>   
 </html>
