@@ -67,12 +67,12 @@
 	                    </c:forEach>
 	                </table>
 	            </div>
-		            <!-- 페이징처리하면서 밑에코드 작성! 다음버튼 여기서는 안보임!!
-		            코드수정하고 li지워줬음!!이전버튼 class지워줬음 -->
-		            <div class="page">
-	                <ul class="pagination" align="center">
+		            <!-- 페이징처리하면서 밑에코드 작성!
+		            코드수정하고 li지워줬음!! div class이름 바꿈 -->
+		            <div class="pagination">
+	                <ul class="pagination" colspan="4" align="center">
 	                    <c:if test="${startNavi ne 1 }">
-		                    <a href="/employ/list?page=${startNavi -1 }" >이전</a>
+		                    <a href="/employ/list?page=${startNavi -1 }" class="back">이전</a>
 	                    </c:if>
 	                    <c:forEach begin="${startNavi }" end="${endNavi }" var="p">
 	                    	<a href="/employ/list?page=${p }">${p }</a>

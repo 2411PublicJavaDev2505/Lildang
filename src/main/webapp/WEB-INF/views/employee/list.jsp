@@ -68,10 +68,9 @@
 						</div>					
 					</c:forEach>
 				</div>
-				<!-- 여기부터 페이지추가 -->
-				<div class="page">
-				  <!-- li,ul지우고 확인해볼것!테이블css가 페이지넘어갈때 변화됨!employlist도 확인! li
-				  일단지워준다...다음버튼이 아래로가있음...colspan~코드추가!
+				<!-- 여기부터 페이지추가 div class이름 바꿔줌!원래는page임!!-->
+				<div class="pagination">
+				  <!-- li지우고 css건드리긴했으나 건드려야함!
 				 	-->
 	                <ul class="pagination" colspan="4" align="center">
 	                    <c:if test="${startNavi ne 1 }">

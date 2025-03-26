@@ -94,3 +94,33 @@ main {
 	background-color: #fff;
 	color: #256b4c;
 }
+
+.pagination{
+	dispaly:flex;
+	justify-content:center;
+	align-items:center;
+	magin-top: 30px;
+	gap:5px;
+}
+.pagination a{
+	justify-content:center;
+	align-items:center;
+	padding: 8px 12px;
+	border:1px solid #ddd;
+	color: #256b4c;
+	text-decoration:none;
+	min-width: 35px;
+	height:35px;
+}
+.pagination a:hover{
+	background-color: #f5f5f5;
+}
+.pagination .active{
+	background-color:#256b4c;
+	color: #fff;
+	border-color:#256b4c;
+}
+.pagination .back,
+.pagination .next{
+	padding: 8px 15px;
+}
