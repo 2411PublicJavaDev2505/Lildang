@@ -147,7 +147,7 @@ public class ReportController {
 		try {
 			int result = eService.deleteEmployNo(employNo);
 			if(result > 0) {
-				return "manager/reportlist";
+				return "redirect:/manager/reportlist";
 			}else {
 				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
 				return "common/error";
@@ -166,7 +166,7 @@ public class ReportController {
 			int result = mService.reportDeleteE(id);
 			if(result > 0) {
 				model.addAttribute("id", id);
-				return "manager/reportlist";
+				return "redirect:/manager/reportlist";
 			}else {
 				model.addAttribute("errorMsg","서비스가 완료되지않았습니다");
 				return "common/error";
