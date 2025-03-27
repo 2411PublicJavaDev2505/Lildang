@@ -67,8 +67,9 @@
 	                    <input type="num" name="salary" id="salary" required="required">
 	                </div>
 	                <div class="workingPeriod">
+	                    <!-- input date를 text로 바꿔줌!03/27 -->
 	                    <label for="workingPeriod">근무기간</label>
-	                    <input type="date" name="workingPeriod" id="workingPeriod" required="required">
+	                    <input type="text" name="workingPeriod" id="workingPeriod" required="required">
 	                </div>
 	                <div class="workTime">
 	                    <label for="workTime">근무시간</label>
@@ -90,9 +91,7 @@
 	                    </select>
 	                </div>
 	                <div class="photo">
-	                <!-- 03/2414:11분부터수정시작 첨부파일 넣기!?안되면다시 돌려넣기! -->
-	                	<!--업체사진<input type="text" name="employFileName">  -->
-	                    업체사진:<input type="file" name="uploadFile">
+	               		업체사진:<input type="file" name="uploadFile">
 	                </div>
 	                <div class="detail">
 	                    상세모집내용<br> 
