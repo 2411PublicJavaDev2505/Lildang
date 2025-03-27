@@ -30,3 +30,32 @@ select{
 textarea{
 	width: 500px;
 }
+.btn{
+	margin-bottom: 20px;
+	text-align: center;
+	
+}
+.mbtn{
+	border: 1px solid #eee;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: #b2f2bb;
+	font-size: 20px;
+	padding: 5px;
+	margin-right: 10px;
+}
+.bbtn{
+	border: 1px solid #eee;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: #eee;
+	font-size: 20px;
+	padding: 5px;
+	margin-left: 10px;
+}
+.mbtn:hover{
+	background-color: #1ed483;
+}
+.bbtn:hover{
+	background-color: #d9d9d9;
+}

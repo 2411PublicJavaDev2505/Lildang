@@ -97,7 +97,9 @@
 	                    <textarea name="employDetail" id="employDetail" rows="5" cols="60">${employ.employDetail }</textarea>
 	                </div>
 	            </div>
-	        <button type="submit" id="sbtn">수정하기</button><button type="submit">돌아가기</button>
+           	<div class="btn">
+	       		<button type="submit" class="mbtn">수정하기</button><button type="submit" class="bbtn">돌아가기</button>
+	   		</div> 
 	    </form>
 	</main>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
