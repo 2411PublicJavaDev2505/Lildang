@@ -49,10 +49,8 @@ main {
 
 .img-input input{
 	margin: 0 auto;
-	width: 150px;
-	height: 20px;
+	width: 100%;
 	margin-top: 30px;
-	border-radius: 15px;
 }
 
 td {
@@ -253,6 +251,13 @@ td {
 #license td{
 	border-top: 1px solid black;
 	text-align: center;
+}
+#license td input{
+	border-radius : 7px;	
+	border : 1px solid;
+	text-align : center;
+	font-size : 15px;
+
 }
 .license-td input{
 	border-radius : 7px;	

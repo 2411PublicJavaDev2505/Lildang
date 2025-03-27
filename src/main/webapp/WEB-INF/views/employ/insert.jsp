@@ -100,7 +100,8 @@
 	                </div>
 	            </div>
                 <div class="btn">
-                    <button type="submit" id="submitbtn">작성하기</button><button type="submit">돌아가기</button>
+                    <button type="submit" id="submitbtn">작성하기</button>
+                    <button type="submit">돌아가기</button>
                 </div>
 	    </form>
 		</main>		

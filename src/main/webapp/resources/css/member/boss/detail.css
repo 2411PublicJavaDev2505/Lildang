@@ -83,6 +83,10 @@ main h1{
     font-weight: bolder;
     margin: 15px 0px 15px 450px;
     border: none;
+    cursor : pointer;
+}
+.writebtn:hover {
+	background-color: #1ED483;
 }
 .hirename1{
 	width: 800px;
