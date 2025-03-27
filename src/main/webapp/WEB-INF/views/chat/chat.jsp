@@ -47,7 +47,7 @@
         		</div>
         	</form>
 	        <div class="btn">
-	            <button onClick="history.back();">채팅방 나가기</button>
+	            <button onClick="location.href='/'">채팅방 나가기</button>
 	        </div>
 	    </main>
 	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />

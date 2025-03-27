@@ -92,7 +92,7 @@
 		const pwExp = /[a-zA-Z0-9]{8,20}/;
 		const pwReExp = /[a-zA-Z0-9]{8,20}$/;
 		const phoneExp = /^010\d{8}$/;
-		const addressExp = /^[가-힣]{5,20}/;
+		const addressExp = /^[가-힣\s]{5,20}/;
 		const emailExp = /^[a-zA-Z0-9._%+-]{4,12}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		
 		if(!idExp.test(id.value.trim())){

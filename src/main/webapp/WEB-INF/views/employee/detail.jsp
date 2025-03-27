@@ -89,7 +89,9 @@
 			            <div class="term">졸업 : ${edu.graduateDate }</div>
 				    </c:forEach>
 				    <div class="reportBtn">
-				    	<button onClick="showReport();">신고하기</button>				    
+				    	<c:if test="${sessionScope.id ne null }">
+					    	<button onClick="showReport();">신고하기</button>				    
+				    	</c:if>
 				    </div>
 	            </div>
 	            <div class="content-area">
@@ -186,10 +188,13 @@
 	                	</table>
 	                </div>
 	                <div class="btn">
-	                    <button onclick="openModal();">알바 제의하기</button>
-	                    <c:if test=""></c:if>
-	                    <button onclick="chat('${sessionScope.id}','${member.id }');">채팅하기</button>
-	                    <button type="button">돌아가기</button>
+	                    <c:if test="${sessionScope.role eq 'EMPLOYER' }">
+		                    <button onclick="openModal();">알바 제의하기</button>
+	                    </c:if>
+	                    <c:if test="${sessionScope.id ne null }">
+		                    <button onclick="chat('${sessionScope.id}','${member.id }');">채팅하기</button>	                    
+	                    </c:if>
+	                    <button type="button" onclick="back();">돌아가기</button>
 	                </div>
 	            </div>
 	        </div>
@@ -211,6 +216,9 @@
 		}
 		const chat = (writerId,receiverId ) => {
 			location.href = "/chat/chat?writerId="+ writerId+"&receiverId="+receiverId;
+		}
+		const back = () => {
+			history.back();
 		}
 	</script>
 </body>
