@@ -52,6 +52,7 @@
 	                        <option value="고등학교">고등학교</option>
 	                        <option value="중학교">중학교</option>
 	                        <option value="초등학교">초등학교</option>
+	                        <option value="학력무관">학력무관</option>
 	                    </select>
 	                </div>
 	                <div>

@@ -80,7 +80,7 @@ h1{
 .delete{
     text-align: right;
     width: 700px;
-    margin: 150px 0px 0px 0px;
+    margin: 150px 0px 150px 0px;
     border: 1px solid black;
     border-radius: 20px;
     text-align: right;

@@ -64,7 +64,7 @@
 						<div class="first-bottom-content"> <p><b>시급:</b> ${result.salary }</p> </div>
 						<div class="first-bottom-content"> <p><b>기간:</b> ${result.workingPeriod } </p></div>
 						<div class="first-bottom-content"> <p><b>요일:</b> ${result.workingDay }</p></div>
-						<div class="first-bottom-content"> <p><b>시간:</b> ${result.workingStartTime }${result.workingEndTime }</p></div>
+						<div class="first-bottom-content"> <p><b>시간:</b> ${result.workingStartTime } ~ ${result.workingEndTime }</p></div>
 					</div>
 				</div>
 				<div class="second">

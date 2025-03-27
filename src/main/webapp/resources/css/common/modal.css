@@ -20,7 +20,6 @@
 .modal-body {
 	position: absolute;
 	top: 30%;
-	
 	width: 500px;
 	height: 600px;
 	background-color: white;
@@ -159,4 +158,14 @@
 }
 .rbtn:hover{
 	background-color: #1ed483;
+}
+.review-content text-area{
+	border-radius : 10px;
+}
+form button {
+	padding : 10px;
+	border-radius : 10px;
+	margin : 10px;
+	border : none;
+	cursor : pointer;
 }

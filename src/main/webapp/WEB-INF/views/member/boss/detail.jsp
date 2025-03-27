@@ -123,7 +123,7 @@
 											     					</div>
 											     					<div class="review-content">
 											     						좋았던 점과 아쉬웠던 점을 적어주세요.
-											     						<textarea rows="20" cols="50" name="reviewDetail"></textarea>
+											     						<textarea rows="20" cols="50" style="border-radius: 10px; margin-top: 20px;" name="reviewDetail"></textarea>
 											     					</div>
 											     					<button>후기 작성</button>
 											     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>

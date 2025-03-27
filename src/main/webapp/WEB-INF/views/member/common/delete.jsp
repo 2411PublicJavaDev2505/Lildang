@@ -46,9 +46,6 @@
 	                        <button class="nbtn" onClick="returnToMypage();">아니오</button>
 	                    </div>	                	
 	                </div>
-	                <div class="rightbtn">
-	                    <button class="modifybtn">수정하기</button>
-	                </div>
 	            </div>
 	        </div>
     	</main>
