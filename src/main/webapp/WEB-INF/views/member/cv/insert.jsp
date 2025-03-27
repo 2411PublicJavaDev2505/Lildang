@@ -56,14 +56,14 @@
 		                <div class="title-container">
 		                    <div class="job-title">희망직종</div>
 		                    <div class="job-option">
-		                        <label><input type="checkbox" name="jobNo" value="1">외식·음료</label>
-		                        <label><input type="checkbox" name="jobNo" value="2">매장관리·판매</label>
-		                        <label><input type="checkbox" name="jobNo" value="3">서비스</label>
-		                        <label><input type="checkbox" name="jobNo" value="4">사무직</label>
-		                        <label><input type="checkbox" name="jobNo" value="5">고객상담·리서치·영업</label>
-		                        <label><input type="checkbox" name="jobNo" value="6">생산·건설·노무</label>
-		                        <label><input type="checkbox" name="jobNo" value="7">IT·기술</label>
-		                        <label><input type="checkbox" name="jobNo" value="8">디자인</label>
+		                        <label><input type="checkbox" name="jobNo" value="1" class="input-check1">외식·음료</label>
+		                        <label><input type="checkbox" name="jobNo" value="2" class="input-check2">매장관리·판매</label>
+		                        <label><input type="checkbox" name="jobNo" value="3" class="input-check3">서비스</label>
+		                        <label><input type="checkbox" name="jobNo" value="4" class="input-check4">사무직</label>
+		                        <label><input type="checkbox" name="jobNo" value="5" class="input-check5">고객상담·리서치·영업</label>
+		                        <label><input type="checkbox" name="jobNo" value="6" class="input-check6">생산·건설·노무</label>
+		                        <label><input type="checkbox" name="jobNo" value="7" class="input-check7">IT·기술</label>
+		                        <label><input type="checkbox" name="jobNo" value="8" class="input-check8">디자인</label>
 		                    </div>
 		                </div>
 		                <div class="job-career">
@@ -98,8 +98,8 @@
 		                    <textarea rows="20" cols="99" name="introduction" id="introduction"></textarea>
 		                </div>
 		                <div class="btn">
-		                    <button type="submit" id="insertbtn">작성완료</button>
-		                    <button onclick="backToMypage();" type="button">돌아가기</button>
+		                    <button type="submit" id="insertbtn" onclick="check();">작성완료</button>
+		                    <button onclick="backToMypage();" type="button" >돌아가기</button>
 		                </div>
 		            </div>
 		        </div>
@@ -142,6 +142,19 @@
 				event.preventDefault();
 			}
 		})
+		const check = () => {
+			if( !(document.querySelector(".input-check1").checked 
+					|| document.querySelector(".input-check2").checked 
+					|| document.querySelector(".input-check3").checked 
+					|| document.querySelector(".input-check4").checked 
+					|| document.querySelector(".input-check5").checked 
+					|| document.querySelector(".input-check6").checked 
+					|| document.querySelector(".input-check7").checked 
+					|| document.querySelector(".input-check8").checked) ){
+				alert("희망직종을 1개이상 선택해주세요.")
+				event.preventDefault();
+			}
+		}
 	</script>
 </body>
 </html>

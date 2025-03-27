@@ -192,7 +192,7 @@ input[type=file]::file-selector-button:hover{
     text-align: left;
     padding: 20px;
 }
-form button{
+.modal-form button{
 	border-radius : 15px;
 	background-color: #b2f2bb;
 	cursor : pointer;
@@ -200,7 +200,7 @@ form button{
 	padding : 15px;
 	margin : 15px;
 }
-form button:hover {
+.modal-form button:hover {
 	background-color: #1ED483;
 }
 

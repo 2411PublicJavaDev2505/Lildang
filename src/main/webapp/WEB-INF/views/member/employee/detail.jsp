@@ -103,7 +103,7 @@
 							                    <div class="modal" id="update${em.employeeId }${em.employNo}">
 									     			<div class="modal-body">
 									     				<h2>알바 후기 남기기 - 수정</h2>
-									     				<form action="/review/employ/update" method="post">
+									     				<form action="/review/employ/update" method="post" class="modal-form">
 									     					<input type="hidden" value="${em.employNo }" name="employNo">
 									     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
 									     					<div class="review-point">
@@ -125,7 +125,7 @@
 						                    <div class="modal" id="insert${em.employeeId }${em.employNo}">
 								     			<div class="modal-body">
 								     				<h2>알바 후기 남기기</h2>
-								     				<form action="/review/employ" method="post">
+								     				<form action="/review/employ" method="post" class="modal-form">
 								     					<input type="hidden" value="${em.employNo }" name="employNo">
 								     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
 								     					<div class="review-point">

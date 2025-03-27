@@ -68,7 +68,7 @@
 	                </div>
 	                <div>
 	                    <label for="workingPeriod">근무기간</label>
-	                    <input type="date" name="workingPeriod" id="workingPeriod" value="${employ.workingPeriod }">
+	                    <input type="text" name="workingPeriod" id="workingPeriod" value="${employ.workingPeriod }">
 	                </div>
 	                <div>
 	                    <label for="workingTime">근무시간</label>
@@ -97,7 +97,7 @@
 	                    <textarea name="employDetail" id="employDetail" rows="5" cols="60">${employ.employDetail }</textarea>
 	                </div>
 	            </div>
-	        <button type="submit" id="sbtn">수정하기</button><button type="submit">돌아가기</button>
+	        <button type="submit" id="sbtn">수정하기</button><button type="button" onclick="back();">돌아가기</button>
 	    </form>
 	</main>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
@@ -109,6 +109,9 @@
 				event.preventDefault();
 			}
 		})
+		const back = () => {
+			history.back();
+		}
 	</script>
 </body>   
 </html>
