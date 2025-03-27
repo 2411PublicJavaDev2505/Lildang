@@ -106,14 +106,16 @@
 								     					<input type="hidden" value="${em.employNo }" name="employNo">
 								     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
 								     					<div class="review-point">
-									     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${re.reviewScore }">     					
+									     					평점: <input type="number" style="padding=5px;" min="0" max="5" name="reviewScore" value="${re.reviewScore }">     					
 								     					</div>
 								     					<div class="review-content">
 								     						<h5>좋았던 점과 아쉬웠던 점을 적어주세요.</h5>
 								     						<textarea rows="20" cols="50" name="reviewDetail">${re.reviewDetail }</textarea>
 								     					</div>
-								     					<button>후기 수정</button>
-								     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+								     					<div>
+									     					<button class="review-btn">후기 수정</button>
+									     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button" class="review-btn">뒤로 가기</button>								     					
+								     					</div>							     					
 								     				</form>
 								     			</div>
 								     		</div>
