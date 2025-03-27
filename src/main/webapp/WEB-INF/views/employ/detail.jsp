@@ -128,17 +128,21 @@
 					</div>
 				</div>
 				<div class="seventh">
+					<c:if test="${sessionScope.id ne null && result.writerId ne sessionScope.id }">
 						<button class="left-btn" onclick="showReport();">신고하기</button>
-					<div>
-						<c:if test="${result.writerId eq sessionScope.id }">
-							<button class="center-btn" onclick="deleteEmploy('${result.employNo}');">삭제하기</button>
-							<button class="center-btn" onclick="updateEmploy('${result.employNo}');">수정하기</button>												
-						</c:if>
-						<c:if test="${result.writerId ne sessionScope.id }">
-							<button class="center-btn" onclick="chat('${sessionScope.id}','${result.employNo }');">채팅하기</button>						
-						</c:if>
-						<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
-							<button class="center-btn" onclick="apply('${result.employNo}');">지원하기</button>												
+					</c:if>
+					<div class="btn">
+						<c:if test="${session.Scope.id ne null }">
+							<c:if test="${result.writerId eq sessionScope.id }">
+								<button class="center-btn" onclick="deleteEmploy('${result.employNo}');">삭제하기</button>
+								<button class="center-btn" onclick="updateEmploy('${result.employNo}');">수정하기</button>												
+							</c:if>
+							<c:if test="${result.writerId ne sessionScope.id }">
+								<button class="center-btn" onclick="chat('${sessionScope.id}','${result.employNo }');">채팅하기</button>						
+							</c:if>
+							<c:if test="${sessionScope.role eq 'EMPLOYEE' }">
+								<button class="center-btn" onclick="apply('${result.employNo}');">지원하기</button>												
+							</c:if>
 						</c:if>
 					</div>
 					<div>

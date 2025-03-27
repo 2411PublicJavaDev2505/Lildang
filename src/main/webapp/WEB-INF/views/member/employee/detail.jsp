@@ -71,7 +71,7 @@
 			                    		<c:if test="${em.employerYn eq 'Y' && em.employeeYn eq 'N'}">
 			                    			<tr>
 			                    				<td>${em.employName }</td>
-			                    				<td> <button>채팅</button> </td>
+			                    				<td> <button onclick="chat('${member.id}','${em.employNo }');">채팅</button> </td>
 			                    				<td> <button onclick="accept('${em.employeeId}','${em.employNo }');">수락</button> </td>
 			                    				<td> <button onclick="reject('${em.employeeId}','${em.employNo }');">거절</button> </td>
 			                    			</tr>
@@ -94,6 +94,7 @@
 	                    		</table>
 		                        <c:if test="${em.jobEndYn eq 'Y' }">
 		                        	알바완료
+		                        	<button onclick="chat('${member.id}','${em.employNo }');">채팅</button>
 		                        	<c:forEach var="re" items="${reList }">
 		                        		<c:if test="${em.employNo eq re.employNo }">
 		                        			<input type="hidden" value="${num = num+1 }">
@@ -143,6 +144,7 @@
 		                        </c:if>
 		                        <c:if test="${em.jobEndYn ne 'Y' }">
 		                        	알바중
+		                        	<button onclick="chat('${member.id}','${em.employNo }');">채팅</button>
 		                        </c:if>
 	                    	</c:forEach>
 	                    </div>
@@ -192,6 +194,9 @@
     	const backUpdate = (employeeId, employNo) => {
 			document.querySelector("#update"+employeeId+employNo).style.display = "none";
 		}
+    	const chat = (id, employNo) => {
+    		location.href = "/chat/toboss?writerId="+id+"&employNo="+employNo;
+    	}
     </script>
     </body>
 </html>
