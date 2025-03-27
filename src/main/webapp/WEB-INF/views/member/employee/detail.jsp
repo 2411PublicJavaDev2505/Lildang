@@ -66,7 +66,7 @@
 		                    	나에게 온 제의가 없어요...ㅠㅠ	                    	
 	                    	</c:if>
 	                    	<c:if test="${size ne 0 }">
-	                    		<table>
+	                    		<table style="width : 100%;">
 			                    	<c:forEach var="em" items="${emList }">
 			                    		<c:if test="${em.employerYn eq 'Y' && em.employeeYn eq 'N'}">
 			                    			<tr>
