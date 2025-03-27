@@ -92,60 +92,66 @@
 	                    				<td>${em.jobStartTime } ~ ${em.jobEndTime }</td>
 	                    			</tr>
 	                    		</table>
-		                        <c:if test="${em.jobEndYn eq 'Y' }">
-		                        	알바완료
-		                        	<button onclick="chat('${member.id}','${em.employNo }');">채팅</button>
-		                        	<c:forEach var="re" items="${reList }">
-		                        		<c:if test="${em.employNo eq re.employNo }">
-		                        			<input type="hidden" value="${num = num+1 }">
-			                        		<button class="reviewbtn" onclick="updateReview('${em.employeeId }','${em.employNo}');">후기 수정</button>
-						                    <div class="modal" id="update${em.employeeId }${em.employNo}">
+	                    		<div class="work-result">
+			                        <c:if test="${em.jobEndYn eq 'Y' }">
+			                        	<p>알바완료</p>
+			                        	<button onclick="chat('${member.id}','${em.employNo }');" class="chat-btn-result">채팅</button>
+			                        	<c:forEach var="re" items="${reList }">
+			                        		<c:if test="${em.employNo eq re.employNo }">
+			                        			<input type="hidden" value="${num = num+1 }">
+				                        		<button class="reviewbtn" onclick="updateReview('${em.employeeId }','${em.employNo}');">후기 수정</button>
+							                    <div class="modal" id="update${em.employeeId }${em.employNo}">
+									     			<div class="modal-body">
+									     				<h2>알바 후기 남기기 - 수정</h2>
+									     				<form action="/review/employ/update" method="post">
+									     					<input type="hidden" value="${em.employNo }" name="employNo">
+									     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
+									     					<div class="review-point">
+										     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${re.reviewScore }">     					
+									     					</div>
+									     					<div class="review-content">
+									     						<h5>좋았던 점과 아쉬웠던 점을 적어주세요.</h5>
+									     						<textarea rows="20" cols="50" name="reviewDetail">${re.reviewDetail }</textarea>
+									     					</div>
+									     					<button>후기 수정</button>
+									     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+									     				</form>
+									     			</div>
+									     		</div>
+			                        		</c:if>
+			                        	</c:forEach>
+			                        	<c:if test="${num eq 0 }">
+						                    <button class="reviewbtn" onclick="writeReview('${em.employeeId }','${em.employNo}');">후기 작성</button>
+						                    <div class="modal" id="insert${em.employeeId }${em.employNo}">
 								     			<div class="modal-body">
-								     				<h2>알바 후기 남기기 - 수정</h2>
-								     				<form action="/review/employ/update" method="post">
+								     				<h2>알바 후기 남기기</h2>
+								     				<form action="/review/employ" method="post">
 								     					<input type="hidden" value="${em.employNo }" name="employNo">
 								     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
 								     					<div class="review-point">
-									     					평점: <input type="number" min="0" max="5" name="reviewScore" value="${re.reviewScore }">     					
+									     					평점: <input type="number" min="0" max="5" name="reviewScore">     					
 								     					</div>
 								     					<div class="review-content">
 								     						<h5>좋았던 점과 아쉬웠던 점을 적어주세요.</h5>
-								     						<textarea rows="20" cols="50" name="reviewDetail">${re.reviewDetail }</textarea>
+								     						<textarea rows="20" cols="50" name="reviewDetail"></textarea>
 								     					</div>
-								     					<button>후기 수정</button>
-								     					<button onclick="backUpdate('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
+								     					<button>후기 작성</button>
+								     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
 								     				</form>
 								     			</div>
 								     		</div>
-		                        		</c:if>
-		                        	</c:forEach>
-		                        	<c:if test="${num eq 0 }">
-					                    <button class="reviewbtn" onclick="writeReview('${em.employeeId }','${em.employNo}');">후기 작성</button>
-					                    <div class="modal" id="insert${em.employeeId }${em.employNo}">
-							     			<div class="modal-body">
-							     				<h2>알바 후기 남기기</h2>
-							     				<form action="/review/employ" method="post">
-							     					<input type="hidden" value="${em.employNo }" name="employNo">
-							     					<input type="hidden" value="${sessionScope.id }" name="reviewWriter">
-							     					<div class="review-point">
-								     					평점: <input type="number" min="0" max="5" name="reviewScore">     					
-							     					</div>
-							     					<div class="review-content">
-							     						<h5>좋았던 점과 아쉬웠던 점을 적어주세요.</h5>
-							     						<textarea rows="20" cols="50" name="reviewDetail"></textarea>
-							     					</div>
-							     					<button>후기 작성</button>
-							     					<button onclick="back('${em.employeeId }','${em.employNo}');" type="button">뒤로 가기</button>
-							     				</form>
-							     			</div>
-							     		</div>
-		                        	</c:if>
-		                        	<input type="hidden" value="${num = 0 }">
-		                        </c:if>
-		                        <c:if test="${em.jobEndYn ne 'Y' }">
-		                        	알바중
-		                        	<button onclick="chat('${member.id}','${em.employNo }');">채팅</button>
-		                        </c:if>
+			                        	</c:if>
+			                        	<input type="hidden" value="${num = 0 }">
+			                        </c:if>
+			                        <c:if test="${em.jobStartYn ne 'Y' }">
+			                        	<p>사장님이 확인중..</p>
+			                        	<button onclick="chat('${member.id}','${em.employNo }');" class="chat-btn-result">채팅</button>
+			                        </c:if>
+			                        <c:if test="${em.jobStartYn eq 'Y' && em.jobEndYn ne 'Y'}">
+			                        	<p>알바중..</p>
+			                        	<button onclick="chat('${member.id}','${em.employNo }');" class="chat-btn-result">채팅</button>
+			                        </c:if>
+	                    		</div>
 	                    	</c:forEach>
 	                    </div>
 	                </div>

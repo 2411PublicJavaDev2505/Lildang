@@ -33,8 +33,8 @@
 		SELECT * FROM MEMBER WHERE ID = #{id} 
 	</select>
 	<insert id="memberRegister">
-		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE) 
-		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12))
+		INSERT INTO MEMBER(ID, PW, NAME, PHONE, GENDER, EMAIL, BIRTH, ROLE, AGE, ADDRESS) 
+		VALUES(#{id}, #{pw}, #{name},#{phone},#{gender},#{email},#{birth},#{role}, FLOOR(MONTHS_BETWEEN(SYSDATE,#{birth})/12), #{address})
 	</insert>
 	<update id="updateMember">
 		UPDATE MEMBER SET PW=#{pw}, EMAIL=#{email}, ADDRESS=#{address}, PHONE=#{phone} WHERE ID=#{id}

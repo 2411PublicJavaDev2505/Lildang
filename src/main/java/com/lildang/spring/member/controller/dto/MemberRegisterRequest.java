@@ -12,9 +12,11 @@ public class MemberRegisterRequest {
 	private String email;
 	private Date birth;
 	private String gender;
+	private String address;
 
+	
 	public MemberRegisterRequest(String role, String id, String name, String pw, String phone, String email, Date birth,
-			String gender) {
+			String gender, String address) {
 		super();
 		this.role = role;
 		this.id = id;
@@ -24,6 +26,7 @@ public class MemberRegisterRequest {
 		this.email = email;
 		this.birth = birth;
 		this.gender = gender;
+		this.address = address;
 	}
 	public String getRole() {
 		return role;
@@ -76,11 +79,16 @@ public class MemberRegisterRequest {
 		this.gender = gender;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
 		return "MemberRegisterRequest [role=" + role + ", id=" + id + ", name=" + name + ", pw=" + pw + ", phone="
-				+ phone + ", email=" + email + ", birth=" + birth + ", gender=" + gender + "]";
+				+ phone + ", email=" + email + ", birth=" + birth + ", gender=" + gender + ", address=" + address + "]";
 	}
-
 	
 }

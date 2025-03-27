@@ -177,7 +177,7 @@ input[type=file]::file-selector-button:hover{
     font-size: 15px;
     background-color: #b2f2bb;
     font-weight: bolder;
-    margin: 15px 15px 15px 450px;
+    margin: 0;
     cursor:pointer;
     border: none;
 }
@@ -188,8 +188,14 @@ input[type=file]::file-selector-button:hover{
     font-size: 20px;
     text-align: left;
     padding: 20px;
-    
 }
+
+.work-result {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .picktitle{
    	text-align: left;
     margin:50px 0px 10px 0px;
@@ -229,5 +235,17 @@ main button:hover {
 
 .career-table a:hover{
 	color: #1ed483;
+}
+
+.chat-btn-result {
+	border-radius: 15px;
+    height: 40px;
+    width: 120px;           
+    font-size: 15px;
+    background-color: #b2f2bb;
+    font-weight: bolder;
+    margin: 0;
+    cursor:pointer;
+    border: none;
 }
 
