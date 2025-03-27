@@ -38,11 +38,11 @@
 	                <div class="delete">
 	                    <h2>정말 탈퇴하시겠습니까?</h2>
 	                    <label>PW:</label>
-	                    <input type="password"></input><br>
+	                    <input type="password" id="inputPw"></input><br>
 	                    <label>PW 확인:</label>
-	                    <input type="password"></input>
+	                    <input type="password" id="checkPw"></input>
 	                    <div class="rightdeletebtn">
-	                        <button class="ybtn" onClick="deleteConfirm();">예</button>
+	                        <button class="ybtn" onClick="deleteConfirm('${member.pw}');">예</button>
 	                        <button class="nbtn" onClick="returnToMypage();">아니오</button>
 	                    </div>	                	
 	                </div>
@@ -60,10 +60,19 @@
     		const showUpdate = () => {
     			location.href = "/member/update"
     		}
-    		function deleteConfirm() {
+    		function deleteConfirm(pw) {
     			const result = confirm("정말로 탈퇴하시겠습니까?");
     			if(result) {
-    				location.replace("/member/del");
+    				const inputPw = document.querySelector("#inputPw").value;
+    				const checkPw = document.querySelector("#checkPw").value;
+    				if(inputPw != checkPw){
+    					alert("비밀번호를 다시 확인해주세요.");
+    				}else if(inputPw != pw){
+    					alert("비밀번호가 틀렸습니다.");
+    				}else{
+    					location.replace("/member/del");
+    				}
+    				
     			}
     			
     		}
