@@ -132,7 +132,7 @@
 						<button class="left-btn" onclick="showReport();">신고하기</button>
 					</c:if>
 					<div class="btn">
-						<c:if test="${session.Scope.id ne null }">
+						<c:if test="${sessionScope.id ne null }">
 							<c:if test="${result.writerId eq sessionScope.id }">
 								<button class="center-btn" onclick="deleteEmploy('${result.employNo}');">삭제하기</button>
 								<button class="center-btn" onclick="updateEmploy('${result.employNo}');">수정하기</button>												
