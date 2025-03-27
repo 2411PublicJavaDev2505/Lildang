@@ -14,6 +14,10 @@
 	border : none;
 	border-radius : 5px;
 	background-color : #b2f2bb;
+	cursor : pointer;
+}
+.report-btn button:hover {
+	background-color: #1ed483;
 }
 main{
 	padding: 30px;

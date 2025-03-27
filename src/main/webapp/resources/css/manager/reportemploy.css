@@ -80,7 +80,7 @@
     border : none;
     cursor : pointer;
     background-color: #b2f2bb;
-    
+    transition: background-color 0.3s, color 0.3s;
 }
 .bossbtn button:hover{
 	background-color : #1ed483;
