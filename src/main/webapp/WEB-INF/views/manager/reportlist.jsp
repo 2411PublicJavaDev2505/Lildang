@@ -21,7 +21,7 @@
                         <button onClick="memberList();">회원조회</button>
                     </div>
                 </div>
-                <table>
+                <table class="table">
                 	<tr>
                 		<th>번호</th>
                 		<th>접수일</th>

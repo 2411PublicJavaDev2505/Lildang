@@ -128,8 +128,10 @@
 					</div>
 				</div>
 				<div class="seventh">
+					<c:if test="${result.writerId ne sessionScope.id }">
 						<button class="left-btn" onclick="showReport();">신고하기</button>
-					<div>
+					</c:if>	
+					<div class="btn">
 						<c:if test="${result.writerId eq sessionScope.id }">
 							<button class="center-btn" onclick="deleteEmploy('${result.employNo}');">삭제하기</button>
 							<button class="center-btn" onclick="updateEmploy('${result.employNo}');">수정하기</button>												
