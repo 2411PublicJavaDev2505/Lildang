@@ -97,7 +97,7 @@
 		                            <td>취득일자</td>
 		                        </tr>
 		                        <c:forEach var="license" items="${member.lList }">
-		                        	<tr>
+		                        	<tr class="license-td">
 		                        		<td><input type='text' name='institution' required='required' value="${license.institution }"></td>
 		                        		<td><input type='text' name='licenseName' required='required' value="${license.licenseName }"></td>
 		                        		<td><input type='date' name='getDate' required='required' value="${license.getDate }"></td>

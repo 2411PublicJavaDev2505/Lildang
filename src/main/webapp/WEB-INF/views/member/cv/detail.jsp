@@ -129,13 +129,13 @@
 	                    ${member.introduction }
 	                </div>
 	                <div class="btn">
-	                    <button type="submit">작성완료</button>
-	                    <button onclick="backToMypage();" type="button">돌아가기</button>
+	                    <button onClick="history.back();">돌아가기</button>
 	                </div>
 	            </div>
 	        </div>
 	    </main>
 	    <jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
+
 </body>
 </html>
