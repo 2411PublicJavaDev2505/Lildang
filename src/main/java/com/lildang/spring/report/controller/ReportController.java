@@ -37,7 +37,7 @@ public class ReportController {
 		this.mService = mService;
 	}
 	
-	// 신고목록 클릭해서 상세사항으로 들어가기
+	// 신고목록 클릭해서 상세사항으로 들어가기 //여기밑에 에러*********Dead code
 	@GetMapping("/report/detail")
 	public String showReportDetail(@RequestParam("reportNo") int reportNo
 			,Model model) {
