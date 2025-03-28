@@ -114,7 +114,7 @@
 			const col2 = row.insertCell(1);
 			const col3 = row.insertCell(2);
 			const col4 = row.insertCell(3);
-			col1.innerHTML = "<input type='text' name='comanyName' required='required'>";
+			col1.innerHTML = "<input type='text' name='comanyName' required='required' id='career-insert'>";
 			col2.innerHTML = "<input type='text' name='workingPeriod' required='required'>";
 			col3.innerHTML = "<input type='text' name='position' required='required'>";
 			col4.innerHTML = "<input type='text' name='work' required='required'>";
@@ -125,7 +125,7 @@
 			const col1 = row.insertCell(0);
 			const col2 = row.insertCell(1);
 			const col3 = row.insertCell(2);
-			col1.innerHTML = "<input type='text' name='institution' required='required'>";
+			col1.innerHTML = "<input type='text' name='institution' required='required' id='license-insert'>";
 			col2.innerHTML = "<input type='text' name='licenseName' required='required'>";
 			col3.innerHTML = "<input type='date' name='getDate' required='required'>";
 		}
@@ -152,6 +152,9 @@
 					|| document.querySelector(".input-check7").checked 
 					|| document.querySelector(".input-check8").checked) ){
 				alert("희망직종을 1개이상 선택해주세요.")
+				event.preventDefault();
+			}else if(document.querySelector("#career-insert") == null || document.querySelector("#license-insert") == null){
+				alert("경력과 자격증을 1개이상 입력해주세요.")
 				event.preventDefault();
 			}
 		}

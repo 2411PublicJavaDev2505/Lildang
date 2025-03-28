@@ -92,11 +92,13 @@ public class MatchController {
 	
 	@GetMapping("match/delete")
 	public String matchDelete(Model model
-			,@ModelAttribute ApplyRequest match) {
+			,@ModelAttribute ApplyRequest match
+			,HttpSession session) {
 		try {
 			int result = mService.matchDelete(match);
 			if(result > 0) {
-				return "redirect:/member/bdetail";
+				String s = ((String)session.getAttribute("role")).equals("EMPLOYEE") ? "e" : "b";
+				return "redirect:/member/"+s+"detail";
 			}else {
 				return "common/error";
 			}
