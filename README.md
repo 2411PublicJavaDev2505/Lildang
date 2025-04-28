@@ -42,4 +42,18 @@
 - 기능 구현이 완료되면 Main 브랜치에 병합
   ![git_flow](https://github.com/2405PublicjavaDev/sulgilddara/blob/main/img/github_flow.png?raw=true)
 # 3. 프로젝트 구조
-[프로젝트 구조.pdf](https://drive.google.com/file/d/1lwLuWGSMfjwM2YgLqrmAGD-ZfIrVWclo/view?usp=drive_link)
+[프로젝트 구조.pdf](https://drive.google.com/file/d/1zm0MfbttcI_01ZdY3qzfOGAMqikyBkWs/view?usp=drive_link)
+
+
+# 4. 프로젝트 역할 분담
+## 최제우:
+- 
+## 박재일:
+- 
+## 황수만:
+-
+## 박재준:
+- 
+# 5. 개발 기간 및 작업 관리
+![Image](https://github.com/user-attachments/assets/1024fa90-0b10-48bc-bb02-4ea7bf8ac8f7)
+
