@@ -57,3 +57,24 @@
 # 5. 개발 기간 및 작업 관리
 ![Image](https://github.com/user-attachments/assets/1024fa90-0b10-48bc-bb02-4ea7bf8ac8f7)
 
+# 7. 프로젝트 후기
+## 최제우:
+- 
+## 박재일:
+- 
+## 황수만:
+-
+## 박재준:
+- 
+    
+
+# 프로젝트 산출문서
+- [기획보고서](https://drive.google.com/file/d/10fwJsdPEcbjCskX2__Ka4sWysmIDfmJP/view?usp=drive_link)
+- [요구사항정의서](https://drive.google.com/file/d/1nmAulBOum8D5iWk6tECTmIeWMvDWyL5h/view?usp=drive_link)
+- [요구사항 리스트](https://drive.google.com/file/d/1W6fTkRrArwK4776ugT7zzDM5YLd3gITf/view?usp=drive_link)
+- [와이어프레임](https://drive.google.com/file/d/1ZIlCLxENEWpxQsmp5W-4ZfBVcd8OwYkz/view?usp=drive_link)
+- [DB설계](https://drive.google.com/file/d/1UDvzS6LaflDXpRDo59QjMxlckBNSR1sb/view?usp=drive_link)
+- [시퀀스다이어그램](https://drive.google.com/file/d/1naMSrborqkdk9IPR4dmh68QbqH060Uhn/view?usp=drive_link)
+- [최종보고서](https://drive.google.com/file/d/1MMKjX51QPCfE5MNMhmgw4pGOWmnL2Tee/view?usp=drive_link)
+- [프로젝트 소스 DB](https://drive.google.com/file/d/1bysvIiAhOmzkNAyiigMQpFvjC_11DM0Y/view?usp=drive_link)
+- [시연영상](https://drive.google.com/file/d/1njht_mPTW020cWp5kbst8CBU-qA_20zN/view?usp=drive_link)
