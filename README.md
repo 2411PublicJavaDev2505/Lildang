@@ -57,6 +57,8 @@
 # 5. 개발 기간 및 작업 관리
 ![Image](https://github.com/user-attachments/assets/1024fa90-0b10-48bc-bb02-4ea7bf8ac8f7)
 
+# 6. 페이지별 기능
+
 # 7. 프로젝트 후기
 ## 최제우:
 - 
