@@ -98,7 +98,46 @@
 ![image](https://github.com/user-attachments/assets/a6029b4c-3e55-4ac7-867c-8658c6eca4c5)
 - 우측 상단에 있는 로그아웃을 통해 로그아웃을 할 수 있습니다.
 ![image](https://github.com/user-attachments/assets/2b49f9c9-cf48-4edb-b7dd-11b0e1ba378c)
- 회원 정보 조회 이름, 전화번호, 성별, 이메일, 주소, 아이디, 비밀번호, 나이, 이력서, 프로필 사진를 조회 할 수 있고 파일 선택을 눌러 원하는 사진을 선택 후 사진변경 버튼을 통해 프로필 사진 변경이 가능하고 수정하기 버튼을 통해 회원 정보 수정이 가능하고 탈퇴하기 버튼을 통해 회원탈퇴가 가능하다. 우측 상단에 있는 공고글 작성 버튼을 통해 공고글 작성이 가능하다. 
+![image](https://github.com/user-attachments/assets/0e673d1d-19ab-4382-84c5-b5b0517c1bee)
+- 공통으로는 회원 정보 조회 이름, 전화번호, 성별, 이메일, 주소, 아이디, 비밀번호, 나이, 프로필 사진를 조회 할 수 있고 파일 선택을 눌러 원하는 사진을 선택 후 사진변경 버튼을 통해 프로필 사진 변경이 가능하고 수정하기 버튼을 통해 회원 정보 수정이 가능하고 탈퇴하기 버튼을 통해 회원탈퇴가 가능하다.
+- 사장님 회원은 우측 상단에 있는 공고글 작성 버튼을 통해 공고글 작성이 가능하고 알바생의 제의를 확인 할 수 있다.
+- 알바생 회원은 우측 상단에 있는 이력서 작성 버튼을 통해 이력서 작성이 가능하고 나에게 온 알바 제의를 확인할 수 있고 내가 일했던 곳의 정보를 알 수 있다.
+![image](https://github.com/user-attachments/assets/d49bbfaf-2087-4ab5-baf6-13e4cb744587)
+![image](https://github.com/user-attachments/assets/225c58bc-0cad-4183-ba81-37debeed43c6)
+- 사장님 회원은 알바생 상세정보페이지에서 알바 제의하기 버튼을 눌러 내 공고글을 선택 후 알바를 제의할 수 있다.
+![image](https://github.com/user-attachments/assets/f9492960-9c15-4893-b740-6bf37004b466)
+- 알바생 회원은 공고글 상세정보 페이지에서 지원하기 버튼을 통해 원하는 공고글에 지원할 수 있다.
+![image](https://github.com/user-attachments/assets/7a619bc8-0a3f-442c-b42b-ae22a373bc93)
+- 알바생 회원은 마이페이지에서 이력서를 클릭해 자신의 이력서 상세정보를 확인할 수 있다.
+![image](https://github.com/user-attachments/assets/fb604222-d453-420c-9b39-ce9c9f8a1b10)
+![image](https://github.com/user-attachments/assets/db45e6ca-1f62-4e66-ac7a-90c464c06cd9)
+![image](https://github.com/user-attachments/assets/819e63a6-6ee8-4fb6-8cec-99d037cd1ae4)
+- 알바생 회원은 마이페이지에서 수정하기 버튼을 통해 희망직종, 학력, 경력, 자격증, 짧은글, 자기소개서를 수정하고 수정완료 버튼을 통해 수정을 할 수 있고 돌아가기 버튼을 통해 이전으로 돌아갈 수 있다.
+![image](https://github.com/user-attachments/assets/8226633e-cd89-4ca7-b771-832783a5849b)
+![image](https://github.com/user-attachments/assets/3c38897f-eb15-4b35-af18-2f8551ac892b)
+- 알바생 회원은 삭제하기 버튼을 누르면 정말 삭제하시겠습니까? 라는 alert창이 뜨고 확인을 누르면 자신의 이력서를 삭제할 수 있고 취소를 누르면 삭제하지 않을 수 있습니다.
+![image](https://github.com/user-attachments/assets/04cde87c-f3c6-4da7-9779-52bf712cc3d8)
+![image](https://github.com/user-attachments/assets/e5d93386-c7c6-497c-8848-5d2617f01563)
+![image](https://github.com/user-attachments/assets/17c157be-b420-49ec-a4e2-7be843cd3116)
+- 알바생 회원은 이력서 작성 버튼을 통해 이력서를 작성할 수 있으며 이력서 사진과 주요학력사항, 희망직종, 주요 경력사항, 주요 자격증, 자기소개서를 입력한 후 작성완료 버튼을 통해 이력서를 등록할 수 있고 돌아가기 버튼을 통해 이력서 작성을 취소할 수 있습니다.
+
+![image](https://github.com/user-attachments/assets/3dea3f1f-4807-4b6f-8cca-9912078a0ae9)
+![image](https://github.com/user-attachments/assets/4e307161-c405-4b45-9ae8-519703fff02b)
+![image](https://github.com/user-attachments/assets/a21c878f-5ec6-4f9d-9ead-e91c5fda30cc)
+![image](https://github.com/user-attachments/assets/7a4b3f4b-b5f4-43a7-bdd9-8a4ab19b0944)
+-알바생 회원은 공고글 상세정보, 나에게 온 제의, 내가 일했던 곳에서 채팅이 가능하며 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
+![image](https://github.com/user-attachments/assets/5ad357b6-b289-4f6e-a804-4021eb46a591)
+![image](https://github.com/user-attachments/assets/9adc47a4-2dd6-4725-b499-6007e1d11445)
+![image](https://github.com/user-attachments/assets/8ace958b-3949-4e04-a631-fe25d745fd0b)
+- 사장님 회원은 알바생 상세정보, 내 공고에 지원한 알바생에게 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
+
+
+
+
+
+
+
+
 
   
 ## 박재준:
