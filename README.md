@@ -75,7 +75,8 @@
   
 ## 박재준:
 
-## 황수만 : ![회원관리 페이지](https://github.com/user-attachments/assets/a72dc0a7-ec73-4481-901f-6039557cd758)
+## 황수만 : 
+  ![회원관리 페이지](https://github.com/user-attachments/assets/a72dc0a7-ec73-4481-901f-6039557cd758)
   -관리자로 로그인 하여 관리자페이지를 누르면 전체 회원정보를 조회 할 수 있다.
   ![신고관리](https://github.com/user-attachments/assets/6bdc14aa-75d6-4f66-b8c4-d86093a20547)
   - 회원들이 신고한 내역을 조회 할 수 있다.
