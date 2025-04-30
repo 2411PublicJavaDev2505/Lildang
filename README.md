@@ -100,7 +100,7 @@
 ![image](https://github.com/user-attachments/assets/2b49f9c9-cf48-4edb-b7dd-11b0e1ba378c)
 ![image](https://github.com/user-attachments/assets/0e673d1d-19ab-4382-84c5-b5b0517c1bee)
 - 공통으로는 회원 정보 조회 이름, 전화번호, 성별, 이메일, 주소, 아이디, 비밀번호, 나이, 프로필 사진를 조회 할 수 있고 파일 선택을 눌러 원하는 사진을 선택 후 사진변경 버튼을 통해 프로필 사진 변경이 가능하고 수정하기 버튼을 통해 회원 정보 수정이 가능하고 탈퇴하기 버튼을 통해 회원탈퇴가 가능하다.
-- 사장님 회원은 우측 상단에 있는 공고글 작성 버튼을 통해 공고글 작성이 가능하고 알바생의 제의를 확인 할 수 있다.
+- 사장님 회원은 우측 상단에 있는 공고글 작성 버튼을 통해 공고글 작성이 가능하고 내가 제의한 알바생의 상태를 확인 할 수 있다.
 - 알바생 회원은 우측 상단에 있는 이력서 작성 버튼을 통해 이력서 작성이 가능하고 나에게 온 알바 제의를 확인할 수 있고 내가 일했던 곳의 정보를 알 수 있다.
 ![image](https://github.com/user-attachments/assets/d49bbfaf-2087-4ab5-baf6-13e4cb744587)
 ![image](https://github.com/user-attachments/assets/225c58bc-0cad-4183-ba81-37debeed43c6)
@@ -125,11 +125,23 @@
 ![image](https://github.com/user-attachments/assets/4e307161-c405-4b45-9ae8-519703fff02b)
 ![image](https://github.com/user-attachments/assets/a21c878f-5ec6-4f9d-9ead-e91c5fda30cc)
 ![image](https://github.com/user-attachments/assets/7a4b3f4b-b5f4-43a7-bdd9-8a4ab19b0944)
--알바생 회원은 공고글 상세정보, 나에게 온 제의, 내가 일했던 곳에서 채팅이 가능하며 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
+-알바생 회원은 공고글 상세정보, 나에게 온 제의, 내가 일했던 곳에서 채팅이 가능하며 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 상대방과 이전에 나눴던 채팅을 확인 할 수 있다. 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
 ![image](https://github.com/user-attachments/assets/5ad357b6-b289-4f6e-a804-4021eb46a591)
 ![image](https://github.com/user-attachments/assets/9adc47a4-2dd6-4725-b499-6007e1d11445)
 ![image](https://github.com/user-attachments/assets/8ace958b-3949-4e04-a631-fe25d745fd0b)
-- 사장님 회원은 알바생 상세정보, 내 공고에 지원한 알바생에게 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
+- 사장님 회원은 알바생 상세정보, 내 공고에 지원한 알바생에게 채팅하기 버튼을 통해 상대방과의 채팅창으로 갈 수 있고 상대방과 이전에 나눴던 채팅을 확인 할 수 있다. 채팅 후 채팅 종료 버튼을 통해 채팅을 종료할 수 있다. 
+![image](https://github.com/user-attachments/assets/0f4d56d0-cbc7-4094-9d91-03c6c33be3a1)
+![image](https://github.com/user-attachments/assets/fca45c80-da64-4ca8-9409-ecf125cf4e69)
+![image](https://github.com/user-attachments/assets/e8f86f9c-9451-4864-81af-0eccc84fcc0b)
+![image](https://github.com/user-attachments/assets/93e656e6-970a-4258-95d9-043ec55f56ea)
+![image](https://github.com/user-attachments/assets/2658b571-331c-4b0c-be5d-2f2f1bda3452)
+- 알바생 회원은 내가 일했던 곳에 대한 평점과 좋고 아쉬웠던 점에 대한 후기 작성과 수정이 가능하며 후기 작성하기, 수정하기 버튼을 통해 작성,수정 할 수 있다.
+- 사장님 회원은 내 공고에 지원한 알바생에 대해 리뷰를 작성할 수 있고 알바생에 대한 평점과 좋고 아쉬웠던 점에 대해 후기 작성과 수정이 가능하며 후기 리뷰쓰기, 수정하기 버튼을 통해 작성, 수정할 수 있다.
+![image](https://github.com/user-attachments/assets/6b6b1240-890d-4ab8-a8e4-84366cf04023)
+![image](https://github.com/user-attachments/assets/f4c10e00-acba-4fa4-aff1-eefde832bdd0)
+- 알바생 회원에 대한 후기는 알바생 상세페이지에 이 알바생의 경력에 후기에 대한 정보가 남는다.
+- 사장님 회원에 대한 후기는 공고글 상세페이지에 업체 평점/후기에 후기에 대한 정보가 남는다.
+
 
 
 
