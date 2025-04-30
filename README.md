@@ -90,10 +90,16 @@
 
 # 6. 페이지별 기능
 ## 최제우:
-### [회원가입]
+![image](https://github.com/user-attachments/assets/c6889dfb-75de-403c-b1aa-bec2a3d22f27)
+![image](https://github.com/user-attachments/assets/ab06c2ac-b360-49da-b96b-99054fb3c80d)
+- 사장님, 알바생 선택 후 아이디, 이름, 비밀번호, 전화번호, 이메일, 주소, 생년월일, 성별을 입력 후 회원가입을 진행할 수 있습니다. 비밀번호는 확인 후 회원가입이 가능합니다. 회원가입 버튼을 눌러 회원가입이 가능합니다.
+![image](https://github.com/user-attachments/assets/dce82fcf-672d-4e62-bac7-04f907b2331a)
+- 아이디와 비밀번호를 입력한 후 로그인 버튼을 눌러 로그인 할 수 있습니다.
+![image](https://github.com/user-attachments/assets/a6029b4c-3e55-4ac7-867c-8658c6eca4c5)
+- 우측 상단에 있는 로그아웃을 통해 로그아웃을 할 수 있습니다.
+![image](https://github.com/user-attachments/assets/2b49f9c9-cf48-4edb-b7dd-11b0e1ba378c)
+ 회원 정보 조회 이름, 전화번호, 성별, 이메일, 주소, 아이디, 비밀번호, 나이, 이력서, 프로필 사진를 조회 할 수 있고 파일 선택을 눌러 원하는 사진을 선택 후 사진변경 버튼을 통해 프로필 사진 변경이 가능하고 수정하기 버튼을 통해 회원 정보 수정이 가능하고 탈퇴하기 버튼을 통해 회원탈퇴가 가능하다. 우측 상단에 있는 공고글 작성 버튼을 통해 공고글 작성이 가능하다. 
 
-- 아이디, 이름, 비밀번호, 전화번호, 이메일, 주소, 생년월일, 성별을 입력 후 회원가입을 진행할 수 있습니다.
-- 비밀번호는 확인 후 회원가입이 가능합니다.
   
 ## 박재준:
 ![image](https://github.com/user-attachments/assets/591643cc-c49b-4765-aeff-df59a4d505a0)
