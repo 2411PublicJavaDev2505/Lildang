@@ -120,7 +120,6 @@
 ![image](https://github.com/user-attachments/assets/e5d93386-c7c6-497c-8848-5d2617f01563)
 ![image](https://github.com/user-attachments/assets/17c157be-b420-49ec-a4e2-7be843cd3116)
 - 알바생 회원은 이력서 작성 버튼을 통해 이력서를 작성할 수 있으며 이력서 사진과 주요학력사항, 희망직종, 주요 경력사항, 주요 자격증, 자기소개서를 입력한 후 작성완료 버튼을 통해 이력서를 등록할 수 있고 돌아가기 버튼을 통해 이력서 작성을 취소할 수 있습니다.
-
 ![image](https://github.com/user-attachments/assets/3dea3f1f-4807-4b6f-8cca-9912078a0ae9)
 ![image](https://github.com/user-attachments/assets/4e307161-c405-4b45-9ae8-519703fff02b)
 ![image](https://github.com/user-attachments/assets/a21c878f-5ec6-4f9d-9ead-e91c5fda30cc)
