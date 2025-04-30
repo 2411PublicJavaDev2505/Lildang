@@ -93,10 +93,30 @@
 - 공고글을 등록하면 공고글 리스트에 공고글이 추가가 되고 전체 공고글과 아래 페이지네이션이 뜹니다. 헤더에 있는 검색을 통해 공고글을 검색하거나 지역 선택을 통해 지역을 선택할 수 있고 공고글을 클릭해 상세정보를 조회 할 수 있습니다.
 ![image](https://github.com/user-attachments/assets/dd35fd06-3d4a-4907-b741-33647ba2f696)
 - 헤더부분에서 원하는 검색어로 검색을 하게되면 해당하는 공고글만 뜨고 공고글을 클릭해 상세정보를 조회 할 수 있습니다.
+![image](https://github.com/user-attachments/assets/b7b54fb0-f4fa-49a1-a3bb-17a04fb9576e)
+![image](https://github.com/user-attachments/assets/23895ae2-3868-4812-932f-f6b817a09add)
+- 정렬하기를 통해 최근등록순, 평점순으로 정렬할 수 있으며 공고글을 클릭해 상세정보를 조회할 수 있고 지역별 검색과 동시에 할 수 있습니다.
 ![image](https://github.com/user-attachments/assets/ab3ee749-19c8-45be-9fd2-6f414092e83d)
 ![image](https://github.com/user-attachments/assets/dcec3cd6-2fcd-43a9-8142-a45522dbed0f)
 ![image](https://github.com/user-attachments/assets/6f5fd29f-0ef7-47af-a173-a8afd5429da4)
 - 공고글을 클릭해 상세정보를 보면 공고제목, 업직종, 모집인원, 모집기간, 학력, 근무지명, 근무주소, 급여, 근무기간, 근무시간, 요일, 업체사진, 상세모집내용이 뜨고 목록으로 돌아가는 버튼과 본인이 작성한 게시물이라면 삭제하기, 수정하기 버튼이 뜨고 본인이 작성한 글이 아니면 신고하기, 채팅하기, 지원하기 버튼이 뜹니다.
+![image](https://github.com/user-attachments/assets/51f1af93-f483-427a-a432-004edc8405fa)
+- 신고하기 버튼을 누르면 신고하기 모달창이 뜨고 신고사유와 신고내용을 입력하여 신고하기 버튼을 통해 신고할 수 있고 뒤로가기 버튼을 통해 돌아갈 수 있다.
+![image](https://github.com/user-attachments/assets/5f996649-1aa1-4c6a-abcc-7c6f1a5a0491)
+![image](https://github.com/user-attachments/assets/991cf20e-b9ef-4a8c-bf13-7e496f1b8c57)
+- 수정하기 버튼을 누르면 alert창이 뜨고 확인을 누르면 공고제목, 업직종, 모집인원, 모집기간, 학력, 근무지명, 근무주소, 급여, 근무기간, 근무시간, 요일, 업체사진, 상세모집내용을 수정할 수 있고 수정하기 버튼을 통해 수정을 완료하거나 돌아가기 버튼을 통해 수정을 취소할 수 있습니다.
+![image](https://github.com/user-attachments/assets/c452e906-cc87-418e-a097-36c6ae67e454)
+- 삭제하기 버튼을 누르면 정말 삭제하시겠습니까? 라는 alert 창이 뜨고 확인을 누르게 되면 삭제가 완료되고 취소를 통해 삭제 하지 않을 수 있습니다.
+![image](https://github.com/user-attachments/assets/b362c28b-ed4e-418f-8334-8e0ab7ab75a3)
+![image](https://github.com/user-attachments/assets/4a962b41-28ad-431f-89f2-97feca409a98)
+- 헤더에서 알바생 찾기를 누르면 알바생 리스트가 뜨고 알바생을 클릭해 상세정보를 조회할 수 있습니다.
+![image](https://github.com/user-attachments/assets/8859d95f-e40c-48cd-94be-5c8b8be61f8b)
+- 알바생 찾기 위쪽 부분에서 현재 대기중인 알바생이 몇 명인지 확인할 수 있고 지역별로 어떤 알바생이 있는지 찾을 수 있습니다.
+![image](https://github.com/user-attachments/assets/2cf7474a-0334-4dfe-b006-1b1e0d1aa55a)
+- 우측에 있는 정렬하기에서 평점순으로 알바생을 정렬할 수 있고 지역별 평점순 두가지 동시에도 가능합니다.
+ 
+
+
 
 
 ## 황수만 : 
