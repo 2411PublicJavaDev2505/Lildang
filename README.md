@@ -1,4 +1,4 @@
-- - -
+![image](https://github.com/user-attachments/assets/2835b6a0-6ce0-44c9-b367-b2667ed6bbd9)- - -
 ***Lildang README***
 # 0. 일당해라
 ![Image](https://github.com/user-attachments/assets/fdec391c-f484-42b3-a647-fd3693d733e7)
@@ -90,16 +90,16 @@
 
 
 ## 황수만 : 
-  ![회원관리 페이지](https://github.com/user-attachments/assets/a72dc0a7-ec73-4481-901f-6039557cd758)
-    -관리자로 로그인 하여 관리자페이지를 누르면 전체 회원정보를 조회 할 수 있다.
-  ![신고관리](https://github.com/user-attachments/assets/6bdc14aa-75d6-4f66-b8c4-d86093a20547)
-    - 회원들이 신고한 내역을 조회 할 수 있다.
-  ![신고관리 상세보기(사장님이 알바생신고)](https://github.com/user-attachments/assets/0da55c4b-b003-4ef2-96c7-f557c17e71f0)
-    - 클릭하여 상세보기로 들어가서 사장님이 알바생을 신고한 내역을 보고 신고삭제 혹은 회원삭제가 가능하다.
-  ![신고관리 상세보기(알바생이 사장님 신고)](https://github.com/user-attachments/assets/80196af7-0ef0-48b4-97c9-cb5f1587cecd)
-    - 알바생이 사장님을 신고했을 경우에는 신고한 내역을 보고 신고삭제 혹은 공고글삭제가 가능하다.
-  ![image](https://github.com/user-attachments/assets/182131b4-69ed-4422-a30b-3888de50ff9d)
-    - 아이디, 이름, 성별, 나이를 제외한 정보는 수정이 가능하다.
+![회원관리 페이지](https://github.com/user-attachments/assets/a72dc0a7-ec73-4481-901f-6039557cd758)
+- 관리자로 로그인 하여 관리자페이지를 누르면 전체 회원정보를 조회 할 수 있다.
+![신고관리](https://github.com/user-attachments/assets/6bdc14aa-75d6-4f66-b8c4-d86093a20547)
+- 회원들이 신고한 내역을 조회 할 수 있다.
+![신고관리 상세보기(사장님이 알바생신고)](https://github.com/user-attachments/assets/0da55c4b-b003-4ef2-96c7-f557c17e71f0)
+- 클릭하여 상세보기로 들어가서 사장님이 알바생을 신고한 내역을 보고 신고삭제 혹은 회원삭제가 가능하다.
+![신고관리 상세보기(알바생이 사장님 신고)](https://github.com/user-attachments/assets/80196af7-0ef0-48b4-97c9-cb5f1587cecd)
+- 알바생이 사장님을 신고했을 경우에는 신고한 내역을 보고 신고삭제 혹은 공고글삭제가 가능하다.
+![image](https://github.com/user-attachments/assets/182131b4-69ed-4422-a30b-3888de50ff9d)
+- 아이디, 이름, 성별, 나이를 제외한 정보는 수정이 가능하다.
 
 
 
