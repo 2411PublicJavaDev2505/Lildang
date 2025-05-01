@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/2835b6a0-6ce0-44c9-b367-b2667ed6bbd9)- - -
 ***Lildang README***
 # 0. 일당해라
 ![Image](https://github.com/user-attachments/assets/fdec391c-f484-42b3-a647-fd3693d733e7)
