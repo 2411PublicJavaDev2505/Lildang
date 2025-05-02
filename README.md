@@ -146,8 +146,11 @@
 ![회원탈퇴 1](https://github.com/user-attachments/assets/cd61b8ee-821e-42ee-bd80-2e09f9d40a6d)
 - 로그인을 해서 마이페이지로 들어가면 탈퇴하기 버튼이 있습니다. 탈퇴하기 버튼을 누르면 " 마이페이지-회원탈퇴"페이지로 넘어갑니다.
 ![회원탈퇴2jpg](https://github.com/user-attachments/assets/e0846c85-2913-4a53-a73e-5506981d9203)
--회원탈퇴 페이지입니다.
-
+-위에는 회원탈퇴 페이지입니다.
+![회원탈퇴2jpg](https://github.com/user-attachments/assets/f901680c-00a2-46a2-8ad1-42071acd4a20)
+-정말 탈퇴하시겠습니까? 창에서 비밀번호 입력후 탈퇴가 되도록 구현하였으며 비밀번호가 틀리면 틀렸다고 alert창이 뜨도록 구현했습니다.
+-아래는 정상적으로 비밀번호를 입력해서 확인버튼을 누르면 alert창이 뜨고 확인버튼을 누르면 정상적으로 탈퇴가 됩니다
+![회원탈퇴3jpg](https://github.com/user-attachments/assets/7e9c593f-98ea-49ba-9d35-9ded0fbb203e)
 
 
 
