@@ -152,7 +152,8 @@
 - 아래는 정상적으로 비밀번호를 입력해서 확인버튼을 누르면 alert창이 뜨고 확인버튼을 누르면 정상적으로 탈퇴가 됩니다
 ![회원탈퇴3jpg](https://github.com/user-attachments/assets/7e9c593f-98ea-49ba-9d35-9ded0fbb203e)
 
-
+![페이지네이션2](https://github.com/user-attachments/assets/5d41d08a-fc3a-4368-9d90-348c69f0cbe0)
+- 알바생 찾기에서 알바생들의 목록에서 페이지를 넘길 수 있습니다.
 
 
 
