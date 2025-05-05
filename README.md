@@ -155,8 +155,10 @@
 ![페이지네이션2](https://github.com/user-attachments/assets/5d41d08a-fc3a-4368-9d90-348c69f0cbe0)
 - 알바생 찾기에서 알바생들의 목록에서 페이지를 넘길 수 있습니다.
 
-
-
+![파일업로드(공고글)](https://github.com/user-attachments/assets/4bb1f21d-9c6b-4282-8820-bc04004a231e)
+![파일업로드(마이페이지)](https://github.com/user-attachments/assets/cd6910c6-78fa-49a9-b0d2-70598f2523b3)
+![파일업로드(이력서)](https://github.com/user-attachments/assets/62e3ff06-d0e3-4d82-a2dd-3d83692e0d3a)
+- 공고글,마이페이지,이력서에서 사진을 업로드 할수 있습니다.
   
 ## 박재준:
 ![image](https://github.com/user-attachments/assets/591643cc-c49b-4765-aeff-df59a4d505a0)
